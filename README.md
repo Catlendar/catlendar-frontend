@@ -1,48 +1,82 @@
-# Getting Started with Create React App
+# catlendar
+프로젝트 개요 (2024.01.17~)
+## 1. 개발 환경
+```
+  - Cloud
+  서비스: AWS
+  운영체제: Ubuntu
+  인스턴스 유형: EC2 t2.micro
+  스토리지: 30GB
 
-## catlendar-frontend
+  - BackEnd
+  언어: Java
+  DB: MariaDB 11.2.2
+  JDK: 11
+  프레임워크:
+  Spring 5.3.23
+  Spring Boot 2.7.5
+  Mybatis 2.2.0
+  빌드 도구: Gradle 8.5
+  IDE: IntelliJ
+  프로젝트 구성 도구: Lombok
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  - FrontEnd
+  언어: HTML, CSS, TypeScript
+  프레임워크: React.js
+  라이브러리: Styled-component
+  상태관리: React-Query, Recoil
+  IDE: VScode
+```
 
-## Available Scripts
+## 2. 규칙
+  - 브랜치 네이밍 규칙 준수 및 Pull Request 커밋 목적 설명을 위한 이모지 사용
+  - Styled-components 컨벤션 준수, 컴포넌트 및 스타일 네이밍 규칙 지정
+  - 구현한 기능에 대해서는 주석 작성
 
-In the project directory, you can run:
+### 컨벤션
+eslint
+```
+here
+```
+prettier
+```
+here
+```
+commit
+```
+    ✨ Feat: 기능 추가, 삭제, 변경
+    🐛 Fix: 버그, 오류 수정
+    📝 Docs: readme.md, json 파일 등 수정, 라이브러리 설치 (문서 관련, 코드 수정 없음)
+    🎨 Style: CSS 등 사용자 UI 디자인 변경 (제품 코드 수정 발생, 코드 형식, 정렬 등의 변경)
+    ♻️ Refactor: 코드 리팩토링
+    ⚙️ Config: npm 모듈 설치 등
+    🚚 Rename: 파일 또는 폴더 명을 수정하거나 옮기는 작업만인 경우
+    🚚 Remove: 파일을 삭제하는 작업만 수행한 경우
+```
+styled-component
+```
+Wrapper: ~Wrapper
+예시: HeaderWrapper, NavbarWrapper
 
-### `npm start`
+div 태그: ~Box
+예시: InfoBox, ContentBox
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+section 태그: ~Section
+  ex) InfoSection, ContentSection
+ul 태그: ~List
+  ex) InfoList, ContentList
+li 태그: ~Item
+  ex) InfoItem, ContentItem
+중첩된 스타일링은 최대 2단계까지 허용됨
+  ex) - list { li{ a{} } }는 허용됨
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+li 내에 스타일링할 요소가 3개 이상이면 li를 Item으로 추상화
+```
+file naming
+```
+기본 컴포넌트: NewsCard.tsx
+스타일 컴포넌트: NewsCard.styled.tsx
+  컴포넌트 명: PascalCase
+  클래스 명: kebab-case
+  변수명, 함수명: camelCase
+```
