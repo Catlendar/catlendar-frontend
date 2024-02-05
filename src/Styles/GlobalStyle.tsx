@@ -66,30 +66,39 @@ const GlobalStyle = createGlobalStyle`
 		--input-bb: #D9D9D9;
 	}
 
+
 	/*=============== Responsive ===============*/
+	body {
+		margin: 0 auto;
+		background-color: white;
+	}
 	/* Mobile */
 	@media screen and (min-width: 390px) {
-		body {
+		#root {
+			height:100vh;
+			max-width:390px;
 			margin: 0 auto;
-			background-color: red;
+			background-color: skyblue;
 		}
 	}
-
 	/* 할 예정 */
 	/* Tablet */
 	@media screen and (min-width: 768px) {
-		body {
+		#root {
+			height:100vh;
+			max-width:768px;
 			margin: 0 auto;
-			background-color: yellow;
+			background-color: skyblue;
 		}
 	}
-
 	/* 할 예정 */
 	/* Pc */
 	@media screen and (min-width: 1024px) {
-		body {
+		#root {
+			height:100vh;
+			max-width:1024px;
 			margin: 0 auto;
-			background-color: blue;
+			background-color: skyblue;
 		}
 	}
 `;
