@@ -1,7 +1,7 @@
 {
   /* TypeScript 컴파일러의 옵션들을 지정하는 속성 */
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,

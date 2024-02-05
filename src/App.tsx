@@ -1,10 +1,14 @@
 import './App.css';
 import TestComponent from './Components/TestComponent';
+import GlobalStyle from './Styles/GlobalStyle';
 
 function App() {
   return (
-    <div className="App">
-      <TestComponent />
+    <div>
+      <GlobalStyle />
+      <div className="App">
+        <TestComponent />
+      </div>
     </div>
   );
 }
