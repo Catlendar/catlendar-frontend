@@ -17,8 +17,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "noImplicitOverride": true /* 하위 클래스에서 오버라이드하는 메서드나 접근자에 override 키워드를 명시하도록 강제합니다. */,
-    "noImplicitAny": true /* 암시적인 any 타입 사용에 대해 오류를 발생시킵니다. */,
-    "alwaysStrict": true /* 모든 소스 파일에 대해 JavaScript의 strict mode를 강제합니다. */,
     "noUncheckedIndexedAccess": true /* 인덱스 시그니처 결과에 'undefined' 포함 */,
   },
   /* 컴파일할 파일들을 지정하는 속성 (와일드 카드 패턴으로 묶어 표현) */
