@@ -70,36 +70,46 @@ const GlobalStyle = createGlobalStyle`
 	/*=============== Responsive ===============*/
 	body {
 		margin: 0 auto;
-		background-color: white;
+		background-color: #bdbdbd;
 	}
 	/* Mobile */
 	@media screen and (min-width: 390px) {
 		#root {
 			height:100vh;
-			max-width:390px;
+			width:390px;
 			margin: 0 auto;
-			background-color: skyblue;
+			background-color: #ffffff;
 		}
 	}
+	/* Mobile 작업 완료후, width값 %로 변경 예정 */
+	// @media screen and (max-width: 767px) {
+	// 	#root {
+	// 		height:100vh;
+	// 		width: 100%;
+	// 		margin: 0 auto;
+	// 		background-color: skyblue;
+	// 	}
+	// }
+
 	/* 할 예정 */
 	/* Tablet */
-	@media screen and (min-width: 768px) {
-		#root {
-			height:100vh;
-			max-width:768px;
-			margin: 0 auto;
-			background-color: skyblue;
-		}
-	}
+	// @media screen and (min-width: 768px) {
+	// 	#root {
+	// 		height:100vh;
+	// 		max-width:768px;
+	// 		margin: 0 auto;
+	// 		background-color: skyblue;
+	// 	}
+	// }
 	/* 할 예정 */
 	/* Pc */
-	@media screen and (min-width: 1024px) {
-		#root {
-			height:100vh;
-			max-width:1024px;
-			margin: 0 auto;
-			background-color: skyblue;
-		}
+	// @media screen and (min-width: 1024px) {
+	// 	#root {
+	// 		height:100vh;
+	// 		max-width:1024px;
+	// 		margin: 0 auto;
+	// 		background-color: skyblue;
+	// 	}
 	}
 `;
 
