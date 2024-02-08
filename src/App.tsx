@@ -1,14 +1,13 @@
 import './App.css';
-import TestComponent from './Components/TestComponent';
-import GlobalStyle from './Styles/GlobalStyle';
+import Router from './pages/Router';
+import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
   return (
     <div>
       <GlobalStyle />
-      <div className="App">
-        <TestComponent />
-      </div>
+      <Router />
+      <div className="App" />
     </div>
   );
 }
