@@ -61,9 +61,13 @@ const GlobalStyle = createGlobalStyle`
 		--button-color-favorite: #FFD233;
 		--button-color-warning: #F85B5B;
 		--button-color-modal: #F1F1F1;
+		--button-color-landing: #5F5ED5;
 
 		/* Input Border */
 		--input-bb: #D9D9D9;
+
+		/* CheckBox */
+		--checkbox-color:#D7D7FD;
 	}
 
 
