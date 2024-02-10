@@ -1,26 +1,26 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { CheckboxStyle } from './CheckboxStyle';
 
 interface CheckboxProps {
   checked: boolean;
-  onChange: (isChecked: boolean) => void;
+  onClick: () => void;
 }
 /* 
 사용방법
-=> checkbox는 토글방식이며, onChange함수가 실행 됨
+=> 토글형식으로 되어있으며, onClick에 함수 추가하여 사용
+<Checkbox checked={false} onClick={handleClick} />
 */
-function Checkbox({ checked, onChange }: CheckboxProps) {
+function Checkbox({ checked, onClick }: CheckboxProps) {
   const [isChecked, setIsChecked] = useState(checked);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newChecked = event.target.checked;
-    setIsChecked(newChecked);
-    onChange(newChecked);
+  const handleClick = () => {
+    setIsChecked(!isChecked); // isChecked의 반대값으로 설정하여 토글
+    onClick();
   };
 
   return (
     <div>
-      <CheckboxStyle type="checkbox" checked={isChecked} onChange={handleChange} />
+      <CheckboxStyle type="checkbox" checked={isChecked} onClick={handleClick} />
     </div>
   );
 }

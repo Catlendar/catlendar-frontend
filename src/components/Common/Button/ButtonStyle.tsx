@@ -12,11 +12,11 @@ export const ButtonStyle = styled.button`
   align-items: center;
   border: none;
   cursor: pointer;
-  margin-left: 26px;
-  margin-right: 26px;
+  margin-left: 2.6rem;
+  margin-right: 2.6rem;
   background: var(--button-color-landing);
   color: var(--color-white);
-  border-radius: 10px;
-  height: 60px;
+  border-radius: 1rem;
+  height: 6rem;
   font-size: var(--small-font-size);
 `;
