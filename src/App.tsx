@@ -1,6 +1,6 @@
 import './App.css';
 import Router from './pages/Router';
-import GlobalStyle from './styles/GlobalStyle';
+import GlobalStyle from './Styles/GlobalStyle';
 
 function App() {
   return (
