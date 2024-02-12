@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HomeButtonLayout, HomeButtonStyle } from './HomeButtonStyle';
+import { HomeButtonLayout, HomeButtonStyle } from './HomeButton.styled';
 
 /*
 사용방법

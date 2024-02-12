@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckboxStyle } from './CheckboxStyle';
+import { CheckboxStyle } from './Checkbox.styled';
 
 interface CheckboxProps {
   checked: boolean;

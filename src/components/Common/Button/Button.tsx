@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ButtonStyle, ButtonLayout } from './ButtonStyle';
+import { ButtonStyle, ButtonLayout } from './Button.styled';
 
 interface ButtonProps {
   type: 'landing' | 'enable' | 'disable';
