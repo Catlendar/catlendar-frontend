@@ -7,6 +7,9 @@ export const Input = styled.input`
   background: none;
   color: var(--color-black);
   padding-bottom: 5px;
+  margin-bottom: 20px;
+  font-size: var(--large-font-size);
+
   &:focus {
     outline: none;
     border-bottom: 1px solid var(--bg-color-main);
@@ -17,7 +20,4 @@ export const InputName = styled.p`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
   margin-bottom: 9px;
-  &:focus {
-    color: var(--color-color-main);
-  }
 `;

@@ -7,7 +7,6 @@ interface TextInputProps {
   placeholder: string;
 }
 
-// Define the component as a function declaration
 function TextInput({ inputType, name, placeholder }: TextInputProps) {
   return (
     <div>
