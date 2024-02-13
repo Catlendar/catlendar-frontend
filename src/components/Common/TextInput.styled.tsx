@@ -19,6 +19,7 @@ export const Input = styled.input<InputProps>`
     css`
       width: 80%;
       font-size: var(--small-font-size);
+      margin: 15px 0;
     `}
 
   &:focus {

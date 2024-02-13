@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Input, InputName } from './TextInput.styled';
 
 interface TextInputProps {
@@ -6,13 +6,22 @@ interface TextInputProps {
   name: string;
   placeholder: string;
   form?: boolean;
+  onChange: (value: string) => void;
 }
 
-function TextInput({ inputType, name, placeholder, form }: TextInputProps) {
+function TextInput({ inputType, name, placeholder, form, onChange }: TextInputProps) {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    setValue(newValue);
+    onChange(newValue);
+  };
+
   return (
     <div>
       <InputName>{name}</InputName>
-      <Input type={inputType} placeholder={placeholder} form={form} />
+      <Input type={inputType} placeholder={placeholder} form={form} onChange={handleChange} />
     </div>
   );
 }

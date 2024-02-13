@@ -5,6 +5,7 @@ export default function HomePage() {
   return (
     <div>
       <Modal type="revise" />
+      <Modal type="withdraw" />
     </div>
   );
 }

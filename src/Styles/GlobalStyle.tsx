@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
 	}
 
-	body, input::placeholder {
+	body, input::placeholder, button {
 		font-family: 'omyu_pretty';
 	}	
 
@@ -51,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
 
 		/* Text */
 		--text-color-main: #8B8B8B;
+		--text-color-desc: #767676;
 		--text-color-theme: #7E7DFD;
 		--text-color-find: #A5A5A5;
 		--text-color-warning: #F85B5B;
@@ -112,6 +113,7 @@ const GlobalStyle = createGlobalStyle`
 	// 		background-color: skyblue;
 	// 	}
 /* } */
+
 `;
 
 export default GlobalStyle;
