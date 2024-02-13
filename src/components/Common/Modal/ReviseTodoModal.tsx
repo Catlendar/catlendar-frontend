@@ -11,6 +11,7 @@ export default function ReviseTodoModal() {
   const [newTodoContent, setNewTodoContent] = useState(todo.content);
 
   const handleInputChange = (value: string) => {
+    console.log(newTodoContent);
     setNewTodoContent(value);
   };
 
