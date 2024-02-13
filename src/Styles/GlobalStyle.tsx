@@ -4,7 +4,7 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
 	${reset}
 
-	// Font
+	/* Font */
 	@font-face {
   font-family: 'omyu_pretty';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
@@ -82,35 +82,35 @@ const GlobalStyle = createGlobalStyle`
 		}
 	}
 	/* Mobile 작업 완료후, width값 %로 변경 예정 */
-	// @media screen and (max-width: 767px) {
-	// 	#root {
-	// 		height:100vh;
-	// 		width: 100%;
-	// 		margin: 0 auto;
-	// 		background-color: skyblue;
-	// 	}
-	// }
+	/* @media screen and (max-width: 767px) {
+	 	#root {
+	 		height:100vh;
+	 		width: 100%;
+	 		margin: 0 auto;
+	 		background-color: skyblue;
+	 	}
+	 } */
 
 	/* 할 예정 */
 	/* Tablet */
-	// @media screen and (min-width: 768px) {
-	// 	#root {
-	// 		height:100vh;
-	// 		max-width:768px;
-	// 		margin: 0 auto;
-	// 		background-color: skyblue;
-	// 	}
-	// }
-	/* 할 예정 */
+	/* @media screen and (min-width: 768px) {
+	 	#root {
+	 		height:100vh;
+	 		max-width:768px;
+	 		margin: 0 auto;
+	 		background-color: skyblue;
+	 	}
+	 } */
+	 
+	 /*할 예정 */
 	/* Pc */
-	// @media screen and (min-width: 1024px) {
-	// 	#root {
-	// 		height:100vh;
-	// 		max-width:1024px;
-	// 		margin: 0 auto;
-	// 		background-color: skyblue;
-	// 	}
-	}
+	/* @media screen and (min-width: 1024px) {
+	 	#root {
+	 		height:100vh;
+	 		max-width:1024px;
+	 		margin: 0 auto;
+	 		background-color: skyblue;
+	 	}*/
 `;
 
 export default GlobalStyle;
