@@ -1,5 +1,10 @@
 import React from 'react';
+import Modal from '../../components/Common/Modal/Modal';
 
 export default function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <Modal type="revise" />
+    </div>
+  );
 }

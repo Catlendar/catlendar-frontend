@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Input = styled.input`
+interface InputProps {
+  form?: boolean;
+}
+
+export const Input = styled.input<InputProps>`
   width: 340px;
   border: none;
   border-bottom: 1px solid var(--input-bb);
@@ -9,6 +13,13 @@ export const Input = styled.input`
   padding-bottom: 5px;
   margin-bottom: 20px;
   font-size: var(--large-font-size);
+
+  ${({ form }) =>
+    !form &&
+    css`
+      width: 80%;
+      font-size: var(--small-font-size);
+    `}
 
   &:focus {
     outline: none;

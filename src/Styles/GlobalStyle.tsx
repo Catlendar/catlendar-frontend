@@ -12,9 +12,10 @@ const GlobalStyle = createGlobalStyle`
   font-weight: normal;
   font-style: normal;
 	}
-	body {
+
+	body, input::placeholder {
 		font-family: 'omyu_pretty';
-	}
+	}	
 
 	/*   .5rem = 5px | 1rem = 10px   */
 	html {
