@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SelectWrapper, HiddenRadio, Label, Img } from './GenderButton.styled';
-import { InputName } from './TextInput.styled';
-import checkImg from '../../assets/check.png';
+import { InputName } from '../TextInput/TextInput.styled';
+import checkImg from '../../../assets/icons/check.png';
 
 interface GenderButtonProps {
   name: string;

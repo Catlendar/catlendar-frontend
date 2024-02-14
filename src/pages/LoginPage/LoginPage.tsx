@@ -1,7 +1,7 @@
 import React from 'react';
-import TextInput from '../../components/Common/TextInput';
+import TextInput from '../../components/Common/TextInput/TextInput';
 import { LoginTitle, LoginWrapper } from './LoginPage.styled';
-import GenderButton from '../../components/Common/GenderButton';
+import GenderButton from '../../components/Common/GenderButton/GenderButton';
 
 function LoginPage() {
   return (

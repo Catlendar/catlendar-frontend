@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TextInput from '../TextInput';
+import TextInput from '../TextInput/TextInput';
 import { ModalLayout } from './ModalLayout.styled';
 import ModalButton from '../Button/ModalButton';
 
