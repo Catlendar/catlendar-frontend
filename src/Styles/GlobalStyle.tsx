@@ -4,7 +4,7 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
 	${reset}
 
-	// Font
+	/* Font */
 	@font-face {
   font-family: 'omyu_pretty';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
@@ -12,9 +12,10 @@ const GlobalStyle = createGlobalStyle`
   font-weight: normal;
   font-style: normal;
 	}
-	body {
+
+	body, input::placeholder, button {
 		font-family: 'omyu_pretty';
-	}
+	}	
 
 	/*   .5rem = 5px | 1rem = 10px   */
 	html {
@@ -50,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
 
 		/* Text */
 		--text-color-main: #8B8B8B;
+		--text-color-desc: #767676;
 		--text-color-theme: #7E7DFD;
 		--text-color-find: #A5A5A5;
 		--text-color-warning: #F85B5B;
@@ -61,9 +63,13 @@ const GlobalStyle = createGlobalStyle`
 		--button-color-favorite: #FFD233;
 		--button-color-warning: #F85B5B;
 		--button-color-modal: #F1F1F1;
+		--button-color-landing: #5F5ED5;
 
 		/* Input Border */
 		--input-bb: #D9D9D9;
+
+		/* CheckBox */
+		--checkbox-color:#D7D7FD;
 	}
 
 
@@ -110,7 +116,7 @@ const GlobalStyle = createGlobalStyle`
 	// 		margin: 0 auto;
 	// 		background-color: skyblue;
 	// 	}
-	}
+  }
 `;
 
 export default GlobalStyle;
