@@ -4,7 +4,7 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
 	${reset}
 
-	// Font
+	/* Font */
 	@font-face {
   font-family: 'omyu_pretty';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
@@ -63,9 +63,13 @@ const GlobalStyle = createGlobalStyle`
 		--button-color-favorite: #FFD233;
 		--button-color-warning: #F85B5B;
 		--button-color-modal: #F1F1F1;
+		--button-color-landing: #5F5ED5;
 
 		/* Input Border */
 		--input-bb: #D9D9D9;
+
+		/* CheckBox */
+		--checkbox-color:#D7D7FD;
 	}
 
 
@@ -112,8 +116,7 @@ const GlobalStyle = createGlobalStyle`
 	// 		margin: 0 auto;
 	// 		background-color: skyblue;
 	// 	}
-/* } */
-
+  }
 `;
 
 export default GlobalStyle;
