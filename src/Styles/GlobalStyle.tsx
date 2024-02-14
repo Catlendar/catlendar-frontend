@@ -110,7 +110,7 @@ const GlobalStyle = createGlobalStyle`
 	// 		margin: 0 auto;
 	// 		background-color: skyblue;
 	// 	}
-	}
+/* } */
 `;
 
 export default GlobalStyle;
