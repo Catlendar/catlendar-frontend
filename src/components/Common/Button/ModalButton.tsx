@@ -8,7 +8,6 @@ interface ButtonProps {
 export default function ModalButton({ type, onClick }: ButtonProps) {
   let text = '';
 
-  function handleClick() {}
   switch (type) {
     case 'complete':
       text = '완료';
@@ -25,5 +24,9 @@ export default function ModalButton({ type, onClick }: ButtonProps) {
     default:
       break;
   }
-  return <ModalButtonStyle type={type}>{text}</ModalButtonStyle>;
+  return (
+    <ModalButtonStyle type={type} onClick={onClick}>
+      {text}
+    </ModalButtonStyle>
+  );
 }
