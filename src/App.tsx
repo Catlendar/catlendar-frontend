@@ -7,7 +7,7 @@ function App() {
     <div>
       <GlobalStyle />
       <Router />
-      <div className="App" />
+      <div className="App"> </div>
     </div>
   );
 }
