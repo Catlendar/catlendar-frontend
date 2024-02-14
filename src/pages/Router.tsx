@@ -13,6 +13,8 @@ import CalendarPage from './CalendarPage/CalendarPage';
 import FortunePage from './FortunePage/FortunePage';
 import ErrorPage from './ErrorPage/ErrorPage';
 import UserInfoPage from './SignupPage/UserInfoPage';
+import Header from '../components/Common/Header/Header';
+import NavBar from '../components/Common/NavBar/NavBar';
 
 export default function Router() {
   return (
@@ -20,21 +22,93 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
-        <Route path="/signup" element={<SignupPage />} />
+        <Route
+          path="/signup"
+          element={
+            <>
+              <Header title="" />
+              <SignupPage />
+            </>
+          }
+        />
         <Route path="/signup/complete" element={<SignupCompletePage />} />
         <Route path="/signup/userinfo" element={<UserInfoPage />} />
 
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/login"
+          element={
+            <>
+              <Header title="" />
+              <LoginPage />
+            </>
+          }
+        />
 
-        <Route path="/setting" element={<SettingPage />} />
+        <Route
+          path="/setting"
+          element={
+            <>
+              <Header title="설정" />
+              <SettingPage />
+            </>
+          }
+        />
 
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/profile/edit" element={<ProfileEditPage />} />
-        <Route path="/profile/editPassword" element={<EditPwPage />} />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <ProfilePage />
+              <NavBar />
+            </>
+          }
+        />
+        <Route
+          path="/profile/edit"
+          element={
+            <>
+              <Header title="정보 수정" />
+              <ProfileEditPage />
+            </>
+          }
+        />
+        <Route
+          path="/profile/editPassword"
+          element={
+            <>
+              <Header title="비밀번호 변경" />
+              <EditPwPage />
+            </>
+          }
+        />
 
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/fortune" element={<FortunePage />} />
+        <Route
+          path="/home"
+          element={
+            <>
+              <HomePage />
+              <NavBar />
+            </>
+          }
+        />
+        <Route
+          path="/calendar"
+          element={
+            <>
+              <CalendarPage />
+              <NavBar />
+            </>
+          }
+        />
+        <Route
+          path="/fortune"
+          element={
+            <>
+              <Header title="오늘의 운세" />
+              <FortunePage />
+            </>
+          }
+        />
 
         <Route path="/error" element={<ErrorPage />} />
       </Routes>

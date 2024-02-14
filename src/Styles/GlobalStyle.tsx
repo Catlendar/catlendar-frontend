@@ -4,7 +4,7 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
 	${reset}
 
-	// Font
+	/* Font */
 	@font-face {
   font-family: 'omyu_pretty';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
@@ -114,7 +114,7 @@ const GlobalStyle = createGlobalStyle`
 	// 		margin: 0 auto;
 	// 		background-color: skyblue;
 	// 	}
-/* } */
+	}
 `;
 
 export default GlobalStyle;

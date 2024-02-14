@@ -20,5 +20,5 @@
     "noUncheckedIndexedAccess": true /* 인덱스 시그니처 결과에 'undefined' 포함 */,
   },
   /* 컴파일할 파일들을 지정하는 속성 (와일드 카드 패턴으로 묶어 표현) */
-  "include": ["src"],
+  "include": ["src", "custom.d.ts"],
 }
