@@ -61,9 +61,13 @@ const GlobalStyle = createGlobalStyle`
 		--button-color-favorite: #FFD233;
 		--button-color-warning: #F85B5B;
 		--button-color-modal: #F1F1F1;
+		--button-color-landing: #5F5ED5;
 
 		/* Input Border */
 		--input-bb: #D9D9D9;
+
+		/* CheckBox */
+		--checkbox-color:#D7D7FD;
 	}
 
 
@@ -82,35 +86,35 @@ const GlobalStyle = createGlobalStyle`
 		}
 	}
 	/* Mobile 작업 완료후, width값 %로 변경 예정 */
-	/* @media screen and (max-width: 767px) {
-	 	#root {
-	 		height:100vh;
-	 		width: 100%;
-	 		margin: 0 auto;
-	 		background-color: skyblue;
-	 	}
-	 } */
+	// @media screen and (max-width: 767px) {
+	// 	#root {
+	// 		height:100vh;
+	// 		width: 100%;
+	// 		margin: 0 auto;
+	// 		background-color: skyblue;
+	// 	}
+	// }
 
 	/* 할 예정 */
 	/* Tablet */
-	/* @media screen and (min-width: 768px) {
-	 	#root {
-	 		height:100vh;
-	 		max-width:768px;
-	 		margin: 0 auto;
-	 		background-color: skyblue;
-	 	}
-	 } */
-	 
-	 /*할 예정 */
+	// @media screen and (min-width: 768px) {
+	// 	#root {
+	// 		height:100vh;
+	// 		max-width:768px;
+	// 		margin: 0 auto;
+	// 		background-color: skyblue;
+	// 	}
+	// }
+	/* 할 예정 */
 	/* Pc */
-	/* @media screen and (min-width: 1024px) {
-	 	#root {
-	 		height:100vh;
-	 		max-width:1024px;
-	 		margin: 0 auto;
-	 		background-color: skyblue;
-	 	}*/
+	// @media screen and (min-width: 1024px) {
+	// 	#root {
+	// 		height:100vh;
+	// 		max-width:1024px;
+	// 		margin: 0 auto;
+	// 		background-color: skyblue;
+	// 	}
+	}
 `;
 
 export default GlobalStyle;
