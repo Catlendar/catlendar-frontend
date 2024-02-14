@@ -16,10 +16,10 @@ export default function Modal({ type }: ModalTypeProps) {
   const [withdrawOpen, setWithdrawOpen] = useState(true);
 
   const handleCloseRevise = () => {
-    setReviseOpen(false);
+    setReviseOpen(!reviseOpen);
   };
   const handleCloseWithdraw = () => {
-    setWithdrawOpen(false);
+    setWithdrawOpen(!withdrawOpen);
   };
   if (type === 'revise' && reviseOpen) return <ReviseTodoModal onClose={handleCloseRevise} />;
   if (type === 'todoList') return <TodoListModal />;
