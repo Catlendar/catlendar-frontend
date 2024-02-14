@@ -7,12 +7,28 @@ const todo = {
   content: 'React 상태관리 책 읽기',
 };
 
-export default function ReviseTodoModal() {
+interface ModalProps {
+  onClose: () => void;
+}
+
+export default function ReviseTodoModal({ onClose }: ModalProps) {
   const [newTodoContent, setNewTodoContent] = useState(todo.content);
 
   const handleInputChange = (value: string) => {
     console.log(newTodoContent);
     setNewTodoContent(value);
+  };
+
+  const handleRemoveClick = () => {
+    // 삭제하는 API 호출
+    console.log('삭제 완료!');
+    onClose();
+  };
+
+  const handleCompleteClick = () => {
+    // 수정하는 API 호출
+    console.log('수정 완료!');
+    onClose();
   };
 
   return (
@@ -25,8 +41,18 @@ export default function ReviseTodoModal() {
         onChange={handleInputChange}
       />
       <div className="button-wrapper">
-        <ModalButton type="remove" onClick={() => {}} />
-        <ModalButton type="complete" onClick={() => {}} />
+        <ModalButton
+          type="remove"
+          onClick={() => {
+            handleRemoveClick();
+          }}
+        />
+        <ModalButton
+          type="complete"
+          onClick={() => {
+            handleCompleteClick();
+          }}
+        />
       </div>
     </ModalLayout>
   );
