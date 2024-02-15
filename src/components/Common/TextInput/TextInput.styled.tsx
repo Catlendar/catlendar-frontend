@@ -11,7 +11,7 @@ export const Input = styled.input<InputProps>`
   background: none;
   color: var(--color-black);
   padding-bottom: 10px;
-  margin-bottom: 37px;
+  margin-top: 37px;
   font-size: var(--large-font-size);
 
   &::placeholder {

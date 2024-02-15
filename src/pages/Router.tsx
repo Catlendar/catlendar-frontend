@@ -15,6 +15,7 @@ import ErrorPage from './ErrorPage/ErrorPage';
 import UserInfoPage from './SignupPage/UserInfoPage';
 import Header from '../components/Common/Header/Header';
 import NavBar from '../components/Common/NavBar/NavBar';
+import ApiPage from './ApiPage';
 
 export default function Router() {
   return (
@@ -106,6 +107,15 @@ export default function Router() {
             <>
               <Header title="오늘의 운세" />
               <FortunePage />
+            </>
+          }
+        />
+        <Route
+          path="/api"
+          element={
+            <>
+              <Header title="오늘의 운세" />
+              <ApiPage />
             </>
           }
         />
