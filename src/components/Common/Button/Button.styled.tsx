@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-export const ButtonLayout = styled.div`
+export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
-export const ButtonStyle = styled.button`
+export const ButtonItem = styled.button`
   flex: 1; /* 꽉 채우기 위한 flex 속성 추가 */
   display: flex;
   justify-content: center;

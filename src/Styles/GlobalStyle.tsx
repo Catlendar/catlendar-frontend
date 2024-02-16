@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
 	} */
 
+
 	body, input::placeholder, button {
 		font-family: 'omyu_pretty';
 	}	
