@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ButtonStyle, ButtonLayout } from './Button.styled';
+import { ButtonItem, ButtonWrapper } from './Button.styled';
 
 interface ButtonProps {
   type: 'landing' | 'enable' | 'disable';
@@ -47,8 +47,8 @@ export default function Button({ type, text, to, onClick }: ButtonProps) {
   };
 
   return (
-    <ButtonLayout>
-      <ButtonStyle
+    <ButtonWrapper>
+      <ButtonItem
         style={{ backgroundColor: buttonColor, cursor: cursorStyle }}
         disabled={isDisabled}
         onClick={() => {
@@ -57,7 +57,7 @@ export default function Button({ type, text, to, onClick }: ButtonProps) {
         }}
       >
         {text}
-      </ButtonStyle>
-    </ButtonLayout>
+      </ButtonItem>
+    </ButtonWrapper>
   );
 }

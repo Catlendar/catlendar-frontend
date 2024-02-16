@@ -8,6 +8,11 @@ export const LoginWrapper = styled.div`
 export const LoginTitle = styled.p`
   font-size: var(--h2-font-size);
   font-weight: bold;
-  padding: 50px 0 50px;
+  padding-top: 3.7rem;
+  padding-bottom: 7.1rem;
   color: var(--color-black);
+`;
+
+export const ButtonWrapper = styled.div`
+  padding-top: 36.8rem;
 `;
