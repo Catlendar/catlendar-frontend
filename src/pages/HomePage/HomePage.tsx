@@ -1,13 +1,10 @@
-import React from 'react';
-import Modal from '../../components/Common/Modal/Modal';
-import TodoHeader from '../../components/Common/Header/TodoHeader';
+import TodoBox from '../../components/Common/TodoBox/TodoBox';
 
 export default function HomePage() {
   return (
-    <div>
-      <Modal type="revise" />
-      <Modal type="withdraw" />
-      <TodoHeader comletedTasks={1} totalTasks={3} />
+    <div style={{ boxShadow: 'rgba(255, 255, 0, 0.35) 0px 0px 5px 20px', width: '390px' }}>
+      <div style={{ height: '300px', backgroundColor: 'aqua' }}>ss</div>
+      <TodoBox />
     </div>
   );
 }
