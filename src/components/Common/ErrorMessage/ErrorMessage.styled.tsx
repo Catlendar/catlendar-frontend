@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const ErrorWrapper = styled.div`
-  padding-top: 6px;
+  position: fixed;
+  margin-top: 6px;
   color: var(--text-color-warning);
-  font-size: var(--small-font-size);
+  font-size: 1.3rem;
   opacity: message ? 1 : 0;
   transition: 'opacity 0.3s';
 `;

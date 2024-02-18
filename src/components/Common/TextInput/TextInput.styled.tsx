@@ -11,11 +11,11 @@ export const Input = styled.input<InputProps>`
   background: none;
   color: var(--color-black);
   padding-bottom: 10px;
-  margin-top: 37px;
+
   font-size: var(--large-font-size);
 
   &::placeholder {
-    color: var(--text-color-main);
+    color: var(--text-color-placeholder);
   }
 
   ${({ form }) =>
@@ -35,4 +35,11 @@ export const Input = styled.input<InputProps>`
 export const InputName = styled.p`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
+  margin-bottom: 9px;
+`;
+
+export const InputWrapper = styled.div`
+  color: var(--text-color-main);
+  font-size: var(--small-font-size);
+  margin-top: 3.7rem;
 `;

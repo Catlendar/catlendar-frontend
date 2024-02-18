@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, InputName } from './TextInput.styled';
+import { Input, InputName, InputWrapper } from './TextInput.styled';
 
 interface TextInputProps {
   inputType: string;
@@ -20,8 +20,10 @@ function TextInput({ inputType, name, placeholder, form, onChange }: TextInputPr
 
   return (
     <div>
-      <InputName>{name}</InputName>
-      <Input type={inputType} placeholder={placeholder} form={form} onChange={handleChange} />
+      <InputWrapper>
+        <InputName>{name}</InputName>
+        <Input type={inputType} placeholder={placeholder} form={form} onChange={handleChange} />
+      </InputWrapper>
     </div>
   );
 }

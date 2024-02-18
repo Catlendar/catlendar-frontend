@@ -27,4 +27,5 @@ export const CatlendarImg = styled.img`
 
 export const ButtonWrapper = styled.div`
   margin-top: 1.1rem;
+  width: 33.9rem;
 `;

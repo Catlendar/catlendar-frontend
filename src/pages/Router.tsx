@@ -6,7 +6,6 @@ import SignupPage from './SignupPage/SignupPage';
 import LoginPage from './LoginPage/LoginPage';
 import SignupCompletePage from './SignupPage/SignupCompletePage';
 import SettingPage from './SettingPage/SettingPage';
-import ProfilePage from './ProfilePage/ProfilePage';
 import ProfileEditPage from './ProfilePage/ProfileEditPage';
 import EditPwPage from './ProfilePage/EditPwPage';
 import CalendarPage from './CalendarPage/CalendarPage';
@@ -16,6 +15,7 @@ import UserInfoPage from './SignupPage/UserInfoPage';
 import Header from '../components/Common/Header/Header';
 import NavBar from '../components/Common/NavBar/NavBar';
 import ApiPage from './ApiPage';
+import ProfileInfoPage from './ProfilePage/ProfileInfoPage';
 
 export default function Router() {
   return (
@@ -33,7 +33,15 @@ export default function Router() {
           }
         />
         <Route path="/signup/complete" element={<SignupCompletePage />} />
-        <Route path="/signup/userinfo" element={<UserInfoPage />} />
+        <Route
+          path="/signup/userinfo"
+          element={
+            <>
+              <Header title="" />
+              <UserInfoPage />
+            </>
+          }
+        />
 
         <Route
           path="/login"
@@ -56,11 +64,11 @@ export default function Router() {
         />
 
         <Route
-          path="/profile"
+          path="/profileInfo"
           element={
             <>
-              <ProfilePage />
-              <NavBar />
+              <Header title="" />
+              <ProfileInfoPage />
             </>
           }
         />

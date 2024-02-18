@@ -14,6 +14,7 @@ function LoginPage() {
   const [emailErrorMessage, setEmailErrorMessage] = useState<string>('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>('');
   const [userAtom, setUserAtom] = useRecoilState(UserAtom);
+
   const navigate = useNavigate();
 
   // 입력된 이메일과 비밀번호 유효성검사
@@ -22,7 +23,7 @@ function LoginPage() {
     return emailPattern.test(email) && email.trim() !== '' && password.trim() !== '';
   };
 
-  const getTodo = async () => {
+  const login = async () => {
     try {
       const response = await instance.post('user/login', { email, password });
       if (response.status === 200) {
@@ -56,35 +57,43 @@ function LoginPage() {
       navigate('/error');
     }
   };
+  const handleFormSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    if (validateInputs()) {
+      login();
+    }
+  };
 
   return (
     <LoginWrapper>
-      <LoginTitle>로그인</LoginTitle>
-      <TextInput
-        name=""
-        placeholder="이메일"
-        inputType="email"
-        onChange={(value: string) => setEmail(value)}
-      />
-      <ErrorMessage message={emailErrorMessage} clearMessage={() => setEmailErrorMessage('')} />
+      <form onSubmit={handleFormSubmit}>
+        <LoginTitle>로그인</LoginTitle>
+        <TextInput
+          name=""
+          placeholder="이메일"
+          inputType="email"
+          onChange={(value: string) => setEmail(value)}
+        />
+        <ErrorMessage message={emailErrorMessage} clearMessage={() => setEmailErrorMessage('')} />
 
-      <TextInput
-        name=""
-        placeholder="비밀번호"
-        inputType="password"
-        onChange={(value: string) => setPassword(value)}
-      />
-      <ErrorMessage
-        message={passwordErrorMessage}
-        clearMessage={() => setPasswordErrorMessage('')}
-      />
-      <ButtonWrapper>
-        {validateInputs() ? (
-          <Button type="enable" text="로그인" to="" onClick={getTodo} />
-        ) : (
-          <Button type="disable" text="로그인" to="/" onClick={() => {}} />
-        )}
-      </ButtonWrapper>
+        <TextInput
+          name=""
+          placeholder="비밀번호"
+          inputType="password"
+          onChange={(value: string) => setPassword(value)}
+        />
+        <ErrorMessage
+          message={passwordErrorMessage}
+          clearMessage={() => setPasswordErrorMessage('')}
+        />
+        <ButtonWrapper>
+          {validateInputs() ? (
+            <Button type="enable" text="로그인" to="" onClick={() => {}} />
+          ) : (
+            <Button type="disable" text="로그인" to="/" onClick={() => {}} />
+          )}
+        </ButtonWrapper>
+      </form>
     </LoginWrapper>
   );
 }
