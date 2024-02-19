@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const HomeButtonLayout = styled.div`
+export const HomeButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-export const HomeButtonStyle = styled.button`
+export const HomeButtonItem = styled.button`
   flex: 1; /* 꽉 채우기 위한 flex 속성 추가 */
   display: flex;
   justify-content: center;
