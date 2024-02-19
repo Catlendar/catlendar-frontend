@@ -1,12 +1,11 @@
 import React from 'react';
-import Modal from '../../components/Common/Modal/Modal';
 import TodoHeader from '../../components/Common/Header/TodoHeader';
+import MainCard from '../../components/MainCard/MainCard';
 
 export default function HomePage() {
   return (
     <div>
-      <Modal type="revise" />
-      <Modal type="withdraw" />
+      <MainCard />
       <TodoHeader comletedTasks={1} totalTasks={3} />
     </div>
   );
