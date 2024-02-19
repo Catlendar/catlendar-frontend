@@ -8,7 +8,9 @@ export const TodoBoxWrapper = styled.div`
   border-top-right-radius: 20px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   width: 100%;
+  padding: 0 20px;
 
   /* TodoList 컴포넌트 세로 크기, 위치 조절 */
   div:last-child {

@@ -1,12 +1,21 @@
 /* eslint no-underscore-dangle: 0 */
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { tokenInstance } from '../../../api/Axios';
+import { BookmarkListAtom } from '../../../atom/BookmarkListAtom';
+import { UserAtom } from '../../../atom/UserAtom';
 import { TabBox, TabButton, TabWrapper } from './Tab.styled';
+import TabCloseButton from './TabCloseButton';
 import { GetTabStyle, TabProps, TabMenuTypeTodo, TabMenuTypeFortune } from './TabTypes';
 
 export default function Tab({ tabData }: TabProps) {
   const [selectedTab, setSelectedTab] = useState<number | undefined>(tabData[0]?.id);
+  const userAtom = useRecoilValue(UserAtom);
+  const setBookmarkListAtom = useSetRecoilState(BookmarkListAtom);
 
+  const navigate = useNavigate();
   const TabType = tabData[0]?.__type;
 
   // 현재 탭이 할 일 탭인지, 운세 탭인지 구분해서 스타일 반환
@@ -15,7 +24,7 @@ export default function Tab({ tabData }: TabProps) {
       case 'todo':
         return {
           wrapperWidth: '312px',
-          boxDisplay: 'block',
+          boxDisplay: 'flex',
           fontSize: 'var(--large-font-size)',
         };
       case 'fortune':
@@ -27,7 +36,7 @@ export default function Tab({ tabData }: TabProps) {
       default:
         return {
           wrapperWidth: '312px',
-          boxDisplay: 'block',
+          boxDisplay: 'flex',
           fontSize: 'var(--large-font-size)',
         };
     }
@@ -37,30 +46,40 @@ export default function Tab({ tabData }: TabProps) {
   // 오늘 할 일 api 호출
   const getTodo = async (userId: string) => {
     console.log('getTodo!');
-    try {
-      const response = await fetch('http://54.66.123.168:8080/calendar/getToday', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqaXdhbjAwMUBjaG9pLmNvbSIsImlhdCI6MTcwNzgzODc0MywiZXhwIjoxNzA3ODgxOTQzfQ.f0OyND0h5jUAuiHcRuPOU8ILEcGj01FJMvY8oRn4kos',
-        },
-        body: JSON.stringify({ userId }),
-      });
-      console.log(response);
+    // try {
+    //   const response = await fetch('http://54.66.123.168:8080/calendar/getToday', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       Authorization:
+    //         'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqaXdhbjAwMUBjaG9pLmNvbSIsImlhdCI6MTcwNzgzODc0MywiZXhwIjoxNzA3ODgxOTQzfQ.f0OyND0h5jUAuiHcRuPOU8ILEcGj01FJMvY8oRn4kos',
+    //     },
+    //     body: JSON.stringify({ userId }),
+    //   });
+    //   console.log(response);
 
-      if (!response.ok) {
-        throw new Error('error');
-      }
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
+    //   if (!response.ok) {
+    //     throw new Error('error');
+    //   }
+    //   const data = await response.json();
+    //   console.log(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
   // 즐겨찾기 api 호출
-  const getFavorite = async (userId: string) => {
+  const getBookmarList = async () => {
     console.log('getFavorit!');
+    const url = 'calendar/getBookmarkList';
+    try {
+      const response = await tokenInstance.post(url, {
+        userId: userAtom.userId,
+      });
+      setBookmarkListAtom(response.data);
+      console.log(response);
+    } catch (error) {
+      navigate('/error');
+    }
   };
 
   // 운세 api 호출
@@ -79,7 +98,7 @@ export default function Tab({ tabData }: TabProps) {
       if (tab.tabName === '오늘') {
         getTodo('5');
       } else {
-        getFavorite('5');
+        getBookmarList();
       }
     } else {
       handleFortuneTabClick(tab);
@@ -87,19 +106,22 @@ export default function Tab({ tabData }: TabProps) {
   };
 
   return (
-    <TabWrapper tabStyle={tabStyle}>
-      <TabBox tabStyle={tabStyle}>
-        {tabData.map((tab) => (
-          <TabButton
-            key={tab.id}
-            onClick={() => {
-              handleTabClick(tab);
-            }}
-            isSelect={selectedTab === tab.id}
-          >
-            {tab.tabName}
-          </TabButton>
-        ))}
+    <TabWrapper tabstyle={tabStyle}>
+      <TabBox tabstyle={tabStyle}>
+        <div>
+          {tabData.map((tab) => (
+            <TabButton
+              key={tab.id}
+              onClick={() => {
+                handleTabClick(tab);
+              }}
+              selecttab={selectedTab === tab.id}
+            >
+              {tab.tabName}
+            </TabButton>
+          ))}
+        </div>
+        {TabType === 'todo' ? <TabCloseButton /> : null}
       </TabBox>
     </TabWrapper>
   );
