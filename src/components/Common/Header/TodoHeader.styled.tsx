@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const TodoHeaderWrapper = styled.div`
   width: 100%;
-  background-color: var(--bg-color-gray);
   display: flex;
   justify-content: space-between;
   padding: 3.2rem 0;
+  margin-top: -2rem;
+  background-color: var(--bg-color-gray);
   border-radius: 2rem 2rem 0 0;
 `;
 
