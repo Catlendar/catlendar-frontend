@@ -16,7 +16,7 @@ const commonInputStyle = css<InputProps>`
   font-size: var(--large-font-size);
 
   &::placeholder {
-    color: var(--text-color-main);
+    color: var(--text-color-placeholder);
   }
 
   ${({ form }) =>
@@ -45,5 +45,11 @@ export const Select = styled.select<InputProps>`
 export const InputName = styled.p`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  margin-top: 25px;
+  margin-bottom: 9px;
+`;
+
+export const InputWrapper = styled.div`
+  color: var(--text-color-main);
+  font-size: var(--small-font-size);
+  margin-top: 3.7rem;
 `;

@@ -10,6 +10,7 @@ export const ErrorImgWrapper = styled.div`
 export const LargeErrorMsg = styled.div`
   font-size: var(--large-font-size);
   margin-top: 4.2rem;
+  font-weight: bold;
 `;
 
 export const SmallErrorMsg = styled.div`

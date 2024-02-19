@@ -11,11 +11,13 @@ export default function LandingPage() {
         <LandingImg src={landingCat} />
         <CatlendarImg src={landingCatlendar} />
         <p>오늘의 할일을 같이 계획해봐요!</p>
+        <ButtonWrapper>
+          <Button type="landing" text="회원가입" to="/signup" onClick={() => {}} />
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button type="landing" text="로그인" to="/login" onClick={() => {}} />
+        </ButtonWrapper>
       </LandingWrapper>
-      <Button type="landing" text="회원가입" to="/signup" onClick={() => {}} />
-      <ButtonWrapper>
-        <Button type="landing" text="로그인" to="/login" onClick={() => {}} />
-      </ButtonWrapper>
     </div>
   );
 }
