@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const TodoCircle = styled.div`
-  background-color: ${({ theme }) => theme.color.todoCircle};
+  background-color: var(--color-todoCircle);
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -9,10 +9,10 @@ export const TodoCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${({ theme }) => theme.color.primary};
+  color: var(--color-primary);
   font-weight: 700;
   .hasContent {
-    background-color: ${({ theme }) => theme.color.white};
-    border: 1px solid ${({ theme }) => theme.color.primary};
+    background-color: var(--color-white);
+    border: 1px solid var(--color-primary);
   }
 `;
