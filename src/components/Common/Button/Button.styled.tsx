@@ -12,9 +12,8 @@ export const ButtonItem = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
+  // margin: 0 2.6rem;
   cursor: pointer;
-  margin-left: 2.6rem;
-  margin-right: 2.6rem;
   background: var(--button-color-landing);
   color: var(--color-white);
   border-radius: 1rem;
