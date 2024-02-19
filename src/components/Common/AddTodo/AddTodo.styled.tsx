@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TodoButton = styled.button`
+export const TodoButton = styled.input`
   width: 274px;
   height: 46px;
   background-color: var(--bg-color-gray);

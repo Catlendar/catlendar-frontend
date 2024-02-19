@@ -26,7 +26,7 @@ export interface GetTabStyle {
 
 // tab버튼 스타일드 컴포넌트의 props 타입
 export interface TabButtonProps {
-  isSelect: boolean;
+  selecttab: boolean;
 }
 export interface TabStyleProps {
   wrapperWidth: string;

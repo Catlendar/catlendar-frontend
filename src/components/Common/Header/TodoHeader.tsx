@@ -1,4 +1,5 @@
-import React from 'react';
+import { useSetRecoilState } from 'recoil';
+import { TodoModalOpenAtom } from '../../../atom/TodoModalOpenAtom';
 import {
   TodoHeaderWrapper,
   TaskTitle,
@@ -14,12 +15,13 @@ interface HeaderProps {
 }
 
 export default function TodoHeader({ comletedTasks, totalTasks }: HeaderProps) {
+  const setTodoModalOpenAtom = useSetRecoilState(TodoModalOpenAtom);
   return (
     <TodoHeaderWrapper>
       <TaskTitle>
         오늘의 할일 <CompletedTasks>{comletedTasks}</CompletedTasks> / {totalTasks}
       </TaskTitle>
-      <AddButton>
+      <AddButton onClick={() => setTodoModalOpenAtom((prev) => !prev)} title="할일 추가 모달 오픈">
         <AddIcon src={iconAdd} />
         할일 추가
       </AddButton>
