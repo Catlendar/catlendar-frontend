@@ -5,28 +5,29 @@ interface ModalTypeProps {
 }
 
 export const ModalLayout = styled.div<ModalTypeProps>`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
-	text-align: center;
-	width: 70%;
-	border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  width: 70%;
+  border-radius: 20px;
+  background-color: gray;
 
-	.button-wrapper {
-		display: flex;
-		gap: 10px;
-		margin: 10px auto;
-	}
+  .button-wrapper {
+    display: flex;
+    gap: 10px;
+    margin: 10px auto;
+  }
 
-	.withdraw-wrapper {
-		margin: 20px;
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-	}
+  .withdraw-wrapper {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-	${({ type }) => {
+  ${({ type }) => {
     if (type === 'revise') {
       return css`
         background-color: skyblue;
@@ -41,18 +42,21 @@ export const ModalLayout = styled.div<ModalTypeProps>`
     if (type === 'withdraw') {
       return css`
         text-align: left;
+        width: 312px;
+        height: 290px;
         .withdraw-wrapper {
           h3 {
             font-size: var(--regular-font-size);
+            padding: 20px 0;
           }
           p {
             font-size: var(--small-font-size);
             color: var(--text-color-desc);
           }
         }
-        background-color: yellow;
+        background-color: var(--color-white);
       `;
     }
     return css``;
-  }}}
+  }}
 `;

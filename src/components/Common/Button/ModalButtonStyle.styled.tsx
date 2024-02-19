@@ -5,7 +5,7 @@ interface ButtonProps {
 }
 
 export const ModalButtonStyle = styled.button<ButtonProps>`
-  width: 110px;
+  width: 130px;
   height: 45px;
   border: none;
   border-radius: 5px;
