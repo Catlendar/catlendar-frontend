@@ -14,15 +14,15 @@ export const StyleCalendar = styled(Calendar)`
     border: none;
   }
   .react-calendar__navigation {
-    background: ${({ theme }) => theme.color.white};
-    border-bottom: 4px solid ${({ theme }) => theme.color.white};
+    background: var(--color-white);
+    border-bottom: 4px solid var(--color-white);
     height: 40px;
     border-radius: 10x 10x 0 0;
     margin: 20px;
     span {
       font-size: 15px;
       font-weight: 600;
-      color: ${({ theme }) => theme.color.black};
+      color: var(--color-black);
     }
   }
 
@@ -35,14 +35,14 @@ export const StyleCalendar = styled(Calendar)`
   }
 
   .react-calendar__navigation button:disabled {
-    background-color: ${({ theme }) => theme.color.white};
+    background-color: var(--color-white);
     border-radius: 20px 20px 0 0;
   }
 
   // 월, 이동 버튼
   .react-calendar__navigation button:enabled:hover,
   .react-calendar__navigation button:enabled:focus {
-    background-color: ${({ theme }) => theme.color.white};
+    background-color: var(--color-white);
     border-radius: 10x 10x 0 0;
   }
 
@@ -52,7 +52,7 @@ export const StyleCalendar = styled(Calendar)`
     abbr {
       font-size: 12px;
       font-weight: 500;
-      color: ${({ theme }) => theme.color.gray};
+      color: var(--color-gray);
       text-decoration: none;
     }
   }
@@ -72,20 +72,20 @@ export const StyleCalendar = styled(Calendar)`
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus,
   .react-calendar__tile--active {
-    background: ${({ theme }) => theme.color.lightSubPrimary};
-    color: ${({ theme }) => theme.color.subPrimary};
+    background: var(--color-lightSubPrimary);
+    color: var(--color-subPrimary);
   }
 
   // 오늘 날짜 hover, focus, 선택
   .react-calendar__tile--now:enabled:hover,
   .react-calendar__tile--now:enabled:focus {
-    background: ${({ theme }) => theme.color.lightPrimary};
-    color: ${({ theme }) => theme.color.primary};
+    background: var(--color-lightPrimary);
+    color: var(--color-primary);
   }
 
   // 오늘 날짜
   .react-calendar__tile--now {
-    background: ${({ theme }) => theme.color.primary};
-    color: ${({ theme }) => theme.color.white};
+    background: var(--color-primary);
+    color: var(--color-white);
   }
 `;

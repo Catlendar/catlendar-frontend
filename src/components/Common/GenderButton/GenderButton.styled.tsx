@@ -5,6 +5,7 @@ export const SelectWrapper = styled.div`
   justify-content: space-around;
   margin: 0 auto;
   width: 100%;
+  padding-top: 20px;
 `;
 export const Label = styled.label``;
 
