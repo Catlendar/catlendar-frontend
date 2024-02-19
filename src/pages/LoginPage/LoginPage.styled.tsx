@@ -14,5 +14,6 @@ export const LoginTitle = styled.p`
 `;
 
 export const ButtonWrapper = styled.div`
-  padding-top: 36.8rem;
+  padding-top: 30rem;
+  /* bottom: 0; */
 `;

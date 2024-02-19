@@ -8,7 +8,6 @@ export default function SettingPage() {
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
 
-  // 버튼 정보를 배열로 정의
   const buttonActions = [
     { text: '내 정보 수정', path: '/profile/edit' },
     { text: '비밀번호 변경', path: '/profile/editPassword' },
@@ -16,8 +15,10 @@ export default function SettingPage() {
 
   // 로그아웃
   const handleLogout = () => {
-    console.log('Logging out...');
-    // navigate('/login');
+    localStorage.removeItem('recoil-persist');
+    localStorage.removeItem('token');
+    alert('로그아웃 되었다냥');
+    navigate('/');
   };
 
   // 회원 탈퇴
