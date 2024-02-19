@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HomeButtonLayout, HomeButtonStyle } from './HomeButton.styled';
+import { HomeButtonWrapper, HomeButtonItem } from './HomeButton.styled';
 
 /*
 사용방법
@@ -15,9 +15,9 @@ export default function HomeButton() {
 
   return (
     <div>
-      <HomeButtonLayout>
-        <HomeButtonStyle onClick={handleClick}>홈으로</HomeButtonStyle>
-      </HomeButtonLayout>
+      <HomeButtonWrapper>
+        <HomeButtonItem onClick={handleClick}>홈으로</HomeButtonItem>
+      </HomeButtonWrapper>
     </div>
   );
 }

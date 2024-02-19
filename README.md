@@ -25,9 +25,8 @@
 
   - FrontEnd
   언어: HTML, CSS, TypeScript
-  프레임워크: React.js
-  라이브러리: Styled-component
-  상태관리: React-Query, Recoil
+  라이브러리: React.js, Styled-component, Tanstack-Query(React-Query)
+  상태관리: Recoil
   IDE: VScode
 ```
 
