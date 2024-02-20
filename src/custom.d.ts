@@ -6,6 +6,6 @@ declare module '*.svg' {
   export default src;
 }
 declare module '*.jpg';
-declare module '*.png';
 declare module '*.jpeg';
+declare module '*.png';
 declare module '*.gif';

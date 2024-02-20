@@ -15,7 +15,7 @@ import UserInfoPage from './SignupPage/UserInfoPage';
 import Header from '../components/Common/Header/Header';
 import NavBar from '../components/Common/NavBar/NavBar';
 import ApiPage from './ApiPage';
-import ProfileInfoPage from './ProfilePage/ProfileInfoPage';
+import ProfilePage from './ProfilePage/ProfilePage';
 
 export default function Router() {
   return (
@@ -63,15 +63,7 @@ export default function Router() {
           }
         />
 
-        <Route
-          path="/profileInfo"
-          element={
-            <>
-              <Header title="" />
-              <ProfileInfoPage />
-            </>
-          }
-        />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route
           path="/profile/edit"
           element={
