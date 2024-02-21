@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SelectWrapper, HiddenRadio, Label, Img } from './GenderButton.styled';
 import { InputName } from '../TextInput/TextInput.styled';
 import checkImg from '../../../assets/icons/check.png';

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Select } from './TextInput.styled';
 // import SelectInput from './SelectInput';
 
 export interface Option {
-  value: string | number;
+  value: string;
   name: string;
 }
 
@@ -19,7 +19,7 @@ export const BirthOption: Option[] = [
 ];
 
 export const BirthTimeOption: Option[] = [
-  { value: '10', name: '子(자) 23:30 ~ 01:29' },
+  { value: '자', name: '子(자) 23:30 ~ 01:29' },
   { value: '축', name: '丑(축) 01:30 ~ 03:29' },
   { value: '인', name: '寅(인) 03:30 ~ 05:29' },
   { value: '묘', name: '卯(묘) 05:30 ~ 07:29' },
@@ -34,11 +34,16 @@ export const BirthTimeOption: Option[] = [
 ];
 
 export default function SelectInput({ options, width, onChange }: SelectBoxProps) {
+  // 타입 단언 선언
+  const [selectedOption, setSelectedOption] = useState((options[0] as Option).value);
   const handleSelectChange = (event) => {
-    console.log(event.target.value);
-    const selectedOption = event.target.value;
-    onChange(selectedOption);
+    // const selectedOption = event.target.value;
+    setSelectedOption(event.target.value);
+    onChange(event.target.value);
   };
+  useEffect(() => {
+    onChange(selectedOption);
+  });
 
   return (
     <Select width={width} onChange={handleSelectChange}>

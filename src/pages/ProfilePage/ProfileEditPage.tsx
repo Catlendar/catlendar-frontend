@@ -77,6 +77,7 @@ export default function ProfileEditPage() {
     },
     onError: (error) => {
       console.error('onError', error);
+      console.log(name, gender, birthTime, calendarType);
       navigate('/error');
     },
   });
@@ -91,6 +92,8 @@ export default function ProfileEditPage() {
       email: userAtom.email,
     });
   };
+
+  const isFormValid = name && birthTime && calendarType && gender;
 
   return (
     <LoginWrapper>
@@ -114,7 +117,12 @@ export default function ProfileEditPage() {
       />
       <GenderButton name="성별" onChange={(value: string) => setGender(value)} />
       <EditPwBtn>
-        <Button type="enable" text="수정" to="" onClick={handleUpdateUser} />
+        <Button
+          type={isFormValid ? 'enable' : 'disable'}
+          text="수정"
+          to=""
+          onClick={handleUpdateUser}
+        />
       </EditPwBtn>
     </LoginWrapper>
   );
