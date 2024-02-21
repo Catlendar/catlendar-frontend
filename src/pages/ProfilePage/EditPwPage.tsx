@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRecoilState } from 'recoil';
-import { LoginWrapper, ButtonWrapper } from '../LoginPage/LoginPage.styled';
+import { LoginWrapper } from '../LoginPage/LoginPage.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
+import { EditPwBtn } from './ProfilePage.styled';
 
 export default function EditPwPage() {
   const [password, setPassword] = useState<string>('');
@@ -18,12 +18,21 @@ export default function EditPwPage() {
   const [newPwdError, setNewPwdError] = useState<string>('');
   const [userAtom, setUserAtom] = useRecoilState(UserAtom);
   const navigate = useNavigate();
-  const { email } = userAtom;
+  const { userId } = userAtom;
+  const passwordPattern = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]{8,16}$/;
+
+  const isFormValid =
+    password && newPassword && confirmPassword && passwordPattern.test(newPassword);
 
   const handleChangePwd = async () => {
+    if (newPassword !== confirmPassword) {
+      setConfirmError('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+      return;
+    }
+
     try {
       const response = await tokenInstance.post('user/updatePassword', {
-        email,
+        userId,
         password,
         newPassword,
       });
@@ -56,7 +65,7 @@ export default function EditPwPage() {
 
       <TextInput
         name="새 비밀번호"
-        placeholder="영문, 숫자포함 10자 이내"
+        placeholder="8~16자의 영문, 숫자를 사용해 주세요."
         inputType="password"
         onChange={(value: string) => setNewPassword(value)}
       />
@@ -66,14 +75,21 @@ export default function EditPwPage() {
         name="새 비밀번호 확인"
         placeholder="새 비밀번호 확인"
         inputType="password"
-        onChange={(value: string) => setConfirmPassword(value)}
+        onChange={(value: string) => {
+          setConfirmPassword(value);
+          setConfirmError(''); // Clear confirm error message when input changes
+        }}
       />
       <ErrorMessage message={confirmError} clearMessage={() => setConfirmError('')} />
 
-      <ButtonWrapper>
-        <Button type="enable" text="변경하기" to="" onClick={handleChangePwd} />
-        {/* <Button type="disable" text="변경하기" to="/" onClick={() => {}} /> */}
-      </ButtonWrapper>
+      <EditPwBtn>
+        <Button
+          type={isFormValid ? 'enable' : 'disable'}
+          text="변경하기"
+          to=""
+          onClick={handleChangePwd}
+        />
+      </EditPwBtn>
     </LoginWrapper>
   );
 }

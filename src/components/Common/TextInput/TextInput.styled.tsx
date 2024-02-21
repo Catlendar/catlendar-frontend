@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface InputProps {
   form?: boolean;
-  width?: number;
+  width?: string | number;
 }
 
 const commonInputStyle = css<InputProps>`

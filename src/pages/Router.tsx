@@ -63,7 +63,15 @@ export default function Router() {
           }
         />
 
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <ProfilePage />
+              <NavBar />
+            </>
+          }
+        />
         <Route
           path="/profile/edit"
           element={
