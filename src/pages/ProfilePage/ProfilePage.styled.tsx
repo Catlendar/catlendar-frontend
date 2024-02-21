@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ButtonWrapper } from '../LoginPage/LoginPage.styled';
 
 export const ProfileWrapper = styled.div`
   padding: 0 26px;
@@ -27,4 +28,8 @@ export const ProfileMain = styled.p`
   font-size: var(--h3-font-size);
   padding-top: 47px;
   line-height: 30px;
+`;
+
+export const EditPwBtn = styled(ButtonWrapper)`
+  padding-top: 200px;
 `;

@@ -22,7 +22,13 @@ function TextInput({ inputType, name, placeholder, form, onChange }: TextInputPr
     <div>
       <InputWrapper>
         <InputName>{name}</InputName>
-        <Input type={inputType} placeholder={placeholder} form={form} onChange={handleChange} />
+        <Input
+          type={inputType}
+          placeholder={placeholder}
+          form={form}
+          onChange={handleChange}
+          required
+        />
       </InputWrapper>
     </div>
   );
