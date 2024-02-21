@@ -7,10 +7,8 @@ import TextInput from '../../components/Common/TextInput/TextInput';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import Button from '../../components/Common/Button/Button';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
-import SelectInput, {
-  BirthOption,
-  BirthTimeOption,
-} from '../../components/Common/TextInput/SelectInput';
+import SelectInput from '../../components/Common/TextInput/SelectInput';
+import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
 import { InputName } from '../../components/Common/TextInput/TextInput.styled';
 import { EditPwBtn } from './ProfilePage.styled';
 import { tokenInstance } from '../../api/Axios';
