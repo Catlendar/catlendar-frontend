@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
 import { ProfileName, ProfileTitle, ProfileWrapper, Img, ProfileMain } from './ProfilePage.styled';
 import settingIcon from '../../assets/images/setting.png';
+import { ChartComponent } from '../../components/Chart/ChartComponent';
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export default function ProfilePage() {
       <ProfileMain>
         {user.name}님, <br />
         오늘 하루는 어떠셨나요?
+        <ChartComponent />
       </ProfileMain>
     </ProfileWrapper>
   );
