@@ -14,15 +14,43 @@ export default function ApiPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await tokenInstance.post('calendar/getToday', { userId: userAtom.userId });
-        console.log(response);
+        const response = await fetch(
+          `https://m.search.naver.com/p/csearch/dcontent/external_api/json_todayunse_v3.naver?_callback=window.__jindo2_callback._fortune_my_0&gender=${userAtom.gender}&birth=${userAtom.birthDate}&solarCal=${userAtom.calendarType}&time=${userAtom.birthTime}`,
+          {
+            method: 'GET',
+          },
+        );
+        if (!response.ok) {
+          navigate('/error');
+        }
+        const data = await response.text();
+        // json으로 포맷변경
+        const fortune = JSON.parse(`${data.substring(data.indexOf('['), data.indexOf(']'))}]`);
+        console.log(fortune);
+        console.log(fortune[0].name);
       } catch (error) {
-        console.error('데이터를 불러오는 중 오류 발생:', error);
+        navigate('/error');
       }
     };
-
     fetchData();
-  }, [userAtom.userId]);
+  }, [userAtom.birthDate, userAtom.birthTime, userAtom.calendarType, userAtom.gender, navigate]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await tokenInstance.post('calendar/getToday', { userId: userAtom.userId });
+  //       if (response.status === 200) {
+  //         console.log(response);
+  //       } else {
+  //         navigate('/error');
+  //       }
+  //     } catch (error) {
+  //       navigate('/error');
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [userAtom.userId, navigate]);
 
   // 이건 onClick같은 함수에 적용 시킬 때 쓰세요!
   const getTodo = async () => {

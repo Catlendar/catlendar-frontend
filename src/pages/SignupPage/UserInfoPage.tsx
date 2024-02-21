@@ -4,6 +4,7 @@ import { UserInfoWrapper, UserInfoTitle, ButtonWrapper } from './UserInfo.styled
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
+import DatePickerComponent from '../../components/DatePicker/DatePicker';
 
 export default function UserInfoPage() {
   const [email, setEmail] = useState<string>('');
@@ -14,6 +15,20 @@ export default function UserInfoPage() {
   const [calendarType, setCalendarType] = useState<string>('');
   const [gender, setGender] = useState<string>('');
   const navigate = useNavigate();
+
+  const [selectedDate, setSelectedDate] = useState<string>('');
+
+  // DatePickerComponent에서 사용할 콜백 함수
+  // 데이터 가공하여 2011. 02. 16. => 20110216 변경
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date);
+  };
+  // selectedDate가 변경될때마다 setBirthDate
+  useEffect(() => {
+    if (selectedDate) {
+      setBirthDate(selectedDate.replace(/[. ]/g, ''));
+    }
+  }, [selectedDate]);
 
   const validateInputs = () => {
     return (
@@ -57,7 +72,6 @@ export default function UserInfoPage() {
       navigate('/error');
     }
   };
-
   return (
     <div>
       <UserInfoWrapper>
@@ -72,12 +86,7 @@ export default function UserInfoPage() {
           inputType="text"
           onChange={(value: string) => setName(value)}
         />
-        <TextInput
-          name="생년월일"
-          placeholder="생년월일"
-          inputType="text"
-          onChange={(value: string) => setBirthDate(value)}
-        />
+        <DatePickerComponent onDateSelect={handleDateSelect} />
         <TextInput
           name="양력"
           placeholder="양력"
