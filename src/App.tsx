@@ -1,6 +1,7 @@
 import './App.css';
-import { RecoilRoot } from 'recoil';
+import React from 'react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { RecoilRoot } from 'recoil';
 import Router from './pages/Router';
 import GlobalStyle from './styles/GlobalStyle';
 
