@@ -13,14 +13,12 @@ interface ModalProps {
 export default function WithdrawModal({ onClose }: ModalProps) {
   const userAtom = useRecoilValue(UserAtom);
   const navigate = useNavigate();
-  const { email } = userAtom;
-
-  console.log(email);
+  const { userId } = userAtom;
 
   const handleWithdrawClick = async () => {
     try {
       const response = await tokenInstance.post('user/deleteUser', {
-        email,
+        userId,
       });
       if (response.status === 200) {
         if (response.data === false) {
