@@ -24,7 +24,6 @@ const commonInputStyle = css<InputProps>`
     css`
       width: 80%;
       font-size: var(--small-font-size);
-      margin: 15px 0;
     `}
 
   &:focus {
@@ -40,6 +39,8 @@ export const Input = styled.input<InputProps>`
 export const Select = styled.select<InputProps>`
   ${commonInputStyle}
   width: ${(props) => (props.width ? `${props.width}px` : '100%')};
+  font-size: var(--large-font-size);
+  margin-bottom: 37px;
 `;
 
 export const InputName = styled.p`
