@@ -18,3 +18,11 @@ export const ButtonWrapper = styled.div`
   padding-top: 2.6rem;
   width: 33.9rem;
 `;
+
+export const BirthWrapper = styled.div`
+  display: flex;
+`;
+
+export const SolarWrapper = styled.div`
+  margin-top: 3.7rem;
+`;

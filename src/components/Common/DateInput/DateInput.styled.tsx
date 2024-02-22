@@ -15,6 +15,7 @@ const commonInputStyle = css<InputProps>`
   background: none;
   color: var(--color-black);
   padding-bottom: 10px;
+  margin-right: 18px;
   margin-top: 10px;
   font-size: var(--large-font-size);
 
@@ -27,7 +28,6 @@ const commonInputStyle = css<InputProps>`
     css`
       width: 80%;
       font-size: var(--small-font-size);
-      margin: 15px 0;
     `}
 
   &:focus {
