@@ -4,6 +4,9 @@ import { ButtonWrapper } from '../LoginPage/LoginPage.styled';
 export const ProfileWrapper = styled.div`
   padding: 0 26px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export const ProfileTitle = styled.div`

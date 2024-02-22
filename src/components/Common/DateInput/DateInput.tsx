@@ -12,19 +12,17 @@ interface DateInputProps {
 
 function DateInput({ inputType, value, name, placeholder, form, onClick }: DateInputProps) {
   return (
-    <div>
-      <InputWrapper>
-        <InputName>{name}</InputName>
-        <Input
-          type={inputType}
-          placeholder={placeholder}
-          form={form}
-          value={value}
-          onClick={onClick}
-          readOnly
-        />
-      </InputWrapper>
-    </div>
+    <InputWrapper>
+      <InputName>{name}</InputName>
+      <Input
+        type={inputType}
+        placeholder={placeholder}
+        form={form}
+        value={value}
+        onClick={onClick}
+        readOnly
+      />
+    </InputWrapper>
   );
 }
 

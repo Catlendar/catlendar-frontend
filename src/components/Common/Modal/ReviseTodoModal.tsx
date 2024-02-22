@@ -37,7 +37,7 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
         inputType="text"
         name=""
         placeholder={todo.content}
-        form={false}
+        // form={false}
         onChange={handleInputChange}
       />
       <div className="button-wrapper">

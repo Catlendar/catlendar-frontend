@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Select } from './TextInput.styled';
+import { Input, InputName, InputWrapper, Select } from './TextInput.styled';
 import { Option, SelectBoxProps } from './SelectTypes';
 
-export default function SelectInput({ options, width, onChange }: SelectBoxProps) {
+export default function SelectInput({ options, name, width, onChange }: SelectBoxProps) {
   // 타입 단언 선언
   const [selectedOption, setSelectedOption] = useState((options[0] as Option).value);
   const handleSelectChange = (event) => {
@@ -15,12 +15,15 @@ export default function SelectInput({ options, width, onChange }: SelectBoxProps
   });
 
   return (
-    <Select width={width} onChange={handleSelectChange}>
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.name}
-        </option>
-      ))}
-    </Select>
+    <InputWrapper>
+      <InputName>{name}</InputName>
+      <Select width={width} onChange={handleSelectChange}>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.name}
+          </option>
+        ))}
+      </Select>
+    </InputWrapper>
   );
 }

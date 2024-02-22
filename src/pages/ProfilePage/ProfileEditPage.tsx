@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
@@ -10,9 +10,10 @@ import GenderButton from '../../components/Common/GenderButton/GenderButton';
 import SelectInput from '../../components/Common/TextInput/SelectInput';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
 import { InputName } from '../../components/Common/TextInput/TextInput.styled';
-import { EditPwBtn } from './ProfilePage.styled';
+import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
+import DatePickerComponent from '../../components/DatePicker/DatePicker';
 
 interface UserData {
   name: string;
@@ -25,13 +26,26 @@ interface UserData {
 
 export default function ProfileEditPage() {
   const [name, setName] = useState('');
+  const [birthDate, setBirthDate] = useState('');
   const [birthTime, setBirthTime] = useState('');
   const [gender, setGender] = useState('');
   const [calendarType, setCalendarType] = useState('');
   const [userAtom, setUserAtom] = useRecoilState(UserAtom);
+  const [selectedDate, setSelectedDate] = useState<string>('');
+
+  const navigate = useNavigate();
+
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date);
+  };
+  // selectedDate가 변경될때마다 setBirthDate
+  useEffect(() => {
+    if (selectedDate) {
+      setBirthDate(selectedDate.replace(/[. ]/g, ''));
+    }
+  }, [selectedDate]);
 
   // const { email, birthDate } = userAtom;
-  const navigate = useNavigate();
 
   // console.log(userAtom);
 
@@ -94,21 +108,24 @@ export default function ProfileEditPage() {
   const isFormValid = name && birthTime && calendarType && gender;
 
   return (
-    <LoginWrapper>
+    <ProfileWrapper>
       <TextInput
         name="이름"
         placeholder=""
         inputType="text"
         onChange={(value: string) => setName(value)}
       />
-      <InputName>생년월일</InputName>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <DatePickerComponent onDateSelect={handleDateSelect} />
+        <SelectInput
+          name="양력"
+          options={BirthOption}
+          width={100}
+          onChange={(value: string) => setCalendarType(value)}
+        />
+      </div>
       <SelectInput
-        options={BirthOption}
-        width={100}
-        onChange={(value: string) => setCalendarType(value)}
-      />
-      <InputName>태어난 시간</InputName>
-      <SelectInput
+        name="태어난 시간"
         options={BirthTimeOption}
         width={340}
         onChange={(value: string) => setBirthTime(value)}
@@ -122,6 +139,6 @@ export default function ProfileEditPage() {
           onClick={handleUpdateUser}
         />
       </EditPwBtn>
-    </LoginWrapper>
+    </ProfileWrapper>
   );
 }
