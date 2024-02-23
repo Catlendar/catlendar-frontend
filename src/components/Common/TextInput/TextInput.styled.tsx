@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 interface InputProps {
   form?: boolean;
   width?: string | number;
+  marginTop?: number;
 }
 
 const commonInputStyle = css<InputProps>`
@@ -34,6 +35,7 @@ const commonInputStyle = css<InputProps>`
 
 export const Input = styled.input<InputProps>`
   ${commonInputStyle}
+  width: 330px;
 `;
 
 export const Select = styled.select<InputProps>`
@@ -46,7 +48,7 @@ export const Select = styled.select<InputProps>`
 export const InputName = styled.p`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  margin-bottom: 9px;
+  margin-bottom: 1rem;
 `;
 
 export const InputWrapper = styled.div`

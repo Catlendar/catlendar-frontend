@@ -18,7 +18,7 @@ export default function EditPwPage() {
   const [newPwdError, setNewPwdError] = useState<string>('');
   const [userAtom, setUserAtom] = useRecoilState(UserAtom);
   const navigate = useNavigate();
-  const { userId } = userAtom;
+  const { userId, email } = userAtom;
   const passwordPattern = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]{8,16}$/;
 
   const isFormValid =
@@ -32,7 +32,7 @@ export default function EditPwPage() {
 
     try {
       const response = await tokenInstance.post('user/updatePassword', {
-        userId,
+        email,
         password,
         newPassword,
       });

@@ -5,6 +5,7 @@ export interface Option {
 
 export interface SelectBoxProps {
   width: number | string;
+  name: string;
   options: Option[];
   onChange: (value: string) => void;
 }

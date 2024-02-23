@@ -4,6 +4,9 @@ interface InputProps {
   form?: boolean;
   width?: number;
 }
+interface InputWrapperProps {
+  margin?: number;
+}
 
 const commonInputStyle = css<InputProps>`
   width: 221px;
@@ -48,8 +51,7 @@ export const InputName = styled.p`
   margin-bottom: 9px;
 `;
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.div<InputWrapperProps>`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  margin-top: 3.7rem;
 `;

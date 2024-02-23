@@ -19,18 +19,16 @@ function TextInput({ inputType, name, placeholder, form, onChange }: TextInputPr
   };
 
   return (
-    <div>
-      <InputWrapper>
-        <InputName>{name}</InputName>
-        <Input
-          type={inputType}
-          placeholder={placeholder}
-          form={form}
-          onChange={handleChange}
-          required
-        />
-      </InputWrapper>
-    </div>
+    <InputWrapper>
+      <InputName>{name}</InputName>
+      <Input
+        type={inputType}
+        placeholder={placeholder}
+        form={form}
+        onChange={handleChange}
+        required
+      />
+    </InputWrapper>
   );
 }
 

@@ -2,12 +2,13 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-mobile-datepicker';
 import DateInput from '../Common/DateInput/DateInput';
+import { DateWrapper } from './DatePicker.styled';
 
 interface DatePickerProps {
   onDateSelect: (date: string) => void;
 }
 
-const DatePickerComponent: React.FC<DatePickerProps> = ({ onDateSelect }) => {
+const DatePickerComponent = ({ onDateSelect }: DatePickerProps) => {
   const [time, setTime] = useState<Date>(new Date());
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedDate, setSelectedDate] = useState<string>('');
@@ -36,7 +37,7 @@ const DatePickerComponent: React.FC<DatePickerProps> = ({ onDateSelect }) => {
   };
 
   return (
-    <div>
+    <DateWrapper>
       <DateInput
         inputType="생년월일"
         name="생년월일"
@@ -54,7 +55,7 @@ const DatePickerComponent: React.FC<DatePickerProps> = ({ onDateSelect }) => {
         confirmText="확인"
         cancelText="취소"
       />
-    </div>
+    </DateWrapper>
   );
 };
 
