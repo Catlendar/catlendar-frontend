@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
     font-family: 'omyu_pretty';
+	background-color: #bdbdbd;
 	} 
 
 	input::placeholder, button {
