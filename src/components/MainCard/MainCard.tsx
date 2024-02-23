@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { UserAtom } from '../../atom/UserAtom';
+import { FortuneTitleAtom } from '../../atom/FortuneTitleAtom';
 import { MainCardWrapper, ContentBox, CardContent, StyledLink, TextBox } from './MainCard.styled';
 import mainCat from '../../assets/images/image-main-cat.png';
 import arrowRight from '../../assets/icons/icon-arrow-right.svg';
@@ -15,6 +16,7 @@ export default function MainCard() {
   const formattedDate = `${month}월 ${date}일 ${dayOfWeek}요일`;
 
   const userAtom = useRecoilValue(UserAtom);
+  const fortuneTitle = useRecoilValue(FortuneTitleAtom);
 
   return (
     <MainCardWrapper>
@@ -24,7 +26,7 @@ export default function MainCard() {
           <TextBox>
             <p>{userAtom.name}님</p>
             <h3>오늘 하루는</h3>
-            <h3>일취월장이네요!</h3>
+            <h3>{fortuneTitle}이네요!</h3>
           </TextBox>
           <img src={mainCat} alt="메인 고양이 이미지" />
         </ContentBox>
