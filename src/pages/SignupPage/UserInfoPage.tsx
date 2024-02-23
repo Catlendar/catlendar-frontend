@@ -101,6 +101,7 @@ export default function UserInfoPage() {
           <SolarWrapper>
             <InputName>양력</InputName>
             <SelectInput
+              name=""
               options={BirthOption}
               width={100}
               onChange={(value: string) => setCalendarType(value)}
@@ -109,6 +110,7 @@ export default function UserInfoPage() {
         </BirthWrapper>
         <InputName>태어난 시간</InputName>
         <SelectInput
+          name=""
           options={BirthTimeOption}
           width={340}
           onChange={(value: string) => setBirthTime(value)}
