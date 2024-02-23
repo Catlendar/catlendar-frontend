@@ -77,7 +77,7 @@ export default function EditPwPage() {
         inputType="password"
         onChange={(value: string) => {
           setConfirmPassword(value);
-          setConfirmError(''); // Clear confirm error message when input changes
+          setConfirmError('');
         }}
       />
       <ErrorMessage message={confirmError} clearMessage={() => setConfirmError('')} />
