@@ -11,8 +11,6 @@ export const TodoModalBackground = styled.div`
 `;
 
 export const TodoModalWrapper = styled.div`
-  border: 1px solid red;
-
   /* width: 312px 빼면 모달이 늘어남, 모르겠어서 312px 줬음 */
   width: 312px;
   box-sizing: border-box;
@@ -25,7 +23,7 @@ export const TodoModalWrapper = styled.div`
   border-radius: 16px;
 
   /* 모달 위치 */
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

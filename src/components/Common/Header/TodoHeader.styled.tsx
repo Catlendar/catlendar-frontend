@@ -5,7 +5,7 @@ export const TodoHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 3.2rem 0;
-  margin-top: -2rem;
+  /* margin-top: -2rem; */
   background-color: var(--bg-color-gray);
   border-radius: 2rem 2rem 0 0;
 `;

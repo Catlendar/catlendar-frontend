@@ -1,6 +1,7 @@
 interface TabMenuType {
   id: number;
   tabName: string;
+  tabValue: string;
 }
 
 export interface TabMenuTypeTodo extends TabMenuType {
