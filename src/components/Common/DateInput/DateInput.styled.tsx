@@ -2,17 +2,20 @@ import styled, { css } from 'styled-components';
 
 interface InputProps {
   form?: boolean;
-  width?: string | number;
-  marginTop?: number;
+  width?: number;
+}
+interface InputWrapperProps {
+  margin?: number;
 }
 
 const commonInputStyle = css<InputProps>`
-  width: 100%;
+  width: 221px;
   border: none;
   border-bottom: 1px solid var(--input-bb);
   background: none;
   color: var(--color-black);
   padding-bottom: 10px;
+  margin-right: 18px;
   margin-top: 10px;
   font-size: var(--large-font-size);
 
@@ -35,24 +38,20 @@ const commonInputStyle = css<InputProps>`
 
 export const Input = styled.input<InputProps>`
   ${commonInputStyle}
-  width: 330px;
 `;
 
 export const Select = styled.select<InputProps>`
   ${commonInputStyle}
   width: ${(props) => (props.width ? `${props.width}px` : '100%')};
-  font-size: var(--large-font-size);
-  margin-bottom: 37px;
 `;
 
 export const InputName = styled.p`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  margin-bottom: 1rem;
+  margin-bottom: 9px;
 `;
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.div<InputWrapperProps>`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  margin-top: 3.7rem;
 `;

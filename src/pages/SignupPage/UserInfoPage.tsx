@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserInfoWrapper, UserInfoTitle, ButtonWrapper } from './UserInfo.styled';
+import {
+  UserInfoWrapper,
+  UserInfoTitle,
+  ButtonWrapper,
+  BirthWrapper,
+  SolarWrapper,
+} from './UserInfo.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
+import DatePickerComponent from '../../components/DatePicker/DatePicker';
+import SelectInput from '../../components/Common/TextInput/SelectInput';
+import { InputName } from '../../components/Common/TextInput/TextInput.styled';
+import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
+import GenderButton from '../../components/Common/GenderButton/GenderButton';
 
 export default function UserInfoPage() {
   const [email, setEmail] = useState<string>('');
@@ -14,6 +25,20 @@ export default function UserInfoPage() {
   const [calendarType, setCalendarType] = useState<string>('');
   const [gender, setGender] = useState<string>('');
   const navigate = useNavigate();
+
+  const [selectedDate, setSelectedDate] = useState<string>('');
+
+  // DatePickerComponent에서 사용할 콜백 함수
+  // 데이터 가공하여 2011. 02. 16. => 20110216 변경
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date);
+  };
+  // selectedDate가 변경될때마다 setBirthDate
+  useEffect(() => {
+    if (selectedDate) {
+      setBirthDate(selectedDate.replace(/[. ]/g, ''));
+    }
+  }, [selectedDate]);
 
   const validateInputs = () => {
     return (
@@ -57,7 +82,6 @@ export default function UserInfoPage() {
       navigate('/error');
     }
   };
-
   return (
     <div>
       <UserInfoWrapper>
@@ -72,30 +96,24 @@ export default function UserInfoPage() {
           inputType="text"
           onChange={(value: string) => setName(value)}
         />
-        <TextInput
-          name="생년월일"
-          placeholder="생년월일"
-          inputType="text"
-          onChange={(value: string) => setBirthDate(value)}
-        />
-        <TextInput
-          name="양력"
-          placeholder="양력"
-          inputType="text"
-          onChange={(value: string) => setCalendarType(value)}
-        />
-        <TextInput
-          name="태어난시간"
-          placeholder="모름"
-          inputType="text"
+        <BirthWrapper>
+          <DatePickerComponent onDateSelect={handleDateSelect} />
+          <SolarWrapper>
+            <InputName>양력</InputName>
+            <SelectInput
+              options={BirthOption}
+              width={100}
+              onChange={(value: string) => setCalendarType(value)}
+            />
+          </SolarWrapper>
+        </BirthWrapper>
+        <InputName>태어난 시간</InputName>
+        <SelectInput
+          options={BirthTimeOption}
+          width={340}
           onChange={(value: string) => setBirthTime(value)}
         />
-        <TextInput
-          name="성별"
-          placeholder="남성"
-          inputType="text"
-          onChange={(value: string) => setGender(value)}
-        />
+        <GenderButton name="성별" onChange={(value: string) => setGender(value)} />
         <ButtonWrapper>
           {validateInputs() ? (
             <Button type="enable" text="다음" to="" onClick={signUp} />

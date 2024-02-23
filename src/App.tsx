@@ -1,15 +1,20 @@
 import './App.css';
+import React from 'react';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
 import Router from './pages/Router';
 import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
+  const queryClient = new QueryClient();
   return (
     <div>
       <GlobalStyle />
-      <RecoilRoot>
-        <Router />
-      </RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <RecoilRoot>
+          <Router />
+        </RecoilRoot>
+      </QueryClientProvider>
       <div className="App"> </div>
     </div>
   );

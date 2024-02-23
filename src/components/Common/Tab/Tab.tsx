@@ -7,7 +7,7 @@ import { TabBox, TabButton, TabWrapper } from './Tab.styled';
 import TabCloseButton from './TabCloseButton';
 import { GetTabStyle, TabProps, TabMenuTypeTodo, TabMenuTypeFortune } from './TabTypes';
 
-export default function Tab({ tabData }: TabProps) {
+export default function Tab({ tabData, onTabClick }: TabProps) {
   const [selectedTab, setSelectedTab] = useState<number | undefined>(tabData[0]?.id);
   const [selectTabTypeAtom, setSelectTabTypeAtom] = useRecoilState(SelectTabTypeAtom);
 
@@ -61,6 +61,7 @@ export default function Tab({ tabData }: TabProps) {
   const handleTabClick = (tab: TabMenuTypeTodo | TabMenuTypeFortune) => {
     setSelectedTab(tab.id);
     setSelectTabTypeAtom('today');
+    onTabClick?.(tab.id);
     console.log(tab);
     if (tab.__type === 'todo') {
       if (tab.tabName === '오늘') {

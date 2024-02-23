@@ -1,5 +1,9 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 import { ModalLayout } from './ModalLayout.styled';
+import { tokenInstance } from '../../../api/Axios';
+import { UserAtom } from '../../../atom/UserAtom';
 import ModalButton from '../Button/ModalButton';
 
 interface ModalProps {
@@ -7,10 +11,28 @@ interface ModalProps {
 }
 
 export default function WithdrawModal({ onClose }: ModalProps) {
-  const handleWithdrawClick = () => {
-    // 탈퇴하는 API 호출
-    console.log('탈퇴 완료!');
-    onClose();
+  const userAtom = useRecoilValue(UserAtom);
+  const navigate = useNavigate();
+  const { userId } = userAtom;
+
+  const handleWithdrawClick = async () => {
+    try {
+      const response = await tokenInstance.post('user/deleteUser', {
+        userId,
+      });
+      if (response.status === 200) {
+        if (response.data === false) {
+          alert('실패');
+        } else {
+          alert('성공');
+          navigate('/');
+        }
+      } else {
+        console.log('error');
+      }
+    } catch (error) {
+      console.log('catch error', error);
+    }
   };
 
   const handleCancelClick = () => {

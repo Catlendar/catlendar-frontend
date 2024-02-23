@@ -15,7 +15,7 @@ import UserInfoPage from './SignupPage/UserInfoPage';
 import Header from '../components/Common/Header/Header';
 import NavBar from '../components/Common/NavBar/NavBar';
 import ApiPage from './ApiPage';
-import ProfileInfoPage from './ProfilePage/ProfileInfoPage';
+import ProfilePage from './ProfilePage/ProfilePage';
 
 export default function Router() {
   return (
@@ -64,11 +64,11 @@ export default function Router() {
         />
 
         <Route
-          path="/profileInfo"
+          path="/profile"
           element={
             <>
-              <Header title="" />
-              <ProfileInfoPage />
+              <ProfilePage />
+              <NavBar />
             </>
           }
         />
@@ -109,24 +109,8 @@ export default function Router() {
             </>
           }
         />
-        <Route
-          path="/fortune"
-          element={
-            <>
-              <Header title="오늘의 운세" />
-              <FortunePage />
-            </>
-          }
-        />
-        <Route
-          path="/api"
-          element={
-            <>
-              <Header title="오늘의 운세" />
-              <ApiPage />
-            </>
-          }
-        />
+        <Route path="/fortune" element={<FortunePage />} />
+        <Route path="/api" element={<ApiPage />} />
 
         <Route path="/error" element={<ErrorPage />} />
       </Routes>

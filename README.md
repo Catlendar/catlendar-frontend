@@ -25,7 +25,7 @@
 
   - FrontEnd
   언어: HTML, CSS, TypeScript
-  라이브러리: React.js, Styled-component, Tanstack-Query(React-Query)
+  라이브러리: React.js, Styled-component, Tanstack-Query(React-Query),chart.js, react-calendar, react-router-dom, axios
   상태관리: Recoil
   IDE: VScode
 ```

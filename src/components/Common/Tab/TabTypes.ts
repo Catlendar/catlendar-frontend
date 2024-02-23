@@ -13,6 +13,7 @@ export interface TabMenuTypeFortune extends TabMenuType {
 
 export interface TabProps {
   tabData: (TabMenuTypeTodo | TabMenuTypeFortune)[];
+  onTabClick?: (tabId: number) => void;
 }
 
 // getTabStyle 함수 인터페이스
