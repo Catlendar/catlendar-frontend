@@ -109,24 +109,8 @@ export default function Router() {
             </>
           }
         />
-        <Route
-          path="/fortune"
-          element={
-            <>
-              <Header title="오늘의 운세" />
-              <FortunePage />
-            </>
-          }
-        />
-        <Route
-          path="/api"
-          element={
-            <>
-              <Header title="오늘의 운세" />
-              <ApiPage />
-            </>
-          }
-        />
+        <Route path="/fortune" element={<FortunePage />} />
+        <Route path="/api" element={<ApiPage />} />
 
         <Route path="/error" element={<ErrorPage />} />
       </Routes>

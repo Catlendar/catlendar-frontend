@@ -10,7 +10,7 @@ import { TabBox, TabButton, TabWrapper } from './Tab.styled';
 import TabCloseButton from './TabCloseButton';
 import { GetTabStyle, TabProps, TabMenuTypeTodo, TabMenuTypeFortune } from './TabTypes';
 
-export default function Tab({ tabData }: TabProps) {
+export default function Tab({ tabData, onTabClick }: TabProps) {
   const [selectedTab, setSelectedTab] = useState<number | undefined>(tabData[0]?.id);
   const userAtom = useRecoilValue(UserAtom);
   const setBookmarkListAtom = useSetRecoilState(BookmarkListAtom);
@@ -93,6 +93,7 @@ export default function Tab({ tabData }: TabProps) {
   // 흐름 : fortune => handleFortuneTabClick(운세 탭 이라면)
   const handleTabClick = (tab: TabMenuTypeTodo | TabMenuTypeFortune) => {
     setSelectedTab(tab.id);
+    onTabClick?.(tab.id);
     console.log(tab);
     if (tab.__type === 'todo') {
       if (tab.tabName === '오늘') {
