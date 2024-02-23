@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import '../../styles/Calendar.css';
 
 export const CalendarWrapper = styled.div`
   display: flex;
@@ -87,5 +88,9 @@ export const StyleCalendar = styled(Calendar)`
   .react-calendar__tile--now {
     background: var(--color-primary);
     color: var(--color-white);
+  }
+
+  .react-calendar__navigation__label {
+    pointer-events: none;
   }
 `;

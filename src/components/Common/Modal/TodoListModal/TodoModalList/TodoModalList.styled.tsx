@@ -1,6 +1,9 @@
 import { styled } from 'styled-components';
 
 export const TodoModalUl = styled.ul`
-  border: 1px solid blue;
   width: 100%;
+
+  li:not(:last-of-type) {
+    margin-bottom: 1.6rem;
+  }
 `;

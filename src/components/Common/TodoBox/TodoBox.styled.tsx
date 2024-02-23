@@ -19,5 +19,6 @@ export const TodoBoxWrapper = styled.div`
   }
 
   /* 잘 모르겠어서 임의로 했음, 나중에 반응형 작업할 때 수정해야 함 */
-  height: 67vh;
+  height: 100%;
+  /* overflow: auto; */
 `;

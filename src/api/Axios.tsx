@@ -17,6 +17,14 @@ export const tokenInstance = axios.create({
   },
 });
 
+tokenInstance.interceptors.request.use(function (config) {
+  // Do something before request is sent
+  let token = localStorage.getItem('token');
+  // eslint-disable-next-line dot-notation, no-param-reassign
+  config.headers['Authorization'] = `Bearer ${token}`;
+  return config;
+});
+
 /* 아래는 API 사용 예시 코드입니다!!!!!
 
 이건 페이지 들어가자마자 로드 되어야 할 데이터를 불러올 때 쓰시오

@@ -1,10 +1,95 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
+import moment from 'moment';
+import { useRecoilValue } from 'recoil';
 import ReactCalendar from '../../components/Calendar/ReactCalendar';
+import { UserAtom } from '../../atom/UserAtom';
+import { tokenInstance } from '../../api/Axios';
 
 export default function CalendarPage() {
+  interface TodoDataProps {
+    totalTodo: number;
+    completedTodo: number;
+  }
+
+  interface DataGroupProps {
+    [date: string]: any[];
+  }
+
+  const userAtom = useRecoilValue(UserAtom);
+  const [date, setDate] = useState(new Date());
+  const convertedDate = {
+    date: '',
+    month: '',
+  };
+  const [responseData, setResponseData] = useState([]);
+  const [dataGroup, setDataGroup] = useState<DataGroupProps>({});
+  const [todoObj, setTodoObj] = useState<Record<string, TodoDataProps>>({});
+
+  // date에서 월 단위 추출
+  const onConvertDate = (d: Date) => {
+    convertedDate.date = moment(d).format('YYYY-MM-DD');
+    convertedDate.month = moment(d).format('YYYY-MM');
+  };
+  onConvertDate(date);
+
+  // calendarDate를 기준으로 데이터를 그룹화
+  function groupDataByDate(data) {
+    const groupedData = {};
+    data.forEach((item) => {
+      const convertedItem = moment(item.calendarDate).subtract(1, 'day').format('YYYY-MM-DD');
+      if (!groupedData[convertedItem]) {
+        groupedData[convertedItem] = [];
+      }
+      groupedData[convertedItem].push(item);
+    });
+    return groupedData;
+  }
+
+  // 해당 월 일정 api 호출 : responseData
+  // 데이터를 calendarDate로 그룹화 : dataGroup
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await tokenInstance.post('calendar/getSpecificMonth', {
+          targetDate: convertedDate.month,
+          userId: userAtom.userId,
+        });
+        // setResponseData(response.data);
+        const groupedData = groupDataByDate(response.data);
+        // const groupedData = groupDataByDate(responseData);
+        setDataGroup(groupedData);
+        console.log('111', groupedData);
+        // console.log('res', responseData);
+        console.log('group', dataGroup);
+      } catch (error) {
+        console.error('데이터를 불러오는 중 오류 발생:', error);
+      }
+    };
+    fetchData();
+  }, [userAtom.userId, convertedDate.month]);
+
+  // dataGroup -> 일자 별 일정, 완료 갯수 계산
+  useEffect(() => {
+    const calculateTodoNum = () => {
+      const todoNum = {};
+      Object.keys(dataGroup).forEach((day) => {
+        const todo = dataGroup[day];
+        const totalTodo = todo ? todo.length : 0;
+        const completedTodo = todo ? todo.filter((event) => event.completed === 'Y').length : 0;
+        todoNum[day] = {
+          totalTodo,
+          completedTodo,
+        };
+      });
+      setTodoObj(todoNum);
+      console.log('Todo Num by date:', todoNum);
+    };
+    calculateTodoNum();
+  }, [dataGroup]);
+  // console.log('data', dataGroup);
+
   return (
-    <div>
-      <ReactCalendar />
-    </div>
+    <div>{dataGroup && <ReactCalendar date={date} setDate={setDate} todoObj={todoObj} />}</div>
   );
 }
