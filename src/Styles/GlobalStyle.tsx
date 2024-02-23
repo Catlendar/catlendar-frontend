@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
     font-family: 'omyu_pretty';
+	background-color: #bdbdbd;
 	} 
 
 	input::placeholder, button {
@@ -92,7 +93,14 @@ const GlobalStyle = createGlobalStyle`
     --color-todoCircle: #F4F4F4;
 	}
 
-
+		/* Calendar */
+		--color-gray: #8B8B8B;
+    --color-lightgray: #bdbdbd;
+    --color-primary: #7E7DFD;
+    --color-lightPrimary: #E5E5FE;
+    --color-subPrimary: #FD7CE3;
+    --color-lightSubPrimary: #FEE4F9;
+    --color-todoCircle: #F4F4F4;
 	/*=============== Responsive ===============*/
 	body {
 		margin: 0 auto;

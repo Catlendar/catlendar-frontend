@@ -4,10 +4,9 @@ import IconX from '../../../assets/icons/icon-x.svg';
 export const CloseButton = styled.button`
   border: none;
   background-color: var(--color-white);
-  width: 30px;
-  height: 30px;
+  width: 3rem;
+  height: 3rem;
   background-image: url(${IconX});
-  cursor: pointer;
 
   span {
     position: absolute;

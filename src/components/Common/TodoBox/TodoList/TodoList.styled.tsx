@@ -8,6 +8,7 @@ export const TodoListWrapper = styled.div`
   border-top-right-radius: 20px;
   padding: 20px 15px;
   width: 100%;
+  height: 100%;
 
   background-color: var(--color-white);
 `;
