@@ -8,7 +8,7 @@ import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
-import { EditPwBtn } from './ProfilePage.styled';
+import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
 
 interface UserData {
   password: string;
@@ -61,7 +61,7 @@ export default function EditPwPage() {
   };
 
   return (
-    <LoginWrapper>
+    <ProfileWrapper>
       <TextInput
         name="기존 비밀번호"
         placeholder="기존 비밀번호 입력"
@@ -84,7 +84,7 @@ export default function EditPwPage() {
         inputType="password"
         onChange={(value: string) => {
           setConfirmPassword(value);
-          setConfirmError(''); // Clear confirm error message when input changes
+          setConfirmError('');
         }}
       />
       <ErrorMessage message={confirmError} clearMessage={() => setConfirmError('')} />
@@ -97,6 +97,6 @@ export default function EditPwPage() {
           onClick={handleChangePwd}
         />
       </EditPwBtn>
-    </LoginWrapper>
+    </ProfileWrapper>
   );
 }

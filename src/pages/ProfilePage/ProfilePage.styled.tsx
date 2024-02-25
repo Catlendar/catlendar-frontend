@@ -1,10 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 import gear from '../../assets/icons/icon-setting.svg';
-import { ButtonWrapper } from '../LoginPage/LoginPage.styled';
 
 export const ProfileWrapper = styled.div`
   padding: 0 26px;
-  position: relative;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -36,8 +35,8 @@ export const ProfileMain = styled.p`
   padding-bottom: 30px;
 `;
 
-export const EditPwBtn = styled(ButtonWrapper)`
-  padding-top: 200px;
+export const EditPwBtn = styled.div`
+  padding-top: 10rem;
 `;
 
 const rotate = keyframes`

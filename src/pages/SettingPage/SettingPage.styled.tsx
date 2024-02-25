@@ -5,21 +5,23 @@ export const SettingUl = styled.ul`
 `;
 
 export const SettingLi = styled.li`
-  line-height: 50px;
+  padding-bottom: 30px;
 `;
 
 export const SettingBtn = styled.button`
-  border: none;
-  background-color: var(--color-white);
+  /* border: none;
+  background-color: var(--color-white); */
   font-size: var(--small-font-size);
-  cursor: pointer;
-  &.hover {
-    box-shadow: inset 0 -20px 0 #bfffa1;
+  &:hover {
+    background: linear-gradient(to top, var(--bg-color-main) 40%, transparent 30%);
   }
 `;
 
 export const DeleteBtn = styled(SettingBtn)`
   color: var(--text-color-warning);
+  &:hover {
+    background: linear-gradient(to top, var(--button-color-warning) 40%, transparent 30%);
+  }
 `;
 
 export const ModalBackground = styled.div`
