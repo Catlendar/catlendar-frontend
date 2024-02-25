@@ -13,6 +13,9 @@ export const SettingBtn = styled.button`
   background-color: var(--color-white);
   font-size: var(--small-font-size);
   cursor: pointer;
+  &.hover {
+    box-shadow: inset 0 -20px 0 #bfffa1;
+  }
 `;
 
 export const DeleteBtn = styled(SettingBtn)`
