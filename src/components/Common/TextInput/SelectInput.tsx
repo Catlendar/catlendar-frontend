@@ -18,16 +18,19 @@ export default function SelectInput({ options, name, width, onChange }: SelectBo
   });
 
   return (
-    <Select
-      width={width}
-      onChange={handleSelectChange}
-      style={{ color: check ? 'var(--text-color-placeholder)' : 'inherit' }}
-    >
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.name}
-        </option>
-      ))}
-    </Select>
+    <InputWrapper>
+      <InputName>{name}</InputName>
+      <Select
+        width={width}
+        onChange={handleSelectChange}
+        style={{ color: check ? 'var(--text-color-placeholder)' : 'inherit' }}
+      >
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.name}
+          </option>
+        ))}
+      </Select>
+    </InputWrapper>
   );
 }

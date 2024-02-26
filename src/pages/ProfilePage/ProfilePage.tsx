@@ -2,8 +2,15 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
-import { ProfileName, ProfileTitle, ProfileWrapper, Img, ProfileMain } from './ProfilePage.styled';
-import settingIcon from '../../assets/images/setting.png';
+import {
+  ProfileName,
+  ProfileTitle,
+  ProfileWrapper,
+  Img,
+  ProfileMain,
+  Gear,
+} from './ProfilePage.styled';
+import settingIcon from '../../assets/icons/icon-setting.svg';
 import { ChartComponent } from '../../components/Chart/ChartComponent';
 
 export default function ProfilePage() {
@@ -14,13 +21,14 @@ export default function ProfilePage() {
     <ProfileWrapper>
       <ProfileTitle>
         <ProfileName>마이페이지</ProfileName>
-        <Img src={settingIcon} alt="" onClick={() => navigate('/setting')} />
+        {/* <Img src={settingIcon} alt="" onClick={() => navigate('/setting')} /> */}
+        <Gear onClick={() => navigate('/setting')} />
       </ProfileTitle>
       <ProfileMain>
         {user.name}님, <br />
         오늘 하루는 어떠셨나요?
-        <ChartComponent />
       </ProfileMain>
+      <ChartComponent />
     </ProfileWrapper>
   );
 }

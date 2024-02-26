@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 import { ModalLayout } from './ModalLayout.styled';
 import { tokenInstance } from '../../../api/Axios';
 import { UserAtom } from '../../../atom/UserAtom';
@@ -10,29 +11,32 @@ interface ModalProps {
   onClose: () => void;
 }
 
+interface UserData {
+  userId: string;
+}
+
 export default function WithdrawModal({ onClose }: ModalProps) {
   const userAtom = useRecoilValue(UserAtom);
   const navigate = useNavigate();
   const { userId } = userAtom;
 
-  const handleWithdrawClick = async () => {
-    try {
-      const response = await tokenInstance.post('user/deleteUser', {
-        userId,
-      });
-      if (response.status === 200) {
-        if (response.data === false) {
-          alert('실패');
-        } else {
-          alert('성공');
-          navigate('/');
-        }
-      } else {
-        console.log('error');
-      }
-    } catch (error) {
-      console.log('catch error', error);
-    }
+  const { mutate } = useMutation({
+    mutationFn: async (userData: UserData) => {
+      const response = await tokenInstance.post('user/deleteUser', userData);
+      return response.data;
+    },
+    onSuccess: () => {
+      alert('회원 탈퇴가 완료되었습니다.');
+      navigate('/');
+    },
+    onError: (error) => {
+      console.error('onError', error);
+      navigate('/error');
+    },
+  });
+
+  const handleDeleteUser = () => {
+    mutate({ userId });
   };
 
   const handleCancelClick = () => {
@@ -52,12 +56,7 @@ export default function WithdrawModal({ onClose }: ModalProps) {
               handleCancelClick();
             }}
           />
-          <ModalButton
-            type="withdraw"
-            onClick={() => {
-              handleWithdrawClick();
-            }}
-          />
+          <ModalButton type="withdraw" onClick={handleDeleteUser} />
         </div>
       </div>
     </ModalLayout>
