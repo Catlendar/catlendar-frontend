@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const TodoListWrapper = styled.div`
-  border: 1px solid blue;
+  // border: 1px solid blue;
 
   box-sizing: border-box;
   border-top-left-radius: 20px;
@@ -14,8 +14,12 @@ export const TodoListWrapper = styled.div`
 `;
 
 export const TodoListUl = styled.ul`
-  border: 1px solid red;
-
+  height: 35rem;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  padding: 0;
   p {
     font-size: var(--small-font-size);
     color: var(--input-bb);
@@ -24,4 +28,13 @@ export const TodoListUl = styled.ul`
   li:not(:last-child) {
     margin-bottom: 10px;
   }
+`;
+
+export const MoreBtn = styled.button`
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  // 버튼이 가득 채워지도록 width값 100%
+  width: 100%;
 `;

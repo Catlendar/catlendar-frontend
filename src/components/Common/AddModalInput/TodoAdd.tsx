@@ -29,6 +29,7 @@ export default function TodoAdd() {
       const todayDate = `${year}-${month}-${date}`;
       const url1 = 'calendar/createCalendar';
       console.log(todayDate);
+
       const response1 = await tokenInstance.post(url1, {
         userId: userAtom.userId,
         targetDate: todayDate,
