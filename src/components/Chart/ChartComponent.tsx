@@ -1,4 +1,5 @@
 import React from 'react';
+import 'chartjs-adapter-date-fns';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -34,6 +35,14 @@ export const data = {
   labels,
   datasets: [
     {
+      scales: {
+        x: {
+          type: 'time',
+          time: {
+            unit: 'day',
+          },
+        },
+      },
       label: '완료한 일',
       data: ['80', '20', '10', '30'],
       borderColor: 'rgb(123, 73, 249)',

@@ -11,16 +11,13 @@ interface CheckboxProps {
 <Checkbox checked={false} onClick={handleClick} />
 */
 function Checkbox({ checked, onClick }: CheckboxProps) {
-  const [isChecked, setIsChecked] = useState(checked);
-
   const handleClick = () => {
-    setIsChecked(!isChecked); // isChecked의 반대값으로 설정하여 토글
     onClick();
   };
 
   return (
     <div>
-      <CheckboxItem type="checkbox" checked={isChecked} onClick={handleClick} />
+      <CheckboxItem type="checkbox" checked={checked} onClick={handleClick} />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { tokenInstance } from '../../../../../../api/Axios';
 import { SelectTabTypeAtom } from '../../../../../../atom/SelectTabTypeAtom';
@@ -15,30 +16,37 @@ type MouseEvent = React.MouseEvent<HTMLButtonElement>;
 export default function BookmarkToTodoButton({ bookmarkId, userId }: BookmarkDeleteButtonProps) {
   const setTodoListAtom = useSetRecoilState(TodoListAtom);
   const setSelectTabTypeAtom = useSetRecoilState(SelectTabTypeAtom);
+  const navigate = useNavigate();
 
   const handleOnClick = async (e: MouseEvent) => {
     e.stopPropagation();
-    // 즐겨찾기 페이지에서 할일 페이지로 이동
-    const bookmarkToCalendarResponse = await tokenInstance.post(
-      'http://54.66.123.168:8080/calendar/bookmarkToCalendar',
-      {
+
+    try {
+      // 즐겨찾기 페이지에서 할일 페이지로 이동
+      const bookmarkToCalendarResponse = await tokenInstance.post(
+        'http://54.66.123.168:8080/calendar/bookmarkToCalendar',
+        {
+          userId,
+          bookmarkId,
+        },
+      );
+      const responseText = bookmarkToCalendarResponse.data;
+
+      // 오늘 할 일 가져오기
+      const getTodoUrl = 'http://54.66.123.168:8080/calendar/getToday';
+      const TodoResponse = await tokenInstance.post(getTodoUrl, {
         userId,
-        bookmarkId,
-      },
-    );
-    const responseText = bookmarkToCalendarResponse.data;
+      });
+      const TodoData = TodoResponse.data;
 
-    // 오늘 할 일 가져오기
-    const getTodoUrl = 'http://54.66.123.168:8080/calendar/getToday';
-    const TodoResponse = await tokenInstance.post(getTodoUrl, {
-      userId,
-    });
-    const TodoData = TodoResponse.data;
-
-    if (responseText === '할 일 리스트로 이동 되었습니다.') {
-      setTodoListAtom(TodoData);
-      setSelectTabTypeAtom('today');
-      console.log('BookmarkToTodoButton');
+      if (responseText === '할 일 리스트로 이동 되었습니다.') {
+        setTodoListAtom(TodoData);
+        setSelectTabTypeAtom('today');
+        console.log('BookmarkToTodoButton');
+      }
+    } catch (error) {
+      alert('에러가 발생했습니다.');
+      navigate('/error');
     }
   };
   return (

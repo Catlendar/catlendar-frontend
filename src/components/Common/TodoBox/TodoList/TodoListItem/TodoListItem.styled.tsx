@@ -1,8 +1,6 @@
 import { styled } from 'styled-components';
 
 export const TodoItemWrapper = styled.li`
-  border: 1px solid blue;
-
   box-sizing: border-box;
   font-size: var(--small-font-size);
   display: flex;
@@ -23,8 +21,19 @@ export const TodoItemWrapper = styled.li`
   /* ===Checkbox와 텍스트의 수직 중앙 정렬 코드=== */
 `;
 
-export const TodoItemText = styled.span`
+interface TodoItemTextProps {
+  completed: boolean;
+}
+
+export const TodoItemText = styled.span<TodoItemTextProps>`
+  /* 텍스트 말줄임 */
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   flex-grow: 1;
+  color: ${(props) => (props.completed ? 'var(--text-color-main)' : 'var(--color-black)')};
+  text-decoration: ${(props) => (props.completed ? 'line-through' : 'none')};
 `;
 
 export const TodoItemMenuBtn = styled.button`

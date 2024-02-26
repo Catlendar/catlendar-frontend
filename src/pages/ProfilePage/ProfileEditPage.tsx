@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import { LoginWrapper } from '../LoginPage/LoginPage.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
-import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import Button from '../../components/Common/Button/Button';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
 import SelectInput from '../../components/Common/TextInput/SelectInput';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
-import { InputName } from '../../components/Common/TextInput/TextInput.styled';
 import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
@@ -38,44 +35,11 @@ export default function ProfileEditPage() {
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
   };
-  // selectedDate가 변경될때마다 setBirthDate
   useEffect(() => {
     if (selectedDate) {
       setBirthDate(selectedDate.replace(/[. ]/g, ''));
     }
   }, [selectedDate]);
-
-  // const { email, birthDate } = userAtom;
-
-  // console.log(userAtom);
-
-  // 정보수정 api
-  // const handleUpdateUser = async () => {
-  //   try {
-  //     const response = await tokenInstance.post('user/updateUser', {
-  //       name,
-  //       birthDate,
-  //       birthTime,
-  //       calendarType,
-  //       gender,
-  //       email,
-  //     });
-  //     if (response.status === 200) {
-  //       if (response.data === false) {
-  //         alert('비어있는 정보가 있습니다.');
-  //       } else {
-  //         setUserAtom((prev) => ({ ...prev, name, birthTime, calendarType, gender }));
-  //         navigate('/home');
-  //       }
-  //     } else {
-  //       console.log('error');
-  //       navigate('/error');
-  //     }
-  //   } catch (error) {
-  //     console.log('catch error', error);
-  //     navigate('/error');
-  //   }
-  // };
 
   // tanstack Query 사용
   const { mutate } = useMutation({
@@ -115,7 +79,13 @@ export default function ProfileEditPage() {
         inputType="text"
         onChange={(value: string) => setName(value)}
       />
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
         <DatePickerComponent onDateSelect={handleDateSelect} />
         <SelectInput
           name="양력"
