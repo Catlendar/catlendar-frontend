@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 import IconModalPlus from '../../../../../../assets/icons/icon-modal-plus.svg';
 
 export const BookmarkToTodo = styled.button`
-  /* border: 1px solid red; */
   width: 1.6rem;
   height: 1.6rem;
   background-image: url(${IconModalPlus});

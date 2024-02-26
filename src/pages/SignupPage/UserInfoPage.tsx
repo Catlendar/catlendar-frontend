@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  UserInfoWrapper,
-  UserInfoTitle,
-  ButtonWrapper,
-  BirthWrapper,
-  SolarWrapper,
-} from './UserInfo.styled';
+import { UserInfoWrapper, UserInfoTitle, ButtonWrapper, BirthWrapper } from './UserInfo.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
 import DatePickerComponent from '../../components/DatePicker/DatePicker';
 import SelectInput from '../../components/Common/TextInput/SelectInput';
-import { InputName } from '../../components/Common/TextInput/TextInput.styled';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
 
@@ -98,19 +91,15 @@ export default function UserInfoPage() {
         />
         <BirthWrapper>
           <DatePickerComponent onDateSelect={handleDateSelect} />
-          <SolarWrapper>
-            <InputName>양력</InputName>
-            <SelectInput
-              name=""
-              options={BirthOption}
-              width={100}
-              onChange={(value: string) => setCalendarType(value)}
-            />
-          </SolarWrapper>
+          <SelectInput
+            name="양력"
+            options={BirthOption}
+            width={100}
+            onChange={(value: string) => setCalendarType(value)}
+          />
         </BirthWrapper>
-        <InputName>태어난 시간</InputName>
         <SelectInput
-          name=""
+          name="태어난 시간"
           options={BirthTimeOption}
           width={340}
           onChange={(value: string) => setBirthTime(value)}
