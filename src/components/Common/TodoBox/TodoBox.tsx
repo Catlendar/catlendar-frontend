@@ -40,13 +40,13 @@ export default function TodoBox({ date }: TodoBoxProps) {
       try {
         const url = date === 'today' ? 'calendar/getToday' : '/calendar/getSpecificMonth';
         const response = await tokenInstance.post(
-        url,
-        date === today
-          ? {
-              userId: userAtom.userId,
-            }
-          : { userId: userAtom.userId, targetDate: date },
-      )
+          url,
+          date === today
+            ? {
+                userId: userAtom.userId,
+              }
+            : { userId: userAtom.userId, targetDate: date },
+        );
         console.log('res', response);
         setTodoListAtom(response.data);
       } catch (error) {
