@@ -53,6 +53,7 @@ export default function ReactCalendar({ value, setValue, todoObj }: DateProps) {
   return (
     <CalendarWrapper>
       <StyleCalendar
+        calendarType="US"
         onChange={onChangeDate}
         value={value}
         formatDay={(locale, day) => day.toLocaleString('en', { day: 'numeric' })}
