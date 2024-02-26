@@ -3,7 +3,7 @@ import React from 'react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
 import Router from './pages/Router';
-import GlobalStyle from './styles/GlobalStyle';
+import GlobalStyle from './tempStyles/GlobalStyle';
 
 function App() {
   const queryClient = new QueryClient();
