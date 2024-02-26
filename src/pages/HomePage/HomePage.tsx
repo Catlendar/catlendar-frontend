@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from '../../components/Common/Modal/Modal';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
 
@@ -16,6 +17,7 @@ export default function HomePage() {
     >
       <MainCard />
       <TodoBox />
+      {/* <Modal type="revise" /> */}
     </div>
   );
 }

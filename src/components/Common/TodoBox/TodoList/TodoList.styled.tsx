@@ -1,8 +1,6 @@
 import { styled } from 'styled-components';
 
 export const TodoListWrapper = styled.div`
-  border: 1px solid blue;
-
   box-sizing: border-box;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -14,8 +12,6 @@ export const TodoListWrapper = styled.div`
 `;
 
 export const TodoListUl = styled.ul`
-  border: 1px solid red;
-
   p {
     font-size: var(--small-font-size);
     color: var(--input-bb);
