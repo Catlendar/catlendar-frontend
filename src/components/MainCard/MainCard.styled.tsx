@@ -10,10 +10,10 @@ export const MainCardWrapper = styled.div`
 export const CardContent = styled.div`
   margin: 0 2.6rem 0 2.6rem;
   color: var(--color-white);
+`;
 
-  span {
-    font-size: var(--large-font-size);
-  }
+export const Today = styled.span`
+  font-size: var(--large-font-size);
 `;
 
 export const ContentBox = styled.div`
@@ -23,22 +23,22 @@ export const ContentBox = styled.div`
   justify-content: space-between;
   margin-bottom: 2.5rem;
 
-  p {
-    margin-bottom: 1.2rem;
-    font-size: var(--small-font-size);
-  }
-
-  h3 {
-    line-height: 2.8rem;
-    font-size: var(--h3-font-size);
-  }
-
   img {
     position: absolute;
     top: 50%;
     transform: translateY(-40%);
     right: 0;
   }
+`;
+
+export const UserName = styled.p`
+  margin-bottom: 1.2rem;
+  font-size: var(--small-font-size);
+`;
+
+export const TodayFortune = styled.p`
+  line-height: 2.8rem;
+  font-size: var(--h3-font-size);
 `;
 
 export const TextBox = styled.div`

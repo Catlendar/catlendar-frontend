@@ -26,6 +26,11 @@ interface TodoItemTextProps {
 }
 
 export const TodoItemText = styled.span<TodoItemTextProps>`
+  /* 텍스트 말줄임 */
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   flex-grow: 1;
   color: ${(props) => (props.completed ? 'var(--text-color-main)' : 'var(--color-black)')};
   text-decoration: ${(props) => (props.completed ? 'line-through' : 'none')};

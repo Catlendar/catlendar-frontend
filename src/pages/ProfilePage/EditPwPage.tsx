@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
+import { useMutation } from '@tanstack/react-query';
 import { LoginWrapper } from '../LoginPage/LoginPage.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
-import { EditPwBtn } from './ProfilePage.styled';
+import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
+
+interface UserData {
+  password: string;
+  email: string;
+  newPassword: string;
+}
 
 export default function EditPwPage() {
   const [password, setPassword] = useState<string>('');
@@ -18,43 +25,43 @@ export default function EditPwPage() {
   const [newPwdError, setNewPwdError] = useState<string>('');
   const [userAtom, setUserAtom] = useRecoilState(UserAtom);
   const navigate = useNavigate();
-  const { userId, email } = userAtom;
+  const { email } = userAtom;
   const passwordPattern = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]{8,16}$/;
 
   const isFormValid =
     password && newPassword && confirmPassword && passwordPattern.test(newPassword);
 
-  const handleChangePwd = async () => {
-    if (newPassword !== confirmPassword) {
-      setConfirmError('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
-      return;
-    }
-
-    try {
-      const response = await tokenInstance.post('user/updatePassword', {
-        email,
-        password,
-        newPassword,
-      });
-      if (response.status === 200) {
-        if (response.data === '기존 비밀번호와 일치하지 않습니다.') {
-          setNewPwdError(`${response.data}`);
-        } else {
-          localStorage.setItem('token', response.data.token);
-          navigate('/Home');
-        }
+  const { mutate } = useMutation({
+    mutationFn: async (userData: UserData) => {
+      if (newPassword !== confirmPassword) {
+        setConfirmError('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+        throw new Error('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
       } else {
-        console.log('error');
-        navigate('/error');
+        const response = await tokenInstance.post('user/updatePassword', userData);
+        return response.data;
       }
-    } catch (error) {
-      console.log('catch error', error);
+    },
+    onSuccess: () => {
+      alert('비밀번호가 변경되었습니다.');
+      navigate('/home');
+    },
+    onError: (error) => {
+      console.log('onError', error);
+      console.log(password, newPassword);
       navigate('/error');
-    }
+    },
+  });
+
+  const handleChangePwd = () => {
+    mutate({
+      email,
+      password,
+      newPassword,
+    });
   };
 
   return (
-    <LoginWrapper>
+    <ProfileWrapper>
       <TextInput
         name="기존 비밀번호"
         placeholder="기존 비밀번호 입력"
@@ -77,7 +84,7 @@ export default function EditPwPage() {
         inputType="password"
         onChange={(value: string) => {
           setConfirmPassword(value);
-          setConfirmError(''); // Clear confirm error message when input changes
+          setConfirmError('');
         }}
       />
       <ErrorMessage message={confirmError} clearMessage={() => setConfirmError('')} />
@@ -90,6 +97,6 @@ export default function EditPwPage() {
           onClick={handleChangePwd}
         />
       </EditPwBtn>
-    </LoginWrapper>
+    </ProfileWrapper>
   );
 }

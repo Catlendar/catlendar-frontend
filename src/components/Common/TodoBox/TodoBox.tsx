@@ -1,6 +1,7 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 import Modal from '../Modal/Modal';
 import TodoHeader from '../Header/TodoHeader';
 import { TodoBoxWrapper } from './TodoBox.styled';
@@ -11,7 +12,13 @@ import { TodoDataType, TodoListAtom } from '../../../atom/TodoListAtom';
 import { BookmarkListAtom } from '../../../atom/BookmarkListAtom';
 import { TodayTasksAtom } from '../../../atom/TodayTasksAtom';
 
-export default function TodoBox() {
+interface TodoBoxProps {
+  date: string;
+}
+
+// <TodoBox date='today' or date={YYYY-MM-DD형식의 변수} />
+export default function TodoBox({ date }: TodoBoxProps) {
+  const today = moment(new Date()).format('YYYY-MM-DD');
   const userAtom = useRecoilValue(UserAtom);
   const [todoListAtom, setTodoListAtom] = useRecoilState(TodoListAtom);
   const [bookmarkListAtom, setBookmarkListAtom] = useRecoilState(BookmarkListAtom);
@@ -29,26 +36,27 @@ export default function TodoBox() {
 
   // 들어가자마자 api 요청으로 오늘 할 일 목록 데이터 불러오기
   useEffect(() => {
-    const fetcTodoData = async () => {
+    const fetchTodoData = async () => {
       try {
-        const response = await tokenInstance.post('calendar/getToday', {
-          userId: userAtom.userId,
-        });
-        // const totalTasks = response.data.length;
-        // const completedTasks = getTodayCompletedTasks(response.data);
-
-        // setTodayTasksAtom({ totalTasks, completedTasks });
+        const url = date === 'today' ? 'calendar/getToday' : '/calendar/getSpecificMonth';
+        const response = await tokenInstance.post(
+        url,
+        date === today
+          ? {
+              userId: userAtom.userId,
+            }
+          : { userId: userAtom.userId, targetDate: date },
+      )
+        console.log('res', response);
         setTodoListAtom(response.data);
       } catch (error) {
-        alert('할 일 데이터를 불러오는 데 실패했습니다.');
         navigate('/error');
       }
     };
-    fetcTodoData();
+    fetchTodoData();
     console.log(todoListAtom);
-    console.log(todayTasksAtom);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [date]);
 
   // 들어가자마자 api 요청으로 즐겨찾기 목록 데이터 불러오기
   useEffect(() => {

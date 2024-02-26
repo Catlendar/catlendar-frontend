@@ -43,7 +43,7 @@ export const Select = styled.select<InputProps>`
   ${commonInputStyle}
   width: ${(props) => (props.width ? `${props.width}px` : '100%')};
   font-size: var(--large-font-size);
-  margin-bottom: 37px;
+  margin-top: 25px;
 `;
 
 export const InputName = styled.p`
@@ -55,5 +55,5 @@ export const InputName = styled.p`
 export const InputWrapper = styled.div`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  margin-top: 3.7rem;
+  /* margin-top: 3.7rem; */
 `;
