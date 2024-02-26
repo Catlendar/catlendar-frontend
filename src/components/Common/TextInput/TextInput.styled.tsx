@@ -9,7 +9,8 @@ interface InputProps {
 const commonInputStyle = css<InputProps>`
   width: 100%;
   border: none;
-  border-bottom: 1px solid var(--input-bb);
+  /* border-bottom: 1px solid var(--input-bb); */
+  border: 1px solid red;
   background: none;
   color: var(--color-black);
   padding-bottom: 10px;

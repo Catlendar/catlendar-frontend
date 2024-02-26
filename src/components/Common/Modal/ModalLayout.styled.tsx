@@ -14,10 +14,14 @@ export const ModalLayout = styled.div<ModalTypeProps>`
   border-radius: 20px;
   background-color: gray;
 
+  border: 1px solid red;
+
   .button-wrapper {
     display: flex;
     gap: 10px;
     margin: 10px auto;
+
+    border: 1px solid red;
   }
 
   .withdraw-wrapper {

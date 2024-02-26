@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 import { tokenInstance } from '../../../api/Axios';
-import { TodoAddInput } from './AddModalInput.styled';
+import { AddInputWrapper, AddInput, ModalAddButton } from './AddModalInput.styled';
 import { UserAtom } from '../../../atom/UserAtom';
 import { TodoListAtom } from '../../../atom/TodoListAtom';
 
@@ -12,13 +13,23 @@ export default function TodoAdd() {
   const userAtom = useRecoilValue(UserAtom);
   const setTodoListAtom = useSetRecoilState(TodoListAtom);
   const [inputValue, setInputValue] = useState('');
+  const navigate = useNavigate();
+  const [isAdding, setIsAdding] = useState(false);
 
   const handleOnchange = (e: InputChangeEvent) => {
     setInputValue(e.target.value);
   };
-  const handleOnKeyDown = async (e: InputKeyboardEvent) => {
-    if (e.key === 'Enter') {
-      e.stopPropagation();
+
+  const addTodo = async () => {
+    if (isAdding) return;
+    setIsAdding(true);
+
+    try {
+      if (inputValue.trim().length === 0) {
+        alert('내용을 입력해 주세요.');
+        setInputValue('');
+        return;
+      }
       let today = new Date();
       let year = today.getFullYear(); // 년도
       let month = (today.getMonth() + 1).toString(); // 월
@@ -27,10 +38,10 @@ export default function TodoAdd() {
       }
       let date = today.getDate(); // 날짜
       const todayDate = `${year}-${month}-${date}`;
-      const url1 = 'calendar/createCalendar';
       console.log(todayDate);
 
-      const response1 = await tokenInstance.post(url1, {
+      // 일정 생성 api
+      const response1 = await tokenInstance.post('calendar/createCalendar', {
         userId: userAtom.userId,
         targetDate: todayDate,
         calendarContent: inputValue,
@@ -38,8 +49,8 @@ export default function TodoAdd() {
       console.log(response1);
       const data1 = response1.data;
 
-      const url2 = 'calendar/getToday';
-      const response2 = await tokenInstance.post(url2, {
+      // 할 일 목록 api
+      const response2 = await tokenInstance.post('calendar/getToday', {
         userId: userAtom.userId,
       });
       const data2 = response2.data;
@@ -48,16 +59,40 @@ export default function TodoAdd() {
         setTodoListAtom(data2);
         setInputValue('');
       }
+    } catch (error) {
+      alert('할 일 추가 실패');
+      navigate('/error');
+    } finally {
+      setIsAdding(false);
     }
   };
+
+  const handleOnKeyDown = async (e: InputKeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.stopPropagation();
+      await addTodo();
+    }
+  };
+
+  const handleClick = async () => {
+    await addTodo();
+  };
+
   return (
-    <TodoAddInput
-      id="todoAdd"
-      name="todoAdd"
-      placeholder="+ 할 일을 추가하세요"
-      value={inputValue}
-      onChange={handleOnchange}
-      onKeyDown={(e) => handleOnKeyDown(e)}
-    />
+    <AddInputWrapper>
+      <AddInput
+        id="todoAdd"
+        name="todoAdd"
+        placeholder="+ 할 일을 추가하세요"
+        value={inputValue}
+        onChange={handleOnchange}
+        onKeyDown={(e) => handleOnKeyDown(e)}
+      />
+      {inputValue && (
+        <ModalAddButton type="button" title="추가하기" onClick={handleClick}>
+          <span>추가하기</span>
+        </ModalAddButton>
+      )}
+    </AddInputWrapper>
   );
 }
