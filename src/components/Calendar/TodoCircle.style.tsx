@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import checkImg from '../../assets/icons/icon-check.svg';
 
 export const TodoCircle = styled.div`
   background-color: var(--color-todoCircle);
@@ -11,8 +12,17 @@ export const TodoCircle = styled.div`
   align-items: center;
   color: var(--color-primary);
   font-weight: 700;
-  .hasContent {
+
+  &.process {
     background-color: var(--color-white);
-    border: 1px solid var(--color-primary);
+    border: 1.5px dashed var(--color-primary);
+  }
+
+  &.complete {
+    background-color: var(--color-primary);
+    background-image: url(${checkImg});
+    background-image: no-repeat;
+    background-size: 100% 100%;
+    border: 5px solid var(--color-primary);
   }
 `;

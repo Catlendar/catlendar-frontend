@@ -22,7 +22,6 @@ export default function CalendarPage() {
     date: '',
     month: '',
   };
-  const [responseData, setResponseData] = useState([]);
   const [dataGroup, setDataGroup] = useState<DataGroupProps>({});
   const [todoObj, setTodoObj] = useState<Record<string, TodoDataProps>>({});
 
@@ -46,8 +45,9 @@ export default function CalendarPage() {
     return groupedData;
   }
 
-  // 해당 월 일정 api 호출 : responseData
-  // 데이터를 calendarDate로 그룹화 : dataGroup
+  // 해당 월 일정 api 호출 : responseData -> 삭제
+  // 데이터를 calendarDate로 그룹화 : dataGroup -> 삭제
+  // response.data -> 날짜별로 그룹화 : groupedData
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,13 +55,9 @@ export default function CalendarPage() {
           targetDate: convertedDate.month,
           userId: userAtom.userId,
         });
-        // setResponseData(response.data);
         const groupedData = groupDataByDate(response.data);
-        // const groupedData = groupDataByDate(responseData);
         setDataGroup(groupedData);
         console.log('111', groupedData);
-        // console.log('res', responseData);
-        console.log('group', dataGroup);
       } catch (error) {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       }
@@ -87,9 +83,8 @@ export default function CalendarPage() {
     };
     calculateTodoNum();
   }, [dataGroup]);
-  // console.log('data', dataGroup);
 
   return (
-    <div>{dataGroup && <ReactCalendar date={date} setDate={setDate} todoObj={todoObj} />}</div>
+    <div>{dataGroup && <ReactCalendar value={date} setValue={setDate} todoObj={todoObj} />}</div>
   );
 }
