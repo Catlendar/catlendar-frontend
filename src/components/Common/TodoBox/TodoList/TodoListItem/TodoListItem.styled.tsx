@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const TodoItemWrapper = styled.li`
-  border: 1px solid blue;
+  // border: 1px solid blue;
 
   box-sizing: border-box;
   font-size: var(--small-font-size);
@@ -24,6 +24,12 @@ export const TodoItemWrapper = styled.li`
 `;
 
 export const TodoItemText = styled.span`
+  /* 텍스트 말줄임 */
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   flex-grow: 1;
 `;
 

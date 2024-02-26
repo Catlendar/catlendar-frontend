@@ -9,7 +9,7 @@ interface InputWrapperProps {
 }
 
 const commonInputStyle = css<InputProps>`
-  width: 221px;
+  width: 100%;
   border: none;
   border-bottom: 1px solid var(--input-bb);
   background: none;
