@@ -51,10 +51,7 @@ const rotate = keyframes`
 export const Gear = styled.div`
   width: 24px;
   height: 24px;
-  display: inline-block;
   background-image: url(${gear});
-  background-size: contain;
-  background-repeat: no-repeat;
   cursor: pointer;
   &:hover {
     animation: ${rotate} 4s linear infinite;
