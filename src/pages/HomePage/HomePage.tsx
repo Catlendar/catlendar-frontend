@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
 
@@ -15,7 +16,7 @@ export default function HomePage() {
       }}
     >
       <MainCard />
-      <TodoBox />
+      <TodoBox date="today" />
     </div>
   );
 }
