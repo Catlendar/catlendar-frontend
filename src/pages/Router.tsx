@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -18,14 +19,15 @@ import Header from '../components/Common/Header/Header';
 import NavBar from '../components/Common/NavBar/NavBar';
 import ApiPage from './ApiPage';
 import ProfilePage from './ProfilePage/ProfilePage';
+import { SignUpAtom } from '../atom/SignUpAtom';
 
 export default function Router() {
   const userState = useRecoilValue(UserAtom);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [isLoggedIn, setIsLoggedIn] = useState('');
+  const signCheck = useRecoilValue(SignUpAtom);
   useEffect(() => {
     // userState를 이용하여 로그인 상태를 확인하고 isLoggedIn 상태 업데이트
-    setIsLoggedIn(userState);
+    setIsLoggedIn(userState && userState.email);
   }, [userState]);
 
   return (
@@ -35,16 +37,18 @@ export default function Router() {
         <Route
           path="/"
           element={
-            isLoggedIn ? (
-              <>
-                <HomePage /> <NavBar />
-              </>
-            ) : (
-              <LandingPage />
-            )
+            // eslint-disable-next-line react/jsx-no-useless-fragment
+            <>
+              {isLoggedIn === '' ? (
+                <LandingPage />
+              ) : isLoggedIn ? (
+                <>
+                  <HomePage /> <NavBar />
+                </>
+              ) : null}
+            </>
           }
         />
-        <Route path="/errorLanding" element={<LandingPage />} />
         <Route
           path="/signup"
           element={
@@ -58,10 +62,21 @@ export default function Router() {
         <Route
           path="/signup/userinfo"
           element={
+            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
-              <Header title="" />
-              <UserInfoPage />
+              {signCheck.email === '' || signCheck.password === '' ? (
+                <LandingPage />
+              ) : signCheck ? (
+                <>
+                  <Header title="" />
+                  <UserInfoPage />
+                </>
+              ) : null}
             </>
+            // <>
+            //   <Header title="" />
+            //   <UserInfoPage />
+            // </>
           }
         />
 
