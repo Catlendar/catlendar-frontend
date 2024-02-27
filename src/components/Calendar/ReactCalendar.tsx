@@ -14,12 +14,6 @@ export default function ReactCalendar({ value, setValue, todoObj }: DateProps) {
   const [isTodoBox, setIsTodoBox] = useState(true);
   const [clickedDay, setClickedDay] = useState(moment(value).format('YYYY-MM-DD'));
 
-  console.log('onCalendar', todoObj);
-
-  const onConvertDate = (d: Date) => {
-    return moment(d).add(1, 'day').format('YYYY-MM-DD');
-  };
-
   const onChangeDate = () => {
     setValue(value);
   };
@@ -50,6 +44,8 @@ export default function ReactCalendar({ value, setValue, todoObj }: DateProps) {
     setIsTodoBox(true);
   };
 
+  console.log('click', clickedDay);
+
   return (
     <CalendarWrapper>
       <StyleCalendar
@@ -62,7 +58,7 @@ export default function ReactCalendar({ value, setValue, todoObj }: DateProps) {
         showNeighboringMonth={false}
         onClickDay={(click) => {
           handleTodoBox();
-          setClickedDay(onConvertDate(click));
+          setClickedDay(moment(click).format('YYYY-MM-DD'));
         }}
         tileContent={handleTileContent}
       />
