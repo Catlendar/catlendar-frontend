@@ -81,7 +81,7 @@ export default function TodoBox({ date }: TodoBoxProps) {
   useEffect(() => {
     const totalTasks = todoListAtom.length;
     const completedTasks = getTodayCompletedTasks(todoListAtom);
-
+    console.log('TodoBox completedTasks: ', completedTasks);
     setTodayTasksAtom({ totalTasks, completedTasks });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todoListAtom]);

@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import ReactCalendar from '../../components/Calendar/ReactCalendar';
 import { UserAtom } from '../../atom/UserAtom';
 import { tokenInstance } from '../../api/Axios';
+import { TodoNumAtom } from '../../atom/TodoNumAtom';
 
 export default function CalendarPage() {
   interface TodoDataProps {
@@ -18,6 +19,7 @@ export default function CalendarPage() {
 
   const userAtom = useRecoilValue(UserAtom);
   const [date, setDate] = useState(new Date());
+  const [TodoNum, setTodoNum] = useRecoilState(TodoNumAtom);
   const convertedDate = {
     date: '',
     month: '',
@@ -77,12 +79,15 @@ export default function CalendarPage() {
           totalTodo,
           completedTodo,
         };
+        console.log('CalendarPage completedTodo:', completedTodo);
       });
       setTodoObj(todoNum);
+      setTodoNum(todoNum);
+      console.log('Todonum:', TodoNum);
       console.log('Todo Num by date:', todoNum);
     };
     calculateTodoNum();
-  }, [dataGroup]);
+  }, [dataGroup, setTodoNum]);
 
   return (
     <div>{dataGroup && <ReactCalendar value={date} setValue={setDate} todoObj={todoObj} />}</div>

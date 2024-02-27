@@ -102,6 +102,7 @@ export default function UserInfoPage() {
             <InputName>양력</InputName>
             <SelectInput
               name=""
+              initial=""
               options={BirthOption}
               width={100}
               onChange={(value: string) => setCalendarType(value)}
@@ -111,6 +112,7 @@ export default function UserInfoPage() {
         <InputName>태어난 시간</InputName>
         <SelectInput
           name=""
+          initial=""
           options={BirthTimeOption}
           width={340}
           onChange={(value: string) => setBirthTime(value)}

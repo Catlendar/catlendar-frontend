@@ -11,7 +11,9 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { useRecoilValue } from 'recoil';
 import { faker } from '@faker-js/faker';
+import { TodoNumAtom } from '../../atom/TodoNumAtom';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 

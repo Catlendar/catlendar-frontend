@@ -36,7 +36,8 @@ export default function HomePage() {
           fortuneDesc: fortune.map((item) => item.desc),
         });
       } catch (error) {
-        navigate('/error');
+        alert('생일이 올바르지 않습니다.');
+        navigate('/profile/edit');
       }
     };
     fetchData();
