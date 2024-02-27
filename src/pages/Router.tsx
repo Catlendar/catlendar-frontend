@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { UserAtom } from '../atom/UserAtom';
 import HomePage from './HomePage/HomePage';
 import LandingPage from './LandingPage/LandingPage';
 import SignupPage from './SignupPage/SignupPage';
@@ -18,10 +20,19 @@ import ApiPage from './ApiPage';
 import ProfilePage from './ProfilePage/ProfilePage';
 
 export default function Router() {
+  const userState = useRecoilValue(UserAtom);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // userState를 이용하여 로그인 상태를 확인하고 isLoggedIn 상태 업데이트
+    setIsLoggedIn(userState);
+  }, [userState]);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        {/* <Route path="/" element={<LandingPage />} /> */}
+        <Route path="/" element={isLoggedIn ? <HomePage /> : <LandingPage />} />
 
         <Route
           path="/signup"
