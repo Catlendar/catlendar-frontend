@@ -32,7 +32,18 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         {/* <Route path="/" element={<LandingPage />} /> */}
-        <Route path="/" element={isLoggedIn ? <HomePage /> : <LandingPage />} />
+        <Route
+          path="/"
+          element={
+            isLoggedIn ? (
+              <>
+                <HomePage /> <NavBar />
+              </>
+            ) : (
+              <LandingPage />
+            )
+          }
+        />
 
         <Route
           path="/signup"
