@@ -44,7 +44,7 @@ export default function Router() {
             )
           }
         />
-
+        <Route path="/errorLanding" element={<LandingPage />} />
         <Route
           path="/signup"
           element={

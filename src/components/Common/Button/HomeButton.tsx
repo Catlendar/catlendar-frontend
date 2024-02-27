@@ -10,7 +10,7 @@ export default function HomeButton() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/Home');
+    navigate('/errorLanding');
   };
 
   return (
