@@ -92,10 +92,11 @@ export default function TodoBox({ date }: TodoBoxProps) {
   return (
     <TodoBoxWrapper>
       <TodoHeader
+        date={date}
         comletedTasks={todayTasksAtom.completedTasks}
         totalTasks={todayTasksAtom.totalTasks}
       />
-      <TodoList />
+      <TodoList date={date} />
       <Modal type="todoList" />
     </TodoBoxWrapper>
   );

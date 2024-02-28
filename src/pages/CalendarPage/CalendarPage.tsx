@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { useRecoilValue } from 'recoil';
@@ -82,6 +81,7 @@ export default function CalendarPage() {
       console.log('Todo Num by date:', todoNum);
     };
     calculateTodoNum();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataGroup]);
 
   return (
