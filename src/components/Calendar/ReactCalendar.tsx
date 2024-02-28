@@ -12,12 +12,21 @@ interface DateProps {
   setValue: (value) => void;
   todoObj: Record<string, { totalTodo: number; completedTodo: number }>;
 }
+interface TodoItem {
+  calendarId: string;
+  userId: string;
+  calendarDate: string;
+  calendarContent: string;
+  bookmark: string;
+  completed: string;
+  createDate: string;
+}
 
 export default function ReactCalendar({ value, setValue, todoObj }: DateProps) {
   const userAtom = useRecoilValue(UserAtom);
   const [isTodoBox, setIsTodoBox] = useState(true);
   const [clickedDay, setClickedDay] = useState(moment(value).format('YYYY-MM-DD'));
-  const [clickTodo, setClickTodo] = useState([]);
+  const [clickTodo, setClickTodo] = useState<TodoItem[] | undefined>(undefined);
 
   const onChangeDate = () => {
     setValue(value);
@@ -59,6 +68,22 @@ export default function ReactCalendar({ value, setValue, todoObj }: DateProps) {
   //   setTodayTasksAtom({ totalTasks, completedTasks });
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [todoListAtom]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await tokenInstance.post('calendar/getToday', {
+          userId: userAtom.userId,
+        });
+        setClickTodo(response.data);
+      } catch (error) {
+        alert('해당 데이터를 불러오는 데 실패했습니다.');
+      }
+    };
+
+    fetchData();
+  }, [userAtom.userId]);
+
   useEffect(() => {
     const getClickTodo = async () => {
       try {
@@ -74,9 +99,13 @@ export default function ReactCalendar({ value, setValue, todoObj }: DateProps) {
     };
     getClickTodo();
     console.log('response', clickTodo);
-    console.log(clickTodo.map((item) => item));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickedDay]);
+
+  useEffect(() => {
+    console.log(clickTodo?.filter((el) => el.completed === 'Y').length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clickTodo, clickTodo?.filter((el) => el.completed === 'Y').length]);
 
   const handleTileContent = ({ date }) => {
     const formattedDate = moment(date).format('YYYY-MM-DD');
@@ -85,8 +114,6 @@ export default function ReactCalendar({ value, setValue, todoObj }: DateProps) {
     if (todoData) {
       const { totalTodo, completedTodo } = todoData;
 
-      // 이 조건에 해당하는 날짜만 처리
-      console.log('?????????', totalTodo, completedTodo);
       return (
         <div>
           {totalTodo === completedTodo ? (
@@ -107,7 +134,7 @@ export default function ReactCalendar({ value, setValue, todoObj }: DateProps) {
   return (
     <CalendarWrapper>
       <StyleCalendar
-        calendarType="US"
+        calendarType="gregory"
         onChange={onChangeDate}
         value={value}
         formatDay={(locale, day) => day.toLocaleString('en', { day: 'numeric' })}
