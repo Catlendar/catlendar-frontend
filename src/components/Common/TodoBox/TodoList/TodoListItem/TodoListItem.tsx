@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import Checkbox from '../../../Checkbox/Checkbox';
-import { TodoItemMenuBtn, TodoItemText, TodoItemWrapper } from './TodoListItem.styled';
+import { TodoItemText, TodoItemWrapper } from './TodoListItem.styled';
 import Icon from '../../../../../assets/icons/icon-meatball.svg';
 import { TodoDataType, TodoListAtom } from '../../../../../atom/TodoListAtom';
 import { TodayTasksAtom } from '../../../../../atom/TodayTasksAtom';
 import { tokenInstance } from '../../../../../api/Axios';
+import ItemMenuButton from './ItemMenuButton';
 
 interface TodoListItemProps {
   todo: TodoDataType;
@@ -64,9 +65,7 @@ export default function TodoListItem({ todo }: TodoListItemProps) {
     <TodoItemWrapper>
       <Checkbox checked={completed} onClick={handleClick} />
       <TodoItemText completed={completed}>{todo.calendarContent}</TodoItemText>
-      <TodoItemMenuBtn onClick={() => console.log('cc')} type="button" aria-label="메뉴 버튼">
-        <img src={Icon} alt="" />
-      </TodoItemMenuBtn>
+      <ItemMenuButton calendarContent={todo.calendarContent} />
     </TodoItemWrapper>
   );
 }
