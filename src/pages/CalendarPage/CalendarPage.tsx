@@ -20,6 +20,7 @@ export default function CalendarPage() {
   const userAtom = useRecoilValue(UserAtom);
   const [date, setDate] = useState(new Date());
   const [TodoNum, setTodoNum] = useRecoilState(TodoNumAtom);
+
   const convertedDate = {
     date: '',
     month: '',
@@ -87,7 +88,7 @@ export default function CalendarPage() {
       console.log('Todo Num by date:', todoNum);
     };
     calculateTodoNum();
-  }, [dataGroup, setTodoNum]);
+  }, [dataGroup, setTodoNum, userAtom.userId]);
 
   return (
     <div>{dataGroup && <ReactCalendar value={date} setValue={setDate} todoObj={todoObj} />}</div>
