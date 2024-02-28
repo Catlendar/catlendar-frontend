@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useSetRecoilState } from 'recoil';
 import TextInput from '../TextInput/TextInput';
-import { ModalLayout } from './ModalLayout.styled';
 import ModalButton from '../Button/ModalButton';
+import { ModalBackground, ModalWrapper } from './ModalLayout.styled';
+import { ReviseModalOpenAtom } from '../../../atom/ReviseModalOpenAtom';
 
 const todo = {
   content: 'React 상태관리 책 읽기',
@@ -13,6 +15,7 @@ interface ModalProps {
 
 export default function ReviseTodoModal({ onClose }: ModalProps) {
   const [newTodoContent, setNewTodoContent] = useState(todo.content);
+  const setReviseModalOpenAtom = useSetRecoilState(ReviseModalOpenAtom);
 
   const handleInputChange = (value: string) => {
     console.log(newTodoContent);
@@ -32,28 +35,30 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
   };
 
   return (
-    <ModalLayout type="revise">
-      <TextInput
-        inputType="text"
-        name=""
-        placeholder={todo.content}
-        // form={false}
-        onChange={handleInputChange}
-      />
-      <div className="button-wrapper">
-        <ModalButton
-          type="remove"
-          onClick={() => {
-            handleRemoveClick();
-          }}
+    <ModalBackground onClick={() => setReviseModalOpenAtom(false)}>
+      <ModalWrapper onClick={(e) => e.stopPropagation()}>
+        <TextInput
+          inputType="text"
+          name=""
+          placeholder={todo.content}
+          // form={false}
+          onChange={handleInputChange}
         />
-        <ModalButton
-          type="complete"
-          onClick={() => {
-            handleCompleteClick();
-          }}
-        />
-      </div>
-    </ModalLayout>
+        <div className="button-wrapper">
+          <ModalButton
+            type="remove"
+            onClick={() => {
+              handleRemoveClick();
+            }}
+          />
+          <ModalButton
+            type="complete"
+            onClick={() => {
+              handleCompleteClick();
+            }}
+          />
+        </div>
+      </ModalWrapper>
+    </ModalBackground>
   );
 }
