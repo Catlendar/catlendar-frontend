@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  UserInfoWrapper,
-  UserInfoTitle,
-  ButtonWrapper,
-  BirthWrapper,
-  SolarWrapper,
-} from './UserInfo.styled';
+import { useRecoilValue } from 'recoil';
+import { UserInfoWrapper, UserInfoTitle, ButtonWrapper, BirthWrapper } from './UserInfo.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
 import DatePickerComponent from '../../components/DatePicker/DatePicker';
 import SelectInput from '../../components/Common/TextInput/SelectInput';
-import { InputName } from '../../components/Common/TextInput/TextInput.styled';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
+import { SignUpAtom } from '../../atom/SignUpAtom';
 
 export default function UserInfoPage() {
   const [email, setEmail] = useState<string>('');
@@ -24,6 +19,7 @@ export default function UserInfoPage() {
   const [birthTime, setBirthTime] = useState<string>('');
   const [calendarType, setCalendarType] = useState<string>('');
   const [gender, setGender] = useState<string>('');
+  const signUpAtom = useRecoilValue(SignUpAtom);
   const navigate = useNavigate();
 
   const [selectedDate, setSelectedDate] = useState<string>('');
@@ -50,15 +46,13 @@ export default function UserInfoPage() {
     );
   };
   useEffect(() => {
-    // 로컬 스토리지에서 'email' 키 값 가져옴
-    const storedEmail = localStorage.getItem('email');
-    const storedPassword = localStorage.getItem('password');
+    const storedEmail = signUpAtom.email;
+    const storedPassword = signUpAtom.password;
     if (storedEmail && storedPassword) {
-      // 만약 저장된 이메일 값이 있다면 상태를 업데이트합니다.
       setEmail(storedEmail);
       setPassword(storedPassword);
     }
-  }, []);
+  }, [signUpAtom]);
 
   const signUp = async () => {
     try {
@@ -72,8 +66,8 @@ export default function UserInfoPage() {
         gender,
       });
       if (response.status === 200) {
-        window.localStorage.removeItem('email');
-        window.localStorage.removeItem('password');
+        // signUpAtom에 있는 email, password 삭제
+        localStorage.clear();
         navigate('/signup/complete');
       } else {
         navigate('/error');
@@ -98,20 +92,16 @@ export default function UserInfoPage() {
         />
         <BirthWrapper>
           <DatePickerComponent onDateSelect={handleDateSelect} />
-          <SolarWrapper>
-            <InputName>양력</InputName>
-            <SelectInput
-              name=""
-              initial=""
-              options={BirthOption}
-              width={100}
-              onChange={(value: string) => setCalendarType(value)}
-            />
-          </SolarWrapper>
+          <SelectInput
+            name="양력"
+            initial=""
+            options={BirthOption}
+            width={100}
+            onChange={(value: string) => setCalendarType(value)}
+          />
         </BirthWrapper>
-        <InputName>태어난 시간</InputName>
         <SelectInput
-          name=""
+          name="태어난 시간"
           initial=""
           options={BirthTimeOption}
           width={340}

@@ -48,7 +48,7 @@ function LoginPage() {
             registDate: atomUserInfo.registDate,
             token: atomUserInfo.token,
           });
-          navigate('/Home');
+          navigate('/home');
         }
       } else {
         navigate('/error');

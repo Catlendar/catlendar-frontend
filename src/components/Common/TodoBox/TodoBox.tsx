@@ -38,7 +38,10 @@ export default function TodoBox({ date }: TodoBoxProps) {
   useEffect(() => {
     const fetchTodoData = async () => {
       try {
-        const url = date === 'today' ? 'calendar/getToday' : '/calendar/getSpecificMonth';
+        const url =
+          date === 'today' || date === moment(new Date()).format('YYYY-MM-DD')
+            ? 'calendar/getToday'
+            : '/calendar/getSpecificMonth';
         const response = await tokenInstance.post(
           url,
           date === today
@@ -89,10 +92,11 @@ export default function TodoBox({ date }: TodoBoxProps) {
   return (
     <TodoBoxWrapper>
       <TodoHeader
+        date={date}
         comletedTasks={todayTasksAtom.completedTasks}
         totalTasks={todayTasksAtom.totalTasks}
       />
-      <TodoList />
+      <TodoList date={date} />
       <Modal type="todoList" />
     </TodoBoxWrapper>
   );

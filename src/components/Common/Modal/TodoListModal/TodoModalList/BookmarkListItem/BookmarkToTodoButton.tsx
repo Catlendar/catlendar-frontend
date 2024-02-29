@@ -23,17 +23,14 @@ export default function BookmarkToTodoButton({ bookmarkId, userId }: BookmarkDel
 
     try {
       // 즐겨찾기 페이지에서 할일 페이지로 이동
-      const bookmarkToCalendarResponse = await tokenInstance.post(
-        'http://54.66.123.168:8080/calendar/bookmarkToCalendar',
-        {
-          userId,
-          bookmarkId,
-        },
-      );
+      const bookmarkToCalendarResponse = await tokenInstance.post('calendar/bookmarkToCalendar', {
+        userId,
+        bookmarkId,
+      });
       const responseText = bookmarkToCalendarResponse.data;
 
       // 오늘 할 일 가져오기
-      const getTodoUrl = 'http://54.66.123.168:8080/calendar/getToday';
+      const getTodoUrl = 'calendar/getToday';
       const TodoResponse = await tokenInstance.post(getTodoUrl, {
         userId,
       });

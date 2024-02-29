@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import { LoginWrapper } from '../LoginPage/LoginPage.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
-import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import Button from '../../components/Common/Button/Button';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
 import SelectInput from '../../components/Common/TextInput/SelectInput';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
-import { Input, InputName } from '../../components/Common/TextInput/TextInput.styled';
 import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
@@ -92,7 +89,7 @@ export default function ProfileEditPage() {
       >
         <DatePickerComponent onDateSelect={handleDateSelect} />
         <SelectInput
-          name=""
+          name="양력"
           options={BirthOption}
           width={100}
           initial={userAtom.calendarType}

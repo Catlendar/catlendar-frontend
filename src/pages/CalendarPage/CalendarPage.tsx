@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -40,7 +39,7 @@ export default function CalendarPage() {
   function groupDataByDate(data) {
     const groupedData = {};
     data.forEach((item) => {
-      const convertedItem = moment(item.calendarDate).subtract(1, 'day').format('YYYY-MM-DD');
+      const convertedItem = moment(item.calendarDate).format('YYYY-MM-DD');
       if (!groupedData[convertedItem]) {
         groupedData[convertedItem] = [];
       }
@@ -61,7 +60,7 @@ export default function CalendarPage() {
         });
         const groupedData = groupDataByDate(response.data);
         setDataGroup(groupedData);
-        console.log('111', groupedData);
+        console.log('123123123', groupedData);
       } catch (error) {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       }
@@ -90,7 +89,6 @@ export default function CalendarPage() {
     };
     calculateTodoNum();
   }, [dataGroup, setTodoNum, userAtom.userId]);
-
   return (
     <div>{dataGroup && <ReactCalendar value={date} setValue={setDate} todoObj={todoObj} />}</div>
   );

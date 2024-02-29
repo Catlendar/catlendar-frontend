@@ -9,14 +9,13 @@ interface InputWrapperProps {
 }
 
 const commonInputStyle = css<InputProps>`
-  width: 100%;
   border: none;
   border-bottom: 1px solid var(--input-bb);
   background: none;
   color: var(--color-black);
   padding-bottom: 10px;
   margin-right: 18px;
-  margin-top: 10px;
+  margin-top: 11px;
   font-size: var(--large-font-size);
 
   &::placeholder {
@@ -54,4 +53,5 @@ export const InputName = styled.p`
 export const InputWrapper = styled.div<InputWrapperProps>`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
+  margin-top: 3.7rem;
 `;
