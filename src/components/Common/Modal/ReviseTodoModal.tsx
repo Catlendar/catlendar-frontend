@@ -41,7 +41,7 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
     return todayDate;
   };
 
-  const modifyCalendarDate = (calendarDate) => {
+  const modifyCalendarDate = (calendarDate: string) => {
     const date = new Date(calendarDate);
     return date
       .toLocaleDateString('ko-KR', {
@@ -66,28 +66,28 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
       console.log(todayDate);
       console.log(calendarDate);
 
-      // const deleteResponse = await tokenInstance.post('calendar/deleteCalendar', {
-      //   userId: selectTodoItemAtom.userId,
-      //   calendarId: selectTodoItemAtom.calendarId,
-      // });
-      // if (deleteResponse.data === '삭제 되었습니다.') {
-      //   if (calendarDate === todayDate) {
-      //     // 삭제한 할 일이 오늘 할 일이라면 오늘 할 일 불러와서 TodoListAtom 업데이트
-      //     const todayListResponse = await tokenInstance.post('calendar/getToday', {
-      //       userId: selectTodoItemAtom.userId,
-      //     });
-      //     setTodoListAtom(todayListResponse.data);
-      //   } else {
-      //     // 삭제한 할 일이 오늘 할 일이 아니라면 해당 calendarDate 불러와서 TodoListAtom 업데이트
-      //     const specificMonthResponse = await tokenInstance.post('calendar/getSpecificMonth', {
-      //       targetDate: calendarDate,
-      //       userId: selectTodoItemAtom.userId,
-      //     });
-      //     setTodoListAtom(specificMonthResponse.data);
-      //   }
-      // } else {
-      //   throw new Error('일정을 삭제하는데 실패했습니다.');
-      // }
+      const deleteResponse = await tokenInstance.post('calendar/deleteCalendar', {
+        userId: selectTodoItemAtom.userId,
+        calendarId: selectTodoItemAtom.calendarId,
+      });
+      if (deleteResponse.data === '삭제 되었습니다.') {
+        if (calendarDate === todayDate) {
+          // 삭제한 할 일이 오늘 할 일이라면 오늘 할 일 불러와서 TodoListAtom 업데이트
+          const todayListResponse = await tokenInstance.post('calendar/getToday', {
+            userId: selectTodoItemAtom.userId,
+          });
+          setTodoListAtom(todayListResponse.data);
+        } else {
+          // 삭제한 할 일이 오늘 할 일이 아니라면 해당 calendarDate 불러와서 TodoListAtom 업데이트
+          const specificMonthResponse = await tokenInstance.post('calendar/getSpecificMonth', {
+            targetDate: calendarDate,
+            userId: selectTodoItemAtom.userId,
+          });
+          setTodoListAtom(specificMonthResponse.data);
+        }
+      } else {
+        throw new Error('일정을 삭제하는데 실패했습니다.');
+      }
 
       console.log('삭제 완료!');
       onClose();
@@ -100,27 +100,37 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
   const handleCompleteClick = async () => {
     try {
       const todayDate = getTodayDate();
-      const calendarDate = selectTodoItemAtom.calendarDate.split('T')[0];
+      const calendarDate = modifyCalendarDate(selectTodoItemAtom.calendarDate);
       console.log(todayDate);
       console.log(calendarDate);
 
       // // 수정하는 API 호출
-      // const updateResponse = await tokenInstance.post('calendar/updateCalendar', {
-      //   userId: selectTodoItemAtom.userId,
-      //   calendarId: selectTodoItemAtom.calendarId,
-      //   calendarContent: newTodoContent,
-      // });
-      // if (updateResponse.data === '수정 되었습니다.') {
-      //   // 수정한 할 일이 오늘 할 일이라면 오늘 할 일 불러와서 TodoListAtom 업데이트
-      //   if (calendarDate === todayDate) {
-      //     //
-      //   }
-      // } else if (updateResponse.data === 'calendarContent is null or empty') {
-      //   alert('내용을 입력해주세요');
-      //   return;
-      // } else {
-      //   throw new Error('수정하는 도중 문제가 발생했습니다.');
-      // }
+      const updateResponse = await tokenInstance.post('calendar/updateCalendar', {
+        userId: selectTodoItemAtom.userId,
+        calendarId: selectTodoItemAtom.calendarId,
+        calendarContent: newTodoContent,
+      });
+      if (updateResponse.data === '수정 되었습니다.') {
+        // 수정한 할 일이 오늘 할 일이라면 오늘 할 일 불러와서 TodoListAtom 업데이트
+        if (calendarDate === todayDate) {
+          const todayListResponse = await tokenInstance.post('calendar/getToday', {
+            userId: selectTodoItemAtom.userId,
+          });
+          setTodoListAtom(todayListResponse.data);
+        } else {
+          // 수정한 할 일이 오늘 할 일이 아니라면 해당 calendarDate 불러와서 TodoListAtom 업데이트
+          const specificMonthResponse = await tokenInstance.post('calendar/getSpecificMonth', {
+            targetDate: calendarDate,
+            userId: selectTodoItemAtom.userId,
+          });
+          setTodoListAtom(specificMonthResponse.data);
+        }
+      } else if (updateResponse.data === 'calendarContent is null or empty') {
+        alert('내용을 입력해주세요');
+        return;
+      } else {
+        throw new Error('수정하는 도중 문제가 발생했습니다.');
+      }
 
       console.log('수정 완료!');
       onClose();
