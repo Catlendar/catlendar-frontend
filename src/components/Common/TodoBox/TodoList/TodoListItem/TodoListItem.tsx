@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import Checkbox from '../../../Checkbox/Checkbox';
 import { TodoItemText, TodoItemWrapper } from './TodoListItem.styled';
-import Icon from '../../../../../assets/icons/icon-meatball.svg';
 import { TodoDataType, TodoListAtom } from '../../../../../atom/TodoListAtom';
 import { TodayTasksAtom } from '../../../../../atom/TodayTasksAtom';
 import { tokenInstance } from '../../../../../api/Axios';
@@ -49,9 +48,7 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
       // 변경된 할 일 가져오기
       // 오늘 할 일 목록을 가져와서 업데이트 해준다. -> 다른 날이면 getSpecificMonth
       const getTodayResponse = await tokenInstance.post(
-        today === date
-          ? 'http://54.66.123.168:8080/calendar/getToday'
-          : 'http://54.66.123.168:8080/calendar/getSpecificMonth',
+        today === date ? 'calendar/getToday' : 'calendar/getSpecificMonth',
         today === date
           ? {
               userId: todo.userId,
@@ -61,11 +58,6 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
               targetDate: date,
             },
       );
-
-      // 오늘 할 일 목록을 가져와서 업데이트 해준다.
-      const getTodayResponse = await tokenInstance.post('calendar/getToday', {
-        userId: todo.userId,
-      });
 
       console.log(getTodayResponse);
       const totalTasks = getTodayResponse.data.length;
