@@ -91,15 +91,7 @@ export default function Router() {
           }
         />
 
-        <Route
-          path="/home"
-          element={
-            <>
-              <HomePage />
-              <NavBar />
-            </>
-          }
-        />
+        <Route path="/home" element={<HomePage />} />
         <Route
           path="/calendar"
           element={
