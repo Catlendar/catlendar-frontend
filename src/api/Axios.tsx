@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-export const URL = 'http://54.66.123.168:8080/';
+// export const URL = 'http://54.66.123.168:8080/';
+const URL = window.location.hostname === 'localhost' ? 'http://54.66.123.168:8080' : 'api';
 
 // 기본 인스턴스
 export const instance = axios.create({
