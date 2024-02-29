@@ -36,12 +36,12 @@ export default function HomePage() {
           fortuneDesc: fortune.map((item) => item.desc),
         });
       } catch (error) {
-        alert('생일이 올바르지 않습니다.');
-        navigate('/profile/edit');
+        navigate('/');
       }
     };
     fetchData();
-  }, [userAtom, navigate, setFortuneData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userAtom, setFortuneData]);
 
   return (
     <div
