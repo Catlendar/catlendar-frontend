@@ -5,6 +5,7 @@ export const ProfileWrapper = styled.div`
   padding: 0 26px;
   padding-top: 20px;
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: 20px;
 `;

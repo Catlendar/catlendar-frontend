@@ -81,6 +81,7 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
       navigate('/error');
     }
   };
+
   return (
     <TodoItemWrapper>
       <Checkbox checked={completed} onClick={handleClick} />

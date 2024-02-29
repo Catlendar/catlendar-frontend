@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { useMutation } from '@tanstack/react-query';
-import { LoginWrapper } from '../LoginPage/LoginPage.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
@@ -23,22 +22,25 @@ export default function EditPwPage() {
   const [existError, setExistError] = useState<string>('');
   const [confirmError, setConfirmError] = useState<string>('');
   const [newPwdError, setNewPwdError] = useState<string>('');
-  const [userAtom, setUserAtom] = useRecoilState(UserAtom);
+  const userAtom = useRecoilValue(UserAtom);
   const navigate = useNavigate();
   const { email } = userAtom;
-  const passwordPattern = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]{8,16}$/;
+  // const passwordPattern = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]{8,16}$/;
+  const passwordPattern = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9]{8,16}$/;
 
-  const isFormValid =
-    password && newPassword && confirmPassword && passwordPattern.test(newPassword);
+  const isFormValid = password && newPassword && confirmPassword;
 
   const { mutate } = useMutation({
     mutationFn: async (userData: UserData) => {
-      if (newPassword !== confirmPassword) {
-        setConfirmError('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
-        throw new Error('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+      const response = await tokenInstance.post('user/updatePassword', userData);
+      if (response.status === 200) {
+        if (response.data === '기존 비밀번호와 일치하지 않습니다.') {
+          throw new Error(`${response.data}`);
+        } else {
+          return response.data;
+        }
       } else {
-        const response = await tokenInstance.post('user/updatePassword', userData);
-        return response.data;
+        throw new Error('error');
       }
     },
     onSuccess: () => {
@@ -46,18 +48,26 @@ export default function EditPwPage() {
       navigate('/home');
     },
     onError: (error) => {
-      console.log('onError', error);
-      console.log(password, newPassword);
-      navigate('/error');
+      if (error.message === '기존 비밀번호와 일치하지 않습니다.') {
+        setExistError(error.message);
+      } else {
+        navigate('/error');
+      }
     },
   });
 
   const handleChangePwd = () => {
-    mutate({
-      email,
-      password,
-      newPassword,
-    });
+    if (!passwordPattern.test(newPassword)) {
+      setNewPwdError('비밀번호 형식이 맞지 않습니다.');
+    } else if (newPassword !== confirmPassword) {
+      setConfirmError('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+    } else {
+      mutate({
+        email,
+        password,
+        newPassword,
+      });
+    }
   };
 
   return (

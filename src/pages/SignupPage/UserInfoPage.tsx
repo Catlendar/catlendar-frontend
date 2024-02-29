@@ -94,6 +94,7 @@ export default function UserInfoPage() {
           <DatePickerComponent onDateSelect={handleDateSelect} />
           <SelectInput
             name="양력"
+            initial=""
             options={BirthOption}
             width={100}
             onChange={(value: string) => setCalendarType(value)}
@@ -101,6 +102,7 @@ export default function UserInfoPage() {
         </BirthWrapper>
         <SelectInput
           name="태어난 시간"
+          initial=""
           options={BirthTimeOption}
           width={340}
           onChange={(value: string) => setBirthTime(value)}
