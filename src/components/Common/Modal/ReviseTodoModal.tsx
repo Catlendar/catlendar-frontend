@@ -105,22 +105,22 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
       console.log(calendarDate);
 
       // // 수정하는 API 호출
-      const updateResponse = await tokenInstance.post('calendar/updateCalendar', {
-        userId: selectTodoItemAtom.userId,
-        calendarId: selectTodoItemAtom.calendarId,
-        calendarContent: newTodoContent,
-      });
-      if (updateResponse.data === '수정 되었습니다.') {
-        // 수정한 할 일이 오늘 할 일이라면 오늘 할 일 불러와서 TodoListAtom 업데이트
-        if (calendarDate === todayDate) {
-          //
-        }
-      } else if (updateResponse.data === 'calendarContent is null or empty') {
-        alert('내용을 입력해주세요');
-        return;
-      } else {
-        throw new Error('수정하는 도중 문제가 발생했습니다.');
-      }
+      // const updateResponse = await tokenInstance.post('calendar/updateCalendar', {
+      //   userId: selectTodoItemAtom.userId,
+      //   calendarId: selectTodoItemAtom.calendarId,
+      //   calendarContent: newTodoContent,
+      // });
+      // if (updateResponse.data === '수정 되었습니다.') {
+      //   // 수정한 할 일이 오늘 할 일이라면 오늘 할 일 불러와서 TodoListAtom 업데이트
+      //   if (calendarDate === todayDate) {
+      //     //
+      //   }
+      // } else if (updateResponse.data === 'calendarContent is null or empty') {
+      //   alert('내용을 입력해주세요');
+      //   return;
+      // } else {
+      //   throw new Error('수정하는 도중 문제가 발생했습니다.');
+      // }
 
       console.log('수정 완료!');
       onClose();
