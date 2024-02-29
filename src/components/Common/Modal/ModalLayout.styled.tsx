@@ -33,6 +33,12 @@ export const ModalWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
+
+  .button-wrapper {
+    display: flex;
+    gap: 10px;
+    margin: 10px auto;
+  }
 `;
 
 export const ModalLayout = styled.div<ModalTypeProps>`

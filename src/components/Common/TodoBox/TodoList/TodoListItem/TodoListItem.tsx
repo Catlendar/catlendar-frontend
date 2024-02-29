@@ -8,6 +8,7 @@ import { TodoDataType, TodoListAtom } from '../../../../../atom/TodoListAtom';
 import { TodayTasksAtom } from '../../../../../atom/TodayTasksAtom';
 import { tokenInstance } from '../../../../../api/Axios';
 import ItemMenuButton from './ItemMenuButton';
+import Modal from '../../../Modal/Modal';
 
 interface TodoListItemProps {
   todo: TodoDataType;
@@ -65,7 +66,8 @@ export default function TodoListItem({ todo }: TodoListItemProps) {
     <TodoItemWrapper>
       <Checkbox checked={completed} onClick={handleClick} />
       <TodoItemText completed={completed}>{todo.calendarContent}</TodoItemText>
-      <ItemMenuButton calendarContent={todo.calendarContent} />
+      <ItemMenuButton todo={todo} />
+      <Modal type="revise" />
     </TodoItemWrapper>
   );
 }
