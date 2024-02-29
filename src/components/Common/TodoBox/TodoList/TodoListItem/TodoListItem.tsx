@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import Checkbox from '../../../Checkbox/Checkbox';
-import { TodoItemMenuBtn, TodoItemText, TodoItemWrapper } from './TodoListItem.styled';
+import { TodoItemText, TodoItemWrapper } from './TodoListItem.styled';
 import Icon from '../../../../../assets/icons/icon-meatball.svg';
 import { TodoDataType, TodoListAtom } from '../../../../../atom/TodoListAtom';
 import { TodayTasksAtom } from '../../../../../atom/TodayTasksAtom';
 import { tokenInstance } from '../../../../../api/Axios';
+import ItemMenuButton from './ItemMenuButton';
+import Modal from '../../../Modal/Modal';
 
 interface TodoListItemProps {
   todo: TodoDataType;
@@ -36,22 +38,16 @@ export default function TodoListItem({ todo }: TodoListItemProps) {
     console.log('check');
     try {
       // 일정 완료 토글 api 호출
-      const completeCalendarResponse = await tokenInstance.post(
-        'http://54.66.123.168:8080/calendar/completeCalendar',
-        {
-          userId: todo.userId,
-          calendarId: todo.calendarId,
-        },
-      );
+      const completeCalendarResponse = await tokenInstance.post('calendar/completeCalendar', {
+        userId: todo.userId,
+        calendarId: todo.calendarId,
+      });
 
       // 변경된 할 일 가져오기
       // 오늘 할 일 목록을 가져와서 업데이트 해준다.
-      const getTodayResponse = await tokenInstance.post(
-        'http://54.66.123.168:8080/calendar/getToday',
-        {
-          userId: todo.userId,
-        },
-      );
+      const getTodayResponse = await tokenInstance.post('calendar/getToday', {
+        userId: todo.userId,
+      });
       console.log(getTodayResponse);
       const totalTasks = getTodayResponse.data.length;
       const completedTasks = getTodayCompletedTasks(getTodayResponse.data);
@@ -70,9 +66,8 @@ export default function TodoListItem({ todo }: TodoListItemProps) {
     <TodoItemWrapper>
       <Checkbox checked={completed} onClick={handleClick} />
       <TodoItemText completed={completed}>{todo.calendarContent}</TodoItemText>
-      <TodoItemMenuBtn onClick={() => console.log('cc')} type="button" aria-label="메뉴 버튼">
-        <img src={Icon} alt="" />
-      </TodoItemMenuBtn>
+      <ItemMenuButton todo={todo} />
+      <Modal type="revise" />
     </TodoItemWrapper>
   );
 }

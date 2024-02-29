@@ -1,14 +1,18 @@
 import { styled } from 'styled-components';
-import IconX from '../../../assets/icons/icon-x.svg';
+import IconMenu from '../../../../../assets/icons/icon-meatball.svg';
 
-export const CloseButton = styled.button`
+export const TodoItemMenuBtn = styled.button`
   border: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0;
+  padding: 0;
   background-color: var(--color-white);
-  width: 3rem;
-  height: 3rem;
-  background-image: url(${IconX});
-  background-position: center;
+  background-image: url(${IconMenu});
   background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
 
   span {
     position: absolute;
