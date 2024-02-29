@@ -35,12 +35,3 @@ export const TodoItemText = styled.span<TodoItemTextProps>`
   color: ${(props) => (props.completed ? 'var(--text-color-main)' : 'var(--color-black)')};
   text-decoration: ${(props) => (props.completed ? 'line-through' : 'none')};
 `;
-
-export const TodoItemMenuBtn = styled.button`
-  border: none;
-  margin: 0;
-  padding: 0;
-  background-color: var(--color-white);
-
-  cursor: pointer;
-`;

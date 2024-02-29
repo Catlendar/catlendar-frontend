@@ -21,18 +21,15 @@ export default function TodoDeleteButton({ calendarId, userId }: TodoDeleteButto
 
     try {
       // 선택한 할 일 삭제요청
-      const deleteResponse = await tokenInstance.post(
-        'http://54.66.123.168:8080/calendar/deleteCalendar',
-        {
-          userId,
-          calendarId,
-        },
-      );
+      const deleteResponse = await tokenInstance.post('calendar/deleteCalendar', {
+        userId,
+        calendarId,
+      });
       console.log(deleteResponse);
       const deleteData = deleteResponse.data;
 
       // 오늘 할 일 가져오기
-      const TodoResponse = await tokenInstance.post('http://54.66.123.168:8080/calendar/getToday', {
+      const TodoResponse = await tokenInstance.post('calendar/getToday', {
         userId,
       });
       const TodoData = TodoResponse.data;

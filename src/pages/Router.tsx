@@ -17,7 +17,6 @@ import ErrorPage from './ErrorPage/ErrorPage';
 import UserInfoPage from './SignupPage/UserInfoPage';
 import Header from '../components/Common/Header/Header';
 import NavBar from '../components/Common/NavBar/NavBar';
-import ApiPage from './ApiPage';
 import ProfilePage from './ProfilePage/ProfilePage';
 import { SignUpAtom } from '../atom/SignUpAtom';
 
@@ -93,9 +92,16 @@ export default function Router() {
         <Route
           path="/setting"
           element={
+            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
-              <Header title="설정" />
-              <SettingPage />
+              {isLoggedIn === '' ? (
+                <LandingPage />
+              ) : isLoggedIn ? (
+                <>
+                  <Header title="설정" />
+                  <SettingPage />
+                </>
+              ) : null}
             </>
           }
         />
@@ -103,51 +109,96 @@ export default function Router() {
         <Route
           path="/profile"
           element={
+            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
-              <ProfilePage />
-              <NavBar />
+              {isLoggedIn === '' ? (
+                <LandingPage />
+              ) : isLoggedIn ? (
+                <>
+                  <ProfilePage />
+                  <NavBar />
+                </>
+              ) : null}
             </>
           }
         />
         <Route
           path="/profile/edit"
           element={
+            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
-              <Header title="정보 수정" />
-              <ProfileEditPage />
+              {isLoggedIn === '' ? (
+                <LandingPage />
+              ) : isLoggedIn ? (
+                <>
+                  <Header title="정보 수정" />
+                  <ProfileEditPage />
+                </>
+              ) : null}
             </>
           }
         />
         <Route
           path="/profile/editPassword"
           element={
+            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
-              <Header title="비밀번호 변경" />
-              <EditPwPage />
+              {isLoggedIn === '' ? (
+                <LandingPage />
+              ) : isLoggedIn ? (
+                <>
+                  <Header title="비밀번호 변경" />
+                  <EditPwPage />
+                </>
+              ) : null}
             </>
           }
         />
-
         <Route
           path="/home"
           element={
+            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
-              <HomePage />
-              <NavBar />
+              {isLoggedIn === '' ? (
+                <LandingPage />
+              ) : isLoggedIn ? (
+                <>
+                  <HomePage /> <NavBar />
+                </>
+              ) : null}
             </>
           }
         />
         <Route
           path="/calendar"
           element={
+            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
-              <CalendarPage />
-              <NavBar />
+              {isLoggedIn === '' ? (
+                <LandingPage />
+              ) : isLoggedIn ? (
+                <>
+                  <CalendarPage /> <NavBar />
+                </>
+              ) : null}
             </>
           }
         />
-        <Route path="/fortune" element={<FortunePage />} />
-        <Route path="/api" element={<ApiPage />} />
+        <Route
+          path="/fortune"
+          element={
+            // eslint-disable-next-line react/jsx-no-useless-fragment
+            <>
+              {isLoggedIn === '' ? (
+                <LandingPage />
+              ) : isLoggedIn ? (
+                <>
+                  <FortunePage /> <NavBar />
+                </>
+              ) : null}
+            </>
+          }
+        />
 
         <Route path="/error" element={<ErrorPage />} />
       </Routes>

@@ -5,7 +5,7 @@ import { TodoModalOpenAtom } from '../../../atom/TodoModalOpenAtom';
 import AddModalInput from '../AddModalInput/AddModalInput';
 import Tab from '../Tab/Tab';
 import { TabDataTodo } from '../Tab/TabData';
-import { TodoModalBackground, TodoModalWrapper } from './TodoListModal.styled';
+import { ModalBackground, ModalWrapper } from './ModalLayout.styled';
 import TodoModalList from './TodoListModal/TodoModalList/TodoModalList';
 
 export default function TodoListModal() {
@@ -23,12 +23,12 @@ export default function TodoListModal() {
   }, [selectTabType]);
 
   return (
-    <TodoModalBackground onClick={() => setTodoModalOpenAtom(false)}>
-      <TodoModalWrapper onClick={(e) => e.stopPropagation()}>
+    <ModalBackground onClick={() => setTodoModalOpenAtom(false)}>
+      <ModalWrapper onClick={(e) => e.stopPropagation()}>
         <Tab tabData={TabDataTodo} />
         <TodoModalList />
         <AddModalInput />
-      </TodoModalWrapper>
-    </TodoModalBackground>
+      </ModalWrapper>
+    </ModalBackground>
   );
 }

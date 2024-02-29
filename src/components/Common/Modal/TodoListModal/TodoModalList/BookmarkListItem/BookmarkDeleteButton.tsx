@@ -23,23 +23,17 @@ export default function BookmarkDeleteButton({ bookmarkId, userId }: BookmarkDel
       console.log(bookmarkId);
       console.log(userId);
       // 선택한 즐겨찾기 삭제요청
-      const deleteResponse = await tokenInstance.post(
-        'http://54.66.123.168:8080/calendar/deleteBookmark',
-        {
-          userId,
-          bookmarkId,
-        },
-      );
+      const deleteResponse = await tokenInstance.post('calendar/deleteBookmark', {
+        userId,
+        bookmarkId,
+      });
       console.log(deleteResponse);
       const responseText = deleteResponse.data;
 
       // 즐겨찾기 목록 가져오기
-      const getBookmarkListResponse = await tokenInstance.post(
-        'http://54.66.123.168:8080/calendar/getBookmarkList',
-        {
-          userId,
-        },
-      );
+      const getBookmarkListResponse = await tokenInstance.post('calendar/getBookmarkList', {
+        userId,
+      });
       const bookmarkListData = getBookmarkListResponse.data;
       if (responseText === '즐겨찾기가 삭제 되었습니다.') {
         setBookmarkListAtom(bookmarkListData);

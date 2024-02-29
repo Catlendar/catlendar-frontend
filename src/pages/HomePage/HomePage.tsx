@@ -3,7 +3,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
 import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
-
+import NavBar from '../../components/Common/NavBar/NavBar';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
 
@@ -36,11 +36,12 @@ export default function HomePage() {
           fortuneDesc: fortune.map((item) => item.desc),
         });
       } catch (error) {
-        navigate('/error');
+        navigate('/');
       }
     };
     fetchData();
-  }, [userAtom, navigate, setFortuneData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userAtom, setFortuneData]);
 
   return (
     <div
@@ -55,6 +56,7 @@ export default function HomePage() {
     >
       <MainCard />
       <TodoBox date="today" />
+      <NavBar />
     </div>
   );
 }

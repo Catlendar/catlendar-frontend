@@ -1,10 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import ReactCalendar from '../../components/Calendar/ReactCalendar';
 import { UserAtom } from '../../atom/UserAtom';
 import { tokenInstance } from '../../api/Axios';
+import { TodoNumAtom } from '../../atom/TodoNumAtom';
+// import { useHook } from '../../components/customHook';
 
 export default function CalendarPage() {
   interface TodoDataProps {
@@ -18,6 +19,8 @@ export default function CalendarPage() {
 
   const userAtom = useRecoilValue(UserAtom);
   const [date, setDate] = useState(new Date());
+  const [TodoNum, setTodoNum] = useRecoilState(TodoNumAtom);
+
   const convertedDate = {
     date: '',
     month: '',
@@ -36,7 +39,7 @@ export default function CalendarPage() {
   function groupDataByDate(data) {
     const groupedData = {};
     data.forEach((item) => {
-      const convertedItem = moment(item.calendarDate).subtract(1, 'day').format('YYYY-MM-DD');
+      const convertedItem = moment(item.calendarDate).format('YYYY-MM-DD');
       if (!groupedData[convertedItem]) {
         groupedData[convertedItem] = [];
       }
@@ -57,7 +60,7 @@ export default function CalendarPage() {
         });
         const groupedData = groupDataByDate(response.data);
         setDataGroup(groupedData);
-        console.log('111', groupedData);
+        console.log('123123123', groupedData);
       } catch (error) {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       }
@@ -77,13 +80,16 @@ export default function CalendarPage() {
           totalTodo,
           completedTodo,
         };
+        console.log('CalendarPage completedTodo:', completedTodo);
       });
       setTodoObj(todoNum);
+      setTodoNum(todoNum);
+      console.log('Todonum:', TodoNum);
       console.log('Todo Num by date:', todoNum);
     };
     calculateTodoNum();
-  }, [dataGroup]);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dataGroup, setTodoNum, userAtom.userId]);
   return (
     <div>{dataGroup && <ReactCalendar value={date} setValue={setDate} todoObj={todoObj} />}</div>
   );
