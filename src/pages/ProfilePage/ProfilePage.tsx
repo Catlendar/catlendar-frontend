@@ -10,7 +10,6 @@ import {
   ProfileMain,
   Gear,
 } from './ProfilePage.styled';
-import settingIcon from '../../assets/icons/icon-setting.svg';
 import { ChartComponent } from '../../components/Chart/ChartComponent';
 
 export default function ProfilePage() {
@@ -21,7 +20,6 @@ export default function ProfilePage() {
     <ProfileWrapper>
       <ProfileTitle>
         <ProfileName>마이페이지</ProfileName>
-        {/* <Img src={settingIcon} alt="" onClick={() => navigate('/setting')} /> */}
         <Gear onClick={() => navigate('/setting')} />
       </ProfileTitle>
       <ProfileMain>

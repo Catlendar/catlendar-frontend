@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 	background-color: #bdbdbd;
 	} 
 
-	input::placeholder, button {
+	input, input::placeholder, button {
 		font:inherit;
 	}
 

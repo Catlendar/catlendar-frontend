@@ -3,7 +3,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
 import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
-
+import NavBar from '../../components/Common/NavBar/NavBar';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
 
@@ -36,7 +36,8 @@ export default function HomePage() {
           fortuneDesc: fortune.map((item) => item.desc),
         });
       } catch (error) {
-        navigate('/error');
+        alert('생일이 올바르지 않습니다.');
+        navigate('/profile/edit');
       }
     };
     fetchData();
@@ -55,6 +56,7 @@ export default function HomePage() {
     >
       <MainCard />
       <TodoBox date="today" />
+      <NavBar />
     </div>
   );
 }

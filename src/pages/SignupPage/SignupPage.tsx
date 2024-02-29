@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import { SignUpWrapper, SignUpTitle, ButtonWrapper } from './Signup.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { instance } from '../../api/Axios';
+import { SignUpAtom } from '../../atom/SignUpAtom';
 
 export default function SignUpPage() {
   const [email, setEmail] = useState<string>('');
@@ -13,7 +15,7 @@ export default function SignUpPage() {
   const [emailErrorMessage, setEmailErrorMessage] = useState<string>('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>('');
   const [confirmPasswordErrorMessage, setConfirmPasswordErrorMessage] = useState<string>('');
-
+  const [passSign, setPassSign] = useRecoilState(SignUpAtom);
   const navigate = useNavigate();
 
   // 입력된 이메일과 비밀번호, 비밀번호 확인 유효성검사
@@ -41,9 +43,11 @@ export default function SignUpPage() {
         if (response.data === '이미 가입된 이메일 주소 입니다.') {
           setEmailErrorMessage('사용할 수 없는 아이디입니다. 다른 아이디를 입력해 주세요.');
         } else {
-          // localStorage에 입력받은 email, password 저장
-          localStorage.setItem('email', email);
-          localStorage.setItem('password', password);
+          setPassSign({
+            ...passSign,
+            email,
+            password,
+          });
           navigate('/signup/userinfo');
         }
       } else {

@@ -22,15 +22,17 @@ interface UserData {
 }
 
 export default function ProfileEditPage() {
-  const [name, setName] = useState('');
-  const [birthDate, setBirthDate] = useState('');
-  const [birthTime, setBirthTime] = useState('');
-  const [gender, setGender] = useState('');
-  const [calendarType, setCalendarType] = useState('');
   const [userAtom, setUserAtom] = useRecoilState(UserAtom);
+  const [name, setName] = useState(userAtom.name);
+  const [birthDate, setBirthDate] = useState(userAtom.birthDate || '');
+  const [birthTime, setBirthTime] = useState('');
+  const [gender, setGender] = useState(userAtom.gender || '');
+  const [calendarType, setCalendarType] = useState('');
   const [selectedDate, setSelectedDate] = useState<string>('');
 
   const navigate = useNavigate();
+
+  console.log(userAtom);
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
@@ -48,12 +50,11 @@ export default function ProfileEditPage() {
       return response.data;
     },
     onSuccess: () => {
-      setUserAtom((prev) => ({ ...prev, name, birthTime, calendarType, gender }));
+      setUserAtom((prev) => ({ ...prev, name, birthDate, birthTime, calendarType, gender }));
       navigate('/home');
     },
     onError: (error) => {
       console.error('onError', error);
-      console.log(name, gender, birthTime, calendarType);
       navigate('/error');
     },
   });
@@ -61,7 +62,7 @@ export default function ProfileEditPage() {
   const handleUpdateUser = () => {
     mutate({
       name,
-      birthDate: userAtom.birthDate,
+      birthDate,
       birthTime,
       calendarType,
       gender,
@@ -75,7 +76,7 @@ export default function ProfileEditPage() {
     <ProfileWrapper>
       <TextInput
         name="이름"
-        placeholder=""
+        placeholder={name}
         inputType="text"
         onChange={(value: string) => setName(value)}
       />
@@ -91,6 +92,7 @@ export default function ProfileEditPage() {
           name="양력"
           options={BirthOption}
           width={100}
+          initial={userAtom.calendarType}
           onChange={(value: string) => setCalendarType(value)}
         />
       </div>
@@ -98,6 +100,7 @@ export default function ProfileEditPage() {
         name="태어난 시간"
         options={BirthTimeOption}
         width={340}
+        initial={userAtom.birthTime}
         onChange={(value: string) => setBirthTime(value)}
       />
       <GenderButton name="성별" onChange={(value: string) => setGender(value)} />

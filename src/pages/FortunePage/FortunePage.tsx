@@ -17,11 +17,34 @@ export default function FortunePage() {
   const [currentImg, setCurrentImg] = useState<FortuneCatImg | undefined>(undefined);
   const [selectedTab, setSelectedTab] = useRecoilState(selectedTabAtom);
   const fortuneData = useRecoilValue(fortuneDataAtom);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
 
   useEffect(() => {
     const randomImgIndex = Math.floor(Math.random() * fortuneCats.length);
     setCurrentImg(fortuneCats[randomImgIndex]);
   }, []);
+
+  const renderFortuneContent = (content) => {
+    const MAX_LENGTH = 200;
+
+    if (isExpanded || content.length <= MAX_LENGTH) {
+      return content;
+    }
+
+    const previewContent = `${content.substring(0, MAX_LENGTH)}... `;
+    return (
+      <>
+        {previewContent}
+        <button type="button" onClick={toggleExpand}>
+          더보기
+        </button>
+      </>
+    );
+  };
 
   const getFortuneTitle = (index: number): string => {
     switch (index) {
@@ -55,7 +78,9 @@ export default function FortunePage() {
       </FortuneCardWrapper>
       <FortuneContentWrapper>
         <FortuneTitle>{getFortuneTitle(selectedTab)}</FortuneTitle>
-        <FortuneContent>{fortuneData.fortuneDesc[selectedTab]}</FortuneContent>
+        <FortuneContent>
+          {renderFortuneContent(fortuneData.fortuneDesc[selectedTab])}
+        </FortuneContent>
       </FortuneContentWrapper>
     </div>
   );
