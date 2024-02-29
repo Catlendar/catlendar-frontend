@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { useMutation } from '@tanstack/react-query';
-import { LoginWrapper } from '../LoginPage/LoginPage.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
-import { instance, tokenInstance } from '../../api/Axios';
+import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
 import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
 
@@ -23,7 +22,7 @@ export default function EditPwPage() {
   const [existError, setExistError] = useState<string>('');
   const [confirmError, setConfirmError] = useState<string>('');
   const [newPwdError, setNewPwdError] = useState<string>('');
-  const [userAtom, setUserAtom] = useRecoilState(UserAtom);
+  const userAtom = useRecoilValue(UserAtom);
   const navigate = useNavigate();
   const { email } = userAtom;
   // const passwordPattern = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]{8,16}$/;

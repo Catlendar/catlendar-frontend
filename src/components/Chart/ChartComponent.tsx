@@ -14,6 +14,7 @@ import {
 import { Line } from 'react-chartjs-2';
 import { useRecoilValue } from 'recoil';
 import { TodoNumAtom } from '../../atom/TodoNumAtom';
+import { UserAtom } from '../../atom/UserAtom';
 
 interface TodoProps {
   totalTodo: number;
@@ -22,6 +23,13 @@ interface TodoProps {
 
 export function ChartComponent() {
   const todoNum = useRecoilValue<TodoProps>(TodoNumAtom);
+  const userAtom = useRecoilValue(UserAtom);
+
+  const { userId } = userAtom;
+
+  useEffect(() => {
+    console.log(userId);
+  }, [userId]);
 
   ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -61,7 +69,6 @@ export function ChartComponent() {
     },
   };
 
-  // const labels = Object.keys(todoNum);
   const labels = ['1주차', '2주차', '3주차', '4주차'];
 
   const arr1 = Object.keys(todoNum).filter((item) => Number(item.split('-')[2]) <= 7); // 1~7
@@ -126,9 +133,9 @@ export function ChartComponent() {
       },
     ],
   };
-  const arr = Object.keys(todoNum).filter((item) => item.split('-')[2]);
+  // const arr = Object.keys(todoNum).filter((item) => item.split('-')[2]);
 
-  console.log(arr);
+  // console.log(arr);
 
   // Object.values(todoNum).map((item) => item.completedTodo);
 
