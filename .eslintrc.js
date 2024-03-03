@@ -41,6 +41,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: 'React' }], // 사용되지 않는 변수가 있을 경우 경고합니다.
     'prefer-const': 'warn', // 선언된 변수가 재할당되지 않으면 const를 사용하라는 경고가 발생합니다. 에러가 나게 하려면 이 옵션을 삭제하세요.
     'import/prefer-default-export': 'off',
+    'import/no-unresolved': 'off',
   },
   settings: {
     'import/resolver': {

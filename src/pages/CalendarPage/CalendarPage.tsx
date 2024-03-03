@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import ReactCalendar from '../../components/Calendar/ReactCalendar';
 import { UserAtom } from '../../atom/UserAtom';
 import { tokenInstance } from '../../api/Axios';
@@ -19,7 +19,7 @@ export default function CalendarPage() {
 
   const userAtom = useRecoilValue(UserAtom);
   const [date, setDate] = useState(new Date());
-  const [TodoNum, setTodoNum] = useRecoilState(TodoNumAtom);
+  const [todoNum, setTodoNum] = useRecoilState(TodoNumAtom);
 
   const convertedDate = {
     date: '',
@@ -84,7 +84,7 @@ export default function CalendarPage() {
       });
       setTodoObj(todoNum);
       setTodoNum(todoNum);
-      console.log('Todonum:', TodoNum);
+      console.log('Todonum:', todoNum);
       console.log('Todo Num by date:', todoNum);
     };
     calculateTodoNum();
