@@ -1,32 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 import ReactCalendar from '../../components/Calendar/ReactCalendar';
 import { UserAtom } from '../../atom/UserAtom';
 import { tokenInstance } from '../../api/Axios';
 import { TodoNumAtom } from '../../atom/TodoNumAtom';
-// import { useHook } from '../../components/customHook';
 
 export default function CalendarPage() {
-  interface TodoDataProps {
-    totalTodo: number;
-    completedTodo: number;
-  }
-
   interface DataGroupProps {
     [date: string]: any[];
   }
 
   const userAtom = useRecoilValue(UserAtom);
   const [date, setDate] = useState(new Date());
-  const [TodoNum, setTodoNum] = useRecoilState(TodoNumAtom);
+  const setTodoNum = useSetRecoilState(TodoNumAtom);
+  const navigate = useNavigate();
 
   const convertedDate = {
     date: '',
     month: '',
   };
   const [dataGroup, setDataGroup] = useState<DataGroupProps>({});
-  const [todoObj, setTodoObj] = useState<Record<string, TodoDataProps>>({});
 
   // date에서 월 단위 추출
   const onConvertDate = (d: Date) => {
@@ -60,14 +55,15 @@ export default function CalendarPage() {
         });
         const groupedData = groupDataByDate(response.data);
         setDataGroup(groupedData);
-        console.log('123123123', groupedData);
+        // console.log('123123123', groupedData);
       } catch (error) {
-        console.error('데이터를 불러오는 중 오류 발생:', error);
+        navigate('/error');
       }
     };
     fetchData();
-  }, [userAtom.userId, convertedDate.month]);
+  }, [userAtom.userId, convertedDate.month, navigate]);
 
+  // console.log(TodoNum);
   // dataGroup -> 일자 별 일정, 완료 갯수 계산
   useEffect(() => {
     const calculateTodoNum = () => {
@@ -80,17 +76,11 @@ export default function CalendarPage() {
           totalTodo,
           completedTodo,
         };
-        console.log('CalendarPage completedTodo:', completedTodo);
       });
-      setTodoObj(todoNum);
       setTodoNum(todoNum);
-      console.log('Todonum:', TodoNum);
-      console.log('Todo Num by date:', todoNum);
     };
     calculateTodoNum();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataGroup, setTodoNum, userAtom.userId]);
-  return (
-    <div>{dataGroup && <ReactCalendar value={date} setValue={setDate} todoObj={todoObj} />}</div>
-  );
+  return <div>{dataGroup && <ReactCalendar value={date} setValue={setDate} />}</div>;
 }

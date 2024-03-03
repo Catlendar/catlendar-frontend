@@ -43,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
 		--large-font-size: 2rem;
 		--regular-font-size: 1.8rem;
 		--small-font-size: 1.6rem;
+		--xsmall-font-size: 1.4rem;
 		--tiny-font-size: 1rem;
 
 		/*========== Color ==========*/
@@ -92,15 +93,6 @@ const GlobalStyle = createGlobalStyle`
     --color-lightSubPrimary: #FEE4F9;
     --color-todoCircle: #F4F4F4;
 	}
-
-		/* Calendar */
-		--color-gray: #8B8B8B;
-    --color-lightgray: #bdbdbd;
-    --color-primary: #7E7DFD;
-    --color-lightPrimary: #E5E5FE;
-    --color-subPrimary: #FD7CE3;
-    --color-lightSubPrimary: #FEE4F9;
-    --color-todoCircle: #F4F4F4;
 	/*=============== Responsive ===============*/
 	body {
 		margin: 0 auto;

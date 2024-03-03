@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export const TodoItemWrapper = styled.li`
   box-sizing: border-box;
-  font-size: var(--small-font-size);
+  font-size: var(--xsmall-font-size);
   display: flex;
   justify-content: center;
   gap: 6px;

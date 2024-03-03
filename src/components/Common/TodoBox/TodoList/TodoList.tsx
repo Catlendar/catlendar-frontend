@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import { useRecoilValue } from 'recoil';
-import { TodoListAtom } from '../../../../atom/TodoListAtom';
+import { TodoListAtom, sortedTodoListSelector } from '../../../../atom/TodoListAtom';
 import { TodoListUl, TodoListWrapper, MoreBtn } from './TodoList.styled';
 import TodoListItem from './TodoListItem/TodoListItem';
 import Icon from '../../../../assets/icons/icon-more-meatball.svg';
@@ -13,16 +13,18 @@ interface ListProps {
 
 export default function TodoList({ date }: ListProps) {
   const todoListAtom = useRecoilValue(TodoListAtom);
+  // completed 여부로 정렬된 todoListAtom값
+  const sortedTodoList = useRecoilValue(sortedTodoListSelector);
   const today = moment(new Date()).format('YYYY-MM-DD');
-
   const [showAll, setShowAll] = useState(false);
-  console.log(todoListAtom);
 
-  const visibleItems = showAll ? todoListAtom : todoListAtom.slice(0, 8);
+  // console.log('sorted', sortedTodoList);
+  const visibleItems = showAll ? sortedTodoList : sortedTodoList.slice(0, 8);
 
   const toggleShowAll = () => {
     setShowAll(!showAll);
   };
+
   return (
     <TodoListWrapper>
       <TodoListUl>
