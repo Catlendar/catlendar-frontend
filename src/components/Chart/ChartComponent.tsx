@@ -33,14 +33,12 @@ export function ChartComponent() {
   };
   const [dataGroup, setDataGroup] = useState<DataGroupProps>({});
 
-  // date에서 월 단위 추출
   const onConvertDate = (d: Date) => {
     convertedDate.date = moment(d).format('YYYY-MM-DD');
     convertedDate.month = moment(d).format('YYYY-MM');
   };
   onConvertDate(date);
 
-  // calendarDate를 기준으로 데이터를 그룹화
   function groupDataByDate(data) {
     const groupedData = {};
     data.forEach((item) => {
@@ -62,7 +60,6 @@ export function ChartComponent() {
         });
         const groupedData = groupDataByDate(response.data);
         setDataGroup(groupedData);
-        console.log('123123123', groupedData);
       } catch (error) {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       }
@@ -72,7 +69,6 @@ export function ChartComponent() {
 
   console.log(dataGroup);
 
-  // dataGroup -> 일자 별 일정, 완료 갯수 계산
   useEffect(() => {
     const calculateTodoNum = () => {
       let TodoNum = {};

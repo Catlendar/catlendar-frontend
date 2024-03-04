@@ -7,7 +7,7 @@ export const ProfileWrapper = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
 `;
 
 export const ProfileTitle = styled.div`

@@ -38,7 +38,7 @@ export const Input = styled.input<InputProps>`
   width: 330px;
 `;
 
-export const Select = styled.select<InputProps>`
+export const Selectt = styled.select<InputProps>`
   ${commonInputStyle}
   width: ${(props) => (props.width ? `${props.width}px` : '100%')};
   font-size: var(--large-font-size);
@@ -54,4 +54,5 @@ export const InputName = styled.p`
 export const InputWrapper = styled.div`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
+  padding-top: 25px;
 `;
