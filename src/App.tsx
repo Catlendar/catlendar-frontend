@@ -7,6 +7,7 @@ import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
   const queryClient = new QueryClient();
+
   return (
     <div>
       <GlobalStyle />

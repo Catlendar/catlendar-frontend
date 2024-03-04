@@ -2,15 +2,16 @@ import { styled } from 'styled-components';
 import { TabButtonProps, TabStyleProps } from './TabTypes';
 
 export const TabWrapper = styled.div<{ tabstyle: TabStyleProps }>`
-  border-radius: 16px;
+  border-radius: 2rem 2rem 0 0;
   width: ${(props) => props.tabstyle.wrapperWidth};
   background-color: var(--color-white);
+  padding-top: ${(props) => props.tabstyle.paddingTop};
 `;
 
 export const TabBox = styled.div<{ tabstyle: TabStyleProps }>`
-  padding: 25px 20px;
+  padding: 2.5rem 2rem;
   display: ${(props) => props.tabstyle.boxDisplay};
-  justify-content: space-between;
+  justify-content: ${(props) => props.tabstyle.justifyContent};
   align-items: center;
   font-size: ${(props) => props.tabstyle.fontSize};
 `;
@@ -18,10 +19,12 @@ export const TabBox = styled.div<{ tabstyle: TabStyleProps }>`
 export const TabButton = styled.button<TabButtonProps>`
   border: none;
   font: inherit;
-  padding-bottom: 3px;
+  padding: 0 8px 3px 8px;
   cursor: pointer;
-
   background-color: var(--color-white);
-  border-bottom: ${(props) => (props.selecttab ? '2px solid var(--color-black)' : 'none')};
+  text-decoration: ${(props) => (props.selecttab ? 'underline' : 'none')};
+  text-underline-position: ${(props) => (props.selecttab ? 'under' : 'none')};
+  text-decoration-thickness: ${(props) => (props.selecttab ? '3px' : 'none')};
   color: ${(props) => (props.selecttab ? 'var(--color-black)' : 'var(--text-color-main)')};
+  /* border-bottom: ${(props) => (props.selecttab ? '2px solid var(--color-black)' : 'none')}; */
 `;

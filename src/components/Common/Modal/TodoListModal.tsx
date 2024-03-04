@@ -7,8 +7,9 @@ import Tab from '../Tab/Tab';
 import { TabDataTodo } from '../Tab/TabData';
 import { ModalBackground, ModalWrapper } from './ModalLayout.styled';
 import TodoModalList from './TodoListModal/TodoModalList/TodoModalList';
+import { ModalTypeProps } from './Modal';
 
-export default function TodoListModal() {
+export default function TodoListModal({ date }: Pick<ModalTypeProps, 'date'>) {
   const setTodoModalOpenAtom = useSetRecoilState(TodoModalOpenAtom);
   const resetTabSelectTabType = useResetRecoilState(SelectTabTypeAtom);
   const selectTabType = useRecoilValue(SelectTabTypeAtom);
@@ -27,7 +28,7 @@ export default function TodoListModal() {
       <ModalWrapper onClick={(e) => e.stopPropagation()}>
         <Tab tabData={TabDataTodo} />
         <TodoModalList />
-        <AddModalInput />
+        <AddModalInput date={date} />
       </ModalWrapper>
     </ModalBackground>
   );
