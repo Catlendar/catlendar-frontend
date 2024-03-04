@@ -20,19 +20,25 @@ export default function Tab({ tabData, onTabClick }: TabProps) {
         return {
           wrapperWidth: '312px',
           boxDisplay: 'flex',
+          justifyContent: 'space-between',
           fontSize: 'var(--large-font-size)',
+          paddingTop: '0rem',
         };
       case 'fortune':
         return {
           wrapperWidth: '100%',
           boxDisplay: 'flex',
+          justifyContent: 'center',
           fontSize: 'var(--small-font-size)',
+          paddingTop: '1rem',
         };
       default:
         return {
           wrapperWidth: '312px',
           boxDisplay: 'flex',
+          justifyContent: 'space-between',
           fontSize: 'var(--large-font-size)',
+          paddingTop: '0rem',
         };
     }
   };
@@ -60,7 +66,7 @@ export default function Tab({ tabData, onTabClick }: TabProps) {
   // 흐름 : fortune => handleFortuneTabClick(운세 탭 이라면)
   const handleTabClick = (tab: TabMenuTypeTodo | TabMenuTypeFortune) => {
     setSelectedTab(tab.id);
-    setSelectTabTypeAtom('today');
+    setSelectTabTypeAtom(tab.tabValue);
     onTabClick?.(tab.id);
     console.log(tab);
     if (tab.__type === 'todo') {
@@ -69,7 +75,7 @@ export default function Tab({ tabData, onTabClick }: TabProps) {
       } else {
         handleBookmarkTabClick();
       }
-    } else {
+    } else if (tab.__type === 'fortune') {
       handleFortuneTabClick(tab);
     }
   };

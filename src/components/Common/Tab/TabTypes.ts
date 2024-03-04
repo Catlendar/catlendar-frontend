@@ -1,7 +1,17 @@
+export type TabValue =
+  | 'today'
+  | 'bookmark'
+  | 'totalFortune'
+  | 'love'
+  | 'money'
+  | 'work'
+  | 'study'
+  | 'health';
+
 interface TabMenuType {
   id: number;
   tabName: string;
-  tabValue: string;
+  tabValue: TabValue;
 }
 
 export interface TabMenuTypeTodo extends TabMenuType {
@@ -21,6 +31,8 @@ interface StyleProps {
   wrapperWidth: string;
   boxDisplay: string;
   fontSize: string;
+  justifyContent: string;
+  paddingTop: string;
 }
 export interface GetTabStyle {
   (type: string | undefined): StyleProps;
@@ -34,4 +46,6 @@ export interface TabStyleProps {
   wrapperWidth: string;
   boxDisplay: string;
   fontSize: string;
+  justifyContent: string;
+  paddingTop: string;
 }

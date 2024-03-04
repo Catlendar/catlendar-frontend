@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
 		cursor: pointer;
 		border: none;
 		background: none;
+		padding: 0;
 	}
 
 	/*   .5rem = 5px | 1rem = 10px   */
