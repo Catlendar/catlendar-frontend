@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
 import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
@@ -11,6 +12,7 @@ export default function HomePage() {
   const userAtom = useRecoilValue(UserAtom);
   const setFortuneData = useSetRecoilState(fortuneDataAtom);
   const navigate = useNavigate();
+  const today = moment(new Date()).format('YYYY-MM-DD');
 
   // 오늘의 운세 api 호출
   useEffect(() => {
@@ -52,10 +54,11 @@ export default function HomePage() {
         display: 'flex',
         flexDirection: 'column',
         overflow: 'auto',
+        backgroundColor: '#7E7DFD',
       }}
     >
       <MainCard />
-      <TodoBox date="today" />
+      <TodoBox date={today} />
       <NavBar />
     </div>
   );

@@ -2,14 +2,7 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
-import {
-  ProfileName,
-  ProfileTitle,
-  ProfileWrapper,
-  Img,
-  ProfileMain,
-  Gear,
-} from './ProfilePage.styled';
+import { ProfileName, ProfileTitle, ProfileWrapper, ProfileMain, Gear } from './ProfilePage.styled';
 import { ChartComponent } from '../../components/Chart/ChartComponent';
 
 export default function ProfilePage() {

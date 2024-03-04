@@ -34,7 +34,9 @@ export const StyleCalendar = styled(Calendar)`
       font-weight: 500;
     }
   }
-
+  .react-calendar__navigation button {
+    font-size: 20px;
+  }
   .react-calendar__navigation button:disabled {
     background-color: var(--color-white);
     border-radius: 20px 20px 0 0;
@@ -71,24 +73,28 @@ export const StyleCalendar = styled(Calendar)`
 
   // 다른 날짜 hover, focus, 선택
   .react-calendar__tile:enabled:hover,
-  .react-calendar__tile:enabled:focus,
-  .react-calendar__tile--active {
+  .react-calendar__tile:enabled:focus {
     background: var(--color-lightSubPrimary);
     color: var(--color-subPrimary);
   }
 
+  .react-calendar__tile--active {
+    background: #e5f2fe;
+    color: #9bcdfb;
+  }
   // 오늘 날짜 hover, focus, 선택
   .react-calendar__tile--now:enabled:hover,
-  .react-calendar__tile--now:enabled:focus {
+  .react-calendar__tile--now:enabled:focus,
+  .react-calendar__tile--now {
     background: var(--color-lightPrimary);
     color: var(--color-primary);
   }
 
   // 오늘 날짜
-  .react-calendar__tile--now {
-    background: var(--color-primary);
-    color: var(--color-white);
-  }
+  // .react-calendar__tile--now {
+  //   background: var(--color-primary);
+  //   color: var(--color-white);
+  // }
 
   .react-calendar__navigation__label {
     pointer-events: none;
