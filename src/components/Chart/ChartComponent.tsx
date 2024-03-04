@@ -1,5 +1,6 @@
 /* eslint-disable object-shorthand */
 import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 import 'chartjs-adapter-date-fns';
 import {
   Chart as ChartJS,
@@ -12,29 +13,89 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { tokenInstance } from '../../api/Axios';
 import { TodoNumAtom } from '../../atom/TodoNumAtom';
 import { UserAtom } from '../../atom/UserAtom';
 
-interface TodoProps {
-  totalTodo: number;
-  completedTodo: number;
+interface DataGroupProps {
+  [date: string]: any[];
 }
 
 export function ChartComponent() {
-  const todoNum = useRecoilValue<TodoProps>(TodoNumAtom);
+  // const [todoNum, setTodoNum] = useRecoilState<TodoProps>(TodoNumAtom);
+  const [todoNum, setTodoNum] = useRecoilState(TodoNumAtom);
   const userAtom = useRecoilValue(UserAtom);
+  const [date, setDate] = useState(new Date());
+  const convertedDate = {
+    date: '',
+    month: '',
+  };
+  const [dataGroup, setDataGroup] = useState<DataGroupProps>({});
 
-  const { userId } = userAtom;
+  const onConvertDate = (d: Date) => {
+    convertedDate.date = moment(d).format('YYYY-MM-DD');
+    convertedDate.month = moment(d).format('YYYY-MM');
+  };
+  onConvertDate(date);
+
+  function groupDataByDate(data) {
+    const groupedData = {};
+    data.forEach((item) => {
+      const convertedItem = moment(item.calendarDate).format('YYYY-MM-DD');
+      if (!groupedData[convertedItem]) {
+        groupedData[convertedItem] = [];
+      }
+      groupedData[convertedItem].push(item);
+    });
+    return groupedData;
+  }
 
   useEffect(() => {
-    console.log(userId);
-  }, [userId]);
+    const fetchData = async () => {
+      try {
+        const response = await tokenInstance.post('calendar/getSpecificMonth', {
+          targetDate: convertedDate.month,
+          userId: userAtom.userId,
+        });
+        const groupedData = groupDataByDate(response.data);
+        setDataGroup(groupedData);
+      } catch (error) {
+        console.error('데이터를 불러오는 중 오류 발생:', error);
+      }
+    };
+    fetchData();
+  }, [userAtom.userId, convertedDate.month]);
+
+  console.log(dataGroup);
+
+  useEffect(() => {
+    const calculateTodoNum = () => {
+      let TodoNum = {};
+      Object.keys(dataGroup).forEach((day) => {
+        const todo = dataGroup[day];
+        const totalTodo = todo ? todo.length : 0;
+        const completedTodo = todo ? todo.filter((event) => event.completed === 'Y').length : 0;
+        TodoNum[day] = {
+          totalTodo,
+          completedTodo,
+        };
+        console.log('CalendarPage completedTodo:', completedTodo);
+      });
+      setTodoNum(TodoNum);
+    };
+    calculateTodoNum();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setTodoNum, userAtom.userId, dataGroup]);
+
+  console.log(todoNum);
 
   ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
   const options = {
-    responsive: true,
+    responsive: true, // false로 설정하면 스타일 지정 가능
+    // responsiveAnimationDuration: 1000,
+    maxBarThickness: 10,
     maintainAspectRatio: true,
     aspectRatio: 1.8,
     plugins: {
@@ -66,6 +127,17 @@ export function ChartComponent() {
           },
         },
       },
+    },
+    elements: {
+      point: {
+        radius: 5,
+        hoverRadius: 7,
+        hitRadius: 10,
+      },
+    },
+    hover: {
+      mode: 'nearest' as const,
+      intersect: true,
     },
   };
 
@@ -160,5 +232,7 @@ export function ChartComponent() {
   //   y: completedTodo,
   // }));
   // console.log(todoData);
+  // date에서 월 단위 추출
+
   return <Line options={options} data={data} />;
 }

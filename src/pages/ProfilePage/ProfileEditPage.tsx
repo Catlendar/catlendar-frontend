@@ -25,14 +25,14 @@ export default function ProfileEditPage() {
   const [userAtom, setUserAtom] = useRecoilState(UserAtom);
   const [name, setName] = useState(userAtom.name);
   const [birthDate, setBirthDate] = useState(userAtom.birthDate || '');
-  const [birthTime, setBirthTime] = useState('');
+  const [birthTime, setBirthTime] = useState(userAtom.birthTime || '');
   const [gender, setGender] = useState(userAtom.gender || '');
-  const [calendarType, setCalendarType] = useState('');
+  const [calendarType, setCalendarType] = useState(userAtom.calendarType || '');
   const [selectedDate, setSelectedDate] = useState<string>('');
 
   const navigate = useNavigate();
 
-  console.log(userAtom);
+  // console.log(userAtom);
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
@@ -89,7 +89,7 @@ export default function ProfileEditPage() {
       >
         <DatePickerComponent onDateSelect={handleDateSelect} />
         <SelectInput
-          name="양력"
+          name=""
           options={BirthOption}
           width={100}
           initial={userAtom.calendarType}
