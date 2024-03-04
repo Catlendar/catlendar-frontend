@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
@@ -21,7 +21,7 @@ export default function TodoBox({ date }: TodoBoxProps) {
   const today = moment(new Date()).format('YYYY-MM-DD');
   const userAtom = useRecoilValue(UserAtom);
   const [todoListAtom, setTodoListAtom] = useRecoilState(TodoListAtom);
-  const [bookmarkListAtom, setBookmarkListAtom] = useRecoilState(BookmarkListAtom);
+  const setBookmarkListAtom = useSetRecoilState(BookmarkListAtom);
   const [todayTasksAtom, setTodayTasksAtom] = useRecoilState(TodayTasksAtom);
   const navigate = useNavigate();
 
@@ -38,10 +38,7 @@ export default function TodoBox({ date }: TodoBoxProps) {
   useEffect(() => {
     const fetchTodoData = async () => {
       try {
-        const url =
-          date === 'today' || date === moment(new Date()).format('YYYY-MM-DD')
-            ? 'calendar/getToday'
-            : '/calendar/getSpecificMonth';
+        const url = date === today ? 'calendar/getToday' : '/calendar/getSpecificMonth';
         const response = await tokenInstance.post(
           url,
           date === today
@@ -50,14 +47,13 @@ export default function TodoBox({ date }: TodoBoxProps) {
               }
             : { userId: userAtom.userId, targetDate: date },
         );
-        console.log('res', response);
         setTodoListAtom(response.data);
       } catch (error) {
         navigate('/error');
       }
     };
     fetchTodoData();
-    console.log(todoListAtom);
+    // console.log(todoListAtom);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
@@ -68,15 +64,14 @@ export default function TodoBox({ date }: TodoBoxProps) {
         const response = await tokenInstance.post('calendar/getBookmarkList', {
           userId: userAtom.userId,
         });
-        console.log(response);
         setBookmarkListAtom(response.data);
       } catch (error) {
+        // eslint-disable-next-line no-alert
         alert('즐겨찾기 데이터를 불러오는 데 실패했습니다.');
         navigate('/error');
       }
     };
     fetchBookmarkData();
-    console.log(bookmarkListAtom);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -84,7 +79,6 @@ export default function TodoBox({ date }: TodoBoxProps) {
   useEffect(() => {
     const totalTasks = todoListAtom.length;
     const completedTasks = getTodayCompletedTasks(todoListAtom);
-    console.log('TodoBox completedTasks: ', completedTasks);
     setTodayTasksAtom({ totalTasks, completedTasks });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todoListAtom]);
@@ -97,7 +91,7 @@ export default function TodoBox({ date }: TodoBoxProps) {
         totalTasks={todayTasksAtom.totalTasks}
       />
       <TodoList date={date} />
-      <Modal type="todoList" />
+      <Modal type="todoList" date={date} />
     </TodoBoxWrapper>
   );
 }

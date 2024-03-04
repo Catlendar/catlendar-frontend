@@ -9,6 +9,7 @@ import { TodayTasksAtom } from '../../../../../atom/TodayTasksAtom';
 import { tokenInstance } from '../../../../../api/Axios';
 import ItemMenuButton from './ItemMenuButton';
 import Modal from '../../../Modal/Modal';
+import { TodoNumAtom } from '../../../../../atom/TodoNumAtom';
 
 interface TodoListItemProps {
   todo: TodoDataType;
@@ -18,6 +19,8 @@ interface TodoListItemProps {
 export default function TodoListItem({ todo, date }: TodoListItemProps) {
   const [completed, setCompleted] = useState(false);
   const [todayTasksAtom, setTodayTasksAtom] = useRecoilState(TodayTasksAtom);
+  const [todoNum, setTodoNum] = useRecoilState(TodoNumAtom);
+
   const setTodoListAtom = useSetRecoilState(TodoListAtom);
   const navigate = useNavigate();
   const today = moment(new Date()).format('YYYY-MM-DD');
@@ -59,13 +62,16 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
             },
       );
 
-      console.log(getTodayResponse);
       const totalTasks = getTodayResponse.data.length;
       const completedTasks = getTodayCompletedTasks(getTodayResponse.data);
 
       if (completeCalendarResponse.data === '변경 되었습니다.') {
         setTodoListAtom(getTodayResponse.data);
         setTodayTasksAtom({ totalTasks, completedTasks });
+        setTodoNum((prevTodoNum) => ({
+          ...prevTodoNum,
+          [date]: { totalTodo: totalTasks, completedTodo: completedTasks },
+        }));
         setCompleted((prev) => !prev);
       }
     } catch (error) {

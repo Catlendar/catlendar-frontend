@@ -40,8 +40,7 @@ export default function TodoHeader({ date, comletedTasks, totalTasks }: HeaderPr
           onClick={() => setTodoModalOpenAtom((prev) => !prev)}
           title="할일 추가 모달 오픈"
         >
-          <AddIcon src={iconAdd} />
-          할일 추가
+          <AddIcon src={iconAdd} />할 일 추가
         </AddButton>
       )}
     </TodoHeaderWrapper>

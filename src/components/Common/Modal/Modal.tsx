@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilValue, useResetRecoilState, useRecoilState } from 'recoil';
+import moment from 'moment';
 import { ReviseModalOpenAtom } from '../../../atom/ReviseModalOpenAtom';
 import { TodoModalOpenAtom } from '../../../atom/TodoModalOpenAtom';
 import ReviseTodoModal from './ReviseTodoModal';
 import TodoListModal from './TodoListModal';
 import WithdrawModal from './WithdrawModal';
 
-interface ModalTypeProps {
+export interface ModalTypeProps {
   type: 'revise' | 'todoList' | 'withdraw';
+  date?: string;
 }
 
-export default function Modal({ type }: ModalTypeProps) {
+const today = moment(new Date()).format('YYYY-MM-DD');
+export default function Modal({ type, date }: ModalTypeProps) {
   // 모달 사용하는 page 단위로 이동
   // const [reviseOpen, setReviseOpen] = useState(false);
   // const [withdrawOpen, setWithdrawOpen] = useState(false);
@@ -37,7 +40,11 @@ export default function Modal({ type }: ModalTypeProps) {
   };
   if (type === 'revise' && reviseModalOpenAtom)
     return <ReviseTodoModal onClose={handleCloseRevise} />;
-  if (type === 'todoList' && todoModalOpenAtom) return <TodoListModal />;
+  if (type === 'todoList' && todoModalOpenAtom) return <TodoListModal date={date} />;
   if (type === 'withdraw' && withdrawOpen) return <WithdrawModal onClose={handleCloseWithdraw} />;
   return null;
 }
+
+Modal.defaultProps = {
+  date: today,
+};

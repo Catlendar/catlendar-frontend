@@ -3,8 +3,9 @@ import { useRecoilValue } from 'recoil';
 import { SelectTabTypeAtom } from '../../../atom/SelectTabTypeAtom';
 import BookmarkAdd from './BookmarkAdd';
 import TodoAdd from './TodoAdd';
+import { ModalTypeProps } from '../Modal/Modal';
 
-export default function AddModalInput() {
+export default function AddModalInput({ date }: Pick<ModalTypeProps, 'date'>) {
   const selectTabTypeAtom = useRecoilValue(SelectTabTypeAtom);
 
   // React.ReactElement | null 타입은 완성된 jsx 요소와 null 만 허용합니다.
@@ -12,7 +13,7 @@ export default function AddModalInput() {
   let component: React.ReactElement | null = null;
 
   if (selectTabTypeAtom === 'today') {
-    component = <TodoAdd />;
+    component = <TodoAdd date={date} />;
   } else if (selectTabTypeAtom === 'bookmark') {
     component = <BookmarkAdd />;
   }

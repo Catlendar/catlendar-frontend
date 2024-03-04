@@ -5,17 +5,19 @@ import { tokenInstance } from '../../../api/Axios';
 import { AddInputWrapper, AddInput, ModalAddButton } from './AddModalInput.styled';
 import { UserAtom } from '../../../atom/UserAtom';
 import { TodoListAtom } from '../../../atom/TodoListAtom';
+import { ModalTypeProps } from '../Modal/Modal';
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 type InputKeyboardEvent = React.KeyboardEvent<HTMLInputElement>;
 
-export default function TodoAdd() {
+export default function TodoAdd({ date }: Pick<ModalTypeProps, 'date'>) {
   const userAtom = useRecoilValue(UserAtom);
   const setTodoListAtom = useSetRecoilState(TodoListAtom);
-  const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
+  const [inputValue, setInputValue] = useState('');
   const [isAdding, setIsAdding] = useState(false);
 
+  console.log('!@#!#@!#!#', date);
   const handleOnchange = (e: InputChangeEvent) => {
     setInputValue(e.target.value);
   };
@@ -30,28 +32,29 @@ export default function TodoAdd() {
         setInputValue('');
         return;
       }
-      let today = new Date();
-      let year = today.getFullYear(); // 년도
-      let month = (today.getMonth() + 1).toString(); // 월
-      if (month.length === 1) {
-        month = `0${month}`;
-      }
-      let date = today.getDate(); // 날짜
-      const todayDate = `${year}-${month}-${date}`;
-      console.log(todayDate);
+      // const today = new Date();
+      // const year = today.getFullYear(); // 년도
+      // let month = (today.getMonth() + 1).toString(); // 월
+      // if (month.length === 1) {
+      //   month = `0${month}`;
+      // }
+      // const date = today.getDate(); // 날짜
+      // const todayDate = `${year}-${month}-${date}`;
+      // console.log(todayDate);
 
       // 일정 생성 api
       const response1 = await tokenInstance.post('calendar/createCalendar', {
         userId: userAtom.userId,
-        targetDate: todayDate,
+        targetDate: date,
         calendarContent: inputValue,
       });
       console.log(response1);
       const data1 = response1.data;
 
       // 할 일 목록 api
-      const response2 = await tokenInstance.post('calendar/getToday', {
+      const response2 = await tokenInstance.post('calendar/getSpecificMonth', {
         userId: userAtom.userId,
+        targetDate: date,
       });
       const data2 = response2.data;
       console.log(response2);

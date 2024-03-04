@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { fortuneDataAtom, selectedTabAtom } from '../../atom/FortuneStateAtom';
+import { SelectTabTypeAtom } from '../../atom/SelectTabTypeAtom';
 import {
   FortuneCardWrapper,
   CatImg,
   FortuneContentWrapper,
   FortuneTitle,
   FortuneContent,
+  MoreButton,
 } from './FortunePage.styled';
 import { FortuneCatImg, fortuneCats } from './fortuneCats';
 import Header from '../../components/Common/Header/Header';
@@ -15,50 +17,31 @@ import Tab from '../../components/Common/Tab/Tab';
 
 export default function FortunePage() {
   const [currentImg, setCurrentImg] = useState<FortuneCatImg | undefined>(undefined);
+  const [isShowMoreMap, setIsShowMoreMap] = useState<{ [key: string]: boolean }>({});
+  const [textLimit, setTextLimit] = useState<number>(200);
   const [selectedTab, setSelectedTab] = useRecoilState(selectedTabAtom);
+  const [selectedTabValue, setSelectedTabValue] = useRecoilState(SelectTabTypeAtom);
   const fortuneData = useRecoilValue(fortuneDataAtom);
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   useEffect(() => {
+    setSelectedTabValue('totalFortune');
     const randomImgIndex = Math.floor(Math.random() * fortuneCats.length);
     setCurrentImg(fortuneCats[randomImgIndex]);
-  }, []);
+  }, [setSelectedTabValue]);
 
-  const renderFortuneContent = (content) => {
-    const MAX_LENGTH = 200;
-
-    if (isExpanded || content.length <= MAX_LENGTH) {
-      return content;
-    }
-
-    const previewContent = `${content.substring(0, MAX_LENGTH)}... `;
-    return (
-      <>
-        {previewContent}
-        <button type="button" onClick={toggleExpand}>
-          더보기
-        </button>
-      </>
-    );
-  };
-
-  const getFortuneTitle = (index: number): string => {
-    switch (index) {
-      case 0:
+  const getFortuneTitle = (selectedTabType: string): string => {
+    switch (selectedTabType) {
+      case 'totalFortune':
         return `오늘의 하루는 ${fortuneData.fortuneTitle}입니다.`;
-      case 1:
+      case 'love':
         return '오늘의 애정운입니다.';
-      case 2:
+      case 'money':
         return '오늘의 재물운입니다.';
-      case 3:
+      case 'work':
         return '오늘의 직장운입니다.';
-      case 4:
+      case 'study':
         return '오늘의 학업운입니다.';
-      case 5:
+      case 'health':
         return '오늘의 건강운입니다.';
       default:
         return '운세 정보가 없습니다.';
@@ -69,6 +52,26 @@ export default function FortunePage() {
     setSelectedTab(index);
   };
 
+  const handleShowMoreClick = () => {
+    setIsShowMoreMap((prevState) => ({
+      ...prevState,
+      [selectedTab]: !prevState[selectedTab],
+    }));
+    setTextLimit(200);
+  };
+
+  const showFortune = fortuneData.fortuneDesc[selectedTab];
+  const isShowMore = isShowMoreMap[selectedTab] || false;
+
+  const showFortuneDesc = () => {
+    if (showFortune && showFortune.length > textLimit) {
+      const shortDesc = showFortune.slice(0, textLimit);
+      return isShowMore ? showFortune : `${shortDesc}...`;
+    }
+
+    return showFortune || '운세 데이터를 불러오는 데 실패했습니다.';
+  };
+
   return (
     <div>
       <FortuneCardWrapper>
@@ -77,9 +80,14 @@ export default function FortunePage() {
         <Tab tabData={TabDataFortune} onTabClick={handleTabClick} />
       </FortuneCardWrapper>
       <FortuneContentWrapper>
-        <FortuneTitle>{getFortuneTitle(selectedTab)}</FortuneTitle>
+        <FortuneTitle>{getFortuneTitle(selectedTabValue)}</FortuneTitle>
         <FortuneContent>
-          {renderFortuneContent(fortuneData.fortuneDesc[selectedTab])}
+          {showFortuneDesc()}
+          {showFortune && showFortune.length > textLimit && (
+            <MoreButton type="button" onClick={handleShowMoreClick}>
+              {isShowMore ? '닫기' : '더 보기'}
+            </MoreButton>
+          )}
         </FortuneContent>
       </FortuneContentWrapper>
     </div>
