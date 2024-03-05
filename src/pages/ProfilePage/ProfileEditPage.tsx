@@ -112,7 +112,7 @@ export default function ProfileEditPage() {
       >
         <DatePickerComponent onDateSelect={handleDateSelect} />
         <SelectInput
-          name=""
+          name="양력"
           options={BirthOption}
           width={100}
           initial={userAtom.calendarType}
