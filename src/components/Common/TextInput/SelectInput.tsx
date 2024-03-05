@@ -81,7 +81,7 @@ export default function SelectInput({ options, name, width, onChange, initial }:
         onChange={handleSelectChange}
         value={selectedOption}
         styles={customStyles}
-        components={{ Input: CustomInput }}
+        components={{ Input: CustomInput, IndicatorSeparator: null }}
       />
     </InputWrapper>
   );
