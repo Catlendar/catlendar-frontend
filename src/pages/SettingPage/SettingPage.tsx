@@ -9,8 +9,8 @@ export default function SettingPage() {
   const [modal, setModal] = useState(false);
 
   const buttonActions = [
-    { text: '내 정보 수정', path: '/profile/edit' },
-    { text: '비밀번호 변경', path: '/profile/editPassword' },
+    { text: '내 정보 수정', path: '/editUser' },
+    { text: '비밀번호 변경', path: '/editPassword' },
   ];
 
   // 로그아웃
