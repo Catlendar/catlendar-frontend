@@ -44,30 +44,53 @@ export default function ProfileEditPage() {
   }, [selectedDate]);
 
   // tanstack Query 사용
-  const { mutate } = useMutation({
-    mutationFn: async (userData: UserData) => {
-      const response = await tokenInstance.post('user/updateUser', userData);
-      return response.data;
-    },
-    onSuccess: () => {
-      setUserAtom((prev) => ({ ...prev, name, birthDate, birthTime, calendarType, gender }));
-      navigate('/home');
-    },
-    onError: (error) => {
-      console.error('onError', error);
-      navigate('/error');
-    },
-  });
+  // const { mutate } = useMutation({
+  //   mutationFn: async (userData: UserData) => {
+  //     const response = await tokenInstance.post('user/updateUser', userData);
+  //     return response.data;
+  //   },
+  //   onSuccess: () => {
+  //     setUserAtom((prev) => ({ ...prev, name, birthDate, birthTime, calendarType, gender }));
+  //     navigate('/home');
+  //   },
+  //   onError: (error) => {
+  //     console.error('onError', error);
+  //     navigate('/error');
+  //   },
+  // });
 
-  const handleUpdateUser = () => {
-    mutate({
-      name,
-      birthDate,
-      birthTime,
-      calendarType,
-      gender,
-      email: userAtom.email,
-    });
+  // const handleUpdateUser = () => {
+  //   mutate({
+  //     name,
+  //     birthDate,
+  //     birthTime,
+  //     calendarType,
+  //     gender,
+  //     email: userAtom.email,
+  //   });
+  // };
+
+  const handleUpdateUser = async () => {
+    try {
+      const response = await tokenInstance.post('user/updateUser', {
+        name,
+        birthDate,
+        birthTime,
+        calendarType,
+        gender,
+        email: userAtom.email,
+      });
+      if (response.status === 200) {
+        if (response.data === false) {
+          console.log('error');
+        } else {
+          setUserAtom((prev) => ({ ...prev, name, birthDate, birthTime, calendarType, gender }));
+          navigate('/home');
+        }
+      }
+    } catch (error) {
+      navigate('/error');
+    }
   };
 
   const isFormValid = name && birthTime && calendarType && gender;
