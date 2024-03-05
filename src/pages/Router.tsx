@@ -123,7 +123,7 @@ export default function Router() {
           }
         />
         <Route
-          path="/profile/edit"
+          path="/userEdit"
           element={
             // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
@@ -139,7 +139,7 @@ export default function Router() {
           }
         />
         <Route
-          path="/profile/editPassword"
+          path="/editPassword"
           element={
             // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
