@@ -59,7 +59,7 @@ export default function Router() {
         />
         <Route path="/signup/complete" element={<SignupCompletePage />} />
         <Route
-          path="/signup/userinfo"
+          path="/userinfo"
           element={
             // eslint-disable-next-line react/jsx-no-useless-fragment
             <>

@@ -48,7 +48,7 @@ export default function SignUpPage() {
             email,
             password,
           });
-          navigate('/signup/userinfo');
+          navigate('/userinfo');
         }
       } else {
         navigate('/error');
