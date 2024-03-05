@@ -123,7 +123,7 @@ export default function Router() {
           }
         />
         <Route
-          path="/userEdit"
+          path="/editUser"
           element={
             // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
