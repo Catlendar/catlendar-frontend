@@ -46,19 +46,19 @@ export default function Tab({ tabData, onTabClick }: TabProps) {
 
   // 오늘 할일 탭 클릭
   const handleTodayTabClick = async () => {
-    console.log('handleTodayTabClick!');
+    // console.log('handleTodayTabClick!');
     setSelectTabTypeAtom('today');
   };
   // 즐겨찾기 탭 클릭
   const handleBookmarkTabClick = async () => {
-    console.log('handleBookmarkTabClick!');
+    // console.log('handleBookmarkTabClick!');
     setSelectTabTypeAtom('bookmark');
   };
 
   // 운세 api 호출
   const handleFortuneTabClick = (tab: TabMenuTypeTodo | TabMenuTypeFortune) => {
-    console.log('운세 찾기 실행');
-    console.log(tab);
+    // console.log('운세 찾기 실행');
+    // console.log(tab);
   };
 
   // 클릭한 탭이 할 일 탭인지, 운세 탭인지 구분
@@ -68,7 +68,7 @@ export default function Tab({ tabData, onTabClick }: TabProps) {
     setSelectedTab(tab.id);
     setSelectTabTypeAtom(tab.tabValue);
     onTabClick?.(tab.id);
-    console.log(tab);
+    // console.log(tab);
     if (tab.__type === 'todo') {
       if (tab.tabName === '할 일') {
         handleTodayTabClick();

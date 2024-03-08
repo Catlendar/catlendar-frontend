@@ -70,6 +70,32 @@ export default function EditPwPage() {
     }
   };
 
+  // const handleChangePwd = async () => {
+  //   if (newPassword !== confirmPassword) {
+  //     setConfirmError('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+  //     return;
+  //   }
+  //   try {
+  //     const response = await tokenInstance.post('user/updatePassword', {
+  //       email,
+  //       password,
+  //       newPassword,
+  //     });
+  //     if (response.status === 200) {
+  //       if (response.data === '기존 비밀번호와 일치하지 않습니다.') {
+  //         setExistError(`${response.data}`);
+  //       } else {
+  //         navigate('/Home');
+  //       }
+  //     } else {
+  //       console.log('error');
+  //       navigate('/error');
+  //     }
+  //   } catch (error) {
+  //     console.log('catch error', error);
+  //   }
+  // };
+
   return (
     <ProfileWrapper>
       <TextInput

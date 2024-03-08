@@ -11,13 +11,13 @@ interface CheckboxProps {
 <Checkbox checked={false} onClick={handleClick} />
 */
 function Checkbox({ checked, onClick }: CheckboxProps) {
-  const handleClick = () => {
+  const handleChange = () => {
     onClick();
   };
 
   return (
     <div>
-      <CheckboxItem type="checkbox" checked={checked} onClick={handleClick} />
+      <CheckboxItem type="checkbox" checked={checked} onChange={handleChange} />
     </div>
   );
 }

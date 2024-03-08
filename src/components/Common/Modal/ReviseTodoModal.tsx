@@ -10,6 +10,7 @@ import { tokenInstance } from '../../../api/Axios';
 import { TodoListAtom } from '../../../atom/TodoListAtom';
 import { TodoNumAtom } from '../../../atom/TodoNumAtom';
 
+
 interface ModalProps {
   onClose: () => void;
 }
@@ -94,6 +95,7 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
               : todoNum[calendarDate]?.completedTodo || 0,
         },
       });
+
       onClose();
     } catch (error) {
       alert(error);
@@ -133,7 +135,6 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
       } else {
         throw new Error('수정하는 도중 문제가 발생했습니다.');
       }
-
       onClose();
     } catch (error) {
       alert(error);
@@ -145,14 +146,16 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
     setNewTodoContent(value);
   };
 
+
   return (
     <ModalBackground onClick={() => setReviseModalOpenAtom(false)}>
       <ModalWrapper onClick={(e) => e.stopPropagation()}>
         <TextInput
           inputType="text"
-          name=""
+          name="할 일 수정"
           placeholder={selectTodoItemAtom.calendarContent}
           // form={false}
+          inputMode="reviseModal"
           onChange={handleInputChange}
         />
         <div className="button-wrapper">

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment';
 import Checkbox from '../../../Checkbox/Checkbox';
-import { TodoItemText, TodoItemWrapper } from './TodoListItem.styled';
+import { TodoItemText, TodoItemWrapper, StyledToastContainer } from './TodoListItem.styled';
 import { TodoDataType, TodoListAtom } from '../../../../../atom/TodoListAtom';
 import { TodayTasksAtom } from '../../../../../atom/TodayTasksAtom';
 import { tokenInstance } from '../../../../../api/Axios';
@@ -40,6 +42,7 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
   };
 
   const handleClick = async () => {
+
     try {
       // 일정 완료 토글 api 호출
       const completeCalendarResponse = await tokenInstance.post('calendar/completeCalendar', {
@@ -72,6 +75,7 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
           [date]: { totalTodo: totalTasks, completedTodo: completedTasks },
         }));
         setCompleted((prev) => !prev);
+        toast.success('일정을 완료했어요! 잘했어요 🍀');
       }
     } catch (error) {
       alert('일정 완료 기능 에러');
@@ -80,11 +84,20 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
   };
 
   return (
-    <TodoItemWrapper>
-      <Checkbox checked={completed} onClick={handleClick} />
-      <TodoItemText completed={completed}>{todo.calendarContent}</TodoItemText>
-      <ItemMenuButton todo={todo} />
-      <Modal type="revise" />
-    </TodoItemWrapper>
+    <>
+      <StyledToastContainer
+        position="bottom-center"
+        autoClose={1000}
+        closeButton={false}
+        icon={false}
+        hideProgressBar
+      />
+      <TodoItemWrapper>
+        <Checkbox checked={completed} onClick={handleClick} />
+        <TodoItemText completed={completed}>{todo.calendarContent}</TodoItemText>
+        <ItemMenuButton todo={todo} />
+        <Modal type="revise" />
+      </TodoItemWrapper>
+    </>
   );
 }

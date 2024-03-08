@@ -59,7 +59,7 @@ export default function Router() {
         />
         <Route path="/signup/complete" element={<SignupCompletePage />} />
         <Route
-          path="/signup/userinfo"
+          path="/userinfo"
           element={
             // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
@@ -123,7 +123,7 @@ export default function Router() {
           }
         />
         <Route
-          path="/profile/edit"
+          path="/editUser"
           element={
             // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
@@ -139,7 +139,7 @@ export default function Router() {
           }
         />
         <Route
-          path="/profile/editPassword"
+          path="/editPassword"
           element={
             // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
@@ -193,7 +193,8 @@ export default function Router() {
                 <LandingPage />
               ) : isLoggedIn ? (
                 <>
-                  <FortunePage /> <NavBar />
+                  <FortunePage />
+                  <NavBar />
                 </>
               ) : null}
             </>

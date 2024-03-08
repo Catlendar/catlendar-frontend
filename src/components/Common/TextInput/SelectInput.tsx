@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Select, { components } from 'react-select';
-import { Input, InputName, InputWrapper, Selectt } from './TextInput.styled';
-import { Option, SelectBoxProps } from './SelectTypes';
+import { InputName, InputWrapper } from './TextInput.styled';
+import { SelectBoxProps } from './SelectTypes';
 
 // select에 커서 깜빡임 제거
 function CustomInput(props) {
@@ -18,15 +18,8 @@ export default function SelectInput({ options, name, width, onChange, initial }:
       : { value: '', label: '' },
   );
 
-  // const handleSelectChange = (event) => {
-  //   setSelectedOption(event.target.value);
-  //   onChange(event.target.value);
-  //   setCheck(false);
-  // };
-
   // eslint-disable-next-line no-shadow
   const handleSelectChange = (selectedOption) => {
-    console.log(selectedOption.value);
     setSelectedOption(selectedOption);
     onChange(selectedOption.value);
   };
@@ -52,7 +45,7 @@ export default function SelectInput({ options, name, width, onChange, initial }:
       ...provided,
       color: 'var(--color-black)',
       // eslint-disable-next-line no-nested-ternary
-      backgroundColor: state.isFocused ? 'var(--bg-color-main)' : null,
+      // backgroundColor: state.isFocused ? 'var(--bg-color-main)' : null,
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -81,7 +74,7 @@ export default function SelectInput({ options, name, width, onChange, initial }:
         onChange={handleSelectChange}
         value={selectedOption}
         styles={customStyles}
-        components={{ Input: CustomInput }}
+        components={{ Input: CustomInput, IndicatorSeparator: null }}
       />
     </InputWrapper>
   );

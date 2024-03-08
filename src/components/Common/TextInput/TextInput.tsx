@@ -6,10 +6,11 @@ interface TextInputProps {
   name: string;
   placeholder: string;
   form?: boolean;
+  inputMode?: string;
   onChange: (value: string) => void;
 }
 
-function TextInput({ inputType, name, placeholder, form, onChange }: TextInputProps) {
+function TextInput({ inputType, name, placeholder, form, inputMode, onChange }: TextInputProps) {
   const [value, setValue] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +26,7 @@ function TextInput({ inputType, name, placeholder, form, onChange }: TextInputPr
         type={inputType}
         placeholder={placeholder}
         form={form}
+        inputMode={inputMode}
         onChange={handleChange}
         required
       />
@@ -34,6 +36,7 @@ function TextInput({ inputType, name, placeholder, form, onChange }: TextInputPr
 
 TextInput.defaultProps = {
   form: true,
+  inputMode: '',
 };
 
 export default TextInput;

@@ -4,6 +4,7 @@ interface InputProps {
   form?: boolean;
   width?: string | number;
   marginTop?: number;
+  inputMode?: string;
 }
 
 const commonInputStyle = css<InputProps>`
@@ -36,6 +37,11 @@ const commonInputStyle = css<InputProps>`
 export const Input = styled.input<InputProps>`
   ${commonInputStyle}
   width: 330px;
+  ${({ inputMode }) =>
+    inputMode === 'reviseModal' &&
+    css`
+      width: 260px;
+    `}
 `;
 
 export const Selectt = styled.select<InputProps>`
@@ -54,5 +60,4 @@ export const InputName = styled.p`
 export const InputWrapper = styled.div`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  padding-top: 25px;
 `;
