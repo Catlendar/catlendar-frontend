@@ -14,7 +14,7 @@ export default function ItemMenuButton({ todo }: ItemMenuButtonProps) {
   const setReviseModalOpenAtom = useSetRecoilState(ReviseModalOpenAtom);
   const setSelectTodoItemAtom = useSetRecoilState(SelectTodoItemtAtom);
   const handleClick = () => {
-    console.log(todo);
+    // console.log(todo);
     setSelectTodoItemAtom(todo);
     setReviseModalOpenAtom(true);
   };

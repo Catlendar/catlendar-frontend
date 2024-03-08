@@ -38,6 +38,7 @@ export default function Modal({ type, date }: ModalTypeProps) {
   const handleCloseWithdraw = () => {
     setWithdrawOpen(!withdrawOpen);
   };
+
   if (type === 'revise' && reviseModalOpenAtom)
     return <ReviseTodoModal onClose={handleCloseRevise} />;
   if (type === 'todoList' && todoModalOpenAtom) return <TodoListModal date={date} />;

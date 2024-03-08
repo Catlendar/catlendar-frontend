@@ -24,9 +24,9 @@ export default function FortunePage() {
   const fortuneData = useRecoilValue(fortuneDataAtom);
 
   useEffect(() => {
-    setSelectedTabValue('totalFortune');
     const randomImgIndex = Math.floor(Math.random() * fortuneCats.length);
     setCurrentImg(fortuneCats[randomImgIndex]);
+    setSelectedTabValue('totalFortune');
   }, [setSelectedTabValue]);
 
   const getFortuneTitle = (selectedTabType: string): string => {
