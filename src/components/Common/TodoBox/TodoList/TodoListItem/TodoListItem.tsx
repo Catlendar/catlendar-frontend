@@ -40,7 +40,7 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
   };
 
   const handleClick = async () => {
-    console.log('check');
+    // console.log('check');
     try {
       // 일정 완료 토글 api 호출
       const completeCalendarResponse = await tokenInstance.post('calendar/completeCalendar', {
