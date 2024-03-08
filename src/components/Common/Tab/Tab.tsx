@@ -70,7 +70,7 @@ export default function Tab({ tabData, onTabClick }: TabProps) {
     onTabClick?.(tab.id);
     // console.log(tab);
     if (tab.__type === 'todo') {
-      if (tab.tabName === '오늘') {
+      if (tab.tabName === '할 일') {
         handleTodayTabClick();
       } else {
         handleBookmarkTabClick();

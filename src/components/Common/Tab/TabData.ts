@@ -1,7 +1,7 @@
 import { TabMenuTypeFortune, TabMenuTypeTodo } from './TabTypes';
 
 export const TabDataTodo: TabMenuTypeTodo[] = [
-  { __type: 'todo', id: 1, tabName: '오늘', tabValue: 'today' },
+  { __type: 'todo', id: 1, tabName: '할 일', tabValue: 'today' },
   { __type: 'todo', id: 2, tabName: '즐겨찾기', tabValue: 'bookmark' },
 ];
 

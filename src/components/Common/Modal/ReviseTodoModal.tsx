@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import TextInput from '../TextInput/TextInput';
 import ModalButton from '../Button/ModalButton';
@@ -8,6 +8,8 @@ import { ReviseModalOpenAtom } from '../../../atom/ReviseModalOpenAtom';
 import { SelectTodoItemtAtom } from '../../../atom/SelectTodoItemAtom';
 import { tokenInstance } from '../../../api/Axios';
 import { TodoListAtom } from '../../../atom/TodoListAtom';
+import { TodoNumAtom } from '../../../atom/TodoNumAtom';
+
 
 interface ModalProps {
   onClose: () => void;
@@ -17,9 +19,10 @@ interface ModalProps {
 
 export default function ReviseTodoModal({ onClose }: ModalProps) {
   const setReviseModalOpenAtom = useSetRecoilState(ReviseModalOpenAtom);
-  const [selectTodoItemAtom, setSelectTodoItemAtom] = useRecoilState(SelectTodoItemtAtom);
+  const selectTodoItemAtom = useRecoilValue(SelectTodoItemtAtom);
   const setTodoListAtom = useSetRecoilState(TodoListAtom);
   const [newTodoContent, setNewTodoContent] = useState(selectTodoItemAtom.calendarContent);
+  const [todoNum, setTodoNum] = useRecoilState(TodoNumAtom);
 
   const navigate = useNavigate();
 
@@ -59,8 +62,6 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
       // SelectTodoItemAtom.calendarDate 가지고 그 날짜에 있는 할 일 목록을 불러와서 업데이트
       const todayDate = getTodayDate();
       const calendarDate = modifyCalendarDate(selectTodoItemAtom.calendarDate);
-      // console.log(todayDate);
-      // console.log(calendarDate);
 
       const deleteResponse = await tokenInstance.post('calendar/deleteCalendar', {
         userId: selectTodoItemAtom.userId,
@@ -84,8 +85,17 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
       } else {
         throw new Error('일정을 삭제하는데 실패했습니다.');
       }
+      setTodoNum({
+        ...todoNum,
+        [calendarDate]: {
+          totalTodo: (todoNum[calendarDate]?.totalTodo || 0) - 1,
+          completedTodo:
+            selectTodoItemAtom.completed === 'Y'
+              ? (todoNum[calendarDate]?.completedTodo || 0) - 1
+              : todoNum[calendarDate]?.completedTodo || 0,
+        },
+      });
 
-      // console.log('삭제 완료!');
       onClose();
     } catch (error) {
       alert(error);
@@ -97,8 +107,6 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
     try {
       const todayDate = getTodayDate();
       const calendarDate = modifyCalendarDate(selectTodoItemAtom.calendarDate);
-      // console.log(todayDate);
-      // console.log(calendarDate);
 
       // // 수정하는 API 호출
       const updateResponse = await tokenInstance.post('calendar/updateCalendar', {
@@ -127,8 +135,6 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
       } else {
         throw new Error('수정하는 도중 문제가 발생했습니다.');
       }
-
-      // console.log('수정 완료!');
       onClose();
     } catch (error) {
       alert(error);
@@ -137,11 +143,9 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
   };
 
   const handleInputChange = (value: string) => {
-    // console.log(newTodoContent);
     setNewTodoContent(value);
   };
 
-  // console.log(newTodoContent);
 
   return (
     <ModalBackground onClick={() => setReviseModalOpenAtom(false)}>

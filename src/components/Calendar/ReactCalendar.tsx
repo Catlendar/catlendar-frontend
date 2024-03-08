@@ -73,16 +73,16 @@ export default function ReactCalendar({ value, setValue }: DateProps) {
 
     if (todoData) {
       const { totalTodo, completedTodo } = todoData;
-
-      return (
-        <div>
-          {totalTodo === completedTodo ? (
-            <TodoCircle className="complete" />
-          ) : (
-            <TodoCircle className="process">{totalTodo - completedTodo}</TodoCircle>
-          )}
-        </div>
-      );
+      if (totalTodo > 0)
+        return (
+          <div>
+            {totalTodo === completedTodo ? (
+              <TodoCircle className="complete" />
+            ) : (
+              <TodoCircle className="process">{totalTodo - completedTodo}</TodoCircle>
+            )}
+          </div>
+        );
     }
     return <TodoCircle />;
   };
@@ -90,6 +90,12 @@ export default function ReactCalendar({ value, setValue }: DateProps) {
   const handleTodoBox = () => {
     setIsTodoBox(true);
   };
+
+  useEffect(() => {
+    // todoNumAtom이 변경될 때마다 handleTileContent를 실행시킴
+    handleTileContent({ date: clickedDay });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [todoNumAtom, clickedDay]);
 
   return (
     <CalendarWrapper>

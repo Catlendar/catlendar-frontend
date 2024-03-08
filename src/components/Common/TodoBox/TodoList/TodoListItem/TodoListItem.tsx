@@ -20,8 +20,8 @@ interface TodoListItemProps {
 
 export default function TodoListItem({ todo, date }: TodoListItemProps) {
   const [completed, setCompleted] = useState(false);
-  const [todayTasksAtom, setTodayTasksAtom] = useRecoilState(TodayTasksAtom);
-  const [todoNum, setTodoNum] = useRecoilState(TodoNumAtom);
+  const [, setTodayTasksAtom] = useRecoilState(TodayTasksAtom);
+  const [, setTodoNum] = useRecoilState(TodoNumAtom);
 
   const setTodoListAtom = useSetRecoilState(TodoListAtom);
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
   };
 
   const handleClick = async () => {
-    // console.log('check');
+
     try {
       // 일정 완료 토글 api 호출
       const completeCalendarResponse = await tokenInstance.post('calendar/completeCalendar', {
