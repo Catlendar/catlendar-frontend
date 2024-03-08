@@ -193,7 +193,8 @@ export default function Router() {
                 <LandingPage />
               ) : isLoggedIn ? (
                 <>
-                  <FortunePage /> <NavBar />
+                  <FortunePage />
+                  <NavBar />
                 </>
               ) : null}
             </>

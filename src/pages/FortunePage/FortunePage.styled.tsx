@@ -22,9 +22,19 @@ export const FortuneTitle = styled.p`
 `;
 
 export const FortuneContent = styled.p`
+  height: 28rem;
   font-size: var(--small-font-size);
   line-height: 2rem;
   color: var(--text-color-main);
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+    border-radius: 0.2rem;
+  }
 `;
 
 export const MoreButton = styled.button`
