@@ -20,6 +20,10 @@ interface HeaderProps {
 export default function TodoHeader({ date, comletedTasks, totalTasks }: HeaderProps) {
   const setTodoModalOpenAtom = useSetRecoilState(TodoModalOpenAtom);
   const today = moment(new Date()).format('YYYY-MM-DD');
+  const parts = date.split('-');
+  const month = parts[1]?.startsWith('0') ? parts[1].substring(1) : parts[1];
+  const day = parts[2]?.startsWith('0') ? parts[2].substring(1) : parts[2];
+  const formattedDate = `${month}월 ${day}일`;
 
   return (
     <TodoHeaderWrapper>
@@ -29,7 +33,7 @@ export default function TodoHeader({ date, comletedTasks, totalTasks }: HeaderPr
         </TaskTitle>
       ) : (
         <TaskTitle>
-          {date.split('-')[1]}월 {date.split('-')[2]}일
+          {formattedDate}
           <CompletedTasks> {comletedTasks}</CompletedTasks> / {totalTasks}
         </TaskTitle>
       )}

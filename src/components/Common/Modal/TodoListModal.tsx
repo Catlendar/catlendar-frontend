@@ -27,7 +27,7 @@ export default function TodoListModal({ date }: Pick<ModalTypeProps, 'date'>) {
     <ModalBackground onClick={() => setTodoModalOpenAtom(false)}>
       <ModalWrapper onClick={(e) => e.stopPropagation()}>
         <Tab tabData={TabDataTodo} />
-        <TodoModalList />
+        <TodoModalList date={date} />
         <AddModalInput date={date} />
       </ModalWrapper>
     </ModalBackground>

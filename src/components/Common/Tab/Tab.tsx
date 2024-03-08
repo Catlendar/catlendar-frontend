@@ -1,7 +1,7 @@
 /* eslint no-underscore-dangle: 0 */
 
 import React, { useState } from 'react';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { SelectTabTypeAtom } from '../../../atom/SelectTabTypeAtom';
 import { TabBox, TabButton, TabWrapper } from './Tab.styled';
 import TabCloseButton from './TabCloseButton';
@@ -70,7 +70,7 @@ export default function Tab({ tabData, onTabClick }: TabProps) {
     onTabClick?.(tab.id);
     console.log(tab);
     if (tab.__type === 'todo') {
-      if (tab.tabName === '오늘') {
+      if (tab.tabName === '할 일') {
         handleTodayTabClick();
       } else {
         handleBookmarkTabClick();

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { tokenInstance } from '../../../api/Axios';
 import { AddInputWrapper, AddInput, ModalAddButton } from './AddModalInput.styled';
 import { UserAtom } from '../../../atom/UserAtom';
 import { TodoListAtom } from '../../../atom/TodoListAtom';
 import { ModalTypeProps } from '../Modal/Modal';
+import { TodoNumAtom } from '../../../atom/TodoNumAtom';
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 type InputKeyboardEvent = React.KeyboardEvent<HTMLInputElement>;
@@ -13,11 +14,12 @@ type InputKeyboardEvent = React.KeyboardEvent<HTMLInputElement>;
 export default function TodoAdd({ date }: Pick<ModalTypeProps, 'date'>) {
   const userAtom = useRecoilValue(UserAtom);
   const setTodoListAtom = useSetRecoilState(TodoListAtom);
+  const [todoNum, setTodoNum] = useRecoilState(TodoNumAtom);
+
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState('');
   const [isAdding, setIsAdding] = useState(false);
 
-  console.log('!@#!#@!#!#', date);
   const handleOnchange = (e: InputChangeEvent) => {
     setInputValue(e.target.value);
   };
@@ -32,15 +34,6 @@ export default function TodoAdd({ date }: Pick<ModalTypeProps, 'date'>) {
         setInputValue('');
         return;
       }
-      // const today = new Date();
-      // const year = today.getFullYear(); // 년도
-      // let month = (today.getMonth() + 1).toString(); // 월
-      // if (month.length === 1) {
-      //   month = `0${month}`;
-      // }
-      // const date = today.getDate(); // 날짜
-      // const todayDate = `${year}-${month}-${date}`;
-      // console.log(todayDate);
 
       // 일정 생성 api
       const response1 = await tokenInstance.post('calendar/createCalendar', {
@@ -48,19 +41,24 @@ export default function TodoAdd({ date }: Pick<ModalTypeProps, 'date'>) {
         targetDate: date,
         calendarContent: inputValue,
       });
-      console.log(response1);
       const data1 = response1.data;
-
       // 할 일 목록 api
       const response2 = await tokenInstance.post('calendar/getSpecificMonth', {
         userId: userAtom.userId,
         targetDate: date,
       });
       const data2 = response2.data;
-      console.log(response2);
+      const newDate = String(date);
       if (data1 === '할 일 리스트에 추가 되었습니다.') {
         setTodoListAtom(data2);
         setInputValue('');
+        setTodoNum({
+          ...todoNum,
+          [newDate]: {
+            totalTodo: (todoNum[newDate]?.totalTodo || 0) + 1,
+            completedTodo: todoNum[newDate]?.completedTodo || 0,
+          },
+        });
       }
     } catch (error) {
       alert('할 일 추가 실패');
