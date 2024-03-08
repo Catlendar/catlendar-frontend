@@ -45,13 +45,13 @@ export const Select = styled.select<InputProps>`
 `;
 
 export const InputName = styled.p`
+  margin-top: 3.7rem;
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  margin-bottom: 9px;
+  margin-bottom: 1rem;
 `;
 
 export const InputWrapper = styled.div<InputWrapperProps>`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  margin-top: 3.7rem;
 `;

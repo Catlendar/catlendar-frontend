@@ -96,7 +96,7 @@ export default function UserInfoPage() {
             name="양력"
             initial=""
             options={BirthOption}
-            width={100}
+            width={115}
             onChange={(value: string) => setCalendarType(value)}
           />
         </BirthWrapper>

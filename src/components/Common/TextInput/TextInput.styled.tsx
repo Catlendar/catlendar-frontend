@@ -54,5 +54,4 @@ export const InputName = styled.p`
 export const InputWrapper = styled.div`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
-  padding-top: 25px;
 `;

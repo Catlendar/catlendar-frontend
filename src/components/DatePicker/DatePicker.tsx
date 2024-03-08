@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import DatePicker from 'react-mobile-datepicker';
 import { useRecoilValue } from 'recoil';
 import DateInput from '../Common/DateInput/DateInput';
-import { DateWrapper } from './DatePicker.styled';
 import { UserAtom } from '../../atom/UserAtom';
 
 interface DatePickerProps {
@@ -40,7 +39,7 @@ const DatePickerComponent = ({ onDateSelect }: DatePickerProps) => {
   };
 
   return (
-    <DateWrapper>
+    <>
       <DateInput
         inputType="생년월일"
         name="생년월일"
@@ -58,7 +57,7 @@ const DatePickerComponent = ({ onDateSelect }: DatePickerProps) => {
         confirmText="확인"
         cancelText="취소"
       />
-    </DateWrapper>
+    </>
   );
 };
 
