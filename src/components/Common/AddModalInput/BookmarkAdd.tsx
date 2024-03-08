@@ -27,13 +27,10 @@ export default function BookmarkAdd() {
         return;
       }
       // 즐겨찾기 만들기 api 호출
-      const createBookmarkresponse = await tokenInstance.post(
-        'http://54.66.123.168:8080/calendar/createBookmark',
-        {
-          userId: userAtom.userId,
-          bookmarkContent: inputValue,
-        },
-      );
+      const createBookmarkresponse = await tokenInstance.post('calendar/createBookmark', {
+        userId: userAtom.userId,
+        bookmarkContent: inputValue,
+      });
       const responseText = createBookmarkresponse.data;
 
       // 즐겨찾기 목록 가져오기 api 호출
