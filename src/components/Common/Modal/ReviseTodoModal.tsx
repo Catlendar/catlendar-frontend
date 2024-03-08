@@ -10,7 +10,6 @@ import { tokenInstance } from '../../../api/Axios';
 import { TodoListAtom } from '../../../atom/TodoListAtom';
 import { TodoNumAtom } from '../../../atom/TodoNumAtom';
 
-
 interface ModalProps {
   onClose: () => void;
 }
@@ -145,7 +144,6 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
   const handleInputChange = (value: string) => {
     setNewTodoContent(value);
   };
-
 
   return (
     <ModalBackground onClick={() => setReviseModalOpenAtom(false)}>
