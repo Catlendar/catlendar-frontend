@@ -21,12 +21,7 @@ export default function Modal({ type, date }: ModalTypeProps) {
   const [withdrawOpen, setWithdrawOpen] = useState(true);
   const [reviseModalOpenAtom, setReviseModalOpenAtom] = useRecoilState(ReviseModalOpenAtom);
   const todoModalOpenAtom = useRecoilValue(TodoModalOpenAtom);
-  const resetTodoModalOpen = useResetRecoilState(TodoModalOpenAtom);
   const resetReviseModalOpen = useResetRecoilState(ReviseModalOpenAtom);
-
-  useEffect(() => {
-    resetTodoModalOpen();
-  }, [resetTodoModalOpen]);
 
   useEffect(() => {
     resetReviseModalOpen();
