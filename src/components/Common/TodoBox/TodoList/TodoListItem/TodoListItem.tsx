@@ -84,13 +84,15 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
 
   return (
     <>
-      <StyledToastContainer
-        position="bottom-center"
-        autoClose={1000}
-        closeButton={false}
-        icon={false}
-        hideProgressBar
-      />
+      <li>
+        <StyledToastContainer
+          position="bottom-center"
+          autoClose={1000}
+          closeButton={false}
+          icon={false}
+          hideProgressBar
+        />
+      </li>
       <TodoItemWrapper>
         <Checkbox checked={completed} onClick={handleClick} />
         <TodoItemText completed={completed}>{todo.calendarContent}</TodoItemText>
