@@ -94,7 +94,7 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
   return (
     <>
       <li>
-        <StyledToastContainer/>
+        <StyledToastContainer />
       </li>
       <TodoItemWrapper>
         <Checkbox checked={completed} onClick={handleClick} />
