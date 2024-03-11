@@ -7,6 +7,7 @@ import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { UserAtom } from '../../atom/UserAtom';
+import { ButtonPageWrap, ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 function LoginPage() {
   const [email, setEmail] = useState<string>('');
@@ -86,13 +87,13 @@ function LoginPage() {
           message={passwordErrorMessage}
           clearMessage={() => setPasswordErrorMessage('')}
         />
-        <ButtonWrapper>
+        <ButtonSubmitWrap>
           {validateInputs() ? (
             <Button type="enable" text="로그인" to="" onClick={() => {}} />
           ) : (
             <Button type="disable" text="로그인" to="/" onClick={() => {}} />
           )}
-        </ButtonWrapper>
+        </ButtonSubmitWrap>
       </form>
     </LoginWrapper>
   );

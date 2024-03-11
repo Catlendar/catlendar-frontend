@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const TodoBoxWrapper = styled.div`
-  border: 1px solid red;
+  // border: 1px solid red;
 
   background-color: var(--bg-color-gray);
   border-top-left-radius: 20px;

@@ -33,6 +33,15 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const TOAST = {
+    position: toast.POSITION.BOTTOM_CENTER,
+    autoClose: 1000,
+    closeButton: false,
+    icon: false,
+    hideProgressBar: true,
+    progress: undefined,
+  };
+
   const getTodayCompletedTasks = (data: TodoDataType[]) => {
     let completedTasks = 0;
     data.forEach((item) => {
@@ -74,7 +83,7 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
           [date]: { totalTodo: totalTasks, completedTodo: completedTasks },
         }));
         setCompleted((prev) => !prev);
-        toast.success('일정을 완료했어요! 잘했어요 🍀');
+        if (todo.completed === 'N') toast.success('일정을 완료했어요! 잘했어요 🍀', TOAST);
       }
     } catch (error) {
       alert('일정 완료 기능 에러');
@@ -84,13 +93,9 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
 
   return (
     <>
-      <StyledToastContainer
-        position="bottom-center"
-        autoClose={1000}
-        closeButton={false}
-        icon={false}
-        hideProgressBar
-      />
+      <li>
+        <StyledToastContainer/>
+      </li>
       <TodoItemWrapper>
         <Checkbox checked={completed} onClick={handleClick} />
         <TodoItemText completed={completed}>{todo.calendarContent}</TodoItemText>

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -12,11 +12,26 @@ export const ButtonItem = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
-  // margin: 0 2.6rem;
   cursor: pointer;
   background: var(--button-color-landing);
   color: var(--color-white);
   border-radius: 1rem;
   height: 6rem;
   font-size: var(--small-font-size);
+`;
+
+export const ButtonPageWrap = styled.div`
+  width: 33.9rem;
+`;
+
+export const ButtonLandingWrap = styled(ButtonPageWrap)`
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const ButtonSubmitWrap = styled(ButtonPageWrap)`
+  position: fixed;
+  bottom: 20px;
 `;

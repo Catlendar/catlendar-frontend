@@ -11,6 +11,7 @@ import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
 import DatePickerComponent from '../../components/DatePicker/DatePicker';
+import { ButtonPageWrap, ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 interface UserData {
   name: string;
@@ -127,14 +128,14 @@ export default function ProfileEditPage() {
         onChange={(value: string) => setBirthTime(value)}
       />
       <GenderButton name="성별" onChange={(value: string) => setGender(value)} />
-      <EditPwBtn>
+      <ButtonSubmitWrap>
         <Button
           type={isFormValid ? 'enable' : 'disable'}
           text="수정"
           to=""
           onClick={handleUpdateUser}
         />
-      </EditPwBtn>
+      </ButtonSubmitWrap>
     </ProfileWrapper>
   );
 }
