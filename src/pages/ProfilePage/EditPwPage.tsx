@@ -8,6 +8,8 @@ import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
 import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
+import { ButtonWrapper } from '../LandingPage/LandingPage.styled';
+import { ButtonPageWrap, ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 interface UserData {
   password: string;
@@ -125,14 +127,14 @@ export default function EditPwPage() {
       />
       <ErrorMessage message={confirmError} clearMessage={() => setConfirmError('')} />
 
-      <EditPwBtn>
+      <ButtonSubmitWrap>
         <Button
           type={isFormValid ? 'enable' : 'disable'}
           text="변경하기"
           to=""
           onClick={handleChangePwd}
         />
-      </EditPwBtn>
+      </ButtonSubmitWrap>
     </ProfileWrapper>
   );
 }

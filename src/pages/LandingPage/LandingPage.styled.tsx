@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 export const LandingWrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100%;
 
   p {
     font-size: var(--small-font-size);
-    margin-bottom: 17rem;
+    /* margin-bottom: 17rem; */
   }
 `;
 
@@ -26,6 +28,9 @@ export const CatlendarImg = styled.img`
 `;
 
 export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   padding-bottom: 10px;
   width: 33.9rem;
 `;

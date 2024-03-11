@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import { useMediaQuery } from 'react-responsive';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -14,9 +15,16 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
 	} */
 
+	@font-face {
+    font-family: 'Happiness';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Bold.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
 	body {
     font-family: 'omyu_pretty';
-	background-color: #bdbdbd;
+		background-color: #bdbdbd;
 	} 
 
 	input, input::placeholder, button {
@@ -99,15 +107,19 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0 auto;
 		background-color: #bdbdbd;
 	}
+
 	/* Mobile */
-	@media screen and (min-width: 390px) {
-		#root {
-			height:100vh;
-			width:390px;
-			margin: 0 auto;
-			background-color: #ffffff;
+		@media screen and (min-width:390px){
+			#root {
+				min-height: 100vh;
+				height: 100%;
+				width:390px;
+				margin: 0 auto;
+				background-color: #ffffff;
+			}
 		}
-	}
+
+
 	/* Mobile 작업 완료후, width값 %로 변경 예정 */
 	 /* @media screen and (max-width: 767px) {
 	 	#root {
