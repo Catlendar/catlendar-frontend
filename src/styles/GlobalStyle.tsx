@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import { useMediaQuery } from 'react-responsive';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -16,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
     font-family: 'omyu_pretty';
-	background-color: #bdbdbd;
+		background-color: #bdbdbd;
 	} 
 
 	input, input::placeholder, button {
@@ -99,15 +100,19 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0 auto;
 		background-color: #bdbdbd;
 	}
+
 	/* Mobile */
-	@media screen and (min-width: 390px) {
-		#root {
-			height:100vh;
-			width:390px;
-			margin: 0 auto;
-			background-color: #ffffff;
+		@media screen and (min-width:390px){
+			#root {
+				min-height: 100vh;
+				height: 100%;
+				width:390px;
+				margin: 0 auto;
+				background-color: #ffffff;
+			}
 		}
-	}
+
+
 	/* Mobile 작업 완료후, width값 %로 변경 예정 */
 	 /* @media screen and (max-width: 767px) {
 	 	#root {
