@@ -18,7 +18,7 @@ export const TodoListUl = styled.ul`
     display: none;
   }
   padding: 0;
-  p {
+  li {
     font-size: var(--small-font-size);
     color: var(--input-bb);
   }
