@@ -4,7 +4,7 @@ import { ReactComponent as CalendarIcon } from '../../../assets/icons/icon-calen
 import { ReactComponent as ProfileIcon } from '../../../assets/icons/icon-profile.svg';
 
 export const NavbarWrapper = styled.nav`
-  position: fixed;
+  /* position: fixed; */
   width: 39rem;
   height: 7rem;
   z-index: 10;

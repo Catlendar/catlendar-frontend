@@ -4,7 +4,7 @@ export const TodoListWrapper = styled.div`
   box-sizing: border-box;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: 20px 15px;
+  padding: 20px 15px 0;
   width: 100%;
   height: 100%;
 
@@ -12,12 +12,13 @@ export const TodoListWrapper = styled.div`
 `;
 
 export const TodoListUl = styled.ul`
-  height: 35rem;
+  height: 100%;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
   }
   padding: 0;
+  /* padding-bottom: 7rem; */
   p {
     font-size: var(--small-font-size);
     color: var(--input-bb);

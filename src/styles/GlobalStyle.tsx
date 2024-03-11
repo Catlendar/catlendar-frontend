@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
     font-family: 'omyu_pretty';
-	background-color: #bdbdbd;
+		background-color: #bdbdbd;
 	} 
 
 	input, input::placeholder, button {
@@ -37,6 +37,8 @@ const GlobalStyle = createGlobalStyle`
 
 	/*=============== VARIABLES CSS ===============*/
 	:root {
+		--vh: 100%;
+
 		/*========== Font size ==========*/
 		--h1-font-size: 3.6rem;
 		--h2-font-size: 2.7rem;
@@ -99,10 +101,12 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0 auto;
 		background-color: #bdbdbd;
 	}
+
 	/* Mobile */
 	@media screen and (min-width: 390px) {
 		#root {
-			height:100vh;
+			/* height:100vh; */
+			min-height: calc(var(--vh, 1vh) * 100 + 7rem);
 			width:390px;
 			margin: 0 auto;
 			background-color: #ffffff;
