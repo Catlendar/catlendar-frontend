@@ -11,7 +11,7 @@ export default function HomeButton() {
 
   const handleClick = () => {
     localStorage.clear();
-    navigate('/Home');
+    navigate('/landing');
   };
 
   return (
