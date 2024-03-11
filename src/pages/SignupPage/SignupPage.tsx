@@ -7,6 +7,7 @@ import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { instance } from '../../api/Axios';
 import { SignUpAtom } from '../../atom/SignUpAtom';
+import { ButtonPageWrap, ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 export default function SignUpPage() {
   const [email, setEmail] = useState<string>('');
@@ -95,13 +96,13 @@ export default function SignUpPage() {
         clearMessage={() => setConfirmPasswordErrorMessage('')}
       />
 
-      <ButtonWrapper>
+      <ButtonSubmitWrap>
         {validateInputs() ? (
           <Button type="enable" text="다음" to="" onClick={emailVerify} />
         ) : (
           <Button type="disable" text="다음" to="/" onClick={() => {}} />
         )}
-      </ButtonWrapper>
+      </ButtonSubmitWrap>
     </SignUpWrapper>
   );
 }
