@@ -49,6 +49,14 @@ export default function Router() {
           }
         />
         <Route
+          path="/landing"
+          element={
+            <>
+              <LandingPage />
+            </>
+          }
+        />
+        <Route
           path="/signup"
           element={
             <>

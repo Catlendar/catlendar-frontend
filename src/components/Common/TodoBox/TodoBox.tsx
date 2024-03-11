@@ -56,7 +56,8 @@ export default function TodoBox({ date }: TodoBoxProps) {
         );
         setTodoListAtom(response.data);
       } catch (error) {
-        navigate('/error');
+        alert('로그인 세션이 만료되었습니다.');
+        navigate('/landing');
       }
     };
     fetchTodoData();
@@ -74,8 +75,7 @@ export default function TodoBox({ date }: TodoBoxProps) {
         setBookmarkListAtom(response.data);
       } catch (error) {
         // eslint-disable-next-line no-alert
-        alert('즐겨찾기 데이터를 불러오는 데 실패했습니다.');
-        navigate('/error');
+        navigate('/landing');
       }
     };
     fetchBookmarkData();
