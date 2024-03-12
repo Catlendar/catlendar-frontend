@@ -15,9 +15,22 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
 	} */
 
+	@font-face {
+    font-family: 'SOYOMapleBoldTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SOYOMapleRegularTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleRegularTTF.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
 	body {
-    font-family: 'omyu_pretty';
-		background-color: #bdbdbd;
+    font-family: 'SOYOMapleRegularTTF';
+		/* background-color: #bdbdbd; */
 	} 
 
 	input, input::placeholder, button {
@@ -112,7 +125,6 @@ const GlobalStyle = createGlobalStyle`
 			}
 		}
 
-
 	/* Mobile 작업 완료후, width값 %로 변경 예정 */
 	 /* @media screen and (max-width: 767px) {
 	 	#root {
@@ -135,14 +147,14 @@ const GlobalStyle = createGlobalStyle`
 	 } */
 	/* 할 예정 */
 	/* Pc */
-	 /* @media screen and (min-width: 1024px) {
+	 @media screen and (min-width: 992px) {
 	 	#root {
-	 		height:100vh;
-	 		max-width:1024px;
+	 		height: auto;
+	 		width:100%;
 	 		margin: 0 auto;
-	 		background-color: skyblue;
+	 		background-color: #fff;
 	 	}
-  } */
+  }
 
 	// @media screen and (min-width: 1024px) {
 	// 	#root {

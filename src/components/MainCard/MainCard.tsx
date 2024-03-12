@@ -35,7 +35,10 @@ export default function MainCard() {
           <TextBox>
             <UserName>{userAtom.name}님</UserName>
             <TodayFortune>오늘 하루는</TodayFortune>
-            <TodayFortune>{fortuneTitle}이네요!</TodayFortune>
+            <TodayFortune>
+              <p style={{ fontFamily: 'SOYOMapleBoldTTF' }}>{fortuneTitle}</p>
+              이네요!
+            </TodayFortune>
           </TextBox>
           <img src={mainCat} alt="메인 고양이 이미지" />
         </ContentBox>
