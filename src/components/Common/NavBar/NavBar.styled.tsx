@@ -20,9 +20,9 @@ export const NavbarList = styled.ul`
   justify-content: space-around;
   align-items: center;
 
-  li {
-    flex-grow: 1;
-  }
+  // li {
+  //   flex-grow: 1;
+  // }
 `;
 
 export const IconStyle = css<{ active: boolean }>`

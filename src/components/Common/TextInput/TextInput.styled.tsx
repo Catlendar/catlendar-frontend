@@ -57,6 +57,10 @@ export const InputName = styled.p`
   margin-bottom: 1rem;
 `;
 
+export const SelectLabel = styled.label`
+  display: none;
+`;
+
 export const InputWrapper = styled.div`
   color: var(--text-color-main);
   font-size: var(--small-font-size);

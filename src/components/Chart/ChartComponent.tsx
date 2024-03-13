@@ -145,13 +145,13 @@ export function ChartComponent() {
 
   const arr1 = Object.keys(todoNum).filter((item) => Number(item.split('-')[2]) <= 7); // 1~7
   const arr2 = Object.keys(todoNum).filter(
-    (item) => Number(item.split('-')[2]) <= 14 && Number(item.split('-')[2]) > 8, // 8~ 14
+    (item) => Number(item.split('-')[2]) <= 14 && Number(item.split('-')[2]) >= 8, // 8~ 14
   );
   const arr3 = Object.keys(todoNum).filter(
-    (item) => Number(item.split('-')[2]) <= 21 && Number(item.split('-')[2]) > 15, // 15 ~ 21
+    (item) => Number(item.split('-')[2]) <= 21 && Number(item.split('-')[2]) >= 15, // 15 ~ 21
   );
   const arr4 = Object.keys(todoNum).filter(
-    (item) => Number(item.split('-')[2]) <= 31 && Number(item.split('-')[2]) > 22, // 22 ~ 31
+    (item) => Number(item.split('-')[2]) <= 31 && Number(item.split('-')[2]) >= 22, // 22 ~ 31
   );
 
   function getCompletedTodo(arr) {
@@ -205,34 +205,8 @@ export function ChartComponent() {
       },
     ],
   };
-  // const arr = Object.keys(todoNum).filter((item) => item.split('-')[2]);
-
-  // console.log(arr);
-
-  // Object.values(todoNum).map((item) => item.completedTodo);
-
-  // const arr = Object.keys(todoNum).map((item) => item.split('-')[2]);
-
-  // console.log(Object.keys(todoNum).map(item => item.split('-')[2] < '07' ? arr1.push(todoNum[item]) : item.split('-')[2] < '14' ? arr2.push(todoNum[item]) : ...))
 
   console.log(arr2.map((item) => todoNum[item]));
-
-  // console.log(Object.keys(todoNum).filter((item) => Number(item.split('-')[2]) < 14));
-
-  // console.log(Object.values(todoNum)[0]);
-
-  // const m = Object.values(todoNum);
-
-  // for (let i = 0; i < m.length; i += 1) {
-  //   console.log(m[i].completedTodo);
-  // }
-
-  // const todoData = Object.entries(todoNum).map(([date, { completedTodo }]) => ({
-  //   x: date,
-  //   y: completedTodo,
-  // }));
-  // console.log(todoData);
-  // date에서 월 단위 추출
 
   return <Line options={options} data={data} />;
 }

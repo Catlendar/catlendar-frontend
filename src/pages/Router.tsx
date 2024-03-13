@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -37,13 +38,20 @@ export default function Router() {
         <Route
           path="/"
           element={
-            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
               {isLoggedIn === '' ? (
                 <LandingPage />
               ) : isLoggedIn ? (
                 <Layout main={<HomePage />} navbar={<NavBar />} />
               ) : null}
+            </>
+          }
+        />
+        <Route
+          path="/landing"
+          element={
+            <>
+              <LandingPage />
             </>
           }
         />
@@ -60,7 +68,6 @@ export default function Router() {
         <Route
           path="/userinfo"
           element={
-            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
               {signCheck.email === '' || signCheck.password === '' ? (
                 <LandingPage />
@@ -91,7 +98,6 @@ export default function Router() {
         <Route
           path="/setting"
           element={
-            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
               {isLoggedIn === '' ? (
                 <LandingPage />
@@ -108,7 +114,6 @@ export default function Router() {
         <Route
           path="/profile"
           element={
-            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
               {isLoggedIn === '' ? (
                 <LandingPage />
@@ -124,7 +129,6 @@ export default function Router() {
         <Route
           path="/editUser"
           element={
-            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
               {isLoggedIn === '' ? (
                 <LandingPage />
@@ -140,7 +144,6 @@ export default function Router() {
         <Route
           path="/editPassword"
           element={
-            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
               {isLoggedIn === '' ? (
                 <LandingPage />
@@ -156,7 +159,6 @@ export default function Router() {
         <Route
           path="/home"
           element={
-            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
               {isLoggedIn === '' ? (
                 <LandingPage />
@@ -171,7 +173,6 @@ export default function Router() {
         <Route
           path="/calendar"
           element={
-            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
               {isLoggedIn === '' ? (
                 <LandingPage />
@@ -186,7 +187,6 @@ export default function Router() {
         <Route
           path="/fortune"
           element={
-            // eslint-disable-next-line react/jsx-no-useless-fragment
             <>
               {isLoggedIn === '' ? (
                 <LandingPage />

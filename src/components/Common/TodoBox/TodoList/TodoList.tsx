@@ -31,11 +31,11 @@ export default function TodoList({ date }: ListProps) {
         {visibleItems.length > 0 ? (
           visibleItems.map((todo) => <TodoListItem todo={todo} date={date} key={todo.calendarId} />)
         ) : today === date ? (
-          <p>오늘의 할 일을 추가해보세요.</p>
+          <li>오늘의 할 일을 추가해보세요.</li>
         ) : today > date ? (
-          <p>등록된 할 일이 없습니다.</p>
+          <li>등록된 할 일이 없습니다.</li>
         ) : (
-          <p>새로운 할 일을 추가해보세요.</p>
+          <li>새로운 할 일을 추가해보세요.</li>
         )}
         {todoListAtom.length > 8 && (
           <MoreBtn className="moreBtn" onClick={toggleShowAll}>

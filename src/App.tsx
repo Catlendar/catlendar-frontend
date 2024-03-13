@@ -2,6 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
+import { useMediaQuery } from 'react-responsive';
 import Router from './pages/Router';
 import GlobalStyle from './styles/GlobalStyle';
 
@@ -17,15 +18,14 @@ function App() {
   });
 
   return (
-    <div>
+    <>
       <GlobalStyle />
       <QueryClientProvider client={queryClient}>
         <RecoilRoot>
           <Router />
         </RecoilRoot>
       </QueryClientProvider>
-      <div className="App"> </div>
-    </div>
+    </>
   );
 }
 

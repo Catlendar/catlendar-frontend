@@ -14,7 +14,7 @@ export default function Header({ title }: HeaderProps) {
 
   return (
     <HeaderWrapper>
-      <BackButton onClick={handleClick} />
+      <BackButton aria-label="뒤로가기 버튼" onClick={handleClick} />
       <HeaderText>{title}</HeaderText>
     </HeaderWrapper>
   );

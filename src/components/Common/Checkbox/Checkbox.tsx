@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { CheckboxItem } from './Checkbox.styled';
+import React from 'react';
+import { CheckboxItem, CheckboxLabel } from './Checkbox.styled';
 
 interface CheckboxProps {
   checked: boolean;
@@ -17,7 +17,16 @@ function Checkbox({ checked, onClick }: CheckboxProps) {
 
   return (
     <div>
-      <CheckboxItem type="checkbox" checked={checked} onChange={handleChange} />
+      <CheckboxLabel id="check" htmlFor="isChecked">
+        할일 체크
+      </CheckboxLabel>
+      <CheckboxItem
+        id="isChecked"
+        aria-labelledby="check"
+        type="checkbox"
+        checked={checked}
+        onChange={handleChange}
+      />
     </div>
   );
 }
