@@ -15,10 +15,6 @@ export default function SettingPage() {
 
   // 로그아웃
   const handleLogout = () => {
-    // localStorage.removeItem('recoil-persist');
-    // localStorage.removeItem('token');
-    // alert('로그아웃 되었다냥');
-    // navigate('/');
     localStorage.clear();
     navigate('/');
     window.location.reload();

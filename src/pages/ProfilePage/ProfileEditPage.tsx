@@ -7,11 +7,11 @@ import Button from '../../components/Common/Button/Button';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
 import SelectInput from '../../components/Common/TextInput/SelectInput';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
-import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
+import { ProfileWrapper } from './ProfilePage.styled';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
 import DatePickerComponent from '../../components/DatePicker/DatePicker';
-import { ButtonPageWrap, ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
+import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 interface UserData {
   name: string;
@@ -32,8 +32,6 @@ export default function ProfileEditPage() {
   const [selectedDate, setSelectedDate] = useState<string>('');
 
   const navigate = useNavigate();
-
-  // console.log(userAtom);
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);

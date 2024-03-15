@@ -31,7 +31,7 @@ export const ContentBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 
   img {
     position: absolute;
@@ -53,6 +53,9 @@ export const TodayFortune = styled.p`
 
 export const TextBox = styled.div`
   margin-top: 4.2rem;
+  span {
+    font-family: var(--font-family-bold);
+  }
 `;
 
 export const StyledLink = styled(Link)`

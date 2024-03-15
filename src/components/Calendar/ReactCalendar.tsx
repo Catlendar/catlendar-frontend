@@ -98,26 +98,28 @@ export default function ReactCalendar({ value, setValue }: DateProps) {
   }, [todoNumAtom, clickedDay]);
 
   return (
-    <CalendarWrapper>
-      <StyleCalendar
-        calendarType="gregory"
-        onChange={onChangeDate}
-        value={value}
-        formatDay={(locale, day) => day.toLocaleString('en', { day: 'numeric' })}
-        next2Label={null}
-        prev2Label={null}
-        showNeighboringMonth={false}
-        onClickDay={(click) => {
-          handleTodoBox();
-          setClickedDay(moment(click).format('YYYY-MM-DD'));
-        }}
-        tileContent={handleTileContent}
-        onActiveStartDateChange={({ activeStartDate }) => {
-          setValue(moment(activeStartDate).format('YYYY-MM-DD'));
-          setClickedDay(moment(activeStartDate).format('YYYY-MM-DD'));
-        }}
-      />
-      {isTodoBox && <TodoBox date={clickedDay} />}
-    </CalendarWrapper>
+    <main style={{ backgroundColor: '#ffffff' }}>
+      <CalendarWrapper>
+        <StyleCalendar
+          calendarType="gregory"
+          onChange={onChangeDate}
+          value={value}
+          formatDay={(locale, day) => day.toLocaleString('en', { day: 'numeric' })}
+          next2Label={null}
+          prev2Label={null}
+          showNeighboringMonth={false}
+          onClickDay={(click) => {
+            handleTodoBox();
+            setClickedDay(moment(click).format('YYYY-MM-DD'));
+          }}
+          tileContent={handleTileContent}
+          onActiveStartDateChange={({ activeStartDate }) => {
+            setValue(moment(activeStartDate).format('YYYY-MM-DD'));
+            setClickedDay(moment(activeStartDate).format('YYYY-MM-DD'));
+          }}
+        />
+        {isTodoBox && <TodoBox date={clickedDay} />}
+      </CalendarWrapper>
+    </main>
   );
 }

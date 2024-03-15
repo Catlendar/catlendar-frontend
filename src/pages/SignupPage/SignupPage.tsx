@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { SignUpWrapper, SignUpTitle, ButtonWrapper } from './Signup.styled';
+import { SignUpWrapper, SignUpTitle } from './Signup.styled';
 import TextInput from '../../components/Common/TextInput/TextInput';
 import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { instance } from '../../api/Axios';
 import { SignUpAtom } from '../../atom/SignUpAtom';
-import { ButtonPageWrap, ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
+import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 export default function SignUpPage() {
   const [email, setEmail] = useState<string>('');

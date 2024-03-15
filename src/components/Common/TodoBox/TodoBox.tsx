@@ -1,6 +1,6 @@
 import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import Modal from '../Modal/Modal';
 import TodoHeader from '../Header/TodoHeader';
@@ -62,7 +62,6 @@ export default function TodoBox({ date }: TodoBoxProps) {
       }
     };
     fetchTodoData();
-    // console.log(todoListAtom);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
@@ -91,12 +90,7 @@ export default function TodoBox({ date }: TodoBoxProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todoListAtom]);
 
-  // useEffect(() => {
-  //   console.log('현재위치', location.pathname);
-  // }, [location.pathname]);
-
   return (
-    // <TodoBoxWrapper location={location.pathname}>
     <TodoBoxWrapper>
       <TodoHeader
         date={date}
