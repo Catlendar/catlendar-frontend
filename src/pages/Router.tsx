@@ -200,6 +200,7 @@ export default function Router() {
             </>
           }
         />
+        <Route path="*" element={<ErrorPage />} />
 
         <Route path="/error" element={<ErrorPage />} />
       </Routes>

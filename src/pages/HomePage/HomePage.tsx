@@ -48,10 +48,8 @@ export default function HomePage() {
 
   return (
     <HomeWrapper>
-      <div>
-        <MainCard />
-        <TodoBox date={today} />
-      </div>
+      <MainCard />
+      <TodoBox date={today} />
       <NavBar />
     </HomeWrapper>
   );

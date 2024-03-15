@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-import { useMediaQuery } from 'react-responsive';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -147,14 +146,14 @@ const GlobalStyle = createGlobalStyle`
 	 } */
 	/* 할 예정 */
 	/* Pc */
-	 @media screen and (min-width: 992px) {
+	 /* @media screen and (min-width: 992px) {
 	 	#root {
 	 		height: auto;
 	 		width:100%;
 	 		margin: 0 auto;
 	 		background-color: #fff;
 	 	}
-  }
+  } */
 
 	// @media screen and (min-width: 1024px) {
 	// 	#root {

@@ -10,11 +10,13 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import React, { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 import useCompleted from '../../hooks/useCompleted';
 
 export function ChartComponent() {
   const { todoNum } = useCompleted();
+
   ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
   const options = {
@@ -130,8 +132,6 @@ export function ChartComponent() {
       },
     ],
   };
-
-  console.log(arr2.map((item) => todoNum[item]));
 
   return <Line options={options} data={data} />;
 }
