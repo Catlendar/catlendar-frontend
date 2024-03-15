@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-import { useMediaQuery } from 'react-responsive';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -23,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 	body {
-    font-family: 'omyu_pretty';
+    font-family: var(--font-family);
 		background-color: #bdbdbd;
 	} 
 
@@ -46,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
 	/*=============== VARIABLES CSS ===============*/
 	:root {
 		--vh: 100%;
+		--font-family: 'Happiness';
 
 		/*========== Font size ==========*/
 		--h1-font-size: 3.6rem;
@@ -111,44 +111,48 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	/* Mobile */
-	@media screen and (min-width: 390px) {
+	@media screen and (min-width: 320px) {
 		#root {
 			/* height:100vh; */
-			min-height: calc(var(--vh, 1vh) * 100 + 7rem);
-			width:390px;
+			// min-height: calc(var(--vh, 1vh) * 100 + 7rem);
+			max-width: 430px;
+			width: 100%;
+			min-height: 100vh;
+			// width:390px;
 			margin: 0 auto;
-			background-color: #ffffff;
+			background-color: var(--bg-color-gray);
 		}
 	}
 	/* Mobile 작업 완료후, width값 %로 변경 예정 */
-	 /* @media screen and (max-width: 767px) {
-	 	#root {
-	 		height:100vh;
-	 		width: 100%;
-	 		margin: 0 auto;
-	 		background-color: skyblue;
-	 	}
-	 } */
+	/* @media screen and (max-width: 767px) {
+		#root {
+			height:100vh;
+			width: 100%;
+			margin: 0 auto;
+			background-color: skyblue;
+		}
+	} */
 
 	/* 할 예정 */
 	/* Tablet */
-	 /* @media screen and (min-width: 768px) {
-	 	#root {
-	 		height:100vh;
-	 		max-width:768px;
-	 		margin: 0 auto;
-	 		background-color: skyblue;
-	 	}
-	 } */
+	/* @media screen and (min-width: 768px) {
+		#root {
+			height:100vh;
+			max-width:768px;
+			margin: 0 auto;
+			background-color: skyblue;
+		}
+	} */
+	
 	/* 할 예정 */
 	/* Pc */
-	 /* @media screen and (min-width: 1024px) {
-	 	#root {
-	 		height:100vh;
-	 		max-width:1024px;
-	 		margin: 0 auto;
-	 		background-color: skyblue;
-	 	}
+	/* @media screen and (min-width: 1024px) {
+		#root {
+			height:100vh;
+			max-width:1024px;
+			margin: 0 auto;
+			background-color: skyblue;
+		}
   } */
 
 	// @media screen and (min-width: 1024px) {

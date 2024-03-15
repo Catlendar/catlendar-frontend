@@ -70,8 +70,9 @@ export default function Router() {
           element={
             <>
               {signCheck.email === '' || signCheck.password === '' ? (
-                <LandingPage />
-              ) : signCheck ? (
+                <Layout main={<LandingPage />} />
+              ) : // <LandingPage />
+              signCheck ? (
                 <>
                   <Header title="" />
                   <UserInfoPage />
@@ -89,8 +90,8 @@ export default function Router() {
           path="/login"
           element={
             <>
-              <Header title="" />
-              <LoginPage />
+              {/* <Header title="" /> */}
+              <Layout header={<Header title="" />} main={<LoginPage />} />
             </>
           }
         />

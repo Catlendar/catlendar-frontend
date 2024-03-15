@@ -2,12 +2,11 @@ import { styled } from 'styled-components';
 
 export const TodoListWrapper = styled.div`
   box-sizing: border-box;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  padding: 20px 15px 0;
+  border-radius: 10px;
+  padding: 15px 15px 20px;
   width: 100%;
   height: 100%;
-
+  overflow: auto;
   background-color: var(--color-white);
 `;
 
