@@ -57,8 +57,8 @@ const GlobalStyle = createGlobalStyle`
 	/*=============== VARIABLES CSS ===============*/
 	:root {
 		--vh: 100%;
-		--font-family: 'Happiness';
-
+		--font-family: 'SOYOMapleRegularTTF';
+		--font-family-bold: 'SOYOMapleBoldTTF';
 		/*========== Font size ==========*/
 		--h1-font-size: 3.6rem;
 		--h2-font-size: 2.7rem;

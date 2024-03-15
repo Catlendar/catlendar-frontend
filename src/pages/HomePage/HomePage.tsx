@@ -4,10 +4,8 @@ import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
 import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
-import NavBar from '../../components/Common/NavBar/NavBar';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
-import { HomeWrapper } from './HomePage.styled';
 
 export default function HomePage() {
   const userAtom = useRecoilValue(UserAtom);
@@ -47,7 +45,7 @@ export default function HomePage() {
   }, [userAtom, setFortuneData]);
 
   return (
-    <main>
+    <main style={{ backgroundColor: 'var(--bg-color-main)' }}>
       <MainCard />
       <TodoBox date={today} />
     </main>

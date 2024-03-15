@@ -37,7 +37,8 @@ export const TodoBoxWrapper = styled.div`
   /* 잘 모르겠어서 임의로 했음, 나중에 반응형 작업할 때 수정해야 함 */
   overflow: auto;
   box-sizing: border-box;
-  border: 1px solid black;
+  // border: 1px solid black;
+  // margin-top: -1.5rem;
   &::-webkit-scrollbar {
     display: none;
   }

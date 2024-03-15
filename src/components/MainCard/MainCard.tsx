@@ -33,10 +33,12 @@ export default function MainCard() {
         <Today>{formattedDate}</Today>
         <ContentBox>
           <TextBox>
-            <UserName>{userAtom.name}님</UserName>
+            <UserName>
+              <span>{userAtom.name}</span>님
+            </UserName>
             <TodayFortune>오늘 하루는</TodayFortune>
             <TodayFortune>
-              <p style={{ fontFamily: 'SOYOMapleBoldTTF' }}>{fortuneTitle}</p>
+              <span>{fortuneTitle}</span>
               이네요!
             </TodayFortune>
           </TextBox>

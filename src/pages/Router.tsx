@@ -34,7 +34,6 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<LandingPage />} /> */}
         <Route
           path="/"
           element={
@@ -79,10 +78,6 @@ export default function Router() {
                 </>
               ) : null}
             </>
-            // <>
-            //   <Header title="" />
-            //   <UserInfoPage />
-            // </>
           }
         />
 
