@@ -47,10 +47,10 @@ export default function HomePage() {
   }, [userAtom, setFortuneData]);
 
   return (
-    <HomeWrapper>
+    <main>
       <MainCard />
       <TodoBox date={today} />
       <NavBar />
-    </HomeWrapper>
+    </main>
   );
 }

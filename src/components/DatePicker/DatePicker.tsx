@@ -56,6 +56,8 @@ const DatePickerComponent = ({ onDateSelect }: DatePickerProps) => {
         theme="ios"
         confirmText="확인"
         cancelText="취소"
+        id="main-content"
+        tabindex="-1"
       />
     </>
   );

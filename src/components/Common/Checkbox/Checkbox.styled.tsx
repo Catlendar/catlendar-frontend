@@ -14,3 +14,7 @@ export const CheckboxItem = styled.input`
     background-color: var(--button-color-enable);
   }
 `;
+
+export const CheckboxLabel = styled.label`
+  display: none;
+`;

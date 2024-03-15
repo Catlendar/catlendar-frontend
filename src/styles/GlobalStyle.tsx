@@ -19,13 +19,19 @@ const GlobalStyle = createGlobalStyle`
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
-}
-@font-face {
+  }
+  @font-face {
     font-family: 'SOYOMapleRegularTTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleRegularTTF.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
-}
+  }
+  @font-face {
+    font-family: 'Happiness';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Bold.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
 
 	body {
     font-family: 'SOYOMapleRegularTTF';

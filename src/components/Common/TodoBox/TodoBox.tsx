@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
@@ -11,6 +11,7 @@ import { tokenInstance } from '../../../api/Axios';
 import { TodoDataType, TodoListAtom } from '../../../atom/TodoListAtom';
 import { BookmarkListAtom } from '../../../atom/BookmarkListAtom';
 import { TodayTasksAtom } from '../../../atom/TodayTasksAtom';
+import { TodoModalOpenAtom } from '../../../atom/TodoModalOpenAtom';
 
 interface TodoBoxProps {
   date: string;
@@ -23,7 +24,13 @@ export default function TodoBox({ date }: TodoBoxProps) {
   const [todoListAtom, setTodoListAtom] = useRecoilState(TodoListAtom);
   const setBookmarkListAtom = useSetRecoilState(BookmarkListAtom);
   const [todayTasksAtom, setTodayTasksAtom] = useRecoilState(TodayTasksAtom);
+  const resetTodoModalOpenAtom = useResetRecoilState(TodoModalOpenAtom);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    resetTodoModalOpenAtom();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // 오늘 할 일 목록에서 completed: 'Y'인 item 개수 구하기
   const getTodayCompletedTasks = (data: TodoDataType[]) => {
@@ -49,7 +56,8 @@ export default function TodoBox({ date }: TodoBoxProps) {
         );
         setTodoListAtom(response.data);
       } catch (error) {
-        navigate('/error');
+        alert('로그인 세션이 만료되었습니다.');
+        navigate('/landing');
       }
     };
     fetchTodoData();
@@ -67,8 +75,7 @@ export default function TodoBox({ date }: TodoBoxProps) {
         setBookmarkListAtom(response.data);
       } catch (error) {
         // eslint-disable-next-line no-alert
-        alert('즐겨찾기 데이터를 불러오는 데 실패했습니다.');
-        navigate('/error');
+        navigate('/landing');
       }
     };
     fetchBookmarkData();

@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import Select, { components } from 'react-select';
-import { InputName, InputWrapper } from './TextInput.styled';
+import { InputName, InputWrapper, SelectLabel } from './TextInput.styled';
 import { SelectBoxProps } from './SelectTypes';
 
 // select에 커서 깜빡임 제거
@@ -68,8 +69,12 @@ export default function SelectInput({ options, name, width, onChange, initial }:
           </option>
         ))}
       </Selectt> */}
-
+      <SelectLabel id="select" htmlFor="selectbox">
+        할일 체크
+      </SelectLabel>
       <Select
+        id="selectbox"
+        aria-labelledby="select"
         options={Options}
         onChange={handleSelectChange}
         value={selectedOption}
