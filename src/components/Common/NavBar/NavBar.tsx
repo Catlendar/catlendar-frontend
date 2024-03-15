@@ -14,21 +14,21 @@ export default function NavBar() {
   return (
     <NavbarWrapper>
       <NavbarList>
-        <Link to="/home">
-          <li>
+        <li>
+          <Link to="/home" aria-label="link to home">
             <StyledHomeIcon active={pathname === '/home'} />
-          </li>
-        </Link>
-        <Link to="/calendar">
-          <li>
+          </Link>
+        </li>
+        <li>
+          <Link to="/calendar" aria-label="link to calendar">
             <StyledCalendarIcon active={pathname === '/calendar'} />
-          </li>
-        </Link>
-        <Link to="/profile">
-          <li>
+          </Link>
+        </li>
+        <li>
+          <Link to="/profile" aria-label="link to profile">
             <StyledProfileIcon active={pathname === '/profile'} />
-          </li>
-        </Link>
+          </Link>
+        </li>
       </NavbarList>
     </NavbarWrapper>
   );

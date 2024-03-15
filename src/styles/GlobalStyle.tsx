@@ -19,17 +19,23 @@ const GlobalStyle = createGlobalStyle`
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
-}
-@font-face {
+  }
+  @font-face {
     font-family: 'SOYOMapleRegularTTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleRegularTTF.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
-}
+  }
+  @font-face {
+    font-family: 'Happiness';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Bold.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
 
 	body {
-    font-family: 'SOYOMapleRegularTTF';
-		/* background-color: #bdbdbd; */
+    font-family: var(--font-family);
+		background-color: #bdbdbd;
 	} 
 
 	input, input::placeholder, button {
@@ -50,6 +56,9 @@ const GlobalStyle = createGlobalStyle`
 
 	/*=============== VARIABLES CSS ===============*/
 	:root {
+		--vh: 100%;
+		--font-family: 'Happiness';
+
 		/*========== Font size ==========*/
 		--h1-font-size: 3.6rem;
 		--h2-font-size: 2.7rem;
@@ -114,46 +123,50 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	/* Mobile */
-		@media screen and (min-width:390px){
-			#root {
-				min-height: 100vh;
-				height: 100%;
-				width:390px;
-				margin: 0 auto;
-				background-color: #ffffff;
-			}
+	@media screen and (min-width: 320px) {
+		#root {
+			/* height:100vh; */
+			// min-height: calc(var(--vh, 1vh) * 100 + 7rem);
+			max-width: 430px;
+			width: 100%;
+			min-height: 100vh;
+			// width:390px;
+			margin: 0 auto;
+			background-color: var(--bg-color-gray);
 		}
-
+	}
+  
 	/* Mobile 작업 완료후, width값 %로 변경 예정 */
-	 /* @media screen and (max-width: 767px) {
-	 	#root {
-	 		height:100vh;
-	 		width: 100%;
-	 		margin: 0 auto;
-	 		background-color: skyblue;
-	 	}
-	 } */
+	/* @media screen and (max-width: 767px) {
+		#root {
+			height:100vh;
+			width: 100%;
+			margin: 0 auto;
+			background-color: skyblue;
+		}
+	} */
 
 	/* 할 예정 */
 	/* Tablet */
-	 /* @media screen and (min-width: 768px) {
-	 	#root {
-	 		height:100vh;
-	 		max-width:768px;
-	 		margin: 0 auto;
-	 		background-color: skyblue;
-	 	}
-	 } */
+	/* @media screen and (min-width: 768px) {
+		#root {
+			height:100vh;
+			max-width:768px;
+			margin: 0 auto;
+			background-color: skyblue;
+		}
+	} */
+	
 	/* 할 예정 */
 	/* Pc */
-	 /* @media screen and (min-width: 992px) {
-	 	#root {
-	 		height: auto;
-	 		width:100%;
-	 		margin: 0 auto;
-	 		background-color: #fff;
-	 	}
-  } */
+	/* @media screen and (min-width: 1024px) {
+		#root {
+			height:100vh;
+			max-width:1024px;
+			margin: 0 auto;
+			background-color: skyblue;
+		}
+  }
 
 	// @media screen and (min-width: 1024px) {
 	// 	#root {

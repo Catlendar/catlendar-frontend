@@ -2,23 +2,22 @@ import { styled } from 'styled-components';
 
 export const TodoListWrapper = styled.div`
   box-sizing: border-box;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  padding: 20px 15px;
+  border-radius: 10px;
+  padding: 15px 15px 20px;
   width: 100%;
   height: 100%;
-
+  overflow: auto;
   background-color: var(--color-white);
 `;
 
 export const TodoListUl = styled.ul`
-  height: 35rem;
+  height: 100%;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
   }
   padding: 0;
-  p {
+  li {
     font-size: var(--small-font-size);
     color: var(--input-bb);
   }
