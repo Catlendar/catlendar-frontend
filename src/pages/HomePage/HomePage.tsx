@@ -4,7 +4,6 @@ import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
 import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
-import NavBar from '../../components/Common/NavBar/NavBar';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
 
@@ -46,20 +45,9 @@ export default function HomePage() {
   }, [userAtom, setFortuneData]);
 
   return (
-    <div
-      style={{
-        // boxShadow: 'rgba(255, 255, 0, 0.35) 0px 0px 5px 20px',
-        // width: '390px',
-        // height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'auto',
-        backgroundColor: '#7E7DFD',
-      }}
-    >
+    <main style={{ backgroundColor: 'var(--bg-color-main)' }}>
       <MainCard />
       <TodoBox date={today} />
-      <NavBar />
-    </div>
+    </main>
   );
 }

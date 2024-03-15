@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import TextInput from '../../components/Common/TextInput/TextInput';
-import { LoginTitle, LoginWrapper, ButtonWrapper } from './LoginPage.styled';
+import { LoginTitle, LoginWrapper } from './LoginPage.styled';
 import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { UserAtom } from '../../atom/UserAtom';
-import { ButtonPageWrap, ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
+import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 function LoginPage() {
   const [email, setEmail] = useState<string>('');

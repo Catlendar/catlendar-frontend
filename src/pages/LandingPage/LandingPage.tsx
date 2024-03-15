@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from '../../components/Common/Button/Button';
-import { LandingWrapper, LandingImg, CatlendarImg, ButtonWrapper } from './LandingPage.styled';
+import { LandingWrapper, LandingImg, CatlendarImg } from './LandingPage.styled';
 import landingCat from '../../assets/images/landing-cat.png';
 import landingCatlendar from '../../assets/icons/catlendar.svg';
-import { ButtonLandingWrap, ButtonPageWrap } from '../../components/Common/Button/Button.styled';
+import { ButtonLandingWrap } from '../../components/Common/Button/Button.styled';
 
 export default function LandingPage() {
   return (

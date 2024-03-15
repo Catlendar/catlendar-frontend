@@ -19,6 +19,7 @@ interface TodoBoxProps {
 
 // <TodoBox date='today' or date={YYYY-MM-DD형식의 변수} />
 export default function TodoBox({ date }: TodoBoxProps) {
+  // const location = useLocation();
   const today = moment(new Date()).format('YYYY-MM-DD');
   const userAtom = useRecoilValue(UserAtom);
   const [todoListAtom, setTodoListAtom] = useRecoilState(TodoListAtom);
@@ -61,7 +62,6 @@ export default function TodoBox({ date }: TodoBoxProps) {
       }
     };
     fetchTodoData();
-    // console.log(todoListAtom);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 

@@ -5,13 +5,12 @@ interface ModalTypeProps {
 }
 
 export const ModalBackground = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: var(--bg-blur);
-  /* background-color: blue; */
   z-index: 99;
 `;
 

@@ -15,16 +15,20 @@ export const LandingWrapper = styled.div`
 `;
 
 export const LandingImg = styled.img`
-  /* width: 23rem; */
-  /* height: 23rem; */
-  margin-top: 13.8rem;
+  margin: 15rem 0 7rem;
+
+  @media screen and (min-height: 0px) and (max-height: 750px) {
+    margin: 6rem 0 2rem;
+  }
+  @media screen and (min-height: 751px) and (max-height: 940px) {
+    margin: 12rem 0 4rem;
+  }
 `;
 
 export const CatlendarImg = styled.img`
   /* width: 15.1rem; */
   /* height: 2.6rem; */
-  margin-top: 3.4rem;
-  margin-bottom: 2rem;
+  margin: 1rem 0 2rem;
 `;
 
 export const ButtonWrapper = styled.div`

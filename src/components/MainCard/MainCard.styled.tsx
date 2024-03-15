@@ -2,13 +2,23 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const MainCardWrapper = styled.div`
-  width: 100%;
-  padding: 5.4rem 0 7.4rem 0;
   background-color: var(--bg-color-main);
+  height: 200px;
+  padding: 2rem 0;
+  @media screen and (min-height: 600px) {
+    height: 220px;
+    padding: 6rem 0;
+  }
+  @media screen and (min-height: 900px) {
+    padding: 6rem 0 6.5rem 0;
+  }
+  @media screen and (min-height: 1024px) {
+    padding: 7rem 0 7.5rem 0;
+  }
 `;
 
 export const CardContent = styled.div`
-  margin: 0 2.6rem 0 2.6rem;
+  margin: 0 2.6rem;
   color: var(--color-white);
 `;
 
@@ -21,7 +31,7 @@ export const ContentBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 
   img {
     position: absolute;
@@ -43,6 +53,9 @@ export const TodayFortune = styled.p`
 
 export const TextBox = styled.div`
   margin-top: 4.2rem;
+  span {
+    font-family: var(--font-family-bold);
+  }
 `;
 
 export const StyledLink = styled(Link)`
