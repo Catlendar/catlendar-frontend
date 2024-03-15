@@ -50,7 +50,6 @@ export default function HomePage() {
     <main>
       <MainCard />
       <TodoBox date={today} />
-      <NavBar />
     </main>
   );
 }

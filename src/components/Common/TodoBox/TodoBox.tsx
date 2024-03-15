@@ -1,6 +1,6 @@
 import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import Modal from '../Modal/Modal';
 import TodoHeader from '../Header/TodoHeader';
@@ -19,6 +19,7 @@ interface TodoBoxProps {
 
 // <TodoBox date='today' or date={YYYY-MM-DD형식의 변수} />
 export default function TodoBox({ date }: TodoBoxProps) {
+  // const location = useLocation();
   const today = moment(new Date()).format('YYYY-MM-DD');
   const userAtom = useRecoilValue(UserAtom);
   const [todoListAtom, setTodoListAtom] = useRecoilState(TodoListAtom);
@@ -90,7 +91,12 @@ export default function TodoBox({ date }: TodoBoxProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todoListAtom]);
 
+  // useEffect(() => {
+  //   console.log('현재위치', location.pathname);
+  // }, [location.pathname]);
+
   return (
+    // <TodoBoxWrapper location={location.pathname}>
     <TodoBoxWrapper>
       <TodoHeader
         date={date}

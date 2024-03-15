@@ -20,6 +20,7 @@ import Header from '../components/Common/Header/Header';
 import NavBar from '../components/Common/NavBar/NavBar';
 import ProfilePage from './ProfilePage/ProfilePage';
 import { SignUpAtom } from '../atom/SignUpAtom';
+import Layout from '../components/Layout/Layout';
 
 export default function Router() {
   const userState = useRecoilValue(UserAtom);
@@ -41,9 +42,7 @@ export default function Router() {
               {isLoggedIn === '' ? (
                 <LandingPage />
               ) : isLoggedIn ? (
-                <>
-                  <HomePage /> <NavBar />
-                </>
+                <Layout main={<HomePage />} navbar={<NavBar />} />
               ) : null}
             </>
           }
@@ -71,8 +70,9 @@ export default function Router() {
           element={
             <>
               {signCheck.email === '' || signCheck.password === '' ? (
-                <LandingPage />
-              ) : signCheck ? (
+                <Layout main={<LandingPage />} />
+              ) : // <LandingPage />
+              signCheck ? (
                 <>
                   <Header title="" />
                   <UserInfoPage />
@@ -90,8 +90,8 @@ export default function Router() {
           path="/login"
           element={
             <>
-              <Header title="" />
-              <LoginPage />
+              {/* <Header title="" /> */}
+              <Layout header={<Header title="" />} main={<LoginPage />} />
             </>
           }
         />
