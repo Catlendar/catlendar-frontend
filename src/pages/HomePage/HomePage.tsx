@@ -7,6 +7,7 @@ import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
 import NavBar from '../../components/Common/NavBar/NavBar';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
+import { HomeWrapper } from './HomePage.styled';
 
 export default function HomePage() {
   const userAtom = useRecoilValue(UserAtom);

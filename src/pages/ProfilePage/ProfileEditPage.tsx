@@ -71,29 +71,6 @@ export default function ProfileEditPage() {
     });
   };
 
-  // const handleUpdateUser = async () => {
-  //   try {
-  //     const response = await tokenInstance.post('user/updateUser', {
-  //       name,
-  //       birthDate,
-  //       birthTime,
-  //       calendarType,
-  //       gender,
-  //       email: userAtom.email,
-  //     });
-  //     if (response.status === 200) {
-  //       if (response.data === false) {
-  //         console.log('error');
-  //       } else {
-  //         setUserAtom((prev) => ({ ...prev, name, birthDate, birthTime, calendarType, gender }));
-  //         navigate('/home');
-  //       }
-  //     }
-  //   } catch (error) {
-  //     navigate('/error');
-  //   }
-  // };
-
   const isFormValid = name && birthTime && calendarType && gender;
 
   return (

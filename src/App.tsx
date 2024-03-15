@@ -7,7 +7,14 @@ import Router from './pages/Router';
 import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        refetchOnMount: false,
+      },
+    },
+  });
 
   function setScreenSize() {
     let vh = window.innerHeight * 0.01;
