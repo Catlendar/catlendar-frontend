@@ -7,6 +7,7 @@ import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
 import NavBar from '../../components/Common/NavBar/NavBar';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
+import { HomeWrapper } from './HomePage.styled';
 
 export default function HomePage() {
   const userAtom = useRecoilValue(UserAtom);
@@ -46,20 +47,10 @@ export default function HomePage() {
   }, [userAtom, setFortuneData]);
 
   return (
-    <div
-      style={{
-        // boxShadow: 'rgba(255, 255, 0, 0.35) 0px 0px 5px 20px',
-        // width: '390px',
-        // height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'auto',
-        backgroundColor: '#7E7DFD',
-      }}
-    >
+    <main>
       <MainCard />
       <TodoBox date={today} />
       <NavBar />
-    </div>
+    </main>
   );
 }

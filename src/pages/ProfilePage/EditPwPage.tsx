@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { useMutation } from '@tanstack/react-query';
@@ -7,9 +7,8 @@ import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
-import { EditPwBtn, ProfileWrapper } from './ProfilePage.styled';
-import { ButtonWrapper } from '../LandingPage/LandingPage.styled';
-import { ButtonPageWrap, ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
+import { ProfileWrapper } from './ProfilePage.styled';
+import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 interface UserData {
   password: string;
@@ -27,7 +26,6 @@ export default function EditPwPage() {
   const userAtom = useRecoilValue(UserAtom);
   const navigate = useNavigate();
   const { email } = userAtom;
-  // const passwordPattern = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]{8,16}$/;
   const passwordPattern = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9]{8,16}$/;
 
   const isFormValid = password && newPassword && confirmPassword;
@@ -71,32 +69,6 @@ export default function EditPwPage() {
       });
     }
   };
-
-  // const handleChangePwd = async () => {
-  //   if (newPassword !== confirmPassword) {
-  //     setConfirmError('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
-  //     return;
-  //   }
-  //   try {
-  //     const response = await tokenInstance.post('user/updatePassword', {
-  //       email,
-  //       password,
-  //       newPassword,
-  //     });
-  //     if (response.status === 200) {
-  //       if (response.data === '기존 비밀번호와 일치하지 않습니다.') {
-  //         setExistError(`${response.data}`);
-  //       } else {
-  //         navigate('/Home');
-  //       }
-  //     } else {
-  //       console.log('error');
-  //       navigate('/error');
-  //     }
-  //   } catch (error) {
-  //     console.log('catch error', error);
-  //   }
-  // };
 
   return (
     <ProfileWrapper>
