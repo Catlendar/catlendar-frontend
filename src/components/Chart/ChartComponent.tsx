@@ -10,7 +10,6 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import React, { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 import useCompleted from '../../hooks/useCompleted';
 

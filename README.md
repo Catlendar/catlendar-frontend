@@ -86,6 +86,9 @@ commit
     ⚙️ Config: npm 모듈 설치 등
     🚚 Rename: 파일 또는 폴더 명을 수정하거나 옮기는 작업만인 경우
     🚚 Remove: 파일을 삭제하는 작업만 수행한 경우
+    ✅ Check: 작업이 완료된 dev브랜치의 코드를 main브랜치로 머지
+    🔧 perform: main서버에 올라가기 전 Build Test
+    🚑 Closed: 닫힌 pull request
 ```
 
 styled-component
