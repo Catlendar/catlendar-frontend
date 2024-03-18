@@ -76,6 +76,7 @@ export default function EditPwPage() {
         name="기존 비밀번호"
         placeholder="기존 비밀번호 입력"
         inputType="password"
+        value={password}
         onChange={(value: string) => setPassword(value)}
       />
       <ErrorMessage message={existError} clearMessage={() => setExistError('')} />
@@ -84,6 +85,7 @@ export default function EditPwPage() {
         name="새 비밀번호"
         placeholder="8~16자의 영문, 숫자를 사용해 주세요."
         inputType="password"
+        value={newPassword}
         onChange={(value: string) => setNewPassword(value)}
       />
       <ErrorMessage message={newPwdError} clearMessage={() => setNewPwdError('')} />
@@ -92,6 +94,7 @@ export default function EditPwPage() {
         name="새 비밀번호 확인"
         placeholder="새 비밀번호 확인"
         inputType="password"
+        value={newPassword}
         onChange={(value: string) => {
           setConfirmPassword(value);
           setConfirmError('');

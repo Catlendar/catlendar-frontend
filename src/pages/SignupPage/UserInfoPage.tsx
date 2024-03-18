@@ -88,6 +88,7 @@ export default function UserInfoPage() {
           name="이름"
           placeholder="이름"
           inputType="text"
+          value={name}
           onChange={(value: string) => setName(value)}
         />
         <BirthWrapper>

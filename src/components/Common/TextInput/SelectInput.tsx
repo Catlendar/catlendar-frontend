@@ -41,6 +41,7 @@ export default function SelectInput({ options, name, width, onChange, initial }:
       marginTop: '10px',
       fontSize: 'var(--large-font-size)',
       width: width ? `${width}px` : '100%',
+      backgroundColor: 'var(--bg-color-gray)',
     }),
     option: (provided, state) => ({
       ...provided,
@@ -57,18 +58,6 @@ export default function SelectInput({ options, name, width, onChange, initial }:
   return (
     <InputWrapper>
       <InputName>{name}</InputName>
-      {/* <Selectt
-        value={selectedOption}
-        width={width}
-        onChange={handleSelectChange}
-        style={{ color: check ? 'var(--text-color-placeholder)' : 'inherit' }}
-      >
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.name}
-          </option>
-        ))}
-      </Selectt> */}
       <SelectLabel id="select" htmlFor="selectbox">
         할일 체크
       </SelectLabel>
