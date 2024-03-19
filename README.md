@@ -1,3 +1,45 @@
+<h1 align="">Catlendar</h1>
+
+
+### 배포 링크
+👉 [Catlendar 바로가기](https://catlendar.netlify.app/)
+</br>
+
+
+### 테스트 계정
+```
+ID: catlendar@admin.com
+PW: qwer1234!
+```
+## 1. 서비스 소개
+캣린더(Catlendar)는 고양이를 테마로 한 투두 리스트 및 일정 관리 앱으로,<br> 사용자들에게 <b>운세를 통한 영감</b>과 <b>긍정적인 목표 설정</b>을 돕는 데 중점을 둔 서비스입니다.
+
+https://github.com/sorikikikim
+https://github.com/kmryuuu
+## 2. 팀원 소개
+| [🔗 최지완](https://github.com/jiwanchoi) | [🔗 김소리](https://github.com/sorikikikim) | [🔗 류경민](https://github.com/kmryuuu) | [🔗 장성우](https://github.com/swJaNG12) | [🔗 한동수](https://github.com/handongsu) |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="https://avatars.githubusercontent.com/u/54405518?v=4" /> | <img src="https://avatars.githubusercontent.com/u/73383923?v=4" /> | <img src="https://avatars.githubusercontent.com/u/138556024?s=400&u=c59a7dfd776d2944acc017d76dcbeed71d1174bf&v=4" /> | <img src="https://avatars.githubusercontent.com/u/123090529?v=4" /> | <img src="https://avatars.githubusercontent.com/u/105100402?v=4" /> |
+<br/>
+
+
+
+## 3. 역할 분담
+
+<br/>
+## 4. 개발 기간 (23.11.27 ~ 23.12.17)
+
+| 주차  |                                                                                                     |
+| ----- | --------------------------------------------------------------------------------------------------- |
+| 1-2주차 | - 주제 선정, 기술 스택 및 협업툴 선정, 컨벤션 정리 </br> - Figma UI 디자인 작업, 기능 요구사항 명세 |
+| 3-4주차 | - 페이지별 UI, 컴포넌트 기능 구현    </br> - API 연동 구현                                 |
+| 5-6주차 | - 기능별 테스트 후 테스트 케이스 작성 및 보완  </br> - 에러 공유 및 해결                                               |
+| 7-8주차 | - 성능 개선 리팩토링 및 반응형 구현      </br> - 웹접근성 문제 해결       |
+
+</br>
+
+
+
 # catlendar
 
 프로젝트 개요 (2024.01.17~)
