@@ -19,8 +19,8 @@ PW: qwer1234!
 
 </br>
 
-## 2. 팀원 소개
-| [🔗 최지완](https://github.com/jiwanchoi) | [🔗 김소리](https://github.com/sorikikikim) | [🔗 류경민](https://github.com/kmryuuu) | [🔗 장성우](https://github.com/swJaNG12) | [🔗 한동수](https://github.com/handongsu) |
+## 2. 팀 소개
+| [🔗 팀장 최지완](https://github.com/jiwanchoi) | [🔗 김소리](https://github.com/sorikikikim) | [🔗 류경민](https://github.com/kmryuuu) | [🔗 장성우](https://github.com/swJaNG12) | [🔗 한동수](https://github.com/handongsu) |
 | :---: | :---: | :---: | :---: | :---: |
 | <img src="https://avatars.githubusercontent.com/u/54405518?v=4" /> | <img src="https://avatars.githubusercontent.com/u/73383923?v=4" /> | <img src="https://avatars.githubusercontent.com/u/138556024?s=400&u=c59a7dfd776d2944acc017d76dcbeed71d1174bf&v=4" /> | <img src="https://avatars.githubusercontent.com/u/123090529?v=4" /> | <img src="https://avatars.githubusercontent.com/u/105100402?v=4" /> |
 <br/>
