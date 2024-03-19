@@ -11,11 +11,14 @@
 ID: catlendar@admin.com
 PW: qwer1234!
 ```
+
+</br>
+
 ## 1. 서비스 소개
 캣린더(Catlendar)는 고양이를 테마로 한 투두 리스트 및 일정 관리 앱으로,<br> 사용자들에게 <b>운세를 통한 영감</b>과 <b>긍정적인 목표 설정</b>을 돕는 데 중점을 둔 서비스입니다.
 
-https://github.com/sorikikikim
-https://github.com/kmryuuu
+</br>
+
 ## 2. 팀원 소개
 | [🔗 최지완](https://github.com/jiwanchoi) | [🔗 김소리](https://github.com/sorikikikim) | [🔗 류경민](https://github.com/kmryuuu) | [🔗 장성우](https://github.com/swJaNG12) | [🔗 한동수](https://github.com/handongsu) |
 | :---: | :---: | :---: | :---: | :---: |
@@ -27,7 +30,8 @@ https://github.com/kmryuuu
 ## 3. 역할 분담
 
 <br/>
-## 4. 개발 기간 (23.11.27 ~ 23.12.17)
+
+## 4. 개발 기간 (24.01.26 ~ 진행중)
 
 | 주차  |                                                                                                     |
 | ----- | --------------------------------------------------------------------------------------------------- |
@@ -38,7 +42,19 @@ https://github.com/kmryuuu
 
 </br>
 
+## 5. 협업
 
+  <div>
+    <a href="https://github.com/Catlendar/catlendar-backend" ><img src="https://img.shields.io/badge/BACK-181717?style=for-the-badge&logo=GitHub&logoColor=white"/></a>
+    <a href="https://github.com/Catlendar/catlendar-frontend" ><img src="https://img.shields.io/badge/FRONT-181717?style=for-the-badge&logo=GitHub&logoColor=white"/></a>
+    <a href="https://catlendar.notion.site/dad671f7b5ba4914b93eb2b79c9e9954"><img src="https://img.shields.io/badge/notion-white?style=for-the-badge&logo=notion&logoColor=black"/></a>
+    <a href="https://www.figma.com/file/aEqxxbSZiceOx5h00rSM9X/%EC%BA%A3%EB%A6%B0%EB%8D%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?type=design&node-id=11-3778&mode=design"><img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/></a>
+    <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"/>
+  </div>
+
+<em> 👉🏻 로고 클릭 시 해당 링크로 이동합니다! </em>
+</br>
+</br>
 
 # catlendar
 
