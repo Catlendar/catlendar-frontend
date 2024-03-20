@@ -70,6 +70,7 @@ export default function SignUpPage() {
         name="이메일"
         placeholder="이메일 주소"
         inputType="email"
+        value={email}
         onChange={(value: string) => setEmail(value)}
       />
       <ErrorMessage message={emailErrorMessage} clearMessage={() => setEmailErrorMessage('')} />
@@ -78,6 +79,7 @@ export default function SignUpPage() {
         name="비밀번호"
         placeholder="8~16자의 영문, 숫자를 사용해 주세요."
         inputType="password"
+        value={password}
         onChange={(value: string) => setPassword(value)}
       />
       <ErrorMessage
@@ -89,6 +91,7 @@ export default function SignUpPage() {
         name="비밀번호 확인"
         placeholder="비밀번호 확인"
         inputType="password"
+        value={confirmPassword}
         onChange={(value: string) => setConfirmPassword(value)}
       />
       <ErrorMessage

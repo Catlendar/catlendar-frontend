@@ -152,7 +152,7 @@ export default function ReviseTodoModal({ onClose }: ModalProps) {
           inputType="text"
           name="할 일 수정"
           placeholder={selectTodoItemAtom.calendarContent}
-          // form={false}
+          form={false}
           inputMode="reviseModal"
           onChange={handleInputChange}
         />
