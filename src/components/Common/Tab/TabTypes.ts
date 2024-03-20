@@ -23,6 +23,7 @@ export interface TabMenuTypeFortune extends TabMenuType {
 
 export interface TabProps {
   tabData: (TabMenuTypeTodo | TabMenuTypeFortune)[];
+  selectedTab?: number;
   onTabClick?: (tabId: number) => void;
 }
 

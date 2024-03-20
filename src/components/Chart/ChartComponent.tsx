@@ -10,7 +10,6 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import React, { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 import useCompleted from '../../hooks/useCompleted';
 
@@ -31,7 +30,7 @@ export function ChartComponent() {
       },
       title: {
         display: true,
-        color: 'rgb(123,73,249)',
+        color: '#7E7DFD',
         text: 'TODO CHART',
       },
       tooltip: {
@@ -127,8 +126,8 @@ export function ChartComponent() {
           total3 === 0 ? 0 : Math.round((week3 / total3) * 100),
           total4 === 0 ? 0 : Math.round((week4 / total4) * 100),
         ],
-        borderColor: 'rgb(123, 73, 249)',
-        backgroundColor: 'rgba(162, 90, 251, 0.5)',
+        borderColor: '#7E7DFD',
+        backgroundColor: '#7E7DFD',
       },
     ],
   };

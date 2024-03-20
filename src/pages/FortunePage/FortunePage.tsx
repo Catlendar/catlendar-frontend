@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import parse from 'html-react-parser';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { fortuneDataAtom, selectedTabAtom } from '../../atom/FortuneStateAtom';
 import { SelectTabTypeAtom } from '../../atom/SelectTabTypeAtom';
@@ -63,21 +64,45 @@ export default function FortunePage() {
   const showFortune = fortuneData.fortuneDesc[selectedTab];
   const isShowMore = isShowMoreMap[selectedTab] || false;
 
+  // const showFortuneDesc = () => {
+  //   if (showFortune && showFortune.length > textLimit) {
+  //     // 운세 내용이 있는지, 길이를 초과 하는지
+  //     const shortDesc = showFortune
+  //       .slice(0, isShowMore ? undefined : textLimit) // true면 전체 글자 false면 200자 이내 글자만
+  //       .split('.')
+  //       .join('.<br/>');
+  //     const moreFortune = isShowMore ? shortDesc : `${shortDesc}...`;
+  //     return parse(moreFortune);
+  //   }
+
+  //   return parse(showFortune || '운세 데이터를 불러오는 데 실패했습니다.');
+  // };
+
   const showFortuneDesc = () => {
-    if (showFortune && showFortune.length > textLimit) {
-      const shortDesc = showFortune.slice(0, textLimit);
-      return isShowMore ? showFortune : `${shortDesc}...`;
+    if (!showFortune) {
+      return parse('운세 데이터를 불러오는 데 실패했습니다.');
     }
+    // 더보기 없을 때
+    const shortDesc = showFortune.split('. ').join('.<br/>');
 
-    return showFortune || '운세 데이터를 불러오는 데 실패했습니다.';
+    // 더보기가 있을 때 조건문
+    if (showFortune.length > textLimit) {
+      const longDesc = showFortune
+        .slice(0, isShowMore ? undefined : textLimit)
+        .split('. ')
+        .join('.<br/>');
+      const moreFortune = isShowMore ? longDesc : `${longDesc}...`;
+
+      return parse(moreFortune);
+    }
+    return parse(shortDesc);
   };
-
   return (
     <div>
       <FortuneCardWrapper>
         <Header title="오늘의 운세" />
         {currentImg && <CatImg src={currentImg.src} alt={currentImg.alt} />}
-        <Tab tabData={TabDataFortune} onTabClick={handleTabClick} />
+        <Tab tabData={TabDataFortune} onTabClick={handleTabClick} selectedTab={selectedTab} />
       </FortuneCardWrapper>
       <FortuneContentWrapper>
         <FortuneTitle>{getFortuneTitle(selectedTabValue)}</FortuneTitle>
