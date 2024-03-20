@@ -14,7 +14,7 @@ export const fortuneDataAtom = atom<fortuneDataAtom>({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const selectedTabAtom = atom<number>({
+export const selectedTabAtom = atom({
   key: 'selectedTab',
   default: 0,
   effects_UNSTABLE: [persistAtom],

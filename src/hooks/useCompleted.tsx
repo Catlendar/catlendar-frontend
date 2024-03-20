@@ -43,7 +43,7 @@ const useCompleted = () => {
   const { data, status } = useQuery({
     queryKey: ['completedTasks', convertedDate.month, userAtom.userId],
     queryFn: () => fetchCompleted(calendarData),
-    enabled: !!userAtom.userId,
+    enabled: !!userAtom.userId, // 유저 아이디가 존재할때 실헹
   });
 
   useEffect(() => {
