@@ -65,7 +65,7 @@ function LoginPage() {
       case 'check':
         setCheck(!check);
         if (!check) {
-          setEmail('jiwan001@choi.com');
+          setEmail('catlendar@admin.com');
           setPassword('qwer1234!');
         } else {
           setEmail('');
