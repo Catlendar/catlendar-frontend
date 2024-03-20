@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import TextInput from '../../components/Common/TextInput/TextInput';
-import { LoginTitle, LoginWrapper } from './LoginPage.styled';
+import { LoginTitle, LoginWrapper, CheckBoxInput, CheckBoxWrapper } from './LoginPage.styled';
 import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
@@ -15,6 +16,7 @@ function LoginPage() {
   const [emailErrorMessage, setEmailErrorMessage] = useState<string>('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>('');
   const [userAtom, setUserAtom] = useRecoilState(UserAtom);
+  const [check, setCheck] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -58,13 +60,29 @@ function LoginPage() {
       navigate('/error');
     }
   };
+  const handleInputChange = (type: string) => {
+    switch (type) {
+      case 'check':
+        setCheck(!check);
+        if (!check) {
+          setEmail('jiwan001@choi.com');
+          setPassword('qwer1234!');
+        } else {
+          setEmail('');
+          setPassword('');
+        }
+        break;
+      default:
+        break;
+    }
+  };
+
   const handleFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     if (validateInputs()) {
       login();
     }
   };
-
   return (
     <LoginWrapper>
       <form onSubmit={handleFormSubmit}>
@@ -73,6 +91,7 @@ function LoginPage() {
           name=""
           placeholder="이메일"
           inputType="email"
+          value={email}
           onChange={(value: string) => setEmail(value)}
         />
         <ErrorMessage message={emailErrorMessage} clearMessage={() => setEmailErrorMessage('')} />
@@ -81,12 +100,21 @@ function LoginPage() {
           name=""
           placeholder="비밀번호"
           inputType="password"
+          value={password}
           onChange={(value: string) => setPassword(value)}
         />
         <ErrorMessage
           message={passwordErrorMessage}
           clearMessage={() => setPasswordErrorMessage('')}
         />
+        <CheckBoxWrapper>
+          <CheckBoxInput
+            id="checkbox"
+            type="checkbox"
+            onChange={() => handleInputChange('check')}
+          />
+          <label htmlFor="checkbox">캣린더 체험하기</label>
+        </CheckBoxWrapper>
         <ButtonSubmitWrap>
           {validateInputs() ? (
             <Button type="enable" text="로그인" to="" onClick={() => {}} />
