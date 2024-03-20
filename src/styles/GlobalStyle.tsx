@@ -133,6 +133,7 @@ const GlobalStyle = createGlobalStyle`
 			// width:390px;
 			margin: 0 auto;
 			background-color: var(--bg-color-gray);
+			box-shadow: rgba(100, 100, 100, 0.2) 0px 0px 29px 0px;
 		}
 	}
   

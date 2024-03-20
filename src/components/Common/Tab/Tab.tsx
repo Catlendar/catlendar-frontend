@@ -1,14 +1,15 @@
 /* eslint no-underscore-dangle: 0 */
-
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { SelectTabTypeAtom } from '../../../atom/SelectTabTypeAtom';
+import { selectedTabAtom } from '../../../atom/FortuneStateAtom';
 import { TabBox, TabButton, TabWrapper } from './Tab.styled';
 import TabCloseButton from './TabCloseButton';
 import { GetTabStyle, TabProps, TabMenuTypeTodo, TabMenuTypeFortune } from './TabTypes';
 
 export default function Tab({ tabData, onTabClick }: TabProps) {
-  const [selectedTab, setSelectedTab] = useState<number | undefined>(tabData[0]?.id);
+  // const [selectedTab, setSelectedTab] = useState<number | undefined>(tabData[0]?.id);
+  const [selectedTab, setSelectedTab] = useRecoilState<number | undefined>(selectedTabAtom);
   const [selectTabTypeAtom, setSelectTabTypeAtom] = useRecoilState(SelectTabTypeAtom);
 
   const TabType = tabData[0]?.__type;

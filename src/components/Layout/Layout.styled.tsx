@@ -7,11 +7,10 @@ export const LayoutWrapper = styled.div`
   /* min-height: 100vh;
   /* box-shadow: rgba(255, 0, 0, 0.35) 0px 0px 5px 20px; */
 
-	min-width: 320px;
-  height: 100%; */
+  min-width: 320px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  // background-color: red;
 
   main {
     // height: 100%;
@@ -22,7 +21,7 @@ export const LayoutWrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
-	
+
   nav {
     /* box-shadow: rgba(255, 0, 0, 0.35) 0px 0px 5px 20px; */
     border: 1px solid yellow;
