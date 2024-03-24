@@ -18,7 +18,7 @@ export const FortuneContentWrapper = styled.div`
 
 export const FortuneTitle = styled.p`
   font-size: var(--regular-font-size);
-  margin: 3.5rem 0;
+  padding: 3.5rem 0;
 `;
 
 export const FortuneContent = styled.p`
