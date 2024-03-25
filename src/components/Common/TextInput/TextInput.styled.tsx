@@ -36,7 +36,8 @@ const commonInputStyle = css<InputProps>`
 
 export const Input = styled.input<InputProps>`
   ${commonInputStyle}
-  width: 330px;
+  /* width: 330px; */
+  width: ${(props) => (props.width ? `${props.width}px` : '330px')};
   ${({ inputMode }) =>
     inputMode === 'reviseModal' &&
     css`

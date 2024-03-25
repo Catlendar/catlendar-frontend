@@ -16,6 +16,7 @@ const commonInputStyle = css<InputProps>`
   padding-bottom: 10px;
   margin-right: 18px;
   margin-top: 11px;
+  width: ${(props) => (props.width ? `${props.width}px` : '220px')};
   font-size: var(--large-font-size);
 
   &::placeholder {
