@@ -79,8 +79,6 @@ export default function ProfileEditPage() {
           name="이름"
           placeholder={name}
           inputType="text"
-          // value={name}
-
           onChange={(value: string) => setName(value)}
         />
         <div
