@@ -21,7 +21,6 @@ export const LayoutWrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
-
   nav {
     /* box-shadow: rgba(255, 0, 0, 0.35) 0px 0px 5px 20px; */
     border: 1px solid yellow;
