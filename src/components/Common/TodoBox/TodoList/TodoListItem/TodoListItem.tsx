@@ -51,6 +51,9 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
   };
 
   const handleClick = async () => {
+    const newCompletdState = !completed;
+    setCompleted(newCompletdState);
+
     try {
       // 일정 완료 토글 api 호출
       const completeCalendarResponse = await tokenInstance.post('calendar/completeCalendar', {
@@ -82,10 +85,10 @@ export default function TodoListItem({ todo, date }: TodoListItemProps) {
           ...prevTodoNum,
           [date]: { totalTodo: totalTasks, completedTodo: completedTasks },
         }));
-        setCompleted((prev) => !prev);
         if (todo.completed === 'N') toast.success('일정을 완료했어요! 잘했어요 🍀', TOAST);
       }
     } catch (error) {
+      setCompleted(completed);
       alert('일정 완료 기능 에러');
       navigate('/error');
     }

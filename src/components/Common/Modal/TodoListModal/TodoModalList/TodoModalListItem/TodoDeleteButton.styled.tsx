@@ -1,13 +1,18 @@
 import { styled } from 'styled-components';
-import IconModalDelete from '../../../../../../assets/icons/icon-modal-delete.svg';
 
 export const TodoModalDeleteButton = styled.button`
   width: 1.6rem;
   height: 1.6rem;
-  background-image: url(${IconModalDelete});
-  background-position: center center;
-  background-repeat: no-repeat;
   margin-left: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover svg {
+    transform: scale(1.3);
+    transition: transform 0.4s ease;
+  }
 
   span {
     position: absolute;

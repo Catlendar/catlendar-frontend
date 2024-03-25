@@ -8,8 +8,8 @@ import { ButtonLandingWrap } from '../../components/Common/Button/Button.styled'
 export default function LandingPage() {
   return (
     <LandingWrapper>
-      <LandingImg src={landingCat} />
-      <CatlendarImg src={landingCatlendar} />
+      <LandingImg src={landingCat} loading="lazy" />
+      <CatlendarImg src={landingCatlendar} loading="lazy" />
       <p>오늘의 할일을 같이 계획해봐요!</p>
       <ButtonLandingWrap>
         <Button type="landing" text="회원가입" to="/signup" onClick={() => {}} />

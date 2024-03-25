@@ -27,6 +27,15 @@ export const NavbarList = styled.ul`
   // }
 `;
 
+export const IconWrapper = styled.div`
+  width: 6.5rem;
+  height: 6.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
 export const IconStyle = css<{ active?: boolean }>`
   path {
     stroke: ${({ active }) => (active ? '#000' : '#ccc')};

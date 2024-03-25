@@ -1,14 +1,14 @@
 import styled from 'styled-components';
+import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 export const LoginWrapper = styled.div`
   // margin: 0 auto;
   // position: relative;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  // height: 100%;
 `;
 
 export const LoginTitle = styled.p`
@@ -41,6 +41,7 @@ export const CheckBoxInput = styled.input`
 `;
 
 export const CheckBoxWrapper = styled.div`
+  position: relative;
   margin-top: 2rem;
   display: flex;
   align-items: center;
@@ -50,4 +51,9 @@ export const CheckBoxWrapper = styled.div`
     cursor: pointer;
     font-size: 1.3rem;
   }
+`;
+
+export const StyledSubmitButton = styled(ButtonSubmitWrap)`
+  position: absolute;
+  top: 85%;
 `;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import IconArrowUp from '../../../assets/icons/icon-arrow-up.svg';
 
 export const AddInputWrapper = styled.div`
@@ -34,6 +34,16 @@ export const ModalAddButton = styled.button`
   background-position: center;
   margin-right: 1.2rem;
   background-color: var(--bg-color-main);
+  animation: opa 0.3s ease-in-out;
+
+  @keyframes opa {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
   span {
     position: absolute;

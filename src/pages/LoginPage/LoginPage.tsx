@@ -8,13 +8,13 @@ import {
   LoginWrapper,
   CheckBoxInput,
   CheckBoxWrapper,
-  ButtonWrapper,
+  StyledSubmitButton,
 } from './LoginPage.styled';
 import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { UserAtom } from '../../atom/UserAtom';
-import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
+// import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 function LoginPage() {
   const [email, setEmail] = useState<string>('');
@@ -71,7 +71,7 @@ function LoginPage() {
       case 'check':
         setCheck(!check);
         if (!check) {
-          setEmail('jiwan001@choi.com');
+          setEmail('catlendar@admin.com');
           setPassword('qwer1234!');
         } else {
           setEmail('');
@@ -121,13 +121,13 @@ function LoginPage() {
           />
           <label htmlFor="checkbox">캣린더 체험하기</label>
         </CheckBoxWrapper>
-        <ButtonWrapper>
+        <StyledSubmitButton>
           {validateInputs() ? (
             <Button type="enable" text="로그인" to="" onClick={() => {}} />
           ) : (
             <Button type="disable" text="로그인" to="/" onClick={() => {}} />
           )}
-        </ButtonWrapper>
+        </StyledSubmitButton>
       </form>
     </LoginWrapper>
   );
