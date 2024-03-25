@@ -59,7 +59,7 @@ export default function EditPwPage() {
 
   const handleChangePwd = () => {
     if (!passwordPattern.test(newPassword)) {
-      setNewPwdError('비밀번호 형식이 맞지 않습니다.');
+      setNewPwdError('비밀번호 형식이 맞지 않습니다.2321312312');
     } else if (newPassword !== confirmPassword) {
       setConfirmError('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
     } else {
