@@ -23,7 +23,6 @@ export default function TodoBox({ date }: TodoBoxProps) {
   const today = moment(new Date()).format('YYYY-MM-DD');
   const userAtom = useRecoilValue(UserAtom);
   const [todoListAtom, setTodoListAtom] = useRecoilState(TodoListAtom);
-  const setBookmarkListAtom = useSetRecoilState(BookmarkListAtom);
   const [todayTasksAtom, setTodayTasksAtom] = useRecoilState(TodayTasksAtom);
   const resetTodoModalOpenAtom = useResetRecoilState(TodoModalOpenAtom);
   const navigate = useNavigate();
@@ -64,23 +63,6 @@ export default function TodoBox({ date }: TodoBoxProps) {
     fetchTodoData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
-
-  // 들어가자마자 api 요청으로 즐겨찾기 목록 데이터 불러오기
-  useEffect(() => {
-    const fetchBookmarkData = async () => {
-      try {
-        const response = await tokenInstance.post('calendar/getBookmarkList', {
-          userId: userAtom.userId,
-        });
-        setBookmarkListAtom(response.data);
-      } catch (error) {
-        // eslint-disable-next-line no-alert
-        navigate('/landing');
-      }
-    };
-    fetchBookmarkData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   // 모달안에서 todoListAtom이 변하면 총 할 일 개수와, 완료한 일 개수를 다시 계산
   useEffect(() => {
