@@ -16,9 +16,7 @@ export const SignUpTitle = styled.p`
   padding-left: 15px;
 `;
 
-
 export const StyledSubmitButton = styled(ButtonSubmitWrap)`
   position: absolute;
   top: 85%;
-
 `;
