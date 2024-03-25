@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 export const SignUpWrapper = styled.div`
   margin: 0 26px;
-  position: relative;
 `;
 
 export const SignUpTitle = styled.p`
+  position: relative;
   font-size: var(--h2-font-size);
   font-weight: bold;
   padding-top: 3.7rem;
@@ -14,7 +15,7 @@ export const SignUpTitle = styled.p`
   line-height: 1.3;
 `;
 
-export const ButtonWrapper = styled.div`
-  padding-top: 20.6rem;
-  width: 33.9rem;
+export const StyledSubmitButton = styled(ButtonSubmitWrap)`
+  position: absolute;
+  top: 85%;
 `;
