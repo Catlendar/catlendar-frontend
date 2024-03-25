@@ -6,6 +6,7 @@ export const FortuneCardWrapper = styled.div`
 
 export const CatImg = styled.img`
   width: 25rem;
+  height: 20rem;
   padding-bottom: 3rem;
   display: block;
   margin: auto;
