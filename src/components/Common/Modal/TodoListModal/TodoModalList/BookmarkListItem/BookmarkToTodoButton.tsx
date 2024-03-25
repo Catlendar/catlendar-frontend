@@ -7,6 +7,7 @@ import { SelectTabTypeAtom } from '../../../../../../atom/SelectTabTypeAtom';
 import { TodoListAtom } from '../../../../../../atom/TodoListAtom';
 import { BookmarkToTodo } from './BookmarkToTodoButton.styled';
 import { TodoNumAtom } from '../../../../../../atom/TodoNumAtom';
+import ModalPlusIcon from '../../../../../Icon/ModalPlusIcon';
 
 interface BookmarkDeleteButtonProps {
   bookmarkId: string;
@@ -65,6 +66,7 @@ export default function BookmarkToTodoButton({
   };
   return (
     <BookmarkToTodo type="button" title="선택한 즐겨찾기 할 일에 추가" onClick={handleOnClick}>
+      <ModalPlusIcon />
       <span>즐겨찾기 항목을 할 일 목록에 추가</span>
     </BookmarkToTodo>
   );

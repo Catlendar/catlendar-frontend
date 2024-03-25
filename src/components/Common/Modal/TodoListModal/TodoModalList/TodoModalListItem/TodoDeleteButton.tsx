@@ -6,6 +6,7 @@ import { tokenInstance } from '../../../../../../api/Axios';
 import { TodoListAtom } from '../../../../../../atom/TodoListAtom';
 import { TodoModalDeleteButton } from './TodoDeleteButton.styled';
 import { TodoNumAtom } from '../../../../../../atom/TodoNumAtom';
+import DeleteIcon from '../../../../../Icon/DeleteIcon';
 
 interface TodoDeleteButtonProps {
   calendarId: string;
@@ -56,6 +57,7 @@ export default function TodoDeleteButton({ calendarId, userId, date }: TodoDelet
 
   return (
     <TodoModalDeleteButton type="button" title="할 일 삭제" onClick={handleOnClick}>
+      <DeleteIcon />
       <span>할 일 삭제</span>
     </TodoModalDeleteButton>
   );
