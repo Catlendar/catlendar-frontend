@@ -8,6 +8,7 @@ interface TextInputProps {
   form?: boolean;
   inputMode?: string;
   value?: string;
+  width?: string;
   onChange: (value: string) => void;
 }
 
@@ -18,6 +19,7 @@ function TextInput({
   value,
   form,
   inputMode,
+  width,
   onChange,
 }: TextInputProps) {
   // const [value, setValue] = useState('');
@@ -37,6 +39,7 @@ function TextInput({
         form={form}
         inputMode={inputMode}
         value={value}
+        width={width}
         onChange={(event) => onChange(event.target.value)}
         required
       />
