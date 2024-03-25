@@ -30,6 +30,13 @@ export const AddButton = styled.button`
   border: none;
   background: none;
   margin-right: 2.2rem;
+
+  &:hover span {
+    color: #000;
+  }
+  span {
+    transition: 0.3s;
+  }
 `;
 
 export const AddIcon = styled.img`

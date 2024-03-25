@@ -7,11 +7,12 @@ import Button from '../../components/Common/Button/Button';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
 import SelectInput from '../../components/Common/TextInput/SelectInput';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
-import { ProfileWrapper } from './ProfilePage.styled';
+import { ButtonWrapper, ProfileButtonWrapper, ProfileWrapper } from './ProfilePage.styled';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
 import DatePickerComponent from '../../components/DatePicker/DatePicker';
 import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
+import { InputFormWrapper } from '../../components/Common/TextInput/TextInput.styled';
 
 interface UserData {
   name: string;
@@ -73,46 +74,48 @@ export default function ProfileEditPage() {
 
   return (
     <ProfileWrapper>
-      <TextInput
-        name="이름"
-        placeholder={name}
-        inputType="text"
-        // value={name}
+      <InputFormWrapper>
+        <TextInput
+          name="이름"
+          placeholder={name}
+          inputType="text"
+          // value={name}
 
-        onChange={(value: string) => setName(value)}
-      />
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <DatePickerComponent onDateSelect={handleDateSelect} />
+          onChange={(value: string) => setName(value)}
+        />
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <DatePickerComponent onDateSelect={handleDateSelect} />
+          <SelectInput
+            name="양력"
+            options={BirthOption}
+            width={95}
+            initial={userAtom.calendarType}
+            onChange={(value: string) => setCalendarType(value)}
+          />
+        </div>
         <SelectInput
-          name="양력"
-          options={BirthOption}
-          width={100}
-          initial={userAtom.calendarType}
-          onChange={(value: string) => setCalendarType(value)}
+          name="태어난 시간"
+          options={BirthTimeOption}
+          width={340}
+          initial={userAtom.birthTime}
+          onChange={(value: string) => setBirthTime(value)}
         />
-      </div>
-      <SelectInput
-        name="태어난 시간"
-        options={BirthTimeOption}
-        width={340}
-        initial={userAtom.birthTime}
-        onChange={(value: string) => setBirthTime(value)}
-      />
-      <GenderButton name="성별" onChange={(value: string) => setGender(value)} />
-      <ButtonSubmitWrap>
-        <Button
-          type={isFormValid ? 'enable' : 'disable'}
-          text="수정"
-          to=""
-          onClick={handleUpdateUser}
-        />
-      </ButtonSubmitWrap>
+        <GenderButton name="성별" onChange={(value: string) => setGender(value)} />
+        <ProfileButtonWrapper>
+          <Button
+            type={isFormValid ? 'enable' : 'disable'}
+            text="수정"
+            to=""
+            onClick={handleUpdateUser}
+          />
+        </ProfileButtonWrapper>
+      </InputFormWrapper>
     </ProfileWrapper>
   );
 }

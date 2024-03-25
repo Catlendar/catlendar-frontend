@@ -3,6 +3,7 @@ import { useSetRecoilState } from 'recoil';
 import { ReviseModalOpenAtom } from '../../../../../atom/ReviseModalOpenAtom';
 import { SelectTodoItemtAtom } from '../../../../../atom/SelectTodoItemAtom';
 import { TodoDataType } from '../../../../../atom/TodoListAtom';
+import MeatballIcon from '../../../../Icon/MeatballIcon';
 
 import { TodoItemMenuBtn } from './ItemMenuButton.styled';
 
@@ -25,6 +26,7 @@ export default function ItemMenuButton({ todo }: ItemMenuButtonProps) {
       title="할 일 삭제, 수정"
       onClick={handleClick}
     >
+      <MeatballIcon />
       <span>할 일 삭제, 수정</span>
     </TodoItemMenuBtn>
   );
