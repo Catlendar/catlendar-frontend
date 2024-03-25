@@ -13,14 +13,14 @@ export const LandingWrapper = styled.div`
 `;
 
 export const LandingImg = styled.img`
-  /* width: 23rem; */
-  /* height: 23rem; */
+  width: 23rem;
+  height: 23rem;
   margin-top: 13.8rem;
 `;
 
 export const CatlendarImg = styled.img`
-  /* width: 15.1rem; */
-  /* height: 2.6rem; */
+  width: 15.1rem;
+  height: 2.6rem;
   margin-top: 3.4rem;
   margin-bottom: 2rem;
 `;

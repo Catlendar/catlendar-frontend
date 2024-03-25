@@ -76,7 +76,7 @@ export default function FortunePage() {
     <div>
       <FortuneCardWrapper>
         <Header title="오늘의 운세" />
-        {currentImg && <CatImg src={currentImg.src} alt={currentImg.alt} />}
+        {currentImg && <CatImg src={currentImg.src} alt={currentImg.alt} loading="lazy" />}
         <Tab tabData={TabDataFortune} onTabClick={handleTabClick} />
       </FortuneCardWrapper>
       <FortuneContentWrapper>
