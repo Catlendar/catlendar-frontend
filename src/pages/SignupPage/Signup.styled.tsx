@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SignUpWrapper = styled.div`
-  margin: 0 26px;
+  padding: 0 26px;
   position: relative;
 `;
 
@@ -12,9 +12,10 @@ export const SignUpTitle = styled.p`
   padding-bottom: 1.3rem;
   color: var(--color-black);
   line-height: 1.3;
+  padding-left: 15px;
 `;
 
 export const ButtonWrapper = styled.div`
-  padding-top: 20.6rem;
+  padding-top: 10.6rem;
   width: 33.9rem;
 `;

@@ -26,6 +26,8 @@ export default function Router() {
   const userState = useRecoilValue(UserAtom);
   const [isLoggedIn, setIsLoggedIn] = useState('');
   const signCheck = useRecoilValue(SignUpAtom);
+
+  console.log(userState);
   useEffect(() => {
     // userState를 이용하여 로그인 상태를 확인하고 isLoggedIn 상태 업데이트
     setIsLoggedIn(userState && userState.email);

@@ -43,6 +43,6 @@ export const ButtonLandingWrap = styled(ButtonPageWrap)`
 `;
 
 export const ButtonSubmitWrap = styled(ButtonPageWrap)`
-  position: fixed;
-  bottom: 40px;
+  position: absolute;
+  bottom: 0;
 `;

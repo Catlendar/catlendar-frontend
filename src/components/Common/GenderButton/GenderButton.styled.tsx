@@ -3,9 +3,8 @@ import styled from 'styled-components';
 export const SelectWrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  /* margin: 0 auto; */
-  /* width: 100%; */
   padding-top: 20px;
+  gap: 10px;
 `;
 export const Label = styled.label``;
 
