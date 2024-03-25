@@ -25,6 +25,6 @@ export const LayoutWrapper = styled.div`
   nav {
     /* box-shadow: rgba(255, 0, 0, 0.35) 0px 0px 5px 20px; */
     border: 1px solid yellow;
-    width: 100%;
+    // width: 100%;
   }
 `;
