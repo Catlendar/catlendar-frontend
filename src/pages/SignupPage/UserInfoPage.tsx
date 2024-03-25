@@ -10,6 +10,7 @@ import SelectInput from '../../components/Common/TextInput/SelectInput';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
 import { SignUpAtom } from '../../atom/SignUpAtom';
+import { InputFormWrapper } from '../../components/Common/TextInput/TextInput.styled';
 
 export default function UserInfoPage() {
   const [email, setEmail] = useState<string>('');
@@ -84,38 +85,40 @@ export default function UserInfoPage() {
           <br />
           입력해주세요.
         </UserInfoTitle>
-        <TextInput
-          name="이름"
-          placeholder="이름"
-          inputType="text"
-          value={name}
-          onChange={(value: string) => setName(value)}
-        />
-        <BirthWrapper>
-          <DatePickerComponent onDateSelect={handleDateSelect} />
-          <SelectInput
-            name="양력"
-            initial=""
-            options={BirthOption}
-            width={115}
-            onChange={(value: string) => setCalendarType(value)}
+        <InputFormWrapper>
+          <TextInput
+            name="이름"
+            placeholder="이름"
+            inputType="text"
+            value={name}
+            onChange={(value: string) => setName(value)}
           />
-        </BirthWrapper>
-        <SelectInput
-          name="태어난 시간"
-          initial=""
-          options={BirthTimeOption}
-          width={340}
-          onChange={(value: string) => setBirthTime(value)}
-        />
-        <GenderButton name="성별" onChange={(value: string) => setGender(value)} />
-        <ButtonWrapper>
-          {validateInputs() ? (
-            <Button type="enable" text="다음" to="" onClick={signUp} />
-          ) : (
-            <Button type="disable" text="다음" to="/" onClick={() => {}} />
-          )}
-        </ButtonWrapper>
+          <BirthWrapper>
+            <DatePickerComponent onDateSelect={handleDateSelect} />
+            <SelectInput
+              name="양력"
+              initial=""
+              options={BirthOption}
+              width={95}
+              onChange={(value: string) => setCalendarType(value)}
+            />
+          </BirthWrapper>
+          <SelectInput
+            name="태어난 시간"
+            initial=""
+            options={BirthTimeOption}
+            width={340}
+            onChange={(value: string) => setBirthTime(value)}
+          />
+          <GenderButton name="성별" onChange={(value: string) => setGender(value)} />
+          <ButtonWrapper>
+            {validateInputs() ? (
+              <Button type="enable" text="다음" to="" onClick={signUp} />
+            ) : (
+              <Button type="disable" text="다음" to="/" onClick={() => {}} />
+            )}
+          </ButtonWrapper>
+        </InputFormWrapper>
       </UserInfoWrapper>
     </div>
   );

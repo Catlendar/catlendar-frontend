@@ -64,4 +64,12 @@ export const SelectLabel = styled.label`
 export const InputWrapper = styled.div`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
+  position: relative;
+`;
+
+export const InputFormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
