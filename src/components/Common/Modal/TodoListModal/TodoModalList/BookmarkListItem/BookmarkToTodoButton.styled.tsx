@@ -4,10 +4,12 @@ import IconModalPlus from '../../../../../../assets/icons/icon-modal-plus.svg';
 export const BookmarkToTodo = styled.button`
   width: 1.6rem;
   height: 1.6rem;
-  background-image: url(${IconModalPlus});
-  background-position: center center;
-  background-repeat: no-repeat;
   border-radius: 50%;
+
+  &:hover svg {
+    transform: scale(1.3);
+    transition: transform 0.3s ease;
+  }
 
   span {
     position: absolute;

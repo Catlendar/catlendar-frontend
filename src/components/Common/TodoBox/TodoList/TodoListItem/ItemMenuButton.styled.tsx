@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-import IconMenu from '../../../../../assets/icons/icon-meatball.svg';
 
 export const TodoItemMenuBtn = styled.button`
   border: none;
@@ -7,12 +6,23 @@ export const TodoItemMenuBtn = styled.button`
   height: 1.6rem;
   margin: 0;
   padding: 0;
-  background-color: var(--color-white);
-  background-image: url(${IconMenu});
-  background-repeat: no-repeat;
-  background-position: center;
-
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg path {
+    transition: fill 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: scale(1.5);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg path {
+    fill: #000; // 여기에 원하는 호버 시 색상 코드를 넣으세요.
+  }
 
   span {
     position: absolute;
