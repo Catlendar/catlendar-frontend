@@ -3,12 +3,18 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import TextInput from '../../components/Common/TextInput/TextInput';
-import { LoginTitle, LoginWrapper, CheckBoxInput, CheckBoxWrapper } from './LoginPage.styled';
+import {
+  LoginTitle,
+  LoginWrapper,
+  CheckBoxInput,
+  CheckBoxWrapper,
+  StyledSubmitButton,
+} from './LoginPage.styled';
 import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { UserAtom } from '../../atom/UserAtom';
-import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
+// import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 function LoginPage() {
   const [email, setEmail] = useState<string>('');
@@ -115,13 +121,13 @@ function LoginPage() {
           />
           <label htmlFor="checkbox">캣린더 체험하기</label>
         </CheckBoxWrapper>
-        <ButtonSubmitWrap>
+        <StyledSubmitButton>
           {validateInputs() ? (
             <Button type="enable" text="로그인" to="" onClick={() => {}} />
           ) : (
             <Button type="disable" text="로그인" to="/" onClick={() => {}} />
           )}
-        </ButtonSubmitWrap>
+        </StyledSubmitButton>
       </form>
     </LoginWrapper>
   );
