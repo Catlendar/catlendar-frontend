@@ -9,7 +9,6 @@ export const SelectWrapper = styled.div`
   padding-top: 2rem;
 
   gap: 1rem;
-
 `;
 export const Label = styled.label``;
 

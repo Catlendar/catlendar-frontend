@@ -42,6 +42,4 @@ export const ButtonLandingWrap = styled(ButtonPageWrap)`
   gap: 1rem;
 `;
 
-
 export const ButtonSubmitWrap = styled(ButtonPageWrap)``;
-
