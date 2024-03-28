@@ -7,8 +7,9 @@ import Button from '../../components/Common/Button/Button';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
-import { ProfileWrapper } from './ProfilePage.styled';
+import { ProfileWrapper, PwButtonWrapper } from './ProfilePage.styled';
 import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
+import { InputFormWrapper } from '../../components/Common/TextInput/TextInput.styled';
 
 interface UserData {
   password: string;
@@ -58,7 +59,7 @@ export default function EditPwPage() {
 
   const handleChangePwd = () => {
     if (!passwordPattern.test(newPassword)) {
-      setNewPwdError('비밀번호 형식이 맞지 않습니다.');
+      setNewPwdError('비밀번호 형식이 맞지 않습니다.2321312312');
     } else if (newPassword !== confirmPassword) {
       setConfirmError('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
     } else {
@@ -72,44 +73,46 @@ export default function EditPwPage() {
 
   return (
     <ProfileWrapper>
-      <TextInput
-        name="기존 비밀번호"
-        placeholder="기존 비밀번호 입력"
-        inputType="password"
-        value={password}
-        onChange={(value: string) => setPassword(value)}
-      />
-      <ErrorMessage message={existError} clearMessage={() => setExistError('')} />
-
-      <TextInput
-        name="새 비밀번호"
-        placeholder="8~16자의 영문, 숫자를 사용해 주세요."
-        inputType="password"
-        value={newPassword}
-        onChange={(value: string) => setNewPassword(value)}
-      />
-      <ErrorMessage message={newPwdError} clearMessage={() => setNewPwdError('')} />
-
-      <TextInput
-        name="새 비밀번호 확인"
-        placeholder="새 비밀번호 확인"
-        inputType="password"
-        value={newPassword}
-        onChange={(value: string) => {
-          setConfirmPassword(value);
-          setConfirmError('');
-        }}
-      />
-      <ErrorMessage message={confirmError} clearMessage={() => setConfirmError('')} />
-
-      <ButtonSubmitWrap>
-        <Button
-          type={isFormValid ? 'enable' : 'disable'}
-          text="변경하기"
-          to=""
-          onClick={handleChangePwd}
+      <InputFormWrapper>
+        <TextInput
+          name="기존 비밀번호"
+          placeholder="기존 비밀번호 입력"
+          inputType="password"
+          value={password}
+          onChange={(value: string) => setPassword(value)}
         />
-      </ButtonSubmitWrap>
+        <ErrorMessage message={existError} clearMessage={() => setExistError('')} />
+
+        <TextInput
+          name="새 비밀번호"
+          placeholder="8~16자의 영문, 숫자를 사용해 주세요."
+          inputType="password"
+          value={newPassword}
+          onChange={(value: string) => setNewPassword(value)}
+        />
+        <ErrorMessage message={newPwdError} clearMessage={() => setNewPwdError('')} />
+
+        <TextInput
+          name="새 비밀번호 확인"
+          placeholder="새 비밀번호 확인"
+          inputType="password"
+          value={newPassword}
+          onChange={(value: string) => {
+            setConfirmPassword(value);
+            setConfirmError('');
+          }}
+        />
+        <ErrorMessage message={confirmError} clearMessage={() => setConfirmError('')} />
+
+        <PwButtonWrapper>
+          <Button
+            type={isFormValid ? 'enable' : 'disable'}
+            text="변경하기"
+            to=""
+            onClick={handleChangePwd}
+          />
+        </PwButtonWrapper>
+      </InputFormWrapper>
     </ProfileWrapper>
   );
 }

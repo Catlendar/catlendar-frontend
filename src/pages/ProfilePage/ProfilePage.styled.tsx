@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import gear from '../../assets/icons/icon-setting.svg';
+import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 export const ProfileWrapper = styled.div`
   padding: 0 2.6rem;
@@ -56,4 +57,19 @@ export const Gear = styled.div`
   &:hover {
     animation: ${rotate} 4s linear infinite;
   }
+`;
+
+export const ButtonWrapper = styled.div`
+  padding-top: 10.6rem;
+  width: 33.9rem;
+`;
+
+export const ProfileButtonWrapper = styled(ButtonSubmitWrap)`
+  position: absolute;
+  /* padding-top: 10.6rem; */
+  bottom: -25%;
+`;
+export const PwButtonWrapper = styled(ButtonSubmitWrap)`
+  position: absolute;
+  bottom: -60%;
 `;

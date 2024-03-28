@@ -36,7 +36,9 @@ const commonInputStyle = css<InputProps>`
 
 export const Input = styled.input<InputProps>`
   ${commonInputStyle}
-  width: 33rem;
+ 
+  width: ${(props) => (props.width ? `${props.width}px` : '33rem')};
+
   ${({ inputMode }) =>
     inputMode === 'reviseModal' &&
     css`
@@ -64,4 +66,12 @@ export const SelectLabel = styled.label`
 export const InputWrapper = styled.div`
   color: var(--text-color-main);
   font-size: var(--small-font-size);
+  position: relative;
+`;
+
+export const InputFormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

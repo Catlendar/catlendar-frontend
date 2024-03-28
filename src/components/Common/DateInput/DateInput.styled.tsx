@@ -13,9 +13,11 @@ const commonInputStyle = css<InputProps>`
   border-bottom: 0.1rem solid var(--input-bb);
   background: none;
   color: var(--color-black);
+
   padding-bottom: 1rem;
   margin-right: 1.8rem;
   margin-top: 1.1rem;
+  width: ${(props) => (props.width ? `${props.width}px` : '22rem')};
   font-size: var(--large-font-size);
 
   &::placeholder {

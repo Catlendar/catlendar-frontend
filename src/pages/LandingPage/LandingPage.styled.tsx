@@ -15,6 +15,9 @@ export const LandingWrapper = styled.div`
 `;
 
 export const LandingImg = styled.img`
+  width: 23rem;
+  height: 23rem;
+
   margin: 15rem 0 7rem;
 
   @media screen and (min-height: 0px) and (max-height: 750px) {
@@ -26,8 +29,8 @@ export const LandingImg = styled.img`
 `;
 
 export const CatlendarImg = styled.img`
-  /* width: 15.1rem; */
-  /* height: 2.6rem; */
+  width: 15.1rem;
+  height: 2.6rem;
   margin: 1rem 0 2rem;
 `;
 

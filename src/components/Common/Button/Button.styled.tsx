@@ -42,7 +42,6 @@ export const ButtonLandingWrap = styled(ButtonPageWrap)`
   gap: 1rem;
 `;
 
-export const ButtonSubmitWrap = styled(ButtonPageWrap)`
-  position: fixed;
-  bottom: 4rem;
-`;
+
+export const ButtonSubmitWrap = styled(ButtonPageWrap)``;
+
