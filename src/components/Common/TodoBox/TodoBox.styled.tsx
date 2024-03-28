@@ -1,14 +1,14 @@
 import { styled } from 'styled-components';
 
-// export interface TodoBoxProps {
-//   location: string;
-// }
+export interface TodoBoxProps {
+  page: string;
+}
 
-// export const TodoBoxWrapper = styled.div<TodoBoxProps>`
-export const TodoBoxWrapper = styled.div`
+// export const TodoBoxWrapper = styled.div`
+export const TodoBoxWrapper = styled.div<TodoBoxProps>`
   background-color: var(--bg-color-gray);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -24,6 +24,17 @@ export const TodoBoxWrapper = styled.div`
   @media screen and (min-height: 1024px) {
     height: calc(100vh - 39rem);
   }
+
+  // @media screen and (min-height: 600px) {
+  //   height: calc(100vh - 21rem);
+  // }
+
+  // @media screen and (min-height: 800px) {
+  //   height: calc(100vh - 41rem);
+  // }
+  // @media screen and (min-height: 1024px) {
+  //   height: calc(100vh - 39rem);
+  // }
 
   // 동작 안함..
   // height: {(props) => props.location === 'calendar' && '10px'};

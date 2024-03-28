@@ -37,7 +37,7 @@ export const CatlendarImg = styled.img`
 export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-bottom: 10px;
+  gap: 1rem;
+  padding-bottom: 1rem;
   width: 33.9rem;
 `;

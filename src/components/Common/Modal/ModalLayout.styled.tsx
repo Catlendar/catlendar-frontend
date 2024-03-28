@@ -16,15 +16,15 @@ export const ModalBackground = styled.div`
 
 export const ModalWrapper = styled.div`
   /* width: 312px 빼면 모달이 늘어남, 모르겠어서 312px 줬음 */
-  width: 312px;
+  width: 31.2rem;
   box-sizing: border-box;
-  padding: 0 20px 12px;
+  padding: 0 2rem 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--color-white);
-  border-radius: 16px;
+  border-radius: 1.6rem;
 
   /* 모달 위치 */
   position: absolute;
@@ -35,8 +35,8 @@ export const ModalWrapper = styled.div`
 
   .button-wrapper {
     display: flex;
-    gap: 10px;
-    margin: 10px auto;
+    gap: 1rem;
+    margin: 1rem auto;
   }
 `;
 
@@ -47,20 +47,20 @@ export const ModalLayout = styled.div<ModalTypeProps>`
   margin: 0 auto;
   text-align: center;
   width: 70%;
-  border-radius: 20px;
+  border-radius: 2rem;
   background-color: gray;
 
   .button-wrapper {
     display: flex;
-    gap: 10px;
-    margin: 10px auto;
+    gap: 1rem;
+    margin: 1rem auto;
   }
 
   .withdraw-wrapper {
-    margin: 20px;
+    margin: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 2rem;
   }
 
   ${({ type }) => {
@@ -71,19 +71,19 @@ export const ModalLayout = styled.div<ModalTypeProps>`
     }
     if (type === 'todoList') {
       return css`
-        gap: 10px;
+        gap: 1rem;
       `;
     }
 
     if (type === 'withdraw') {
       return css`
         text-align: left;
-        width: 312px;
-        height: 290px;
+        width: 31.2rem;
+        height: 29rem;
         .withdraw-wrapper {
           h3 {
             font-size: var(--regular-font-size);
-            padding: 20px 0;
+            padding: 2rem 0;
           }
           p {
             font-size: var(--small-font-size);
@@ -98,7 +98,7 @@ export const ModalLayout = styled.div<ModalTypeProps>`
 `;
 
 export const ReviseModalBackground = styled.div`
-  border: 1px solid red;
+  border: 0.1rem solid red;
   position: absolute;
 `;
 

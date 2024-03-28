@@ -6,7 +6,7 @@ export const TodoItemWrapper = styled.li`
   font-size: var(--xsmall-font-size);
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 0.6rem;
 
   /* ===Checkbox와 텍스트의 수직 중앙 정렬 코드=== */
   align-items: center;
@@ -14,7 +14,7 @@ export const TodoItemWrapper = styled.li`
     line-height: 1rem;
   }
   div input {
-    margin: 3px;
+    margin: 0.3rem;
   }
   span {
     line-height: 2rem;

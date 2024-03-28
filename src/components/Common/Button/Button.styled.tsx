@@ -39,7 +39,9 @@ export const ButtonLandingWrap = styled(ButtonPageWrap)`
   padding-top: 6rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 `;
 
+
 export const ButtonSubmitWrap = styled(ButtonPageWrap)``;
+

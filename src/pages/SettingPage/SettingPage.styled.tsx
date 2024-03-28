@@ -5,7 +5,7 @@ export const SettingUl = styled.ul`
 `;
 
 export const SettingLi = styled.li`
-  padding-bottom: 30px;
+  padding-bottom: 3rem;
 `;
 
 const draw = keyframes`

@@ -47,7 +47,7 @@ export default function HomePage() {
   return (
     <main style={{ backgroundColor: 'var(--bg-color-main)' }}>
       <MainCard />
-      <TodoBox date={today} />
+      <TodoBox date={today} page="home" />
     </main>
   );
 }

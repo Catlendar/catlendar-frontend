@@ -118,7 +118,7 @@ export default function ReactCalendar({ value, setValue }: DateProps) {
             setClickedDay(moment(activeStartDate).format('YYYY-MM-DD'));
           }}
         />
-        {isTodoBox && <TodoBox date={clickedDay} />}
+        {isTodoBox && <TodoBox date={clickedDay} page="calendar" />}
       </CalendarWrapper>
     </main>
   );
