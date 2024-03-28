@@ -2,8 +2,8 @@ import { styled } from 'styled-components';
 
 export const TodoListWrapper = styled.div`
   box-sizing: border-box;
-  border-radius: 10px;
-  padding: 15px 15px 20px;
+  border-radius: 1rem;
+  padding: 1.5rem 1.5rem 2rem;
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -23,7 +23,7 @@ export const TodoListUl = styled.ul`
   }
   /* listItem의 마지막 요소만 제외하고 스타일 적용 */
   li:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 `;
 

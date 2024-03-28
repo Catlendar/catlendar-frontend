@@ -4,22 +4,22 @@ import IconArrowUp from '../../../assets/icons/icon-arrow-up.svg';
 export const AddInputWrapper = styled.div`
   display: flex;
   position: relative;
-  margin-top: 12px;
+  margin-top: 1.2rem;
 `;
 
 export const AddInput = styled.input`
-  width: 274px;
-  height: 46px;
+  width: 27.4rem;
+  height: 4.6rem;
   background-color: var(--bg-color-gray);
   color: var(--color-black);
   font-size: var(--small-font-size);
   border: none;
-  border-radius: 10px;
+  border-radius: 1rem;
   cursor: pointer;
   text-align: left;
   box-sizing: border-box;
-  padding-left: 20px;
-  padding-right: 4rem;
+  padding-left: 2rem;
+  padding-right: 0.4rem;
 `;
 
 export const ModalAddButton = styled.button`
@@ -29,10 +29,10 @@ export const ModalAddButton = styled.button`
   right: 0;
   transform: translateY(-50%);
   cursor: pointer;
-  padding: 1.2rem;
+  padding: 0.12rem;
   background-image: url(${IconArrowUp});
   background-position: center;
-  margin-right: 1.2rem;
+  margin-right: 0.12rem;
   background-color: var(--bg-color-main);
 
   span {

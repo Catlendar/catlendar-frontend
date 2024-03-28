@@ -7,7 +7,7 @@ export const LayoutWrapper = styled.div`
   /* min-height: 100vh;
   /* box-shadow: rgba(255, 0, 0, 0.35) 0px 0px 5px 20px; */
 
-  min-width: 320px;
+  min-width: 32rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ export const LayoutWrapper = styled.div`
   main {
     // height: 100%;
     /* padding-bottom: 7rem; */
-    box-shadow: rgba(0, 0, 255, 0.35) 0px 0px 5px 10px;
+    // box-shadow: rgba(0, 0, 255, 0.35) 0px 0px 5px 10px;
     height: calc(100% - 7rem);
     width: 100%;
     display: flex;
@@ -24,7 +24,7 @@ export const LayoutWrapper = styled.div`
 
   nav {
     /* box-shadow: rgba(255, 0, 0, 0.35) 0px 0px 5px 20px; */
-    border: 1px solid yellow;
+    // border: 1px solid yellow;
     width: 100%;
   }
 `;
