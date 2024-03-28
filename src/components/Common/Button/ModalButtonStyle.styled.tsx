@@ -5,12 +5,12 @@ interface ButtonProps {
 }
 
 export const ModalButtonStyle = styled.button<ButtonProps>`
-  width: 130px;
-  height: 45px;
+  width: 13rem;
+  height: 4.5rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   background-color: var(--button-color-modal);
-  font-size: 14px;
+  font-size: 1.4rem;
   cursor: pointer;
 
   ${({ type }) => {

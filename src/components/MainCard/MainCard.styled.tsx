@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 export const MainCardWrapper = styled.div`
   background-color: var(--bg-color-main);
-  height: 200px;
+  height: 20rem;
   padding: 2rem 0;
   @media screen and (min-height: 600px) {
-    height: 220px;
+    height: 22rem;
     padding: 6rem 0;
   }
   @media screen and (min-height: 900px) {

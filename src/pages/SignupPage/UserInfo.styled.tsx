@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const UserInfoWrapper = styled.div`
-  margin: 0 26px;
+  margin: 0 2.6rem;
   position: relative;
 `;
 
