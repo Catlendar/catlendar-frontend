@@ -15,10 +15,11 @@ import { TodoModalOpenAtom } from '../../../atom/TodoModalOpenAtom';
 
 interface TodoBoxProps {
   date: string;
+  page: string;
 }
 
 // <TodoBox date='today' or date={YYYY-MM-DD형식의 변수} />
-export default function TodoBox({ date }: TodoBoxProps) {
+export default function TodoBox({ date, page }: TodoBoxProps) {
   // const location = useLocation();
   const today = moment(new Date()).format('YYYY-MM-DD');
   const userAtom = useRecoilValue(UserAtom);
@@ -73,7 +74,7 @@ export default function TodoBox({ date }: TodoBoxProps) {
   }, [todoListAtom]);
 
   return (
-    <TodoBoxWrapper>
+    <TodoBoxWrapper page={page}>
       <TodoHeader
         date={date}
         comletedTasks={todayTasksAtom.completedTasks}

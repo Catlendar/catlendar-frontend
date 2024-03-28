@@ -11,7 +11,7 @@ export const NavbarWrapper = styled.nav`
   z-index: 10;
   box-shadow: 0 -0.3rem 2rem rgba(0, 0, 0, 0.03);
   background-color: var(--color-white);
-  width: clamp(280px, 100%, 430px);
+  width: clamp(28rem, 100%, 43rem);
   height: clamp(7rem, 8%, 9rem);
 `;
 

@@ -19,7 +19,7 @@ export default function Tab({ tabData, onTabClick }: TabProps) {
     switch (type) {
       case 'todo':
         return {
-          wrapperWidth: '312px',
+          wrapperWidth: '31.2rem',
           boxDisplay: 'flex',
           justifyContent: 'space-between',
           fontSize: 'var(--large-font-size)',
@@ -35,7 +35,7 @@ export default function Tab({ tabData, onTabClick }: TabProps) {
         };
       default:
         return {
-          wrapperWidth: '312px',
+          wrapperWidth: '31.2rem',
           boxDisplay: 'flex',
           justifyContent: 'space-between',
           fontSize: 'var(--large-font-size)',

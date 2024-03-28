@@ -25,7 +25,7 @@ export const ButtonWrapper = styled.div`
 
 export const CheckBoxInput = styled.input`
   appearance: none;
-  border: 2px solid gainsboro;
+  border: 0.2rem solid gainsboro;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
@@ -45,7 +45,7 @@ export const CheckBoxWrapper = styled.div`
   margin-top: 2rem;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.5rem;
   label {
     justify-content: center;
     cursor: pointer;

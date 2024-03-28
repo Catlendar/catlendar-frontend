@@ -19,12 +19,12 @@ export const TabBox = styled.div<{ tabstyle: TabStyleProps }>`
 export const TabButton = styled.button<TabButtonProps>`
   border: none;
   font: inherit;
-  padding: 0 8px 3px 8px;
+  padding: 0 0.8rem 0.3rem 0.8rem;
   cursor: pointer;
   background-color: var(--color-white);
   text-decoration: ${(props) => (props.selecttab ? 'underline' : 'none')};
   text-underline-position: ${(props) => (props.selecttab ? 'under' : 'none')};
-  text-decoration-thickness: ${(props) => (props.selecttab ? '3px' : 'none')};
+  text-decoration-thickness: ${(props) => (props.selecttab ? '0.3rem' : 'none')};
   color: ${(props) => (props.selecttab ? 'var(--color-black)' : 'var(--text-color-main)')};
-  /* border-bottom: ${(props) => (props.selecttab ? '2px solid var(--color-black)' : 'none')}; */
+  /* border-bottom: ${(props) => (props.selecttab ? '0.2rem solid var(--color-black)' : 'none')}; */
 `;

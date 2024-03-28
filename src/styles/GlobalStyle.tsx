@@ -127,13 +127,13 @@ const GlobalStyle = createGlobalStyle`
 		#root {
 			/* height:100vh; */
 			// min-height: calc(var(--vh, 1vh) * 100 + 7rem);
-			max-width: 430px;
+			max-width: 43rem;
 			width: 100%;
 			min-height: 100vh;
 			// width:390px;
 			margin: 0 auto;
 			background-color: var(--bg-color-gray);
-			box-shadow: rgba(100, 100, 100, 0.2) 0px 0px 29px 0px;
+			// box-shadow: rgba(100, 100, 100, 0.2) 0px 0px 29px 0px;
 		}
 	}
   
@@ -151,8 +151,8 @@ const GlobalStyle = createGlobalStyle`
 	/* Tablet */
 	/* @media screen and (min-width: 768px) {
 		#root {
-			height:100vh;
-			max-width:768px;
+			height: 100vh;
+			max-width: 768px;
 			margin: 0 auto;
 			background-color: skyblue;
 		}

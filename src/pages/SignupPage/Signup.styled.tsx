@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 export const SignUpWrapper = styled.div`
-  margin: 0 26px;
+  margin: 0 2.6rem;
 `;
 
 export const SignUpTitle = styled.p`

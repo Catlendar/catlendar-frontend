@@ -10,13 +10,14 @@ interface InputWrapperProps {
 
 const commonInputStyle = css<InputProps>`
   border: none;
-  border-bottom: 1px solid var(--input-bb);
+  border-bottom: 0.1rem solid var(--input-bb);
   background: none;
   color: var(--color-black);
-  padding-bottom: 10px;
-  margin-right: 18px;
-  margin-top: 11px;
-  width: ${(props) => (props.width ? `${props.width}px` : '220px')};
+
+  padding-bottom: 1rem;
+  margin-right: 1.8rem;
+  margin-top: 1.1rem;
+  width: ${(props) => (props.width ? `${props.width}px` : '22rem')};
   font-size: var(--large-font-size);
 
   &::placeholder {
@@ -32,7 +33,7 @@ const commonInputStyle = css<InputProps>`
 
   &:focus {
     outline: none;
-    border-bottom: 1px solid var(--bg-color-main);
+    border-bottom: 0.1rem solid var(--bg-color-main);
   }
 `;
 
@@ -42,7 +43,7 @@ export const Input = styled.input<InputProps>`
 
 export const Select = styled.select<InputProps>`
   ${commonInputStyle}
-  width: ${(props) => (props.width ? `${props.width}px` : '100%')};
+  width: ${(props) => (props.width ? `${props.width}rem` : '100%')};
 `;
 
 export const InputName = styled.p`
