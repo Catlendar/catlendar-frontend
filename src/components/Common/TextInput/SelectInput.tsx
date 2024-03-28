@@ -46,8 +46,6 @@ export default function SelectInput({ options, name, width, onChange, initial }:
     option: (provided, state) => ({
       ...provided,
       color: 'var(--color-black)',
-      // eslint-disable-next-line no-nested-ternary
-      // backgroundColor: state.isFocused ? 'var(--bg-color-main)' : null,
     }),
     singleValue: (provided) => ({
       ...provided,
