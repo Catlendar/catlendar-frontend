@@ -41,7 +41,7 @@ export default function Router() {
           element={
             <>
               {isLoggedIn === '' ? (
-                <LandingPage />
+                <Layout main={<LandingPage />} />
               ) : isLoggedIn ? (
                 <Layout main={<HomePage />} navbar={<NavBar />} />
               ) : null}
@@ -52,7 +52,7 @@ export default function Router() {
           path="/landing"
           element={
             <>
-              <LandingPage />
+              <Layout main={<LandingPage />} />
             </>
           }
         />
@@ -60,12 +60,18 @@ export default function Router() {
           path="/signup"
           element={
             <>
-              <Header title="" />
-              <SignupPage />
+              <Layout header={<Header title="" />} main={<SignupPage />} />
             </>
           }
         />
-        <Route path="/signup/complete" element={<SignupCompletePage />} />
+        <Route
+          path="/signup/complete"
+          element={
+            <>
+              <Layout main={<SignupCompletePage />} />
+            </>
+          }
+        />
         <Route
           path="/userinfo"
           element={
@@ -75,8 +81,7 @@ export default function Router() {
               ) : // <LandingPage />
               signCheck ? (
                 <>
-                  <Header title="" />
-                  <UserInfoPage />
+                  <Layout header={<Header title="" />} main={<UserInfoPage />} />
                 </>
               ) : null}
             </>
@@ -87,7 +92,6 @@ export default function Router() {
           path="/login"
           element={
             <>
-              {/* <Header title="" /> */}
               <Layout header={<Header title="" />} main={<LoginPage />} />
             </>
           }
@@ -101,8 +105,7 @@ export default function Router() {
                 <LandingPage />
               ) : isLoggedIn ? (
                 <>
-                  <Header title="설정" />
-                  <SettingPage />
+                  <Layout header={<Header title="설정" />} main={<SettingPage />} />
                 </>
               ) : null}
             </>
@@ -117,8 +120,7 @@ export default function Router() {
                 <LandingPage />
               ) : isLoggedIn ? (
                 <>
-                  <ProfilePage />
-                  <NavBar />
+                  <Layout header={<Header title="" />} main={<ProfilePage />} navbar={<NavBar />} />
                 </>
               ) : null}
             </>
@@ -132,8 +134,7 @@ export default function Router() {
                 <LandingPage />
               ) : isLoggedIn ? (
                 <>
-                  <Header title="정보 수정" />
-                  <ProfileEditPage />
+                  <Layout header={<Header title="정보 수정" />} main={<ProfileEditPage />} />
                 </>
               ) : null}
             </>
@@ -147,8 +148,7 @@ export default function Router() {
                 <LandingPage />
               ) : isLoggedIn ? (
                 <>
-                  <Header title="비밀번호 변경" />
-                  <EditPwPage />
+                  <Layout header={<Header title="비밀번호 변경" />} main={<EditPwPage />} />
                 </>
               ) : null}
             </>

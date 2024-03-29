@@ -1,7 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 
 export const SettingUl = styled.ul`
-  padding-top: 3rem;
+  width: 33.9rem;
+  @media screen and (min-width: 96rem) {
+    width: 100%;
+  }
 `;
 
 export const SettingLi = styled.li`

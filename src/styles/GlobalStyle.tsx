@@ -131,7 +131,8 @@ const GlobalStyle = createGlobalStyle`
 			height:100vh;
 			max-width:100vw;
 			margin: 0 auto;
-			background-color: skyblue;
+			// background-color: skyblue;
+			
 		}
   }
 `;
