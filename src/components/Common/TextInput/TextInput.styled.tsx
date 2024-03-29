@@ -10,11 +10,11 @@ interface InputProps {
 const commonInputStyle = css<InputProps>`
   width: 100%;
   border: none;
-  border-bottom: 0.1rem solid var(--input-bb);
+  border-bottom: 1px solid var(--input-bb);
   background: none;
   color: var(--color-black);
-  padding-bottom: 1rem;
-  margin-top: 1rem;
+  padding-bottom: 10px;
+  margin-top: 10px;
   font-size: var(--large-font-size);
 
   &::placeholder {
@@ -30,19 +30,18 @@ const commonInputStyle = css<InputProps>`
 
   &:focus {
     outline: none;
-    border-bottom: 0.1rem solid var(--bg-color-main);
+    border-bottom: 1px solid var(--bg-color-main);
   }
 `;
 
 export const Input = styled.input<InputProps>`
   ${commonInputStyle}
-
-  width: ${(props) => (props.width ? `${props.width}px` : '33rem')};
-
+  /* width: 330px; */
+  width: ${(props) => (props.width ? `${props.width}px` : '330px')};
   ${({ inputMode }) =>
     inputMode === 'reviseModal' &&
     css`
-      width: 26rem;
+      width: 260px;
     `}
 `;
 
