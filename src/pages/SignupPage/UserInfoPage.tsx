@@ -78,14 +78,14 @@ export default function UserInfoPage() {
     }
   };
   return (
-    <div>
+    <main>
       <UserInfoWrapper>
-        <UserInfoTitle>
-          간단한 정보를
-          <br />
-          입력해주세요.
-        </UserInfoTitle>
         <InputFormWrapper>
+          <UserInfoTitle>
+            간단한 정보를
+            <br />
+            입력해주세요.
+          </UserInfoTitle>
           <TextInput
             name="이름"
             placeholder="이름"
@@ -120,6 +120,6 @@ export default function UserInfoPage() {
           </ButtonWrapper>
         </InputFormWrapper>
       </UserInfoWrapper>
-    </div>
+    </main>
   );
 }

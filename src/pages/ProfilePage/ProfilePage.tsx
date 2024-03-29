@@ -10,16 +10,18 @@ export default function ProfilePage() {
   const user = useRecoilValue(UserAtom);
 
   return (
-    <ProfileWrapper>
-      <ProfileTitle>
-        <ProfileName>마이페이지</ProfileName>
-        <Gear onClick={() => navigate('/setting')} />
-      </ProfileTitle>
-      <ProfileMain>
-        {user.name}님, <br />
-        오늘 하루는 어떠셨나요?
-      </ProfileMain>
-      <ChartComponent />
-    </ProfileWrapper>
+    <main>
+      <ProfileWrapper>
+        <ProfileTitle>
+          <ProfileName>마이페이지</ProfileName>
+          <Gear onClick={() => navigate('/setting')} />
+        </ProfileTitle>
+        <ProfileMain>
+          {user.name}님, <br />
+          오늘 하루는 어떠셨나요?
+        </ProfileMain>
+        <ChartComponent />
+      </ProfileWrapper>
+    </main>
   );
 }
