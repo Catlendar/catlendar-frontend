@@ -20,6 +20,9 @@ export const MainCardWrapper = styled.div`
 export const CardContent = styled.div`
   margin: 0 2.6rem;
   color: var(--color-white);
+  @media screen and (min-width: 960px) {
+    margin: 4rem 2.6rem 0 2.6rem;
+  }
 `;
 
 export const Today = styled.span`
