@@ -6,7 +6,7 @@ export const SignUpWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  @media screen and (min-width: 96rem) {
+  @media screen and (min-width: 960px) {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -31,7 +31,7 @@ export const SignUpTitle = styled.p`
 export const StyledSubmitButton = styled(ButtonSubmitWrap)`
   position: absolute;
   top: 85%;
-  @media screen and (min-width: 96rem) {
+  @media screen and (min-width: 960px) {
     position: relative;
     padding-top: 10rem;
   }

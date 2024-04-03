@@ -19,7 +19,7 @@ export function ChartComponent() {
   ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
   const options = {
-    responsive: true, // false로 설정하면 스타일 지정 가능
+    responsive: false, // false로 설정하면 스타일 지정 가능
     // responsiveAnimationDuration: 1000,
     maxBarThickness: 10,
     maintainAspectRatio: true,
@@ -27,6 +27,7 @@ export function ChartComponent() {
     plugins: {
       legend: {
         position: 'top' as const,
+        display: false,
       },
       title: {
         display: true,
