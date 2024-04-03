@@ -2,8 +2,9 @@ import styled, { keyframes } from 'styled-components';
 
 export const SettingUl = styled.ul`
   width: 33.9rem;
-  @media screen and (min-width: 96rem) {
+  @media screen and (min-width: 960px) {
     width: 100%;
+    transform: scale(1.3);
   }
 `;
 

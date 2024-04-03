@@ -6,7 +6,7 @@ export const LoginWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  @media screen and (min-width: 96rem) {
+  @media screen and (min-width: 960px) {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -14,7 +14,7 @@ export const LoginWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.2);
   }
 `;
 
@@ -63,7 +63,7 @@ export const CheckBoxWrapper = styled.div`
 export const StyledSubmitButton = styled(ButtonSubmitWrap)`
   position: absolute;
   top: 85%;
-  @media screen and (min-width: 96rem) {
+  @media screen and (min-width: 960px) {
     position: relative;
     padding-top: 10rem;
   }

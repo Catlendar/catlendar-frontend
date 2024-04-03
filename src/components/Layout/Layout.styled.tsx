@@ -51,7 +51,7 @@ export const LayoutWrapper = styled.div`
     }
   }
 
-  @media screen and (min-width: 96rem) {
+  @media screen and (min-width: 960px) {
     nav {
       display: none;
     }

@@ -15,7 +15,7 @@ export const LandingWrapper = styled.div`
   p {
     font-size: var(--small-font-size);
   }
-  @media screen and (min-width: 96rem) {
+  @media screen and (min-width: 960px) {
     position: absolute;
     top: 50%;
     left: 50%;

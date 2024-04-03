@@ -9,7 +9,7 @@ export const CompleteImgWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @media screen and (min-width: 96rem) {
+  @media screen and (min-width: 960px) {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,6 +34,7 @@ export const SmallCompleteMsg = styled.div`
 export const CompleteImg = styled.img`
   width: 25rem;
   height: 20rem;
+  @media screen and (min-width: 960px) {
 `;
 
 export const ButtonWrapper = styled.div`
