@@ -12,8 +12,14 @@ ID: catlendar@admin.com
 PW: qwer1234!
 ```
 
-</br>
+### 관련 문서
 
+[회의록](https://catlendar.notion.site/9c311a56cd9c4911998d63b3364e3067?v=d9cdfad2f24840988f108c3006063698&p=58b77873274d48849d3adb80e257c04c&pm=s)
+</br>
+[디자인](https://www.figma.com/file/aEqxxbSZiceOx5h00rSM9X/%EC%BA%A3%EB%A6%B0%EB%8D%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?type=design&mode=design&t=h0EbNv1ftpS5VANZ-0)
+</br>
+[API명세서](https://www.notion.so/catlendar/API-dbfb31c8c5764a90bf1636d588ec77d2)
+</br>
 ## 1. 서비스 소개
 캣린더(Catlendar)는 고양이를 테마로 한 투두 리스트 및 일정 관리 앱으로,<br> 사용자들에게 <b>운세를 통한 영감</b>과 <b>긍정적인 목표 설정</b>을 돕는 데 중점을 둔 서비스입니다.
 
@@ -213,3 +219,14 @@ li 내에 스타일링할 요소가 3개 이상이면 li를 Item으로 추상화
   변수명, 함수명: camelCase
 ```
 
+## 7. 트러블 슈팅
+
+### 1. **Netlify와 AWS서버 간 HTTP와 HTTPS 통신 문제 해결**
+
+Netlify는 기본적으로 HTTPS를 사용하지만, AWS서버는 SSL 인증을 받지 않아 HTTP를 사용했습니다. 
+
+이는 배포 환경에서 프론트와 서버 간 통신을 금지하는 네트워크 정책으로 문제가 발생했습니다. 서버에 SSL 인증을 받아 HTTPS로 변경하는 해결책은 비용과 서버 간 통신 문제로 인해 어려웠고, Netlify에서 HTTPS를 HTTP로 변경하는 것도 불가능했습니다. 
+
+이에, 로컬 환경에서는 기존 서버 URL을 사용하고, Netlify 배포 환경에서는 baseURL에 API를 지정하여 public/_redirects에서 **프록시를 통해 요청을 보내는 방식**으로 문제를 해결했습니다.
+
+👉 [참고 사이트](https://velog.io/@jiheon788/Netlify%EC%97%90%EC%84%9C-HTTPS-HTTP-%ED%86%B5%EC%8B%A0-%ED%95%B4%EA%B2%B0-%EA%B3%BC%EC%A0%95)
