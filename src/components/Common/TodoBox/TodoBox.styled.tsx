@@ -1,14 +1,9 @@
 import { styled } from 'styled-components';
 
-export interface TodoBoxProps {
-  page: string;
-}
-
 // export const TodoBoxWrapper = styled.div`
-export const TodoBoxWrapper = styled.div<TodoBoxProps>`
+export const TodoBoxWrapper = styled.div`
   background-color: var(--bg-color-gray);
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
+  border-radius: 2rem;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

@@ -126,13 +126,12 @@ const GlobalStyle = createGlobalStyle`
 	}
   	
 	/* Pc */
-	@media screen and (min-width: 96rem) {
+	@media screen and (min-width: 960px) {
 		#root {
-			height:100vh;
-			max-width:100vw;
+			height: 100vh;
+			max-width: 100vw;
 			margin: 0 auto;
 			// background-color: skyblue;
-			
 		}
   }
 `;
