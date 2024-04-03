@@ -15,7 +15,7 @@ import {
 import mainCat from '../../assets/images/image-main-cat.png';
 import arrowRight from '../../assets/icons/icon-arrow-right.svg';
 
-export default function MainCard() {
+export default function MainCard({ isDesktop }: { isDesktop?: boolean }) {
   const today = new Date();
   const month = today.getMonth() + 1;
   const date = today.getDate();
@@ -44,10 +44,12 @@ export default function MainCard() {
           </TextBox>
           <img src={mainCat} alt="메인 고양이 이미지" />
         </ContentBox>
-        <StyledLink to="/fortune">
-          오늘의 운세
-          <img src={arrowRight} alt="화살표 아이콘" />
-        </StyledLink>
+        {!isDesktop && (
+          <StyledLink to="/fortune">
+            오늘의 운세
+            <img src={arrowRight} alt="화살표 아이콘" />
+          </StyledLink>
+        )}
       </CardContent>
     </MainCardWrapper>
   );

@@ -64,7 +64,7 @@ export default function HomePage({ isDesktop }: { isDesktop: boolean }) {
         </Link>
       </section>
       <section>
-        <MainCard />
+        <MainCard isDesktop={isDesktop} />
         <TodoBox date={clickedDay} />
       </section>
       <section className="wrap-calendar">
