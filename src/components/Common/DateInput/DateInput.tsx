@@ -19,7 +19,7 @@ function DateInput({ inputType, value, name, placeholder, form, onClick }: DateI
         placeholder={placeholder}
         form={form}
         value={value}
-        width={220}
+        width={22}
         onClick={onClick}
         readOnly
       />

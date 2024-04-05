@@ -99,7 +99,7 @@ export default function UserInfoPage() {
               name="양력"
               initial=""
               options={BirthOption}
-              width={95}
+              width={9.5}
               onChange={(value: string) => setCalendarType(value)}
             />
           </BirthWrapper>
@@ -107,7 +107,7 @@ export default function UserInfoPage() {
             name="태어난 시간"
             initial=""
             options={BirthTimeOption}
-            width={340}
+            width={34}
             onChange={(value: string) => setBirthTime(value)}
           />
           <GenderButton name="성별" onChange={(value: string) => setGender(value)} />

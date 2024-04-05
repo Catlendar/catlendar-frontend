@@ -40,8 +40,8 @@ export default function SelectInput({ options, name, width, onChange, initial }:
       paddingBottom: '1rem',
       marginTop: '1rem',
       fontSize: 'var(--large-font-size)',
-      width: width ? `${width}px` : '100%',
-      backgroundColor: 'var(--bg-color-gray)',
+      width: width ? `${width}rem` : '100%',
+      backgroundColor: 'var(white)',
     }),
     option: (provided, state) => ({
       ...provided,

@@ -78,3 +78,9 @@ export const PwButtonWrapper = styled(ButtonSubmitWrap)`
     padding-top: 10rem;
   }
 `;
+export const BirthWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+`;
