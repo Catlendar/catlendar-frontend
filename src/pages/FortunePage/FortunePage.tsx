@@ -4,9 +4,10 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { fortuneDataAtom, selectedTabAtom } from '../../atom/FortuneStateAtom';
 import { SelectTabTypeAtom } from '../../atom/SelectTabTypeAtom';
 import {
-  FortuneCardWrapper,
+  FortuneWrapper,
+  FortuneCardBox,
   CatImg,
-  FortuneContentWrapper,
+  FortuneContentBox,
   FortuneTitle,
   FortuneContent,
   MoreButton,
@@ -98,13 +99,12 @@ export default function FortunePage() {
     return parse(shortDesc);
   };
   return (
-    <div>
-      <FortuneCardWrapper>
-        <Header title="오늘의 운세" />
+    <FortuneWrapper>
+      <FortuneCardBox>
         {currentImg && <CatImg src={currentImg.src} alt={currentImg.alt} loading="lazy" />}
         <Tab tabData={TabDataFortune} onTabClick={handleTabClick} selectedTab={selectedTab} />
-      </FortuneCardWrapper>
-      <FortuneContentWrapper>
+      </FortuneCardBox>
+      <FortuneContentBox>
         <FortuneTitle>{getFortuneTitle(selectedTabValue)}</FortuneTitle>
         <FortuneContent>
           {showFortuneDesc()}
@@ -114,7 +114,7 @@ export default function FortunePage() {
             </MoreButton>
           )}
         </FortuneContent>
-      </FortuneContentWrapper>
-    </div>
+      </FortuneContentBox>
+    </FortuneWrapper>
   );
 }

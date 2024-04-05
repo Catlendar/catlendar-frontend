@@ -6,10 +6,11 @@ import { UserAtom } from '../../atom/UserAtom';
 import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
-import LogoIcon from '../../components/Icon/LogoIcon';
+import WhiteLogo from '../../components/Icon/WhiteLogo';
 import ArrowIcon from '../../components/Icon/ArrowIcon';
 import ReactCalendar from '../../components/Calendar/ReactCalendar';
 import useCompleted from '../../hooks/useCompleted';
+import NavBar from '../../components/Common/NavBar/NavBar';
 
 export default function HomePage({ isDesktop }: { isDesktop: boolean }) {
   const userAtom = useRecoilValue(UserAtom);
@@ -54,7 +55,7 @@ export default function HomePage({ isDesktop }: { isDesktop: boolean }) {
   return isDesktop ? (
     <main className="grid-layout">
       <section className="wrap-info">
-        <LogoIcon />
+        <WhiteLogo />
         <p className="txt-info">
           오늘의 운세를 통해 영감을 받고,
           <br /> 할일을 같이 계획해봐요!

@@ -6,8 +6,7 @@ import { ReactComponent as ProfileIcon } from '../../../assets/icons/icon-profil
 export const NavbarWrapper = styled.nav`
   position: fixed;
   bottom: 0;
-  // width: 100%;
-  // height: 7rem;
+  width: 100%;
   z-index: 10;
   box-shadow: 0 -0.3rem 2rem rgba(0, 0, 0, 0.03);
   background-color: var(--color-white);
@@ -21,10 +20,6 @@ export const NavbarList = styled.ul`
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-  // li {
-  //   flex-grow: 1;
-  // }
 `;
 
 export const IconWrapper = styled.div`
