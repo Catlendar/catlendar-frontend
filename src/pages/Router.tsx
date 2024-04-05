@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { UserAtom } from '../atom/UserAtom';
 import HomePage from './HomePage/HomePage';
@@ -26,46 +26,81 @@ export default function Router() {
   const userState = useRecoilValue(UserAtom);
   const [isLoggedIn, setIsLoggedIn] = useState('');
   const signCheck = useRecoilValue(SignUpAtom);
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  console.log(userState);
   useEffect(() => {
     // userState를 이용하여 로그인 상태를 확인하고 isLoggedIn 상태 업데이트
     setIsLoggedIn(userState && userState.email);
-  }, [userState]);
+
+    const handleResize = () => {
+      if (window.innerWidth < 960) {
+        setIsDesktop(false);
+      } else {
+        setIsDesktop(true);
+      }
+    };
+    handleResize();
+    // 창 크기 조정 이벤트 수신
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      // 리턴되어 클린업 함수 호출 시(언마운트 혹은 업데이트 시), 이벤트 리스너 제거
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [userState, isDesktop]);
 
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/landing" element={<Layout main={<LandingPage />} />} />
+        {/* 
+					1. /, /home인 경우 중복 -> 병합 
+					2. 해상도에 따라 Navbar 렌더링 유무 설정 
+				*/}
+        {['/', '/home'].map((path) => (
+          <Route
+            key={path}
+            path={path}
+            element={
+              <>
+                {isLoggedIn === '' ? (
+                  <Layout main={<LandingPage />} />
+                ) : isLoggedIn ? (
+                  <Layout
+                    main={<HomePage isDesktop={isDesktop} />}
+                    navbar={<NavBar isDesktop={isDesktop} />}
+                  />
+                ) : null}
+              </>
+            }
+          />
+        ))}
+        {/*
+					1. 해상도에 따라 렌더링 컴포넌트 구분
+					2. 데스크탑 사이즈인 경우 /home으로 리다이렉트
+				 */}
         <Route
-          path="/"
+          path="/calendar"
           element={
             <>
               {isLoggedIn === '' ? (
-                <LandingPage />
-              ) : isLoggedIn ? (
-                <Layout main={<HomePage />} navbar={<NavBar />} />
+                <Layout main={<LandingPage />} />
+              ) : isLoggedIn && !isDesktop ? (
+                <Layout main={<CalendarPage />} navbar={<NavBar isDesktop={isDesktop} />} />
+              ) : isLoggedIn && isDesktop ? (
+                <Navigate to="/home" />
               ) : null}
             </>
           }
         />
-        <Route
-          path="/landing"
-          element={
-            <>
-              <LandingPage />
-            </>
-          }
-        />
+
         <Route
           path="/signup"
-          element={
-            <>
-              <Header title="" />
-              <SignupPage />
-            </>
-          }
+          element={<Layout header={<Header title="" />} main={<SignupPage />} />}
         />
-        <Route path="/signup/complete" element={<SignupCompletePage />} />
+
+        <Route path="/signup/complete" element={<Layout main={<SignupCompletePage />} />} />
+
         <Route
           path="/userinfo"
           element={
@@ -74,10 +109,7 @@ export default function Router() {
                 <Layout main={<LandingPage />} />
               ) : // <LandingPage />
               signCheck ? (
-                <>
-                  <Header title="" />
-                  <UserInfoPage />
-                </>
+                <Layout header={<Header title="" />} main={<UserInfoPage />} />
               ) : null}
             </>
           }
@@ -85,12 +117,7 @@ export default function Router() {
 
         <Route
           path="/login"
-          element={
-            <>
-              {/* <Header title="" /> */}
-              <Layout header={<Header title="" />} main={<LoginPage />} />
-            </>
-          }
+          element={<Layout header={<Header title="" />} main={<LoginPage />} />}
         />
 
         <Route
@@ -98,12 +125,9 @@ export default function Router() {
           element={
             <>
               {isLoggedIn === '' ? (
-                <LandingPage />
+                <Layout main={<LandingPage />} />
               ) : isLoggedIn ? (
-                <>
-                  <Header title="설정" />
-                  <SettingPage />
-                </>
+                <Layout header={<Header title="설정" />} main={<SettingPage />} />
               ) : null}
             </>
           }
@@ -114,89 +138,61 @@ export default function Router() {
           element={
             <>
               {isLoggedIn === '' ? (
-                <LandingPage />
+                <Layout main={<LandingPage />} />
               ) : isLoggedIn ? (
-                <>
-                  <ProfilePage />
-                  <NavBar />
-                </>
+                <Layout main={<ProfilePage />} navbar={<NavBar isDesktop={isDesktop} />} />
               ) : null}
             </>
           }
         />
+
         <Route
           path="/editUser"
           element={
             <>
               {isLoggedIn === '' ? (
-                <LandingPage />
+                <Layout main={<LandingPage />} />
               ) : isLoggedIn ? (
-                <>
-                  <Header title="정보 수정" />
-                  <ProfileEditPage />
-                </>
+                <Layout header={<Header title="정보 수정" />} main={<ProfileEditPage />} />
               ) : null}
             </>
           }
         />
+
         <Route
           path="/editPassword"
           element={
             <>
               {isLoggedIn === '' ? (
-                <LandingPage />
+                <Layout main={<LandingPage />} />
               ) : isLoggedIn ? (
-                <>
-                  <Header title="비밀번호 변경" />
-                  <EditPwPage />
-                </>
+                <Layout header={<Header title="비밀번호 변경" />} main={<EditPwPage />} />
               ) : null}
             </>
           }
         />
-        <Route
-          path="/home"
-          element={
-            <>
-              {isLoggedIn === '' ? (
-                <LandingPage />
-              ) : isLoggedIn ? (
-                <>
-                  <HomePage /> <NavBar />
-                </>
-              ) : null}
-            </>
-          }
-        />
-        <Route
-          path="/calendar"
-          element={
-            <>
-              {isLoggedIn === '' ? (
-                <LandingPage />
-              ) : isLoggedIn ? (
-                <>
-                  <CalendarPage /> <NavBar />
-                </>
-              ) : null}
-            </>
-          }
-        />
+
         <Route
           path="/fortune"
           element={
             <>
               {isLoggedIn === '' ? (
-                <LandingPage />
+                <Layout main={<LandingPage />} />
               ) : isLoggedIn ? (
-                <>
-                  <FortunePage />
-                  <NavBar />
-                </>
-              ) : null}
+                <Layout
+                  header={<Header title="오늘의 운세" isFortunePage />}
+                  main={<FortunePage />}
+                  navbar={<NavBar isDesktop={isDesktop} />}
+                />
+              ) : // <>
+              //   <FortunePage />
+              //   <NavBar />
+              // </>
+              null}
             </>
           }
         />
+
         <Route path="*" element={<ErrorPage />} />
 
         <Route path="/error" element={<ErrorPage />} />

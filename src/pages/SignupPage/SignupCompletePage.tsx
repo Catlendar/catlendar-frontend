@@ -11,7 +11,7 @@ import happyCat from '../../assets/images/happy-cat.png';
 
 export default function SignupCompletePage() {
   return (
-    <div>
+    <main>
       <CompleteImgWrapper>
         <CompleteImg src={happyCat} />
         <LargeCompleteMsg>캣린더 가입을 축하드려요</LargeCompleteMsg>
@@ -20,6 +20,6 @@ export default function SignupCompletePage() {
           <Button type="enable" text="시작하기" to="/Login" onClick={() => {}} />
         </ButtonWrapper>
       </CompleteImgWrapper>
-    </div>
+    </main>
   );
 }

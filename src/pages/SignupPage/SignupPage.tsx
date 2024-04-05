@@ -60,54 +60,56 @@ export default function SignUpPage() {
   };
 
   return (
-    <SignUpWrapper>
-      <SignUpTitle>
-        이메일과 비밀번호를
-        <br />
-        입력해주세요.
-      </SignUpTitle>
-      <InputFormWrapper>
-        <TextInput
-          name="이메일"
-          placeholder="이메일 주소"
-          inputType="email"
-          value={email}
-          onChange={(value: string) => setEmail(value)}
-        />
-        <ErrorMessage message={emailErrorMessage} clearMessage={() => setEmailErrorMessage('')} />
+    <main>
+      <SignUpWrapper>
+        <InputFormWrapper>
+          <SignUpTitle>
+            이메일과 비밀번호를
+            <br />
+            입력해주세요.
+          </SignUpTitle>
+          <TextInput
+            name="이메일"
+            placeholder="이메일 주소"
+            inputType="email"
+            value={email}
+            onChange={(value: string) => setEmail(value)}
+          />
+          <ErrorMessage message={emailErrorMessage} clearMessage={() => setEmailErrorMessage('')} />
 
-        <TextInput
-          name="비밀번호"
-          placeholder="8~16자의 영문, 숫자를 사용해 주세요."
-          inputType="password"
-          value={password}
-          onChange={(value: string) => setPassword(value)}
-        />
-        <ErrorMessage
-          message={passwordErrorMessage}
-          clearMessage={() => setPasswordErrorMessage('')}
-        />
+          <TextInput
+            name="비밀번호"
+            placeholder="8~16자의 영문, 숫자를 사용해 주세요."
+            inputType="password"
+            value={password}
+            onChange={(value: string) => setPassword(value)}
+          />
+          <ErrorMessage
+            message={passwordErrorMessage}
+            clearMessage={() => setPasswordErrorMessage('')}
+          />
 
-        <TextInput
-          name="비밀번호 확인"
-          placeholder="비밀번호 확인"
-          inputType="password"
-          value={confirmPassword}
-          onChange={(value: string) => setConfirmPassword(value)}
-        />
-        <ErrorMessage
-          message={confirmPasswordErrorMessage}
-          clearMessage={() => setConfirmPasswordErrorMessage('')}
-        />
+          <TextInput
+            name="비밀번호 확인"
+            placeholder="비밀번호 확인"
+            inputType="password"
+            value={confirmPassword}
+            onChange={(value: string) => setConfirmPassword(value)}
+          />
+          <ErrorMessage
+            message={confirmPasswordErrorMessage}
+            clearMessage={() => setConfirmPasswordErrorMessage('')}
+          />
 
-        <StyledSubmitButton>
-          {validateInputs() ? (
-            <Button type="enable" text="다음" to="" onClick={emailVerify} />
-          ) : (
-            <Button type="disable" text="다음" to="/" onClick={() => {}} />
-          )}
-        </StyledSubmitButton>
-      </InputFormWrapper>
-    </SignUpWrapper>
+          <StyledSubmitButton>
+            {validateInputs() ? (
+              <Button type="enable" text="다음" to="" onClick={emailVerify} />
+            ) : (
+              <Button type="disable" text="다음" to="/" onClick={() => {}} />
+            )}
+          </StyledSubmitButton>
+        </InputFormWrapper>
+      </SignUpWrapper>
+    </main>
   );
 }

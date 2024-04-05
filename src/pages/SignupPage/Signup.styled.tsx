@@ -2,7 +2,20 @@ import styled from 'styled-components';
 import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 export const SignUpWrapper = styled.div`
-  margin: 0 2.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @media screen and (min-width: 960px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 export const SignUpTitle = styled.p`
@@ -13,10 +26,13 @@ export const SignUpTitle = styled.p`
   padding-bottom: 1.3rem;
   color: var(--color-black);
   line-height: 1.3;
-  padding-left: 15px;
 `;
 
 export const StyledSubmitButton = styled(ButtonSubmitWrap)`
   position: absolute;
   top: 85%;
+  @media screen and (min-width: 960px) {
+    position: relative;
+    padding-top: 10rem;
+  }
 `;

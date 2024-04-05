@@ -1,17 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import moment from 'moment';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
 import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
 import TodoBox from '../../components/Common/TodoBox/TodoBox';
 import MainCard from '../../components/MainCard/MainCard';
+import WhiteLogo from '../../components/Icon/WhiteLogo';
+import ArrowIcon from '../../components/Icon/ArrowIcon';
+import ReactCalendar from '../../components/Calendar/ReactCalendar';
+import useCompleted from '../../hooks/useCompleted';
+import NavBar from '../../components/Common/NavBar/NavBar';
 
-export default function HomePage() {
+export default function HomePage({ isDesktop }: { isDesktop: boolean }) {
   const userAtom = useRecoilValue(UserAtom);
   const setFortuneData = useSetRecoilState(fortuneDataAtom);
   const navigate = useNavigate();
   const today = moment(new Date()).format('YYYY-MM-DD');
+  const { date, setDate, dataGroup } = useCompleted();
+  const [clickedDay, setClickedDay] = useState(today);
 
   // 오늘의 운세 api 호출
   useEffect(() => {
@@ -44,10 +51,38 @@ export default function HomePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userAtom, setFortuneData]);
 
-  return (
+  console.log('!!!!!!!!!!!!!!!,', clickedDay);
+  return isDesktop ? (
+    <main className="grid-layout">
+      <section className="wrap-info">
+        <WhiteLogo />
+        <p className="txt-info">
+          오늘의 운세를 통해 영감을 받고,
+          <br /> 할일을 같이 계획해봐요!
+        </p>
+        <Link to="/fortune" className="txt-link">
+          오늘의 운세 <ArrowIcon />
+        </Link>
+      </section>
+      <section>
+        <MainCard isDesktop={isDesktop} />
+        <TodoBox date={clickedDay} />
+      </section>
+      <section className="wrap-calendar">
+        {dataGroup && (
+          <ReactCalendar
+            value={date}
+            setValue={setDate}
+            isDesktop={isDesktop}
+            setIsDesktopClickedDay={setClickedDay}
+          />
+        )}
+      </section>
+    </main>
+  ) : (
     <main style={{ backgroundColor: 'var(--bg-color-main)' }}>
       <MainCard />
-      <TodoBox date={today} page="home" />
+      <TodoBox date={today} />
     </main>
   );
 }

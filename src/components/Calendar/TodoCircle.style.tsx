@@ -12,6 +12,10 @@ export const TodoCircle = styled.div`
   align-items: center;
   color: var(--color-primary);
   font-weight: 700;
+  font-size: 1rem;
+  @media screen and (min-width: 960px) {
+    margin-top: 0px;
+  }
 
   &.process {
     background-color: var(--color-white);

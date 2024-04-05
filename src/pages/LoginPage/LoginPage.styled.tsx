@@ -2,13 +2,20 @@ import styled from 'styled-components';
 import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 export const LoginWrapper = styled.div`
-  // margin: 0 auto;
-  // position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  // height: 100%;
+  @media screen and (min-width: 960px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
 `;
 
 export const LoginTitle = styled.p`
@@ -56,4 +63,8 @@ export const CheckBoxWrapper = styled.div`
 export const StyledSubmitButton = styled(ButtonSubmitWrap)`
   position: absolute;
   top: 85%;
+  @media screen and (min-width: 960px) {
+    position: relative;
+    padding-top: 10rem;
+  }
 `;

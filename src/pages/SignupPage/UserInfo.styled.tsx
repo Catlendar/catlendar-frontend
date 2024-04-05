@@ -1,8 +1,21 @@
 import styled from 'styled-components';
+import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 export const UserInfoWrapper = styled.div`
-  margin: 0 2.6rem;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @media screen and (min-width: 960px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 export const UserInfoTitle = styled.p`
@@ -14,9 +27,13 @@ export const UserInfoTitle = styled.p`
   line-height: 1.3;
 `;
 
-export const ButtonWrapper = styled.div`
-  padding-top: 7.7rem;
-  width: 33.9rem;
+export const ButtonWrapper = styled(ButtonSubmitWrap)`
+  position: absolute;
+  top: 85%;
+  @media screen and (min-width: 960px) {
+    position: relative;
+    padding-top: 10rem;
+  }
 `;
 
 export const BirthWrapper = styled.div`

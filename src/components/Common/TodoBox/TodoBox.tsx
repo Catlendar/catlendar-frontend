@@ -9,17 +9,11 @@ import TodoList from './TodoList/TodoList';
 import { UserAtom } from '../../../atom/UserAtom';
 import { tokenInstance } from '../../../api/Axios';
 import { TodoDataType, TodoListAtom } from '../../../atom/TodoListAtom';
-import { BookmarkListAtom } from '../../../atom/BookmarkListAtom';
 import { TodayTasksAtom } from '../../../atom/TodayTasksAtom';
 import { TodoModalOpenAtom } from '../../../atom/TodoModalOpenAtom';
 
-interface TodoBoxProps {
-  date: string;
-  page: string;
-}
-
 // <TodoBox date='today' or date={YYYY-MM-DD형식의 변수} />
-export default function TodoBox({ date, page }: TodoBoxProps) {
+export default function TodoBox({ date }: { date: string }) {
   // const location = useLocation();
   const today = moment(new Date()).format('YYYY-MM-DD');
   const userAtom = useRecoilValue(UserAtom);
@@ -74,7 +68,7 @@ export default function TodoBox({ date, page }: TodoBoxProps) {
   }, [todoListAtom]);
 
   return (
-    <TodoBoxWrapper page={page}>
+    <TodoBoxWrapper>
       <TodoHeader
         date={date}
         comletedTasks={todayTasksAtom.completedTasks}
