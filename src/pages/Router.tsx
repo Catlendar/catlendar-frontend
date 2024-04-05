@@ -68,7 +68,7 @@ export default function Router() {
                 ) : isLoggedIn ? (
                   <Layout
                     main={<HomePage isDesktop={isDesktop} />}
-                    navbar={!isDesktop ? <NavBar /> : null}
+                    navbar={<NavBar isDesktop={isDesktop} />}
                   />
                 ) : null}
               </>
@@ -86,7 +86,7 @@ export default function Router() {
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
               ) : isLoggedIn && !isDesktop ? (
-                <Layout main={<CalendarPage />} navbar={<NavBar />} />
+                <Layout main={<CalendarPage />} navbar={<NavBar isDesktop={isDesktop} />} />
               ) : isLoggedIn && isDesktop ? (
                 <Navigate to="/home" />
               ) : null}
@@ -140,7 +140,7 @@ export default function Router() {
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
               ) : isLoggedIn ? (
-                <Layout header={<Header title="" />} main={<ProfilePage />} navbar={<NavBar />} />
+                <Layout main={<ProfilePage />} navbar={<NavBar isDesktop={isDesktop} />} />
               ) : null}
             </>
           }
@@ -179,7 +179,11 @@ export default function Router() {
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
               ) : isLoggedIn ? (
-                <Layout main={<FortunePage />} navbar={<NavBar />} />
+                <Layout
+                  header={<Header title="오늘의 운세" isFortunePage />}
+                  main={<FortunePage />}
+                  navbar={<NavBar isDesktop={isDesktop} />}
+                />
               ) : // <>
               //   <FortunePage />
               //   <NavBar />

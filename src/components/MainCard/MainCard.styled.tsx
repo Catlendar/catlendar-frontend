@@ -4,17 +4,7 @@ import { Link } from 'react-router-dom';
 export const MainCardWrapper = styled.div`
   background-color: var(--bg-color-main);
   height: 20rem;
-  padding: 2rem 0;
-  @media screen and (min-height: 600px) {
-    height: 22rem;
-    padding: 6rem 0;
-  }
-  @media screen and (min-height: 900px) {
-    padding: 6rem 0 6.5rem 0;
-  }
-  @media screen and (min-height: 1024px) {
-    padding: 7rem 0 7.5rem 0;
-  }
+  padding: 6.5rem 0;
 `;
 
 export const CardContent = styled.div`
@@ -62,6 +52,7 @@ export const TextBox = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
+  padding-top: 0.5rem;
   display: flex;
   align-items: center;
   font-size: 1.4rem;

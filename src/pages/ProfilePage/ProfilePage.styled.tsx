@@ -24,6 +24,7 @@ export const ProfileTitle = styled.p`
   display: flex;
   justify-content: space-between;
   line-height: 2.6rem;
+  margin-top: 5.3rem;
 `;
 
 export const ProfileName = styled.p`
