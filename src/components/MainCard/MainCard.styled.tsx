@@ -64,7 +64,7 @@ export const StyledLink = styled(Link)`
   font-size: 1.4rem;
   color: #d5d4ff;
   text-decoration: none;
-
+  width: 10rem;
   img {
     margin-left: 1.3rem;
   }
