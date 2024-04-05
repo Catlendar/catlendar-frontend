@@ -2,14 +2,7 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { UserAtom } from '../../atom/UserAtom';
-import {
-  ProfileName,
-  ProfileTitle,
-  ProfileWrapper,
-  ProfileMain,
-  Gear,
-  ChartWrapper,
-} from './ProfilePage.styled';
+import { ProfileName, ProfileTitle, ProfileWrapper, ProfileMain, Gear } from './ProfilePage.styled';
 import { ChartComponent } from '../../components/Chart/ChartComponent';
 
 export default function ProfilePage() {
@@ -27,9 +20,7 @@ export default function ProfilePage() {
           {user.name}님, <br />
           오늘 하루는 어떠셨나요?
         </ProfileMain>
-        <ChartWrapper>
-          <ChartComponent />
-        </ChartWrapper>
+        <ChartComponent />
       </ProfileWrapper>
     </main>
   );

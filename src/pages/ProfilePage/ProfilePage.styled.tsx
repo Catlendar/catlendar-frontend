@@ -77,13 +77,3 @@ export const PwButtonWrapper = styled(ButtonSubmitWrap)`
     padding-top: 10rem;
   }
 `;
-export const ChartWrapper = styled.div`
-  // position: absolute;
-  // top: 85%;
-  @media screen and (min-width: 960px) {
-    // position: relative;
-    // padding-top: 10rem;
-    // width: 500px;
-    // transform: translate(-50%, -50%) scale(1);
-  }
-`;
