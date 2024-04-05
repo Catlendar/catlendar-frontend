@@ -7,7 +7,12 @@ import Button from '../../components/Common/Button/Button';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
 import SelectInput from '../../components/Common/TextInput/SelectInput';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
-import { ButtonWrapper, ProfileButtonWrapper, ProfileWrapper } from './ProfilePage.styled';
+import {
+  ButtonWrapper,
+  ProfileButtonWrapper,
+  ProfileWrapper,
+  BirthWrapper,
+} from './ProfilePage.styled';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
 import DatePickerComponent from '../../components/DatePicker/DatePicker';
@@ -82,26 +87,28 @@ export default function ProfileEditPage() {
             inputType="text"
             onChange={(value: string) => setName(value)}
           />
-          <div
+          {/* <div
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}
-          >
+          > */}
+          <BirthWrapper>
             <DatePickerComponent onDateSelect={handleDateSelect} />
             <SelectInput
               name="양력"
               options={BirthOption}
-              width={95}
+              width={9.5}
               initial={userAtom.calendarType}
               onChange={(value: string) => setCalendarType(value)}
             />
-          </div>
+          </BirthWrapper>
+          {/* </div> */}
           <SelectInput
             name="태어난 시간"
             options={BirthTimeOption}
-            width={340}
+            width={34}
             initial={userAtom.birthTime}
             onChange={(value: string) => setBirthTime(value)}
           />
