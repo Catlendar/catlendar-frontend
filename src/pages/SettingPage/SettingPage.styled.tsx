@@ -6,6 +6,9 @@ export const SettingUl = styled.ul`
     width: 100%;
     transform: scale(1.3);
   }
+  @media screen and (max-width: 960px) {
+    margin-top: 5.3rem;
+  }
 `;
 
 export const SettingLi = styled.li`
