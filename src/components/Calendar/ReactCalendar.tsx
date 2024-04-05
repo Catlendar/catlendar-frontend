@@ -12,6 +12,8 @@ import { TodoNumAtom } from '../../atom/TodoNumAtom';
 interface DateProps {
   value: Date;
   setValue: (value) => void;
+  isDesktop?: boolean;
+  setIsDesktopClickedDay?: (value) => void;
 }
 interface TodoItem {
   calendarId: string;
@@ -23,7 +25,12 @@ interface TodoItem {
   createDate: string;
 }
 
-export default function ReactCalendar({ value, setValue }: DateProps) {
+export default function ReactCalendar({
+  value,
+  setValue,
+  isDesktop,
+  setIsDesktopClickedDay,
+}: DateProps) {
   const userAtom = useRecoilValue(UserAtom);
   const todoNumAtom = useRecoilValue(TodoNumAtom);
   const navigate = useNavigate();
@@ -111,6 +118,7 @@ export default function ReactCalendar({ value, setValue }: DateProps) {
           onClickDay={(click) => {
             handleTodoBox();
             setClickedDay(moment(click).format('YYYY-MM-DD'));
+            setIsDesktopClickedDay?.(moment(click).format('YYYY-MM-DD'));
           }}
           tileContent={handleTileContent}
           onActiveStartDateChange={({ activeStartDate }) => {
@@ -118,7 +126,7 @@ export default function ReactCalendar({ value, setValue }: DateProps) {
             setClickedDay(moment(activeStartDate).format('YYYY-MM-DD'));
           }}
         />
-        {isTodoBox && <TodoBox date={clickedDay} page="calendar" />}
+        {isTodoBox && !isDesktop && <TodoBox date={clickedDay} />}
       </CalendarWrapper>
     </main>
   );

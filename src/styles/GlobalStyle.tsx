@@ -26,8 +26,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
 	body {
+	margin: 0 auto;
     font-family: var(--font-family);
-		background-color: #bdbdbd;
+	/* background-color: #bdbdbd; */
+	background-color: #fff;
 	} 
 
 	input, input::placeholder, button {
@@ -109,10 +111,10 @@ const GlobalStyle = createGlobalStyle`
     --color-todoCircle: #F4F4F4;
 	}
 	/*=============== Responsive ===============*/
-	body {
+	/* body {
 		margin: 0 auto;
 		background-color: #bdbdbd;
-	}
+	} */
 
 	/* Mobile */
 	@media screen and (min-width: 320px) {
@@ -121,17 +123,17 @@ const GlobalStyle = createGlobalStyle`
 			width: 100%;
 			min-height: 100vh;
 			margin: 0 auto;
-			background-color: var(--bg-color-gray);
+			/* background-color: var(--bg-color-gray); */
 		}
 	}
   	
 	/* Pc */
-	@media screen and (min-width: 96rem) {
+	@media screen and (min-width: 960px) {
 		#root {
-			height:100vh;
-			max-width:100vw;
+			height: 100vh;
+			max-width: 100vw;
 			margin: 0 auto;
-			background-color: skyblue;
+			// background-color: skyblue;
 		}
   }
 `;

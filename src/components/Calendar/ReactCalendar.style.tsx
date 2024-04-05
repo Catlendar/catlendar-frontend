@@ -8,6 +8,7 @@ export const CalendarWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: auto 0;
 `;
 
 export const StyleCalendar = styled(Calendar)`

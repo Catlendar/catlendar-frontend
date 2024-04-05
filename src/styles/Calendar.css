@@ -1,11 +1,12 @@
 .react-calendar {
   /* min-width: 320px;
   width: 100%; */
-  width: clamp(32rem, 100%, 43rem);
+  width: clamp(32rem, 100%, 60rem);
   background: white;
   border: none;
   font-family: var(--font-family);
   line-height: 1.125em;
+	
 }
 
 /* .react-calendar--doubleView {
