@@ -28,8 +28,10 @@ export const UserInfoTitle = styled.p`
 `;
 
 export const ButtonWrapper = styled(ButtonSubmitWrap)`
-  position: absolute;
-  top: 85%;
+  // position: absolute;
+  // top: 85%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   @media screen and (min-width: 960px) {
     position: relative;
     padding-top: 10rem;
@@ -38,4 +40,7 @@ export const ButtonWrapper = styled(ButtonSubmitWrap)`
 
 export const BirthWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 `;

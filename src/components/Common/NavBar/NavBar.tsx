@@ -23,7 +23,12 @@ export default function NavBar({ isDesktop }: { isDesktop: boolean }) {
     window.location.reload();
   };
   if (isDesktop) {
-    if (pathname === '/home' || pathname === '/fortune' || pathname === '/profile') {
+    if (
+      pathname === '/home' ||
+      pathname === '/fortune' ||
+      pathname === '/profile' ||
+      pathname === '/'
+    ) {
       return (
         <nav className="nav-wrapper">
           <Link to="/home">

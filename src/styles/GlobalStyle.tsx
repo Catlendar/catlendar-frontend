@@ -135,7 +135,18 @@ const GlobalStyle = createGlobalStyle`
 			margin: 0 auto;
 			// background-color: skyblue;
 		}
-  }
+  	}
+	/* Pc */
+	@media screen and (min-width: 1900px) {
+		html {
+			font-size: 14px;
+			}
+  	}
+  	@media screen and (min-width: 2560px) {
+		html {
+			font-size: 14px;
+			}
+  	}
 `;
 
 export default GlobalStyle;
