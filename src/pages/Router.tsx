@@ -126,9 +126,11 @@ export default function Router() {
             <>
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
-              ) : isLoggedIn ? (
+              ) : isLoggedIn && isDesktop ? (
+                <Navigate to="/profile" />
+              ) : (
                 <Layout header={<Header title="설정" />} main={<SettingPage />} />
-              ) : null}
+              )}
             </>
           }
         />
@@ -140,7 +142,10 @@ export default function Router() {
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
               ) : isLoggedIn ? (
-                <Layout main={<ProfilePage />} navbar={<NavBar isDesktop={isDesktop} />} />
+                <Layout
+                  main={<ProfilePage isDesktop={isDesktop} />}
+                  navbar={<NavBar isDesktop={isDesktop} />}
+                />
               ) : null}
             </>
           }
