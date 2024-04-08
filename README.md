@@ -83,7 +83,7 @@ PW: qwer1234!
   <img src="https://img.shields.io/badge/Recoil-grey?style=for-the-badge&logo=Recoil&logoColor=3578E5"/>
   <img src="https://img.shields.io/badge/styled components-grey?style=for-the-badge&logo=styled-components&logoColor=DB7093"/>
   <img src="https://img.shields.io/badge/axios-grey?style=for-the-badge&logo=axios&logoColor=f7df1e"/>
-  <img src="https://img.shields.io/badge/axios-grey?style=for-the-badge&logo=react-query&logoColor=f7df1e"/>
+  <img src="https://img.shields.io/badge/React Query-grey?style=for-the-badge&logo=react-query&logoColor=D1180B"/>
   <img src="https://img.shields.io/badge/netlify-grey?style=for-the-badge&logo=netlify&logoColor=00C7B7"/>
 </div>
 
