@@ -29,8 +29,10 @@ export const SignUpTitle = styled.p`
 `;
 
 export const StyledSubmitButton = styled(ButtonSubmitWrap)`
-  position: absolute;
-  top: 85%;
+  // position: absolute;
+  // top: 85%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   @media screen and (min-width: 960px) {
     position: relative;
     padding-top: 10rem;
