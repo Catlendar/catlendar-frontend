@@ -36,16 +36,14 @@ PW: qwer1234!
 
 ## 3. 역할 분담
 
-
-| 이름   | 내용                                                                                                                                                                                                                                                                                                |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 공통   | - 주제 선정, 기술 스택 및 협업툴 선정                                                                                                                                                                                                                                                               |
-| 최지완 | - AWS EC2서버 증설 및 운영체제 설정 </br> - 데이터베이스 설계 및 구축 </br> - RESTful API 설계 및 개발 </br>- spring security 인증 및 보안 기능 구현 </br> - Axios 라이브러리 설치, API 호출 및 로직 구성 </br> - Recoil 라이브러리 사용, 상태 관리 구현 </br> - API 문서화 작성</br> - 회의록 작성 |
-| 김소리 | - react-calendar 라이브러리로 일정 관리 컴포넌트 및 기능 구현 </br> - Chart.js를 통한 일정 관리 시각화로 사용자 경험 개선 </br>  - 반응형 레이아웃(모바일, 데스크탑) 구현으로 서비스 리팩토링 </br> - 웹 접근성 및 SEO 개선                                                                                                                                                                      |
-| 류경민 | - Figma UI 디자인 및 이미지 작업 </br> - 운세 API 연동                                                                                                                                                                                                                                              |
-| 장성우 | - 성능 개선 리팩토링 및 반응형 구현 </br> - 웹접근성 문제 해결      
+| 이름 | 내용 |
+|---|---|
+| 공통 |  - 주제 선정, 기술 스택 및 협업툴 선정
+| 최지완 | - AWS EC2서버 증설 및 운영체제 설정 </br> - 데이터베이스 설계 및 구축 </br> - RESTful API 설계 및 개발 </br>- spring security 인증 및 보안 기능 구현 </br> - Axios 라이브러리 설치, API 호출 및 로직 구성 </br> - Recoil 라이브러리 사용, 상태 관리 구현 </br> - API 문서화 작성</br> - 회의록 작성|
+| 김소리 | - react-calendar 라이브러리로 일정 관리 컴포넌트 및 기능 구현 </br> - Chart.js를 통한 일정 관리 시각화로 사용자 경험 개선 </br>  - 반응형 레이아웃(모바일, 데스크탑) 구현으로 서비스 리팩토링 </br> - 웹 접근성 및 SEO 개선    
+| 류경민 | - Figma UI 디자인 및 이미지 작업  </br> - 운세 API 연동|
+| 장성우 | - 성능 개선 리팩토링 및 반응형 구현  </br> - 웹접근성 문제 해결   | 
 | 한동수 | - Figma 작업 </br> - 프로필, 설정, 회원정보 수정 페이지 화면 구현 및 기능 작업 </br> - Chart.js 라이브러리로 주차별 완료율 확인 기능 구현 </br> - React-Query를 사용하여 서버와의 통신에서 사용자 경험을 높임 </br> - 성능 개선 리팩토링 및 반응형 구현 </br> - Recoil 전역 상태관리 사용   | 
-
 
 <br/>
 
@@ -85,6 +83,7 @@ PW: qwer1234!
   <img src="https://img.shields.io/badge/Recoil-grey?style=for-the-badge&logo=Recoil&logoColor=3578E5"/>
   <img src="https://img.shields.io/badge/styled components-grey?style=for-the-badge&logo=styled-components&logoColor=DB7093"/>
   <img src="https://img.shields.io/badge/axios-grey?style=for-the-badge&logo=axios&logoColor=f7df1e"/>
+  <img src="https://img.shields.io/badge/axios-grey?style=for-the-badge&logo=react-query&logoColor=f7df1e"/>
   <img src="https://img.shields.io/badge/netlify-grey?style=for-the-badge&logo=netlify&logoColor=00C7B7"/>
 </div>
 
@@ -234,6 +233,8 @@ Netlify는 기본적으로 HTTPS를 사용하지만, AWS서버는 SSL 인증을 
 이에, 로컬 환경에서는 기존 서버 URL을 사용하고, Netlify 배포 환경에서는 baseURL에 API를 지정하여 public/_redirects에서 **프록시를 통해 요청을 보내는 방식**으로 문제를 해결했습니다.
 
 👉 [참고 사이트](https://velog.io/@jiheon788/Netlify%EC%97%90%EC%84%9C-HTTPS-HTTP-%ED%86%B5%EC%8B%A0-%ED%95%B4%EA%B2%B0-%EA%B3%BC%EC%A0%95)
+
+</br>
 
 ### 2. **모바일, 데스크탑에 따라 /calendar 페이지 유무가 결정되도록 디자인 되어 단순히 media query로 해결이 불가능**
 기존의 모바일 중심 개발에서 반응형 레이아웃으로 개선하면서, 화면 크기에 따라 다른 라우터와 컴포넌트들을 표시해야 했습니다. 
