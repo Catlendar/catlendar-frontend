@@ -26,25 +26,27 @@ export default function SettingPage() {
   };
 
   return (
-    <ProfileWrapper>
-      <SettingUl>
-        {buttonActions.map(({ text, path }) => (
-          <SettingLi key={text}>
-            <SettingBtn onClick={() => navigate(path)}>{text}</SettingBtn>
+    <main>
+      <ProfileWrapper>
+        <SettingUl>
+          {buttonActions.map(({ text, path }) => (
+            <SettingLi key={text}>
+              <SettingBtn onClick={() => navigate(path)}>{text}</SettingBtn>
+            </SettingLi>
+          ))}
+          <SettingLi>
+            <SettingBtn onClick={handleLogout}>로그아웃</SettingBtn>
           </SettingLi>
-        ))}
-        <SettingLi>
-          <SettingBtn onClick={handleLogout}>로그아웃</SettingBtn>
-        </SettingLi>
-        <SettingLi>
-          <DeleteBtn onClick={handleWithdraw}>회원 탈퇴</DeleteBtn>
-        </SettingLi>
-      </SettingUl>
-      {modal && (
-        <ModalBackground>
-          <WithdrawModal onClose={() => setModal(false)} />
-        </ModalBackground>
-      )}
-    </ProfileWrapper>
+          <SettingLi>
+            <DeleteBtn onClick={handleWithdraw}>회원 탈퇴</DeleteBtn>
+          </SettingLi>
+        </SettingUl>
+        {modal && (
+          <ModalBackground>
+            <WithdrawModal onClose={() => setModal(false)} />
+          </ModalBackground>
+        )}
+      </ProfileWrapper>
+    </main>
   );
 }

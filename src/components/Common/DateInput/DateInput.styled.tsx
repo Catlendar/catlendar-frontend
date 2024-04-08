@@ -15,9 +15,9 @@ const commonInputStyle = css<InputProps>`
   color: var(--color-black);
 
   padding-bottom: 1rem;
-  margin-right: 1.8rem;
+  // margin-right: 1.8rem;
   margin-top: 1.1rem;
-  width: ${(props) => (props.width ? `${props.width}px` : '22rem')};
+  width: ${(props) => (props.width ? `${props.width}rem` : '22rem')};
   font-size: var(--large-font-size);
 
   &::placeholder {
@@ -27,7 +27,7 @@ const commonInputStyle = css<InputProps>`
   ${({ form }) =>
     !form &&
     css`
-      width: 80%;
+      width: 100%;
       font-size: var(--small-font-size);
     `}
 

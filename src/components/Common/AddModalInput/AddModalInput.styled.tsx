@@ -20,6 +20,7 @@ export const AddInput = styled.input`
   box-sizing: border-box;
   padding-left: 2rem;
   padding-right: 0.4rem;
+  border: 1px solid var(--bg-color-main);
 `;
 
 export const ModalAddButton = styled.button`
@@ -29,10 +30,12 @@ export const ModalAddButton = styled.button`
   right: 0;
   transform: translateY(-50%);
   cursor: pointer;
-  padding: 0.12rem;
+  padding: 1.2rem;
+  height: 20px;
+  width: 20px;
   background-image: url(${IconArrowUp});
   background-position: center;
-  margin-right: 0.12rem;
+  margin-right: 1.2rem;
   background-color: var(--bg-color-main);
   animation: opa 0.3s ease-in-out;
 

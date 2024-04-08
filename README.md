@@ -1,12 +1,12 @@
 <h1 align="">Catlendar</h1>
 
-
 ### 배포 링크
+
 👉 [Catlendar 바로가기](https://catlendar.netlify.app/)
 </br>
 
-
 ### 테스트 계정
+
 ```
 ID: catlendar@admin.com
 PW: qwer1234!
@@ -21,17 +21,18 @@ PW: qwer1234!
 [API명세서](https://www.notion.so/catlendar/API-dbfb31c8c5764a90bf1636d588ec77d2)
 </br>
 ## 1. 서비스 소개
+
 캣린더(Catlendar)는 고양이를 테마로 한 투두 리스트 및 일정 관리 앱으로,<br> 사용자들에게 <b>운세를 통한 영감</b>과 <b>긍정적인 목표 설정</b>을 돕는 데 중점을 둔 서비스입니다.
 
 </br>
 
 ## 2. 팀 소개
-| [🔗 팀장 최지완](https://github.com/jiwanchoi) | [🔗 김소리](https://github.com/sorikikikim) | [🔗 류경민](https://github.com/kmryuuu) | [🔗 장성우](https://github.com/swJaNG12) | [🔗 한동수](https://github.com/handongsu) |
-| :---: | :---: | :---: | :---: | :---: |
+
+|           [🔗 팀장 최지완](https://github.com/jiwanchoi)           |            [🔗 김소리](https://github.com/sorikikikim)             |                                       [🔗 류경민](https://github.com/kmryuuu)                                        |              [🔗 장성우](https://github.com/swJaNG12)               |              [🔗 한동수](https://github.com/handongsu)              |
+| :----------------------------------------------------------------: | :----------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/u/54405518?v=4" /> | <img src="https://avatars.githubusercontent.com/u/73383923?v=4" /> | <img src="https://avatars.githubusercontent.com/u/138556024?s=400&u=c59a7dfd776d2944acc017d76dcbeed71d1174bf&v=4" /> | <img src="https://avatars.githubusercontent.com/u/123090529?v=4" /> | <img src="https://avatars.githubusercontent.com/u/105100402?v=4" /> |
+
 <br/>
-
-
 
 ## 3. 역할 분담
 
@@ -39,21 +40,21 @@ PW: qwer1234!
 |---|---|
 | 공통 |  - 주제 선정, 기술 스택 및 협업툴 선정
 | 최지완 | - AWS EC2서버 증설 및 운영체제 설정 </br> - 데이터베이스 설계 및 구축 </br> - RESTful API 설계 및 개발 </br>- spring security 인증 및 보안 기능 구현 </br> - Axios 라이브러리 설치, API 호출 및 로직 구성 </br> - Recoil 라이브러리 사용, 상태 관리 구현 </br> - API 문서화 작성</br> - 회의록 작성|
-| 김소리 | - react-calendar 라이브러리로 일정 컴포넌트 및 기능 구현     </br> - 성능 개선 리팩토링 및 반응형 구현    </br> - 웹 접근성 문제 해결 |
+| 김소리 | - react-calendar 라이브러리로 일정 관리 컴포넌트 및 기능 구현 </br> - Chart.js를 통한 일정 관리 시각화로 사용자 경험 개선 </br>  - 반응형 레이아웃(모바일, 데스크탑) 구현으로 서비스 리팩토링 </br> - 웹 접근성 및 SEO 개선    
 | 류경민 | - Figma UI 디자인 및 이미지 작업  </br> - 운세 API 연동|
-| 장성우 | - 성능 개선 리팩토링 및 반응형 구현      </br> - 웹접근성 문제 해결   | 
+| 장성우 | - 성능 개선 리팩토링 및 반응형 구현  </br> - 웹접근성 문제 해결   | 
 | 한동수 | - Figma 작업 </br> - 프로필, 설정, 회원정보 수정 페이지 화면 구현 및 기능 작업 </br> - Chart.js 라이브러리로 주차별 완료율 확인 기능 구현 </br> - React-Query를 사용하여 서버와의 통신에서 사용자 경험을 높임 </br> - 성능 개선 리팩토링 및 반응형 구현 </br> - Recoil 전역 상태관리 사용   | 
 
 <br/>
 
 ## 4. 개발 기간 (24.01.26 ~ 진행중)
 
-| 주차  |  FRONT  |  BACK  |
-| ----- | ------------------- | ------------------- |
-| 1-2주차 | - 주제 선정, 기술 스택 및 협업툴 선정, 컨벤션 정리 </br> - Figma UI 디자인 작업, 기능 요구사항 명세| - AWS EC2서버 증설 및 운영체제 설정 </br> - 데이터베이스 설계 및 구축  </br> - RESTful API 설계 및 개발|
-| 3-4주차 | - 페이지별 UI, 컴포넌트 기능 구현    </br> - API 연동 구현 | - 인증 및 보안 기능 구현 </br> - API 문서화 작성 </br> - 외부 서비스와의 통신을 위한 API 연동|
-| 5-6주차 | - 기능별 테스트 후 테스트 케이스 작성 및 보완  </br> - 에러 공유 및 해결 | - 에러 핸들링 및 디버깅 </br> - 성능 최적화|
-| 7-8주차 | - 성능 개선 리팩토링 및 반응형 구현      </br> - 웹접근성 문제 해결   | |
+| 주차    | FRONT                                                                                               | BACK                                                                                                   |
+| ------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| 1-2주차 | - 주제 선정, 기술 스택 및 협업툴 선정, 컨벤션 정리 </br> - Figma UI 디자인 작업, 기능 요구사항 명세 | - AWS EC2서버 증설 및 운영체제 설정 </br> - 데이터베이스 설계 및 구축 </br> - RESTful API 설계 및 개발 |
+| 3-4주차 | - 페이지별 UI, 컴포넌트 기능 구현 </br> - API 연동 구현                                             | - 인증 및 보안 기능 구현 </br> - API 문서화 작성 </br> - 외부 서비스와의 통신을 위한 API 연동          |
+| 5-6주차 | - 기능별 테스트 후 테스트 케이스 작성 및 보완 </br> - 에러 공유 및 해결                             | - 에러 핸들링 및 디버깅 </br> - 성능 최적화                                                            |
+| 7-8주차 | - 성능 개선 리팩토링 및 반응형 구현 </br> - 웹접근성 문제 해결                                      |                                                                                                        |
 
 </br>
 
@@ -71,7 +72,6 @@ PW: qwer1234!
 </br>
 </br>
 
-
 ## 6. 개발 환경
 
 ### 🛠 기술 스택
@@ -83,6 +83,7 @@ PW: qwer1234!
   <img src="https://img.shields.io/badge/Recoil-grey?style=for-the-badge&logo=Recoil&logoColor=3578E5"/>
   <img src="https://img.shields.io/badge/styled components-grey?style=for-the-badge&logo=styled-components&logoColor=DB7093"/>
   <img src="https://img.shields.io/badge/axios-grey?style=for-the-badge&logo=axios&logoColor=f7df1e"/>
+  <img src="https://img.shields.io/badge/axios-grey?style=for-the-badge&logo=react-query&logoColor=f7df1e"/>
   <img src="https://img.shields.io/badge/netlify-grey?style=for-the-badge&logo=netlify&logoColor=00C7B7"/>
 </div>
 
@@ -97,6 +98,7 @@ PW: qwer1234!
 </br>
 
 기술 스택 상세 정보
+
 ```
   - Cloud
   서비스: AWS
@@ -126,28 +128,29 @@ PW: qwer1234!
 ### 📋 컨벤션
 
 ### 규칙
-| 구분                | 내용                                                                                  |
-| :------------------ | :----------------------------------------------------------------------------------------- |
-| BACK           |   - 데이터베이스 테이블과 컬럼명은 스네이크 케이스를 사용</br>- 클래스명, 메소드명은 카멜 케이스를 따르며, 변수명은 소문자로 시작하여 카멜 케이스를 사용</br>- 스네이크 케이스 작성의 번거로움을 방지하기 위해 mybatis mapUnderscoreToCamelCase 세팅 필요</br> - 구현한 기능에 대해서는 주석 작성                                                                    |
-| FRONT           | - 브랜치 네이밍 규칙 준수 및 Pull Request 커밋 목적 설명을 위한 이모지 사용</br>- Styled-components 컨벤션 준수, 컴포넌트 및 스타일 네이밍 규칙 지정</br>- 구현한 기능에 대해서는 주석 작성                                                                     |
+
+| 구분  | 내용                                                                                                                                                                                                                                                                                            |
+| :---- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BACK  | - 데이터베이스 테이블과 컬럼명은 스네이크 케이스를 사용</br>- 클래스명, 메소드명은 카멜 케이스를 따르며, 변수명은 소문자로 시작하여 카멜 케이스를 사용</br>- 스네이크 케이스 작성의 번거로움을 방지하기 위해 mybatis mapUnderscoreToCamelCase 세팅 필요</br> - 구현한 기능에 대해서는 주석 작성 |
+| FRONT | - 브랜치 네이밍 규칙 준수 및 Pull Request 커밋 목적 설명을 위한 이모지 사용</br>- Styled-components 컨벤션 준수, 컴포넌트 및 스타일 네이밍 규칙 지정</br>- 구현한 기능에 대해서는 주석 작성                                                                                                     |
 
 </br>
 
 ### Commit
 
-| 제목                | 설명                                                                                       |
-| :------------------ | :----------------------------------------------------------------------------------------- |
-| ✨feat           | 기능 추가, 삭제, 변경                                                                      |
-| 🐛fix              | 버그, 오류 수정                                                                            |
-| 📝docs         | readme.md, json 파일 등 수정, 라이브러리 설치 (문서 관련, 코드 수정 없음)                  |
-| 🎨style        | CSS 등 사용자 UI 디자인 변경 (제품 코드 수정 발생, 코드 형식, 정렬 등의 변경) |
-| ♻️refactor       | 코드 리팩토링                                                                              |
-| ⚙️ Config         | npm 모듈 설치 등                                                               |
-| 🚚rename          | 파일 또는 폴더 명을 수정하거나 옮기는 작업만인 경우                                        |
-| 🗑remove          | 파일을 삭제하는 작업만 수행한 경우                                                         |
-| ✅Check           | 작업이 완료된 dev브랜치의 코드를 main브랜치로 머지                                                         |
-| 🔧perform | 작업이 완료된 dev브랜치의 코드를 main브랜치로 머지                                                                     |
-| 🚑 Closed          | 닫힌 pull request
+| 제목       | 설명                                                                          |
+| :--------- | :---------------------------------------------------------------------------- |
+| ✨feat     | 기능 추가, 삭제, 변경                                                         |
+| 🐛fix      | 버그, 오류 수정                                                               |
+| 📝docs     | readme.md, json 파일 등 수정, 라이브러리 설치 (문서 관련, 코드 수정 없음)     |
+| 🎨style    | CSS 등 사용자 UI 디자인 변경 (제품 코드 수정 발생, 코드 형식, 정렬 등의 변경) |
+| ♻️refactor | 코드 리팩토링                                                                 |
+| ⚙️ Config  | npm 모듈 설치 등                                                              |
+| 🚚rename   | 파일 또는 폴더 명을 수정하거나 옮기는 작업만인 경우                           |
+| 🗑remove   | 파일을 삭제하는 작업만 수행한 경우                                            |
+| ✅Check    | 작업이 완료된 dev브랜치의 코드를 main브랜치로 머지                            |
+| 🔧perform  | 작업이 완료된 dev브랜치의 코드를 main브랜치로 머지                            |
+| 🚑 Closed  | 닫힌 pull request                                                             |
 
 </br>
 
@@ -230,3 +233,80 @@ Netlify는 기본적으로 HTTPS를 사용하지만, AWS서버는 SSL 인증을 
 이에, 로컬 환경에서는 기존 서버 URL을 사용하고, Netlify 배포 환경에서는 baseURL에 API를 지정하여 public/_redirects에서 **프록시를 통해 요청을 보내는 방식**으로 문제를 해결했습니다.
 
 👉 [참고 사이트](https://velog.io/@jiheon788/Netlify%EC%97%90%EC%84%9C-HTTPS-HTTP-%ED%86%B5%EC%8B%A0-%ED%95%B4%EA%B2%B0-%EA%B3%BC%EC%A0%95)
+
+</br>
+
+### 2. **모바일, 데스크탑에 따라 /calendar 페이지 유무가 결정되도록 디자인 되어 단순히 media query로 해결이 불가능**
+기존의 모바일 중심 개발에서 반응형 레이아웃으로 개선하면서, 화면 크기에 따라 다른 라우터와 컴포넌트들을 표시해야 했습니다. 
+이를 CSS의 media query만으로 처리할 수 없어서, 라우트 컴포넌트에서 렌더링 할 컴포넌트들을 초기 처리를 한 뒤 각 컴포넌트들의 스타일에 대해 반응형 작업이 필요하다고 생각했습니다. <br />
+<br />
+따라서 저는 라우트 컴포넌트 내에서 useEffect 훅을 사용하여 window.innerWidth로 화면 크기 변화를 감지했으며, 데스크탑 여부를 flag로 주어 업데이트 했습니다. 컴포넌트가 마운트 해제되거나 업데이트되기 전 useEffect의 클린업 함수가 실행될 때, 창 크기 조정 이벤트 리스너를 제거하여 메모리 누수를 방지하였습니다.
+```
+export default function Router() {
+  // 내용에 해당하는 코드 외에는 생략하였습니다.
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 960) {
+        setIsDesktop(false);
+      } else {
+        setIsDesktop(true);
+      }
+    };
+    // 창 크기에 따라 isDesktop 결정
+    handleResize();
+    // 창 크기 조정 이벤트 수신
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      // 리턴되어 클린업 함수 호출 시(언마운트 혹은 업데이트 시), 이벤트 리스너 제거
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isDesktop]);
+```
+
+이 화면 크기 정보로 결정되는 isDesktop이라는 flag를 컴포넌트의 props로 전달하여 필요한 처리를 하였습니다. 이 값에 따라 컴포넌트 내에서 보여줄 컴포넌트 선별 및 스타일링을 했습니다.  
+```
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/landing" element={<Layout main={<LandingPage />} />} />
+        {['/', '/home'].map((path) => (
+          <Route
+            key={path}
+            path={path}
+            element={
+              <>
+                {isLoggedIn === '' ? (
+                  <Layout main={<LandingPage />} />
+                ) : isLoggedIn ? (
+                  // 컴포넌트에 isDesktop을 props로 넘겨줌
+                  <Layout
+                    main={<HomePage isDesktop={isDesktop} />}
+                    navbar={<NavBar isDesktop={isDesktop} />}
+                  />
+                ) : null}
+              </>
+            }
+          />
+        ))}
+        <Route
+          path="/calendar"
+          element={
+            <>
+              {isLoggedIn === '' ? (
+                <Layout main={<LandingPage />} />
+              ) : isLoggedIn && !isDesktop ? (
+                 // 컴포넌트에 isDesktop을 props로 넘겨줌
+                <Layout main={<CalendarPage />} navbar={<NavBar isDesktop={isDesktop} />} />
+              ) : isLoggedIn && isDesktop ? (
+                 // 데스크탑 사이즈인 경우 /calendar에서 /home으로 리다이렉트 되도록 설정
+                <Navigate to="/home" />
+              ) : null}
+            </>
+          }
+        />
+
+```
+ 이러한 접근 방식을 통해 화면 크기에 따라 적절한 라우팅 및 UI를 제공할 수 있었습니다.

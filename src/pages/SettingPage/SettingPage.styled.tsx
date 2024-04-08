@@ -1,7 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 
 export const SettingUl = styled.ul`
-  padding-top: 3rem;
+  width: 33.9rem;
+  @media screen and (min-width: 960px) {
+    width: 100%;
+    transform: scale(1.3);
+  }
+  @media screen and (max-width: 960px) {
+    margin-top: 5.3rem;
+  }
 `;
 
 export const SettingLi = styled.li`

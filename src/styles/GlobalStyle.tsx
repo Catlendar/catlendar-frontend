@@ -6,14 +6,6 @@ const GlobalStyle = createGlobalStyle`
 
 	/* Font */
 
-	/* @font-face {
-  font-family: 'omyu_pretty';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
-    format('woff2');
-  font-weight: normal;
-  font-style: normal;
-	} */
-
 	@font-face {
     font-family: 'SOYOMapleBoldTTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
@@ -34,8 +26,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
 	body {
+	margin: 0 auto;
     font-family: var(--font-family);
-		background-color: #bdbdbd;
+	/* background-color: #bdbdbd; */
+	background-color: #fff;
 	} 
 
 	input, input::placeholder, button {
@@ -117,66 +111,42 @@ const GlobalStyle = createGlobalStyle`
     --color-todoCircle: #F4F4F4;
 	}
 	/*=============== Responsive ===============*/
-	body {
+	/* body {
 		margin: 0 auto;
 		background-color: #bdbdbd;
-	}
+	} */
 
 	/* Mobile */
 	@media screen and (min-width: 320px) {
 		#root {
-			/* height:100vh; */
-			// min-height: calc(var(--vh, 1vh) * 100 + 7rem);
 			max-width: 43rem;
 			width: 100%;
 			min-height: 100vh;
-			// width:390px;
 			margin: 0 auto;
-			background-color: var(--bg-color-gray);
-			// box-shadow: rgba(100, 100, 100, 0.2) 0px 0px 29px 0px;
+			/* background-color: var(--bg-color-gray); */
 		}
 	}
-  
-	/* Mobile 작업 완료후, width값 %로 변경 예정 */
-	/* @media screen and (max-width: 767px) {
-		#root {
-			height:100vh;
-			width: 100%;
-			margin: 0 auto;
-			background-color: skyblue;
-		}
-	} */
-
-	/* 할 예정 */
-	/* Tablet */
-	/* @media screen and (min-width: 768px) {
+  	
+	/* Pc */
+	@media screen and (min-width: 960px) {
 		#root {
 			height: 100vh;
-			max-width: 768px;
+			max-width: 100vw;
 			margin: 0 auto;
-			background-color: skyblue;
+			// background-color: skyblue;
 		}
-	} */
-	
-	/* 할 예정 */
+  	}
 	/* Pc */
-	/* @media screen and (min-width: 1024px) {
-		#root {
-			height:100vh;
-			max-width:1024px;
-			margin: 0 auto;
-			background-color: skyblue;
-		}
-  }
-
-	// @media screen and (min-width: 1024px) {
-	// 	#root {
-	// 		height:100vh;
-	// 		max-width:1024px;
-	// 		margin: 0 auto;
-	// 		background-color: skyblue;
-	// 	}
-  /* } */
+	@media screen and (min-width: 1900px) {
+		html {
+			font-size: 14px;
+			}
+  	}
+  	@media screen and (min-width: 2560px) {
+		html {
+			font-size: 14px;
+			}
+  	}
 `;
 
 export default GlobalStyle;

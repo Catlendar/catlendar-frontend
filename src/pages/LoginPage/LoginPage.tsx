@@ -14,7 +14,6 @@ import Button from '../../components/Common/Button/Button';
 import { instance } from '../../api/Axios';
 import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage';
 import { UserAtom } from '../../atom/UserAtom';
-// import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 
 function LoginPage() {
   const [email, setEmail] = useState<string>('');
@@ -90,46 +89,48 @@ function LoginPage() {
     }
   };
   return (
-    <LoginWrapper>
-      <form onSubmit={handleFormSubmit}>
-        <LoginTitle>로그인</LoginTitle>
-        <TextInput
-          name=""
-          placeholder="이메일"
-          inputType="email"
-          value={email}
-          onChange={(value: string) => setEmail(value)}
-        />
-        <ErrorMessage message={emailErrorMessage} clearMessage={() => setEmailErrorMessage('')} />
-
-        <TextInput
-          name=""
-          placeholder="비밀번호"
-          inputType="password"
-          value={password}
-          onChange={(value: string) => setPassword(value)}
-        />
-        <ErrorMessage
-          message={passwordErrorMessage}
-          clearMessage={() => setPasswordErrorMessage('')}
-        />
-        <CheckBoxWrapper>
-          <CheckBoxInput
-            id="checkbox"
-            type="checkbox"
-            onChange={() => handleInputChange('check')}
+    <main>
+      <LoginWrapper>
+        <form onSubmit={handleFormSubmit}>
+          <LoginTitle>로그인</LoginTitle>
+          <TextInput
+            name=""
+            placeholder="이메일"
+            inputType="email"
+            value={email}
+            onChange={(value: string) => setEmail(value)}
           />
-          <label htmlFor="checkbox">캣린더 체험하기</label>
-        </CheckBoxWrapper>
-        <StyledSubmitButton>
-          {validateInputs() ? (
-            <Button type="enable" text="로그인" to="" onClick={() => {}} />
-          ) : (
-            <Button type="disable" text="로그인" to="/" onClick={() => {}} />
-          )}
-        </StyledSubmitButton>
-      </form>
-    </LoginWrapper>
+          <ErrorMessage message={emailErrorMessage} clearMessage={() => setEmailErrorMessage('')} />
+
+          <TextInput
+            name=""
+            placeholder="비밀번호"
+            inputType="password"
+            value={password}
+            onChange={(value: string) => setPassword(value)}
+          />
+          <ErrorMessage
+            message={passwordErrorMessage}
+            clearMessage={() => setPasswordErrorMessage('')}
+          />
+          <CheckBoxWrapper>
+            <CheckBoxInput
+              id="checkbox"
+              type="checkbox"
+              onChange={() => handleInputChange('check')}
+            />
+            <label htmlFor="checkbox">캣린더 체험하기</label>
+          </CheckBoxWrapper>
+          <StyledSubmitButton>
+            {validateInputs() ? (
+              <Button type="enable" text="로그인" to="" onClick={() => {}} />
+            ) : (
+              <Button type="disable" text="로그인" to="/" onClick={() => {}} />
+            )}
+          </StyledSubmitButton>
+        </form>
+      </LoginWrapper>
+    </main>
   );
 }
 

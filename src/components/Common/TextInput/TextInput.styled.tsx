@@ -10,11 +10,11 @@ interface InputProps {
 const commonInputStyle = css<InputProps>`
   width: 100%;
   border: none;
-  border-bottom: 1px solid var(--input-bb);
+  border-bottom: 0.1rem solid var(--input-bb);
   background: none;
   color: var(--color-black);
-  padding-bottom: 10px;
-  margin-top: 10px;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
   font-size: var(--large-font-size);
 
   &::placeholder {
@@ -30,24 +30,23 @@ const commonInputStyle = css<InputProps>`
 
   &:focus {
     outline: none;
-    border-bottom: 1px solid var(--bg-color-main);
+    border-bottom: 0.1rem solid var(--bg-color-main);
   }
 `;
 
 export const Input = styled.input<InputProps>`
   ${commonInputStyle}
-  /* width: 330px; */
-  width: ${(props) => (props.width ? `${props.width}px` : '330px')};
+  width: ${(props) => (props.width ? `${props.width}rem` : '33rem')};
   ${({ inputMode }) =>
     inputMode === 'reviseModal' &&
     css`
-      width: 260px;
+      width: 26rem;
     `}
 `;
 
 export const Selectt = styled.select<InputProps>`
   ${commonInputStyle}
-  width: ${(props) => (props.width ? `${props.width}px` : '100%')};
+  width: ${(props) => (props.width ? `${props.width}rem` : '100%')};
   font-size: var(--large-font-size);
 `;
 
@@ -72,5 +71,4 @@ export const InputFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 `;
