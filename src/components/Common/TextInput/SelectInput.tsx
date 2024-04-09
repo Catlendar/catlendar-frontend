@@ -50,6 +50,7 @@ export default function SelectInput({ options, name, width, onChange, initial }:
     singleValue: (provided) => ({
       ...provided,
       color: 'var(--color-black)',
+      height: '2.4rem',
     }),
   };
 
