@@ -29,7 +29,7 @@ export const CatImg = styled.img`
 `;
 
 export const FortuneContentBox = styled.div`
-  padding: 0 5rem 5rem 5rem;
+  padding: 0 5rem 10rem 5rem;
   background-color: var(--color-white);
 
   @media screen and (min-width: 960px) {
@@ -58,10 +58,6 @@ export const FortuneContent = styled.p`
   &::-webkit-scrollbar-thumb {
     background: #d9d9d9;
     border-radius: 0.2rem;
-  }
-
-  @media screen and (min-height: 600px) and (max-width: 800px) {
-    height: calc(100vh - 33rem);
   }
 `;
 
