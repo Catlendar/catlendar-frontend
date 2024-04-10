@@ -41,7 +41,7 @@ PW: qwer1234!
 | 공통 |  - 주제 선정, 기술 스택 및 협업툴 선정
 | 최지완 | - AWS EC2서버 증설 및 운영체제 설정 </br> - 데이터베이스 설계 및 구축 </br> - RESTful API 설계 및 개발 </br>- spring security 인증 및 보안 기능 구현 </br> - Axios 라이브러리 설치, API 호출 및 로직 구성 </br> - Recoil 라이브러리 사용, 상태 관리 구현 </br> - API 문서화 작성</br> - 회의록 작성|
 | 김소리 | - react-calendar 라이브러리로 일정 관리 컴포넌트 및 기능 구현 </br> - Chart.js를 통한 일정 관리 시각화로 사용자 경험 개선 </br>  - 반응형 레이아웃(모바일, 데스크탑) 구현으로 서비스 리팩토링 </br> - 웹 접근성 및 SEO 개선    
-| 류경민 | - Figma UI 디자인 및 이미지 작업  </br> - 운세 API 연동|
+| 류경민 | - Figma UI 디자인 및 이미지 작업  </br> - 운세 API 연동  </br> - Recoil을 사용하여 운세페이지 컴포넌트 구현  </br> - 운세 페이지 및 헤더 반응형 리팩토링|
 | 장성우 | - 성능 개선 리팩토링 및 반응형 구현  </br> - 웹접근성 문제 해결   | 
 | 한동수 | - Figma 작업 </br> - 프로필, 설정, 회원정보 수정 페이지 화면 구현 및 기능 작업 </br> - Chart.js 라이브러리로 주차별 완료율 확인 기능 구현 </br> - React-Query를 사용하여 서버와의 통신에서 사용자 경험을 높임 </br> - 성능 개선 리팩토링 및 반응형 구현 </br> - Recoil 전역 상태관리 사용   | 
 
@@ -310,3 +310,27 @@ export default function Router() {
 
 ```
  이러한 접근 방식을 통해 화면 크기에 따라 적절한 라우팅 및 UI를 제공할 수 있었습니다.
+
+</br>
+
+### 3. **Recoil 상태 초기화 문제 해결을 위한 recoil-persist 라이브러리 적용**
+
+운세 페이지에서는 Recoil을 사용하여 운세 데이터와 선택된 탭의 정보를 전역적으로 관리하고 있습니다. 
+그러나 Recoil을 적용한 후에 페이지를 새로고침할 때마다 운세 데이터가 초기화되는 문제가 발생했습니다. 
+이 문제를 해결하기 위해 recoil-persist 라이브러리를 적용했습니다.
+```
+import { atom } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
+
+const { persistAtom } = recoilPersist();
+```
+새로고침이 되어도 상태가 유지되도록 하기 위해, 해당 atom에 effects_UNSTABLE 속성을 추가하여 recoil-persist를 활성화하였습니다.
+```
+export const fortuneDataAtom = atom<fortuneDataAtom>({
+  key: 'fortuneData',
+  default: { fortuneTitle: '', fortuneDesc: [] },
+  effects_UNSTABLE: [persistAtom],
+});
+```
+이렇게 하면 Recoil이 페이지를 새로고침할 때 초기 상태를 가져와서 렌더링 하는 것이 아니라, 데이터를 Localstage에 저장하여 이전 상태를 복원합니다. 
+이를 통해 사용자가 페이지를 새로고침해도 운세 데이터가 유지될 수 있습니다.
