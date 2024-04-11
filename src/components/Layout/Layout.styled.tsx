@@ -21,6 +21,10 @@ export const LayoutWrapper = styled.div`
         gap: 20px;
         background-color: var(--bg-color-main);
         font-size: 2rem;
+        section {
+          width: 90%;
+        }
+        // place-items: center;
 
         .wrap-info {
           display: flex;
@@ -42,7 +46,7 @@ export const LayoutWrapper = styled.div`
           }
         }
         .wrap-calendar {
-          padding: 20px 20px 20px 0;
+          padding: 150px 20px 20px 0;
           main {
             border-radius: 2rem;
           }
