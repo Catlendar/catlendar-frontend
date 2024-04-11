@@ -96,7 +96,13 @@ export default function Router() {
 
         <Route
           path="/signup"
-          element={<Layout header={<Header title="" />} main={<SignupPage />} />}
+          element={
+            !isDesktop ? (
+              <Layout header={<Header title="" />} main={<SignupPage />} />
+            ) : (
+              <Layout main={<SignupPage />} />
+            )
+          }
         />
 
         <Route path="/signup/complete" element={<Layout main={<SignupCompletePage />} />} />
@@ -117,7 +123,13 @@ export default function Router() {
 
         <Route
           path="/login"
-          element={<Layout header={<Header title="" />} main={<LoginPage />} />}
+          element={
+            !isDesktop ? (
+              <Layout header={<Header title="" />} main={<LoginPage />} />
+            ) : (
+              <Layout main={<LoginPage />} />
+            )
+          }
         />
 
         <Route
@@ -156,8 +168,10 @@ export default function Router() {
             <>
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
-              ) : isLoggedIn ? (
+              ) : isLoggedIn && !isDesktop ? (
                 <Layout header={<Header title="정보 수정" />} main={<ProfileEditPage />} />
+              ) : isLoggedIn && isDesktop ? (
+                <Layout main={<ProfileEditPage />} />
               ) : null}
             </>
           }
@@ -169,8 +183,10 @@ export default function Router() {
             <>
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
-              ) : isLoggedIn ? (
+              ) : isLoggedIn && !isDesktop ? (
                 <Layout header={<Header title="비밀번호 변경" />} main={<EditPwPage />} />
+              ) : isLoggedIn && isDesktop ? (
+                <Layout main={<EditPwPage />} />
               ) : null}
             </>
           }
