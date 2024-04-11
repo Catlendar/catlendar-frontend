@@ -166,12 +166,14 @@ extends:
 rules:
 - 'react/jsx-filename-extension': JSX 문법을 사용하는 파일의 확장자로 .jsx 또는 .tsx만을 허용
 - 'react/react-in-jsx-scope': React17 이상에서 JSX를 사용할 때 React를 스코프에 포함할 필요가 없으므로 이 규칙을 비활성화
-- 'import/extensions': 모듈을 임포트할 때 확장자를 생략할 수 있도록 설정합니다.
+- 'react/require-default-props': 컴포넌트의 defaultProps 정의를 강제하지 않습니다.
+- 'import/extensions': import 문에서 파일 확장자를 명시하지 않아도 되도록 설정합니다. .js, .jsx, .ts, .tsx 확장자는 무시
 - '@typescript-eslint/no-inferrable-types': 타입 추론이 가능한 경우 명시적인 타입 선언을 금지
-- '@typescript-eslint/no-explicit-any': any 타입 사용을 금지
+- '@typescript-eslint/no-explicit-any': any 타입의 사용을 금지하지 않습니다.
 - '@typescript-eslint/no-unused-vars': 사용되지 않는 변수가 있을 경우 경고 발생
 - 'prefer-const': 재할당되지 않는 변수에 대해 const 사용을 권장
 - 'import/prefer-default-export': 단일 내보내기를 할 때 기본 내보내기를 사용하도록 강제하는 규칙 비활성화
+- 'import/no-unresolved': 해결되지 않는 import에 대한 경고를 비활성화
 
 settings:
 - 'import/resolver': 모듈 해석 방법을 정의. 여기서는 TypeScript 설정을 추가하여 ESLint가 TypeScript의 경로 및 별칭을 올바르게 해석할 수 있도록 설정
