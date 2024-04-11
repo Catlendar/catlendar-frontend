@@ -12,22 +12,23 @@ export const MenuSection = styled.section`
   gap: 8rem;
   color: var(--color-white);
 
-  p {
+  .menu_title {
     font-size: 3.6rem;
+    margin-bottom: 4rem;
   }
 
-  li {
+  .menu_li {
     font-size: 2.4rem;
+    color: var(--color-white);
+    button {
+      color: inherit;
+    }
   }
-  li:not(:last-child) {
+  .menu_li:not(:last-child) {
     margin-bottom: 2.6rem;
   }
   .menu-txt {
     text-decoration: none;
-    color: inherit;
-  }
-
-  button {
     color: inherit;
   }
 `;
@@ -112,7 +113,9 @@ export const ProfileMain = styled.p`
   @media screen and (min-width: 960px) {
     font-size: 2rem;
     padding: 3.5rem 0;
-    text-align: center;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
   }
 `;
 

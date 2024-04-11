@@ -38,29 +38,31 @@ export default function ProfilePage({ isDesktop }: { isDesktop: boolean }) {
     <main>
       <DesktopProfileWrapper>
         <MenuSection>
-          <p>마이페이지</p>
-          <ul>
-            <li>
-              <Link to="/editUser" className="menu-txt">
-                내 정보 수정
-              </Link>
-            </li>
-            <li>
-              <Link to="/editPassword" className="menu-txt">
-                비밀번호 변경
-              </Link>
-            </li>
-            <li>
-              <button onClick={handleLogout} type="button">
-                로그아웃
-              </button>
-            </li>
-            <li>
-              <button onClick={handleWithdraw} type="button">
-                회원 탈퇴
-              </button>
-            </li>
-          </ul>
+          <div className="MenuSection-menu_wrapper">
+            <p className="menu_title">마이페이지</p>
+            <ul className="menu_ul">
+              <li className="menu_li">
+                <Link to="/editUser" className="menu-txt">
+                  내 정보 수정
+                </Link>
+              </li>
+              <li className="menu_li">
+                <Link to="/editPassword" className="menu-txt">
+                  비밀번호 변경
+                </Link>
+              </li>
+              <li className="menu_li">
+                <button onClick={handleLogout} type="button">
+                  로그아웃
+                </button>
+              </li>
+              <li className="menu_li">
+                <button onClick={handleWithdraw} type="button">
+                  회원 탈퇴
+                </button>
+              </li>
+            </ul>
+          </div>
           {modal && (
             <ModalBackground>
               <WithdrawModal onClose={() => setModal(false)} />

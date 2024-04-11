@@ -5,6 +5,14 @@ export const MainCardWrapper = styled.div`
   background-color: var(--bg-color-main);
   height: 20rem;
   padding: 6.5rem 0;
+
+  @media screen and (min-height: 700px) {
+    margin: 1rem 0;
+  }
+
+  @media screen and (min-height: 900px) and (min-width: 960x) {
+    margin: 3rem 0;
+  }
 `;
 
 export const CardContent = styled.div`
@@ -31,6 +39,11 @@ export const ContentBox = styled.div`
     top: 50%;
     transform: translateY(-40%);
     right: 0;
+    width: 15.3rem;
+    height: auto;
+    @media screen and (min-width: 960px) and (max-width: 1200px) {
+      display: none;
+    }
   }
 `;
 

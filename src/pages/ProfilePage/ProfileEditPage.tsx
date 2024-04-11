@@ -7,16 +7,10 @@ import Button from '../../components/Common/Button/Button';
 import GenderButton from '../../components/Common/GenderButton/GenderButton';
 import SelectInput from '../../components/Common/TextInput/SelectInput';
 import { BirthOption, BirthTimeOption } from '../../components/Common/TextInput/SelectData';
-import {
-  ButtonWrapper,
-  ProfileButtonWrapper,
-  ProfileWrapper,
-  BirthWrapper,
-} from './ProfilePage.styled';
+import { ProfileButtonWrapper, ProfileWrapper, BirthWrapper } from './ProfilePage.styled';
 import { tokenInstance } from '../../api/Axios';
 import { UserAtom } from '../../atom/UserAtom';
 import DatePickerComponent from '../../components/DatePicker/DatePicker';
-import { ButtonSubmitWrap } from '../../components/Common/Button/Button.styled';
 import { InputFormWrapper } from '../../components/Common/TextInput/TextInput.styled';
 
 interface UserData {
@@ -59,6 +53,7 @@ export default function ProfileEditPage() {
       navigate('/home');
     },
     onError: (error) => {
+      // eslint-disable-next-line no-console
       console.error('onError', error);
       navigate('/error');
     },

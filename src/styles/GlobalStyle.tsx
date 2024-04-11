@@ -116,6 +116,15 @@ const GlobalStyle = createGlobalStyle`
 		background-color: #bdbdbd;
 	} */
 
+	body {
+		-ms-overflow-style: none; /* 인터넷 익스플로러 */
+		scrollbar-width: none; /* 파이어폭스 */
+
+		-webkit-scrollbar {
+			display: none;
+		}
+	}
+
 	/* Mobile */
 	@media screen and (min-width: 320px) {
 		#root {
@@ -126,7 +135,7 @@ const GlobalStyle = createGlobalStyle`
 			/* background-color: var(--bg-color-gray); */
 		}
 	}
-  	
+	
 	/* Pc */
 	@media screen and (min-width: 960px) {
 		#root {
@@ -135,18 +144,19 @@ const GlobalStyle = createGlobalStyle`
 			margin: 0 auto;
 			// background-color: skyblue;
 		}
-  	}
+  }
 	/* Pc */
 	@media screen and (min-width: 1900px) {
 		html {
 			font-size: 14px;
 			}
-  	}
-  	@media screen and (min-width: 2560px) {
+  }
+  
+	@media screen and (min-width: 2560px) {
 		html {
 			font-size: 14px;
 			}
-  	}
+  }
 `;
 
 export default GlobalStyle;
