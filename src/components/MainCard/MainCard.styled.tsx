@@ -39,6 +39,11 @@ export const ContentBox = styled.div`
     top: 50%;
     transform: translateY(-40%);
     right: 0;
+    width: 15.3rem;
+    height: auto;
+    @media screen and (min-width: 960px) and (max-width: 1200px) {
+      display: none;
+    }
   }
 `;
 
