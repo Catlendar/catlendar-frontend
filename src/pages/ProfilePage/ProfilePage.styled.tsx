@@ -19,16 +19,16 @@ export const MenuSection = styled.section`
 
   .menu_li {
     font-size: 2.4rem;
+    color: var(--color-white);
+    button {
+      color: inherit;
+    }
   }
   .menu_li:not(:last-child) {
     margin-bottom: 2.6rem;
   }
   .menu-txt {
     text-decoration: none;
-    color: inherit;
-  }
-
-  button {
     color: inherit;
   }
 `;
