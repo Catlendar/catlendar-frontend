@@ -10,7 +10,6 @@ import WhiteLogo from '../../components/Icon/WhiteLogo';
 import ArrowIcon from '../../components/Icon/ArrowIcon';
 import ReactCalendar from '../../components/Calendar/ReactCalendar';
 import useCompleted from '../../hooks/useCompleted';
-import NavBar from '../../components/Common/NavBar/NavBar';
 
 export default function HomePage({ isDesktop }: { isDesktop: boolean }) {
   const userAtom = useRecoilValue(UserAtom);
@@ -51,7 +50,6 @@ export default function HomePage({ isDesktop }: { isDesktop: boolean }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userAtom, setFortuneData]);
 
-  console.log('!!!!!!!!!!!!!!!,', clickedDay);
   return isDesktop ? (
     <main className="grid-layout">
       <section className="wrap-info">

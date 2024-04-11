@@ -36,6 +36,7 @@ export function ChartComponent() {
       },
       tooltip: {
         callbacks: {
+          // eslint-disable-next-line func-names
           label: function (context) {
             const value = context.raw;
             return `${value}% 완료`;
@@ -70,9 +71,9 @@ export function ChartComponent() {
 
   const labels = ['1주차', '2주차', '3주차', '4주차'];
 
-  const arr1 = Object.keys(todoNum).filter((item) => Number(item.split('-')[2]) <= 7); // 1~7
+  const arr1 = Object.keys(todoNum).filter((item) => Number(item.split('-')[2]) <= 7); // 1 ~ 7
   const arr2 = Object.keys(todoNum).filter(
-    (item) => Number(item.split('-')[2]) <= 14 && Number(item.split('-')[2]) >= 8, // 8~ 14
+    (item) => Number(item.split('-')[2]) <= 14 && Number(item.split('-')[2]) >= 8, // 8 ~ 14
   );
   const arr3 = Object.keys(todoNum).filter(
     (item) => Number(item.split('-')[2]) <= 21 && Number(item.split('-')[2]) >= 15, // 15 ~ 21

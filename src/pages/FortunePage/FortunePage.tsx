@@ -13,7 +13,6 @@ import {
   MoreButton,
 } from './FortunePage.styled';
 import { FortuneCatImg, fortuneCats } from './fortuneCats';
-import Header from '../../components/Common/Header/Header';
 import { TabDataFortune } from '../../components/Common/Tab/TabData';
 import Tab from '../../components/Common/Tab/Tab';
 

@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import IconArrowUp from '../../../assets/icons/icon-arrow-up.svg';
 
 export const AddInputWrapper = styled.div`
