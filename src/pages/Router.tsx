@@ -123,7 +123,13 @@ export default function Router() {
 
         <Route
           path="/login"
-          element={<Layout header={<Header title="" />} main={<LoginPage />} />}
+          element={
+            !isDesktop ? (
+              <Layout header={<Header title="" />} main={<LoginPage />} />
+            ) : (
+              <Layout main={<LoginPage />} />
+            )
+          }
         />
 
         <Route
@@ -179,7 +185,7 @@ export default function Router() {
                 <Layout main={<LandingPage />} />
               ) : isLoggedIn && !isDesktop ? (
                 <Layout header={<Header title="비밀번호 변경" />} main={<EditPwPage />} />
-              ) : isLoggedIn && !isDesktop ? (
+              ) : isLoggedIn && isDesktop ? (
                 <Layout main={<EditPwPage />} />
               ) : null}
             </>
