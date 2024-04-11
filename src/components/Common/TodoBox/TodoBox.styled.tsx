@@ -10,16 +10,25 @@ export const TodoBoxWrapper = styled.div`
   width: 100%;
   padding: 0 2.5rem 8rem;
 
-  @media screen and (min-height: 600px) {
-    height: calc(100vh - 35rem);
-  }
-  @media screen and (min-height: 900px) {
-    height: calc(100vh - 36rem);
-  }
-  @media screen and (min-height: 1024px) {
-    height: calc(100vh - 39rem);
+  @media screen and (max-width: 960px) {
+    @media screen and (min-height: 600px) {
+      height: calc(100vh - 35.5rem);
+    }
+    @media screen and (min-height: 900px) {
+      height: calc(100vh - 37rem);
+    }
+    @media screen and (min-height: 1024px) {
+      height: calc(100vh - 41rem);
+    }
   }
 
+  @media screen and (min-width: 960px) and (min-height: 800px) {
+    height: calc(100vh - 57rem);
+  }
+
+  @media screen and (min-width: 1900px) and (min-height: 1024px) {
+    height: calc(100vh - 51rem);
+  }
   // @media screen and (min-height: 600px) {
   //   height: calc(100vh - 21rem);
   // }
@@ -30,9 +39,6 @@ export const TodoBoxWrapper = styled.div`
   // @media screen and (min-height: 1024px) {
   //   height: calc(100vh - 39rem);
   // }
-
-  // 동작 안함..
-  // height: {(props) => props.location === 'calendar' && '10px'};
 
   /* TodoList 컴포넌트 세로 크기, 위치 조절 */
   div:last-child {

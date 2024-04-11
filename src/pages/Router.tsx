@@ -21,6 +21,7 @@ import NavBar from '../components/Common/NavBar/NavBar';
 import ProfilePage from './ProfilePage/ProfilePage';
 import { SignUpAtom } from '../atom/SignUpAtom';
 import Layout from '../components/Layout/Layout';
+import HeaderNavbar from '../components/Common/NavBar/HeaderNavbar';
 
 export default function Router() {
   const userState = useRecoilValue(UserAtom);
@@ -65,11 +66,10 @@ export default function Router() {
               <>
                 {isLoggedIn === '' ? (
                   <Layout main={<LandingPage />} />
-                ) : isLoggedIn ? (
-                  <Layout
-                    main={<HomePage isDesktop={isDesktop} />}
-                    navbar={<NavBar isDesktop={isDesktop} />}
-                  />
+                ) : isLoggedIn && !isDesktop ? (
+                  <Layout main={<HomePage isDesktop={isDesktop} />} navbar={<NavBar />} />
+                ) : isLoggedIn && isDesktop ? (
+                  <Layout header={<HeaderNavbar />} main={<HomePage isDesktop={isDesktop} />} />
                 ) : null}
               </>
             }
@@ -86,7 +86,7 @@ export default function Router() {
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
               ) : isLoggedIn && !isDesktop ? (
-                <Layout main={<CalendarPage />} navbar={<NavBar isDesktop={isDesktop} />} />
+                <Layout main={<CalendarPage />} navbar={<NavBar />} />
               ) : isLoggedIn && isDesktop ? (
                 <Navigate to="/home" />
               ) : null}
@@ -141,11 +141,10 @@ export default function Router() {
             <>
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
-              ) : isLoggedIn ? (
-                <Layout
-                  main={<ProfilePage isDesktop={isDesktop} />}
-                  navbar={<NavBar isDesktop={isDesktop} />}
-                />
+              ) : isLoggedIn && !isDesktop ? (
+                <Layout main={<ProfilePage isDesktop={isDesktop} />} navbar={<NavBar />} />
+              ) : isLoggedIn && isDesktop ? (
+                <Layout header={<HeaderNavbar />} main={<ProfilePage isDesktop={isDesktop} />} />
               ) : null}
             </>
           }
@@ -183,17 +182,15 @@ export default function Router() {
             <>
               {isLoggedIn === '' ? (
                 <Layout main={<LandingPage />} />
-              ) : isLoggedIn ? (
+              ) : isLoggedIn && !isDesktop ? (
                 <Layout
                   header={<Header title="오늘의 운세" isFortunePage />}
                   main={<FortunePage />}
-                  navbar={<NavBar isDesktop={isDesktop} />}
+                  navbar={<NavBar />}
                 />
-              ) : // <>
-              //   <FortunePage />
-              //   <NavBar />
-              // </>
-              null}
+              ) : isLoggedIn && isDesktop ? (
+                <Layout header={<HeaderNavbar />} main={<FortunePage />} />
+              ) : null}
             </>
           }
         />

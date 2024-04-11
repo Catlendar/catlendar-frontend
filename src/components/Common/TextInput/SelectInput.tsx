@@ -43,7 +43,7 @@ export default function SelectInput({ options, name, width, onChange, initial }:
       width: width ? `${width}rem` : '100%',
       backgroundColor: 'var(white)',
     }),
-    option: (provided, state) => ({
+    option: (provided) => ({
       ...provided,
       color: 'var(--color-black)',
     }),
