@@ -17,8 +17,8 @@ export default function UserInfoPage() {
   const [password, setPassword] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [birthDate, setBirthDate] = useState<string>('');
-  const [birthTime, setBirthTime] = useState<string>('');
-  const [calendarType, setCalendarType] = useState<string>('');
+  const [birthTime, setBirthTime] = useState<string>('모름');
+  const [calendarType, setCalendarType] = useState<string>('양력');
   const [gender, setGender] = useState<string>('');
   const signUpAtom = useRecoilValue(SignUpAtom);
   const navigate = useNavigate();

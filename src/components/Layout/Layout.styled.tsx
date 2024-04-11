@@ -11,7 +11,6 @@ export const LayoutWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    // align-items: center;
 
     @media screen and (min-width: 960px) {
       height: calc(100% - 100px);

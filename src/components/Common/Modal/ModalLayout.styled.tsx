@@ -84,6 +84,7 @@ export const ModalLayout = styled.div<ModalTypeProps>`
           h3 {
             font-size: var(--regular-font-size);
             padding: 2rem 0;
+            color: var(--color-black);
           }
           p {
             font-size: var(--small-font-size);
