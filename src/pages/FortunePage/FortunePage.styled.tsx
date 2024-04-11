@@ -5,7 +5,8 @@ export const FortuneWrapper = styled.div`
   height: 100vh;
 
   @media screen and (min-width: 960px) {
-    margin-top: 7rem;
+    height: calc(100% - 100px);
+    // margin-top: 7rem;
   }
 `;
 export const FortuneCardBox = styled.div`
