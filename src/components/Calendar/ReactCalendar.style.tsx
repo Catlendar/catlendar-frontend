@@ -19,7 +19,7 @@ export const StyleCalendar = styled(Calendar)`
     background: var(--color-white);
     border-bottom: 0.4rem solid var(--color-white);
     height: 4rem;
-    border-radius: 10x 10x 0 0;
+    border-radius: 10px;
     margin: 2rem;
     span {
       font-size: 1.5rem;

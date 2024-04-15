@@ -62,7 +62,7 @@ export default function HomePage({ isDesktop }: { isDesktop: boolean }) {
           오늘의 운세 <ArrowIcon />
         </Link>
       </section>
-      <section>
+      <section className="todo-card">
         <MainCard isDesktop={isDesktop} />
         <TodoBox date={clickedDay} />
       </section>

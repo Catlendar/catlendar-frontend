@@ -20,6 +20,13 @@ export const TodoListUl = styled.ul`
   li {
     font-size: var(--small-font-size);
     color: var(--input-bb);
+    padding-bottom: 1px;
+    @media screen and (max-width: 1035px) {
+      font-size: var(--tiny-font-size);
+    }
+    @media screen and (max-width: 959px) {
+      font-size: var(--small-font-size);
+    }
   }
   /* listItem의 마지막 요소만 제외하고 스타일 적용 */
   li:not(:last-child) {

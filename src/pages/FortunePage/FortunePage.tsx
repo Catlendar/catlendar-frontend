@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import parse from 'html-react-parser';
+// eslint-disable-next-line import/no-extraneous-dependencies
+// import { motion } from 'framer-motion';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { fortuneDataAtom, selectedTabAtom } from '../../atom/FortuneStateAtom';
 import { SelectTabTypeAtom } from '../../atom/SelectTabTypeAtom';
@@ -10,7 +12,6 @@ import {
   FortuneContentBox,
   FortuneTitle,
   FortuneContent,
-  MoreButton,
 } from './FortunePage.styled';
 import { FortuneCatImg, fortuneCats } from './fortuneCats';
 import { TabDataFortune } from '../../components/Common/Tab/TabData';
@@ -18,11 +19,17 @@ import Tab from '../../components/Common/Tab/Tab';
 
 export default function FortunePage() {
   const [currentImg, setCurrentImg] = useState<FortuneCatImg | undefined>(undefined);
-  const [isShowMoreMap, setIsShowMoreMap] = useState<{ [key: string]: boolean }>({});
-  const [textLimit, setTextLimit] = useState<number>(200);
+  // const [isShowMoreMap, setIsShowMoreMap] = useState<{ [key: string]: boolean }>({});
+  // const [textLimit, setTextLimit] = useState<number>(200);
   const [selectedTab, setSelectedTab] = useRecoilState(selectedTabAtom);
   const [selectedTabValue, setSelectedTabValue] = useRecoilState(SelectTabTypeAtom);
   const fortuneData = useRecoilValue(fortuneDataAtom);
+
+  const pageTransition = {
+    initial: { opacity: 0, x: -300 }, // 시작 상태
+    animate: { opacity: 1, x: 0 }, // 애니메이션 종료 상태
+    exit: { opacity: 0, x: 300 }, // 페이지가 사라질 때 상태
+  };
 
   useEffect(() => {
     const randomImgIndex = Math.floor(Math.random() * fortuneCats.length);

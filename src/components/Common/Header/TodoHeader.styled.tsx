@@ -12,12 +12,24 @@ export const TodoHeaderWrapper = styled.div`
 
 export const TaskTitle = styled.span`
   font-size: var(--regular-font-size);
-  margin-left: 2.2rem;
+  margin-left: 0.8rem;
+  @media screen and (max-width: 1160px) {
+    font-size: var(--xsmall-font-size);
+  }
+  @media screen and (max-width: 959px) {
+    font-size: var(--regular-font-size);
+  }
 `;
 
 export const CompletedTasks = styled.span`
   color: var(--text-color-theme);
   margin-left: 0.5rem;
+  @media screen and (max-width: 1160px) {
+    font-size: var(--xsmall-font-size);
+  }
+  @media screen and (max-width: 959px) {
+    font-size: var(--regular-font-size);
+  }
 `;
 
 export const AddButton = styled.button`
@@ -29,18 +41,24 @@ export const AddButton = styled.button`
   color: var(--text-color-main);
   border: none;
   background: none;
-  margin-right: 2.2rem;
+  margin-right: 1.2rem;
 
   &:hover span {
     color: #000;
   }
   span {
     transition: 0.3s;
+    @media screen and (max-width: 1054px) {
+      font-size: var(--tiny-font-size);
+    }
+    @media screen and (max-width: 959px) {
+      font-size: var(--xsmall-font-size);
+    }
   }
 `;
 
 export const AddIcon = styled.img`
   width: 1rem;
   height: 1rem;
-  margin-right: 0.9rem;
+  margin-right: 0.7rem;
 `;
