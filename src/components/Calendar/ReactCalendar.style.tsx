@@ -18,7 +18,7 @@ export const StyleCalendar = styled(Calendar)`
   .react-calendar__navigation {
     background-color: var(--color-white);
     height: 4rem;
-    border-radius: 10x 10x 0 0;
+    border-radius: 10px;
     margin: 2rem;
     span {
       font-size: 1.5rem;

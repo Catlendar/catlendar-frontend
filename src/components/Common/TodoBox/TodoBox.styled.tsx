@@ -8,23 +8,26 @@ export const TodoBoxWrapper = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  padding: 0 2.5rem 8rem;
+  padding: 0 2.5rem 4rem;
 
-  @media screen and (max-width: 960px) {
-    @media screen and (min-height: 600px) {
-      height: calc(100vh - 35.5rem);
-    }
-    @media screen and (min-height: 900px) {
+  @media screen and (min-width: 960px) {
+    min-height: 350px;
+    height: calc(100vh / 2);
+    width: 93%;
+    padding: 0 2.5rem 5rem;
+    /* @media screen and (min-height: 900px) {
       height: calc(100vh - 37rem);
+      width: 100%;
     }
     @media screen and (min-height: 1024px) {
       height: calc(100vh - 41rem);
-    }
+      width: 100%;
+    } */
   }
 
-  @media screen and (min-width: 960px) and (min-height: 800px) {
+  /* @media screen and (min-width: 960px) and (min-height: 800px) {
     height: calc(100vh - 57rem);
-  }
+  } */
 
   @media screen and (min-width: 1900px) and (min-height: 1024px) {
     height: calc(100vh - 51rem);

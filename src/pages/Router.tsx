@@ -2,6 +2,8 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
+// import { AnimatePresence } from 'framer-motion';
 import { useRecoilValue } from 'recoil';
 import { UserAtom } from '../atom/UserAtom';
 import HomePage from './HomePage/HomePage';
