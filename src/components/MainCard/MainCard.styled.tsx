@@ -6,12 +6,15 @@ export const MainCardWrapper = styled.div`
   height: 20rem;
   padding: 6.5rem 0;
 
-  @media screen and (min-height: 700px) {
+  /* @media screen and (min-height: 700px) {
     margin: 1rem 0;
-  }
+  } */
 
-  @media screen and (min-height: 900px) and (min-width: 960x) {
+  /* @media screen and (min-height: 900px) and (min-width: 960px) {
     margin: 3rem 0;
+  } */
+  @media screen and (min-width: 960px) {
+    padding: 0rem 0 2.5rem 0;
   }
 `;
 
@@ -19,7 +22,7 @@ export const CardContent = styled.div`
   margin: 0 2.6rem;
   color: var(--color-white);
   @media screen and (min-width: 960px) {
-    margin: 4rem 2.6rem 0 2.6rem;
+    margin: 4rem 3rem 0 0;
   }
 `;
 
@@ -41,7 +44,7 @@ export const ContentBox = styled.div`
     right: 0;
     width: 15.3rem;
     height: auto;
-    @media screen and (min-width: 960px) and (max-width: 1200px) {
+    @media screen and (min-width: 960px) and (max-width: 1100px) {
       display: none;
     }
   }
@@ -50,6 +53,9 @@ export const ContentBox = styled.div`
 export const UserName = styled.p`
   margin-bottom: 1.2rem;
   font-size: var(--small-font-size);
+  @media screen and (min-width: 1100px) {
+    font-size: var(--large-font-size);
+  }
 `;
 
 export const TodayFortune = styled.p`

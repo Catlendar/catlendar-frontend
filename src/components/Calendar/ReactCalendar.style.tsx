@@ -16,25 +16,60 @@ export const StyleCalendar = styled(Calendar)`
     border: none;
   }
   .react-calendar__navigation {
-    background: var(--color-white);
-    border-bottom: 0.4rem solid var(--color-white);
+    background-color: var(--color-white);
     height: 4rem;
-    border-radius: 10x 10x 0 0;
+    border-radius: 10px;
     margin: 2rem;
     span {
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 900;
       color: var(--color-black);
+    }
+
+    @media screen and (min-width: 960px) {
+      margin-top: -2rem;
+
+      @media screen and (min-height: 700px) and (max-height: 900px) {
+        margin-top: -3rem;
+        margin-bottom: 5rem;
+      }
+
+      @media screen and (min-height: 1080px) {
+        margin-top: 5rem;
+        margin-bottom: 7rem;
+      }
     }
   }
 
   .react-calendar__month-view {
     padding: 1rem 2rem;
+    margin: 2rem 0;
+
+    @media screen and (min-width: 960px) {
+      min-height: 300px;
+      height: calc(100vh / 2);
+      display: flex;
+      align-items: center;
+    }
+
+    @media screen and (min-width: 960px) {
+      @media screen and (min-height: 900px) {
+        margin-top: 2.5rem;
+        margin-bottom: 6rem;
+      }
+
+      @media screen and (min-height: 1080px) {
+        margin-top: 3rem;
+        margin-bottom: 8rem;
+      }
+    }
+
     abbr {
       font-size: 1.4rem;
-      font-weight: 500;
+      font-weight: 600;
     }
   }
+
   .react-calendar__navigation button {
     font-size: 2rem;
   }
@@ -52,9 +87,12 @@ export const StyleCalendar = styled(Calendar)`
   // 요일
   .react-calendar__month-view__weekdays {
     padding-bottom: 1rem;
+    @media screen and (min-width: 960px) {
+      padding: 0.5rem 0;
+    }
     abbr {
       font-size: 1.2rem;
-      font-weight: 500;
+      font-weight: 700;
       color: var(--color-gray);
       text-decoration: none;
     }
@@ -63,7 +101,18 @@ export const StyleCalendar = styled(Calendar)`
   // 일
   .react-calendar__tile {
     text-align: center;
+    margin-bottom: 0.5rem;
     height: 6rem;
+    @media screen and (min-width: 960px) {
+      height: 6.5rem;
+    }
+    @media screen and (max-height: 900px) {
+      height: 7.5rem;
+    }
+    @media screen and (min-height: 1080px) {
+      height: 7rem;
+      margin-bottom: 1rem;
+    }
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

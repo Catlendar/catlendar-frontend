@@ -24,7 +24,9 @@ export const LayoutWrapper = styled.div`
         section {
           width: 90%;
         }
-        // place-items: center;
+        @media screen and (min-width: 960px) {
+          place-items: center;
+        }
 
         .wrap-info {
           display: flex;
@@ -36,6 +38,7 @@ export const LayoutWrapper = styled.div`
             line-height: 1.4;
             margin: 2rem 0;
             color: #fff;
+            text-align: center;
           }
           .txt-link {
             text-decoration: none;
@@ -43,11 +46,24 @@ export const LayoutWrapper = styled.div`
             display: flex;
             align-items: center;
             font-size: 1.7rem;
+            transition: transform 0.5s ease-in-out;
+
+            &:hover .arrowIcon {
+              animation: move 0.7s ease-in-out infinite alternate;
+            }
+          }
+          @keyframes move {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(10px);
+            }
           }
         }
         .wrap-calendar {
-          padding: 150px 20px 20px 0;
           main {
+            height: fit-content;
             border-radius: 2rem;
           }
         }
@@ -90,15 +106,28 @@ export const LayoutWrapper = styled.div`
     display: flex;
 
     .btn-logo {
-      width: 10rem;
+      width: 12rem;
     }
 
     .btn-mypage {
-      width: 6rem;
+      width: 8rem;
     }
 
     .btn-logout {
-      width: 5rem;
+      width: 7rem;
     }
+    /* @media screen and (min-width: 1200px) {
+      .btn-logo {
+        width: 12rem;
+      }
+
+      .btn-mypage {
+        width: 8rem;
+      }
+
+      .btn-logout {
+        width: 7rem;
+      }
+    } */
   }
 `;

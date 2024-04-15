@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-// export const TodoBoxWrapper = styled.div`
 export const TodoBoxWrapper = styled.div`
   background-color: var(--bg-color-gray);
   border-radius: 2rem;
@@ -10,6 +9,12 @@ export const TodoBoxWrapper = styled.div`
   width: 100%;
   padding: 0 2.5rem 8rem;
 
+  @media screen and (min-width: 960px) {
+    min-height: 350px;
+    height: calc(100vh / 2);
+    width: 93%;
+    padding: 0 2.5rem 5rem;
+  }
   @media screen and (max-width: 960px) {
     @media screen and (min-height: 600px) {
       height: calc(100vh - 35.5rem);
@@ -22,23 +27,9 @@ export const TodoBoxWrapper = styled.div`
     }
   }
 
-  @media screen and (min-width: 960px) and (min-height: 800px) {
-    height: calc(100vh - 57rem);
-  }
-
   @media screen and (min-width: 1900px) and (min-height: 1024px) {
     height: calc(100vh - 51rem);
   }
-  // @media screen and (min-height: 600px) {
-  //   height: calc(100vh - 21rem);
-  // }
-
-  // @media screen and (min-height: 800px) {
-  //   height: calc(100vh - 41rem);
-  // }
-  // @media screen and (min-height: 1024px) {
-  //   height: calc(100vh - 39rem);
-  // }
 
   /* TodoList 컴포넌트 세로 크기, 위치 조절 */
   div:last-child {

@@ -7,14 +7,18 @@ export const MenuSection = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8rem;
   color: var(--color-white);
+
+  .MenuSection-menu_wrapper {
+    margin-left: 5rem;
+    padding-top: 10rem;
+    padding-bottom: 12rem;
+  }
 
   .menu_title {
     font-size: 3.6rem;
-    margin-bottom: 4rem;
+    margin-bottom: 10rem;
+    font-weight: bold;
   }
 
   .menu_li {
@@ -25,7 +29,7 @@ export const MenuSection = styled.section`
     }
   }
   .menu_li:not(:last-child) {
-    margin-bottom: 2.6rem;
+    margin-bottom: 5rem;
   }
   .menu-txt {
     text-decoration: none;
@@ -39,6 +43,9 @@ export const ChartSection = styled.section`
   justify-content: center;
   align-items: center;
   gap: 2rem;
+
+  /* border: 1px solid red; */
+  padding-bottom: 6rem;
 `;
 
 export const ChartTxtWrapper = styled.div`
