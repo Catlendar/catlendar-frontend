@@ -14,7 +14,7 @@ export const MainCardWrapper = styled.div`
     margin: 3rem 0;
   } */
   @media screen and (min-width: 960px) {
-    padding: 2.5rem 0 2.5rem 0;
+    padding: 0rem 0 2.5rem 0;
   }
 `;
 
