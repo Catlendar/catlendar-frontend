@@ -24,7 +24,9 @@ export const LayoutWrapper = styled.div`
         section {
           width: 90%;
         }
-        // place-items: center;
+        @media screen and (min-width: 960px) {
+          place-items: center;
+        }
 
         .wrap-info {
           display: flex;
@@ -46,8 +48,8 @@ export const LayoutWrapper = styled.div`
           }
         }
         .wrap-calendar {
-          padding: 150px 20px 20px 0;
           main {
+            height: fit-content;
             border-radius: 2rem;
           }
         }
