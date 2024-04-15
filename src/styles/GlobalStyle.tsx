@@ -149,13 +149,13 @@ const GlobalStyle = createGlobalStyle`
 	@media screen and (min-width: 1900px) {
 		html {
 			font-size: 14px;
-			}
+		}
   }
   
 	@media screen and (min-width: 2560px) {
 		html {
 			font-size: 14px;
-			}
+		}
   }
 `;
 

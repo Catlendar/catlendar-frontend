@@ -3,6 +3,7 @@ import checkImg from '../../assets/icons/icon-check.svg';
 
 export const TodoCircle = styled.div`
   background-color: var(--color-todoCircle);
+  border: 1rem solid var(--color-todoCircle);
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
@@ -14,7 +15,11 @@ export const TodoCircle = styled.div`
   font-weight: 700;
   font-size: 1rem;
   @media screen and (min-width: 960px) {
-    margin-top: 0px;
+    margin-top: 10px;
+  }
+
+  @media screen and (min-width: 1900px) {
+    margin-top: 10px;
   }
 
   &.process {
