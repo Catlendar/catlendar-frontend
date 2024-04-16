@@ -61,6 +61,11 @@ export const UserName = styled.p`
 export const TodayFortune = styled.p`
   line-height: 2.8rem;
   font-size: var(--h3-font-size);
+  button {
+    color: var(--color-white);
+    cursor: pointer;
+    font-family: var(--font-family-bold);
+  }
 `;
 
 export const TextBox = styled.div`
