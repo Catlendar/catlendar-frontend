@@ -42,7 +42,7 @@ PW: qwer1234!
 | 최지완 | - AWS EC2서버 증설 및 운영체제 설정 </br> - 데이터베이스 설계 및 구축 </br> - RESTful API 설계 및 개발 </br>- spring security 인증 및 보안 기능 구현 </br> - Axios 라이브러리 설치, API 호출 및 로직 구성 </br> - Recoil 라이브러리 사용, 상태 관리 구현 </br> - API 문서화 작성</br> - 회의록 작성|
 | 김소리 | - react-calendar 라이브러리로 일정 관리 컴포넌트 및 기능 구현 </br> - Chart.js를 통한 일정 관리 시각화로 사용자 경험 개선 </br>  - 반응형 레이아웃(모바일, 데스크탑) 구현으로 서비스 리팩토링 </br> - 웹 접근성 및 SEO 개선    
 | 류경민 | - Figma UI 디자인 및 이미지 작업  </br> - 운세 API 연동  </br> - Recoil을 사용하여 운세페이지 컴포넌트 구현  </br> - 운세 페이지 및 헤더 반응형 리팩토링|
-| 장성우 | - eslint, tsconfig, prettier 설정  </br> - UI 개발 효율성을 위해 자주 사용되는 색상, 폰트 크기를 CSS 변수로 정의 </br> - profile 페이지 반응형 작업 </br> - 전역 상태 관리: Recoil을 활용해 탭, 할 일 목록, 모달 상태를 전역으로 관리 </br> - 서버 상태 관리: Reqct-Query를 사용하여 서버의 즐겨찾기 데이터 관리 | 
+| 장성우 | - eslint, tsconfig, prettier 설정  </br> - UI 개발 효율성을 위해 자주 사용되는 색상, 폰트 크기를 CSS 변수로 정의 </br> - profile 페이지 반응형 작업 </br> - 전역 상태 관리: Recoil을 사용해 탭, 할 일 목록, 모달 상태를 전역으로 관리 </br> - 서버 상태 관리: Reqct-Query를 사용하여 서버의 즐겨찾기 데이터 관리 | 
 | 한동수 | - 프로필, 설정, 회원정보 수정 페이지 화면 구현 및 기능 작업 </br> - Chart.js 라이브러리로 주차별 완료율 확인 기능 구현 </br> - React-Query를 사용하여 서버와의 통신에서 사용자 경험을 높임 </br> - 성능 개선 리팩토링 및 반응형 구현 </br> - Recoil 전역 상태관리 사용   | 
 
 <br/>
@@ -336,3 +336,6 @@ export const fortuneDataAtom = atom<fortuneDataAtom>({
 ```
 이렇게 하면 Recoil이 페이지를 새로고침할 때 초기 상태를 가져와서 렌더링 하는 것이 아니라, 데이터를 Localstage에 저장하여 이전 상태를 복원합니다. 
 이를 통해 사용자가 페이지를 새로고침해도 운세 데이터가 유지될 수 있습니다.
+
+</br>
+
