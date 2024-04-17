@@ -7,13 +7,13 @@ export const LayoutWrapper = styled.div`
   flex-direction: column;
 
   main {
-    height: calc(100% - 7rem);
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
 
     @media screen and (min-width: 960px) {
-      height: calc(100% - 100px);
+      /* height: calc(100% - 100px); */
 
       &.grid-layout {
         display: grid;
@@ -21,8 +21,13 @@ export const LayoutWrapper = styled.div`
         gap: 20px;
         background-color: var(--bg-color-main);
         font-size: 2rem;
+        /* padding: 3rem 0; */
         section {
           width: 90%;
+
+          &.todo-card {
+            width: 90%;
+          }
         }
         @media screen and (min-width: 960px) {
           place-items: center;
@@ -91,7 +96,7 @@ export const LayoutWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 10rem;
   }
 
   .ul-wrapper {
