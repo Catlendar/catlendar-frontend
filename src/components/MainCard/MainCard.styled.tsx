@@ -13,17 +13,23 @@ export const MainCardWrapper = styled.div`
   /* @media screen and (min-height: 900px) and (min-width: 960px) {
     margin: 3rem 0;
   } */
+
   @media screen and (min-width: 960px) {
-    padding: 0rem 0 2.5rem 0;
+    padding: 0 0 0.1rem 0;
+  }
+
+  @media screen and (min-width: 960px) and (min-height: 900px) {
+    padding: 0 0 4rem 0;
+  }
+
+  @media screen and (min-width: 1100px) and (min-height: 900px) {
+    padding: 0 0 4rem 0;
   }
 `;
 
 export const CardContent = styled.div`
   margin: 0 2.6rem;
   color: var(--color-white);
-  @media screen and (min-width: 960px) {
-    margin: 4rem 3rem 0 0;
-  }
 `;
 
 export const Today = styled.span`
@@ -37,15 +43,24 @@ export const ContentBox = styled.div`
   justify-content: space-between;
   margin-bottom: 2rem;
 
+  @media screen and (min-width: 1100px) {
+    margin: 1rem 0;
+  }
+
   img {
     position: absolute;
     top: 50%;
-    transform: translateY(-40%);
+    transform: translateY(-30%);
     right: 0;
     width: 15.3rem;
     height: auto;
     @media screen and (min-width: 960px) and (max-width: 1100px) {
       display: none;
+    }
+    @media screen and (min-width: 1101px) {
+      top: 40%;
+      transform: translateY(-20%);
+      width: 35%;
     }
   }
 `;
@@ -59,7 +74,7 @@ export const UserName = styled.p`
 `;
 
 export const TodayFortune = styled.p`
-  line-height: 2.8rem;
+  line-height: 3.1rem;
   font-size: var(--h3-font-size);
 `;
 
@@ -67,6 +82,9 @@ export const TextBox = styled.div`
   margin-top: 4.2rem;
   span {
     font-family: var(--font-family-bold);
+  }
+  @media screen and (min-width: 960px) and (max-height: 800px) {
+    margin-top: 3rem;
   }
 `;
 

@@ -144,11 +144,14 @@ const GlobalStyle = createGlobalStyle`
 			margin: 0 auto;
 			// background-color: skyblue;
 		}
+		/* html {
+			font-size: 10.5px;
+		} */
   }
 	/* Pc */
 	@media screen and (min-width: 1900px) {
 		html {
-			font-size: 14px;
+			font-size: 10.5px;
 		}
   }
   
