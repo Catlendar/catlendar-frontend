@@ -36,7 +36,7 @@ export const StyleCalendar = styled(Calendar)`
 
       @media screen and (min-height: 1080px) {
         margin-top: 5rem;
-        margin-bottom: 7rem;
+        margin-bottom: 5rem;
       }
     }
   }
@@ -106,9 +106,9 @@ export const StyleCalendar = styled(Calendar)`
     @media screen and (min-width: 960px) {
       height: 6.5rem;
     }
-    @media screen and (max-height: 900px) {
-      height: 7.5rem;
-    }
+    // @media screen and (max-height: 900px) {
+    //   height: 7.5rem;
+    // }
     @media screen and (min-height: 1080px) {
       height: 7rem;
       margin-bottom: 1rem;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { UserAtom } from '../../atom/UserAtom';
 import { fortuneDataAtom } from '../../atom/FortuneStateAtom';
@@ -26,6 +27,11 @@ export default function MainCard({ isDesktop }: { isDesktop?: boolean }) {
 
   const userAtom = useRecoilValue(UserAtom);
   const { fortuneTitle } = useRecoilValue(fortuneDataAtom);
+  const navigate = useNavigate();
+
+  const handleFortuneClick = () => {
+    navigate('/fortune');
+  };
 
   return (
     <MainCardWrapper>
@@ -38,7 +44,9 @@ export default function MainCard({ isDesktop }: { isDesktop?: boolean }) {
             </UserName>
             <TodayFortune>오늘 하루는</TodayFortune>
             <TodayFortune>
-              <span>{fortuneTitle}</span>
+              <button type="button" onClick={handleFortuneClick}>
+                {fortuneTitle}
+              </button>
               이네요!
             </TodayFortune>
           </TextBox>

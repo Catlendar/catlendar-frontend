@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export const TodoBoxWrapper = styled.div`
   background-color: var(--bg-color-gray);
-  border-radius: 2rem;
+  border-radius: 2rem 2rem 0 0;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -10,10 +10,12 @@ export const TodoBoxWrapper = styled.div`
   padding: 0 2.5rem 8rem;
 
   @media screen and (min-width: 960px) {
+    padding: 0 2.5rem 5rem;
+    margin: 0 auto;
     min-height: 350px;
     height: calc(100vh / 2);
     width: 93%;
-    padding: 0 2.5rem 5rem;
+    border-radius: 2rem;
   }
   @media screen and (max-width: 960px) {
     @media screen and (min-height: 600px) {
