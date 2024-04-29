@@ -1,9 +1,8 @@
-<h1 align="">Catlendar</h1>
+<h1 align="">😺 Catlendar</h1>
 
-### 배포 링크
+🔗 [배포 링크](https://catlendar.netlify.app/)
 
-👉 [Catlendar 바로가기](https://catlendar.netlify.app/)
-</br>
+![initial](https://github.com/Catlendar/catlendar-frontend/assets/54405518/8e699733-4f43-4ab1-aad3-39b147125649)
 
 ### 테스트 계정
 
@@ -22,7 +21,7 @@ PW: qwer1234!
 </br>
 ## 1. 서비스 소개
 
-캣린더(Catlendar)는 고양이를 테마로 한 투두 리스트 및 일정 관리 앱으로,<br> 사용자들에게 <b>운세를 통한 영감</b>과 <b>긍정적인 목표 설정</b>을 돕는 데 중점을 둔 서비스입니다.
+캣린더(Catlendar)는 고양이를 테마로 한 투두 리스트 및 일정 관리 앱으로,<br> 사용자들에게 <b><ins>운세를 통한 영감과 긍정적인 목표 설정</ins></b>을 돕는 데 중점을 둔 서비스입니다.
 
 </br>
 
@@ -39,7 +38,7 @@ PW: qwer1234!
 | 이름 | 내용 |
 |---|---|
 | 공통 |  - 주제 선정, 기술 스택 및 협업툴 선정
-| 최지완 | - AWS EC2서버 증설 및 운영체제 설정 </br> - 데이터베이스 설계 및 구축 </br> - RESTful API 설계 및 개발 </br>- spring security 인증 및 보안 기능 구현 </br> - Axios 라이브러리 설치, API 호출 및 로직 구성 </br> - Recoil 라이브러리 사용, 상태 관리 구현 </br> - API 문서화 작성</br> - 회의록 작성|
+| 최지완 | - AWS EC2서버 증설 및 운영체제 설정 </br> - 데이터베이스 설계 및 구축 </br> - RESTful API 설계 및 개발 </br>- spring security 인증 및 보안 기능 구현 </br> - Axios 라이브러리 설치 및 설정, API 호출을 통한 데이터 통신 구현 </br> - Recoil을 활용하여 회원정보의 전역 상태관리 구현  </br> - Landing, 로그인, 회원가입 페이지 등의 반응형 구현 리팩토링</br> - API 엔드포인트 및 요청/응답 [API문서](https://catlendar.notion.site/API-dbfb31c8c5764a90bf1636d588ec77d2) 작성</br> - 회의 내용, 결정 사항, 업무 분담 등을 기록한 [회의록](https://catlendar.notion.site/9c311a56cd9c4911998d63b3364e3067?v=d9cdfad2f24840988f108c3006063698&p=58b77873274d48849d3adb80e257c04c&pm=s) 작성|
 | 김소리 | - react-calendar 라이브러리와 연동하여 일정 관리 컴포넌트 및 기능 구현 </br> - Recoil atom을 통해 할 일 완료 여부 데이터 전역 관리 </br> - Recoil selector를 통해 할 일 목록 정렬 로직 구현 </br>  - Chart.js를 통한 일정 완료 시각화로 사용자 경험 개선 </br>  - 반응형 레이아웃(모바일, 데스크탑) 구현으로 서비스 리팩토링 </br> - 웹 접근성 및 SEO 개선    
 | 류경민 | - Figma를 사용한 UI 디자인 및 필요한 이미지 작업  </br> - 컴포넌트 디자인 모듈화를 통한 일관된 디자인과 높은 재사용성 제공 </br> - 운세 API를 연동하여 사용자의 생년월일에 맞는 운세 정보 제공  </br> - Recoil을 사용하여 운세 타이틀 및 내용 전역관리  </br> - 헤더 및 운세 페이지 반응형으로 개선
 | 장성우 | - eslint, tsconfig, prettier 설정  </br> - UI 개발 효율성을 위해 자주 사용되는 색상, 폰트 크기를 CSS 변수로 정의 </br> - profile 페이지 반응형 작업 </br> - 전역 상태 관리: Recoil을 사용해 탭, 할 일 목록, 모달 상태를 전역으로 관리 </br> - 서버 상태 관리: Reqct-Query를 사용하여 서버의 즐겨찾기 데이터 관리 | 
