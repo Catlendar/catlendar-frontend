@@ -20,6 +20,15 @@ const DatePickerComponent = ({ onDateSelect }: DatePickerProps) => {
   };
 
   const handleSelect = (date: Date) => {
+    // 오늘 날짜를 비교하여 이후의 날짜는 선택되지 않도록 변경
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (date > today) {
+      alert('오늘 이전의 날짜만 선택할 수 있습니다.');
+      return;
+    }
+
     setTime(date);
     setIsOpen(false);
 
