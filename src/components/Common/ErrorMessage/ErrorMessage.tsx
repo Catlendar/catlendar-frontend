@@ -17,7 +17,7 @@ function ErrorMessage({ message, clearMessage }: ButtonProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       clearMessage();
-    }, 3000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, [message, clearMessage]);
